@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B99B733-7F7A-4945-83A0-4B6BA27C0FA1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>kfxms.Repository</RootNamespace>
+    <AssemblyName>HBES.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\lib\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit">
+      <HintPath>..\lib\LinqKit.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ImpRepository\ImpBaseRepository.cs" />
+    <Compile Include="ImpRepository\SysBaisc\ImpSys_AuthorityRequestRepository.cs" />
+    <Compile Include="ImpRepository\SysBaisc\ImpSys_DepartmentRepository.cs" />
+    <Compile Include="ImpRepository\SysBaisc\ImpSys_DictionaryRepository.cs" />
+    <Compile Include="ImpRepository\SysBaisc\ImpSys_RoleAndAuthorityRepository.cs" />
+    <Compile Include="ImpRepository\SysBaisc\ImpSys_RoleRepository.cs" />
+    <Compile Include="ImpRepository\SysBaisc\ImpSys_UserRepository.cs" />
+    <Compile Include="ImpRepository\SysBaisc\ImpSys_UserAndRoleRepository.cs" />
+    <Compile Include="ImpRepository\SysBaisc\ImpSys_MenuRepository.cs" />
+    <Compile Include="ImpRepository\SysBaisc\ImpSys_MenuAuthorityRepository.cs" />
+    <Compile Include="ImpRepository\Supplier\ImpS_TaskRepository.cs" />
+    <Compile Include="IRepository\IBaseRepository.cs" />
+    <Compile Include="IRepository\Supplier\IS_TaskRepository.cs" />
+    <Compile Include="IRepository\SysBaisc\ISys_AuthorityRequestRepository.cs" />
+    <Compile Include="IRepository\SysBaisc\ISys_DepartmentRepository.cs" />
+    <Compile Include="IRepository\SysBaisc\ISys_DictionaryRepository.cs" />
+    <Compile Include="IRepository\SysBaisc\ISys_RoleAndAuthorityRepository.cs" />
+    <Compile Include="IRepository\SysBaisc\ISys_UserRepository.cs" />
+    <Compile Include="IRepository\SysBaisc\ISys_RoleRepository.cs" />
+    <Compile Include="IRepository\SysBaisc\ISys_UserAndRoleRepository.cs" />
+    <Compile Include="IRepository\SysBaisc\ISys_MenuRepository.cs" />
+    <Compile Include="IRepository\SysBaisc\ISys_MenuAuthorityRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\kfxm.Common\kfxm.Common.csproj">
+      <Project>{704eb76d-5017-4360-b4cc-0f76fb7ec9c6}</Project>
+      <Name>kfxm.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kfxm.EFData\kfxm.EFData.csproj">
+      <Project>{8daf8d52-d9ba-43e1-b89c-a145cdf2776b}</Project>
+      <Name>kfxm.EFData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\kfxm.Entity\kfxm.Entity.csproj">
+      <Project>{016e0907-de55-417d-af51-8e51f39d32bb}</Project>
+      <Name>kfxm.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

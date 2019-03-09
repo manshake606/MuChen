@@ -1,0 +1,14 @@
+F:\yjtc\2017\YBXMGLXT.BasicPlatform\YJTC.Common\bin\Debug\HBES.Common.dll
+F:\yjtc\2017\YBXMGLXT.BasicPlatform\YJTC.Common\bin\Debug\HBES.Common.pdb
+F:\yjtc\2017\YBXMGLXT.BasicPlatform\YJTC.Common\bin\Debug\HBES.Entity.dll
+F:\yjtc\2017\YBXMGLXT.BasicPlatform\YJTC.Common\bin\Debug\HBES.Entity.pdb
+F:\yjtc\2017\YBXMGLXT.BasicPlatform\YJTC.Common\obj\Debug\YJTC.Common.csprojResolveAssemblyReference.cache
+F:\yjtc\2017\YBXMGLXT.BasicPlatform\YJTC.Common\obj\Debug\HBES.Common.dll
+F:\yjtc\2017\YBXMGLXT.BasicPlatform\YJTC.Common\obj\Debug\HBES.Common.pdb
+F:\Apathy\2017\DEMO\YBXMGLXT.BasicPlatform\YJTC.Common\bin\Debug\HBES.Common.dll
+F:\Apathy\2017\DEMO\YBXMGLXT.BasicPlatform\YJTC.Common\bin\Debug\HBES.Common.pdb
+F:\Apathy\2017\DEMO\YBXMGLXT.BasicPlatform\YJTC.Common\bin\Debug\HBES.Entity.dll
+F:\Apathy\2017\DEMO\YBXMGLXT.BasicPlatform\YJTC.Common\bin\Debug\HBES.Entity.pdb
+F:\Apathy\2017\DEMO\YBXMGLXT.BasicPlatform\YJTC.Common\obj\Debug\YJTC.Common.csprojResolveAssemblyReference.cache
+F:\Apathy\2017\DEMO\YBXMGLXT.BasicPlatform\YJTC.Common\obj\Debug\HBES.Common.dll
+F:\Apathy\2017\DEMO\YBXMGLXT.BasicPlatform\YJTC.Common\obj\Debug\HBES.Common.pdb

@@ -1,0 +1,11 @@
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Release\HBES.EFData.dll
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Release\HBES.EFData.pdb
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Release\EntityFramework.dll
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Release\EntityFramework.SqlServer.dll
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Release\HBES.Entity.dll
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Release\HBES.Entity.pdb
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Release\EntityFramework.xml
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Release\EntityFramework.SqlServer.xml
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\obj\Release\kfxm.EFData.csprojResolveAssemblyReference.cache
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\obj\Release\HBES.EFData.dll
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\obj\Release\HBES.EFData.pdb

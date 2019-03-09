@@ -1,0 +1,10 @@
+F:\yjtc\2017\YBXMGLXT.BasicPlatform\YJTC.Entity\bin\Debug\HBES.Entity.dll
+F:\yjtc\2017\YBXMGLXT.BasicPlatform\YJTC.Entity\bin\Debug\HBES.Entity.pdb
+F:\yjtc\2017\YBXMGLXT.BasicPlatform\YJTC.Entity\obj\Debug\YJTC.Entity.csprojResolveAssemblyReference.cache
+F:\yjtc\2017\YBXMGLXT.BasicPlatform\YJTC.Entity\obj\Debug\HBES.Entity.dll
+F:\yjtc\2017\YBXMGLXT.BasicPlatform\YJTC.Entity\obj\Debug\HBES.Entity.pdb
+F:\Apathy\2017\DEMO\YBXMGLXT.BasicPlatform\YJTC.Entity\bin\Debug\HBES.Entity.dll
+F:\Apathy\2017\DEMO\YBXMGLXT.BasicPlatform\YJTC.Entity\bin\Debug\HBES.Entity.pdb
+F:\Apathy\2017\DEMO\YBXMGLXT.BasicPlatform\YJTC.Entity\obj\Debug\HBES.Entity.dll
+F:\Apathy\2017\DEMO\YBXMGLXT.BasicPlatform\YJTC.Entity\obj\Debug\HBES.Entity.pdb
+F:\Apathy\2017\DEMO\YBXMGLXT.BasicPlatform\YJTC.Entity\obj\Debug\YJTC.Entity.csprojResolveAssemblyReference.cache

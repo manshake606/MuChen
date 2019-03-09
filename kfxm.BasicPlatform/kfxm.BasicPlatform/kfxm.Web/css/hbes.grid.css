@@ -1,0 +1,62 @@
+﻿@charset "utf-8";
+/**
+ * @discription 列表样式
+ * @author      hilton
+ * @date        2017.02.07
+ */
+.breadcrumb { height: 39px; line-height: 39px; overflow: hidden; border-bottom: 1px solid #e5e5e5; }
+.breadcrumb { padding: 0; background-color: rgb(245, 245, 245); }
+.breadcrumb { position: relative; z-index: 98; }
+.breadcrumb span { padding: 0 5px; }
+.hbes-iconfont { font-family: "hbes-iconfont"!important; font-style: normal; }
+
+.page-container { margin: 0;  position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 1; overflow: auto; }
+.page-search { text-align: center; }
+.page-toolbar {  border: 1px solid #eee; background-color: rgb(245, 250, 254); padding:3px;}
+
+.mt-20 { margin-top: 20px; }
+.page-grid { min-height: 40px; }
+ .page-grid .page-grid-size { float: left; padding-bottom: 20px; height: 40px; line-height: 40px; }
+ .page-grid .page-grid-size select { width: 50px; font-size: 14px; border: 1px solid #ddd; box-sizing: border-box; cursor: pointer; line-height: normal; font-weight: normal; white-space: nowrap; color: #333; height: 26px; line-height: 26px; margin-top: -5px; }
+ .page-grid .page-grid-size input { width: 40px; font-size: 14px; border: 1px solid #ddd; box-sizing: border-box; cursor: pointer; line-height: normal; font-weight: normal; white-space: nowrap; color: #333; height: 26px; line-height: 26px; margin-top: -5px; }
+ .page-grid .page-grid-size .button { border: 1px solid #ccc; cursor: pointer; display: inline-block; text-decoration: none; text-align: center; color: #666; height: 26px; line-height: 25px; margin: 0 0 6px 6px; padding: 0 10px; font-size: 14px;border-radius:4px; }
+ .page-grid .page-grid-size .button:hover { background-color: #4cae4c; color: #fff; border-color: #4cae4c; }
+.page-grid .page-grid-bars { float: right; padding-top: 10px; text-align: right; }
+
+.form-group { margin-bottom: 5px; }
+
+
+.mytable-hover tr:hover { background: #f5f5f5; }
+.datagrid-mask { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0.3; filter: alpha(opacity=30); display: none; background: #000; }
+.datagrid-mask-msg { position: absolute; top: 50%; margin-top: -20px; padding: 2px 10px 10px 30px; width: auto; height: 24px; font-size: 12px; border-width: 1px; border-style: solid; display: none; background: url('../images/loading16.gif') no-repeat scroll 5px center; border-color: #808080; background-color: #ccc; }
+.ut-s 
+{
+    width:99%; 
+    height:16px; line-height:16px;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-overflow: -o-ellipsis-lastline;
+ 
+}
+.hbes-table {
+ width:100%; border-collapse:collapse;
+}
+    .hbes-table tr {
+    height:28px;
+    }
+        .hbes-table tr td {
+        border:1px solid #ccc;
+        }
+    .hbes-table thead tr 
+    {
+    height:35px; background:#F2F2F2;
+    }
+ .hbes-table thead tr th {
+             border:1px solid #ccc;
+ }
+.hbes-table tr:hover 
+{
+     background:#fbfbfb;
+}
+
+

@@ -1,0 +1,4 @@
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\bin\Release\HBES.Entity.dll
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\bin\Release\HBES.Entity.pdb
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\obj\Release\HBES.Entity.dll
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\obj\Release\HBES.Entity.pdb

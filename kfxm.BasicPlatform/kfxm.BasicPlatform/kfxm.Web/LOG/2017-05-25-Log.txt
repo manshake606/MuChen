@@ -1,0 +1,1180 @@
+﻿
+
+时间：2017-05-25 11:24:13
+异常信息：未将对象引用设置到对象的实例。System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 HBES.Web.Controllers.HomeController.Index() 位置 e:\易极天成项目\宜宾市投资促进局项目库管理系统\YJTC.BasicPlatform\YJTC.Web\Controllers\HomeController.cs:行号 30
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 HBES.Web.Controllers.HomeController.Index() 位置 e:\易极天成项目\宜宾市投资促进局项目库管理系统\YJTC.BasicPlatform\YJTC.Web\Controllers\HomeController.cs:行号 30
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 17:36:31
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 17:36:48
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 17:36:49
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 17:36:50
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 17:36:51
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 17:39:13
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 17:46:52
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 17:46:56
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 17:49:23
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 17:49:26
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 17:52:25
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 17:52:32
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 17:53:13
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 17:56:45
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 18:01:51
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 18:02:12
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 18:02:14
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 18:02:16
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 18:02:17
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 18:02:22
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 18:04:16
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 18:07:15
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+
+﻿
+
+时间：2017-05-25 18:10:57
+异常信息：未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtmlSystem.InvalidOperationException: 未找到视图“PackageList”或其母版视图，或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/Areas/SysBasic/Views/Package/PackageList.aspx
+~/Areas/SysBasic/Views/Package/PackageList.ascx
+~/Areas/SysBasic/Views/Shared/PackageList.aspx
+~/Areas/SysBasic/Views/Shared/PackageList.ascx
+~/Views/Package/PackageList.aspx
+~/Views/Package/PackageList.ascx
+~/Views/Shared/PackageList.aspx
+~/Views/Shared/PackageList.ascx
+~/Areas/SysBasic/Views/Package/PackageList.cshtml
+~/Areas/SysBasic/Views/Package/PackageList.vbhtml
+~/Areas/SysBasic/Views/Shared/PackageList.cshtml
+~/Areas/SysBasic/Views/Shared/PackageList.vbhtml
+~/Views/Package/PackageList.cshtml
+~/Views/Package/PackageList.vbhtml
+~/Views/Shared/PackageList.cshtml
+~/Views/Shared/PackageList.vbhtml
+   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+异常堆栈：   在 System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+
+-----------------------------------------------------------------------
+
+

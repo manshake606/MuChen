@@ -1,0 +1,60 @@
+﻿@charset "utf-8";
+/**
+ * @discription 首页样式
+ * @author      hilton
+ * @date        2017.02.07
+ */
+.c-999, .c-999 a, a.c-999 { color: #999; }
+.c-666 { color: #666; }
+.en { font-family: Arial !important; }
+ul, li { margin: 0; padding: 0; }
+.cl, .clearfix { zoom: 1; }
+.display-block { display: block; }
+.display-none { display: none; }
+.loading { background: url(../images/loading.gif) no-repeat center; height: 100px; }
+.l, .f-l { float: left !important; _display: inline; }
+.mr-10 { margin-right: 10px; }
+
+.hbes-header { margin: 0; padding: 0; display: block; }
+.hbes-header .navbar { border-radius:0;}
+
+.hbes-aside { left: 0; top: 70px; width: 199px; bottom: 0; overflow: auto; padding-top: 10px; z-index: 99; position: absolute; border-right: 1px solid #e5e5e5; background-color: rgba(238, 238, 238, 0.98); }
+.hbes-aside { border-right: 1px solid #222; background-color: rgb(51, 51, 51); }
+.hbes-aside-menu { }
+ .hbes-aside-menu ul { padding: 0; }
+ .hbes-aside-menu li { line-height: 50px; overflow: hidden; zoom: 1; }
+ .hbes-aside-menu li a { margin: 0; padding-left: 15px; text-decoration: none; font-weight: bold; display: block; color: #fff; border-bottom: 1px solid #222; }
+
+ .hbes-aside-menu dl { margin-bottom: 0; }
+.hbes-aside-menu dt { line-height: 35px; padding-left: 15px; font-weight: normal; border-bottom: 1px solid #e5e5e5; display: block; position: relative; cursor: pointer; }
+ .hbes-aside-menu dt { color: #fff; font-weight: normal; border-bottom: 1px solid #222; }
+ .hbes-aside-menu dt .dropdown-arrow { top: 0; right: 15px; overflow: hidden; position: absolute; }
+    .hbes-aside-menu dd { display: none; }
+        .hbes-aside-menu dd ul { margin: 0; padding: 3px 8px; }
+        .hbes-aside-menu dd li { line-height: 32px; }
+            .hbes-aside-menu dd li a { line-height: 32px; padding-left: 26px; font-weight: normal; border-bottom: none medium currentColor; }
+/*首页-右侧*/
+.hbes-article-box { margin: 0; padding: 0; display: block; left: 199px; top: 70px; right: 0; bottom: 0; overflow: hidden; position: absolute; z-index: 1; background-color: rgb(255, 255, 255); }
+
+/*首页-右侧-选项卡*/
+.hbes-tabnav-warper { position: relative; height: 35px; overflow: hidden; }
+.acrossTab { height: 29px; background-repeat: repeat-x; background-position: 0 0; padding-top: 1px; }
+    .acrossTab, .acrossTab li, .acrossTab li em { background-image: url(../images/tab-bg.png); }
+        .acrossTab li, .acrossTab li em { background-repeat: repeat-x; background-position: 0 0; }
+            .acrossTab li em { position: absolute; width: 23px; height: 29px; right: -20px; top: 0; z-index: 50; background-position: right -30px; }
+        .acrossTab li { position: relative; float: left; display: inline-block; height: 29px; line-height: 29px; font-size: 12px; cursor: pointer; padding: 0 30px; white-space: nowrap; color: #282828; background-position: 0 0; }
+            .acrossTab li i { position: absolute; display: block; width: 13px; height: 13px; top: 50%; margin-top: -6px; right: 5px; font-size: 0; line-height: 0; cursor: pointer; background: url(../images/tab-close.png) no-repeat 0 0; }
+                .acrossTab li i:hover { background: url(../images/tab-close.png) no-repeat 0 -13px; }
+            .acrossTab li.active { background-position: 0 -120px; z-index: 99; }
+                .acrossTab li.active em { background-position: right -150px; }
+
+.hbes-tabnav, .hbes-tabnav .acrossTab li, .hbes-tabnav .acrossTab li em { background-image: url(../images/tab-bar.png); }
+.hbes-tabnav { height: 35px; padding-right: 75px; overflow: hidden; position: relative; background-color: #efeef0; background-position: 0 -175px; background-repeat: repeat-x; }
+    .hbes-tabnav .acrossTab { position: absolute; line-height: 26px; line-height: 26px; background: none; top: 8px; left: 0; padding-top: 0; }
+        .hbes-tabnav .acrossTab li { height: 26px; line-height: 26px; }
+            .hbes-tabnav .acrossTab li em { right: -16px; height: 26px; width: 16px; }
+.hbes-tabnav-more { position: absolute; right: 0; width: 70px; top: 5px; /*display: none;*/ }
+
+/*首页-右侧-内容*/
+.hbes-article { position: absolute; top: 34px; bottom: 0; left: 0; right: 0; overflow: hidden; z-index: 1; }
+    .hbes-article .show-iframe { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }

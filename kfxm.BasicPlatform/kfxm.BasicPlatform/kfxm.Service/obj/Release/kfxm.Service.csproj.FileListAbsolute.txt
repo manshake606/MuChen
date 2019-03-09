@@ -1,0 +1,15 @@
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Service\bin\Release\HBES.Service.dll
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Service\bin\Release\HBES.Service.pdb
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Service\bin\Release\HBES.Common.dll
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Service\bin\Release\HBES.EFData.dll
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Service\bin\Release\HBES.Entity.dll
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Service\bin\Release\HBES.Repository.dll
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Service\bin\Release\EntityFramework.dll
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Service\bin\Release\HBES.Common.pdb
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Service\bin\Release\HBES.EFData.pdb
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Service\bin\Release\HBES.Entity.pdb
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Service\bin\Release\HBES.Repository.pdb
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Service\bin\Release\EntityFramework.xml
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Service\obj\Release\kfxm.Service.csprojResolveAssemblyReference.cache
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Service\obj\Release\HBES.Service.dll
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Service\obj\Release\HBES.Service.pdb

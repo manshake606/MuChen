@@ -1,0 +1,237 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BindAuthority</title>
+     <link href="/css/hbes.grid.css" rel="stylesheet" />
+    <link href="/css/hbes.reset.css" rel="stylesheet" />
+    <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/hbes-ui.js"></script>
+    <script src="/js/layui/lay/dest/layui.all.js"></script>  
+    <script src="/js/zTree/jquery.ztree.core.min.js"></script>
+    <style type="text/css">
+
+        /*ztree表格*/
+.ztree{
+    padding:0;
+    border:2px solid #CDD6D5;
+}
+.ztree li a{
+    vertical-align: middle;
+    height: 30px;
+}
+.ztree li>a{
+    width:100%;
+}
+.ztree li>a,
+.ztree li a.curSelectedNode{
+    padding-top: 0px;
+    background: none;
+    height: auto;
+    border:none;
+    cursor: default;
+    opacity: 1;
+}
+        
+.ztree li ul{
+    padding-left:0px ;
+}
+.ztree div.diy span{
+    line-height: 30px;
+    vertical-align: middle;
+}
+.ztree div.diy{
+    height: 100%;
+    line-height: 30px;
+    border-top:1px dotted #ccc;
+    border-left:1px solid #eeeeee;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    color:#6c6c6c;
+    font-family: "SimSun";
+    font-size: 12px;
+}
+.ztree div.diy:first-child{
+    text-align: left;
+    text-indent: 10px;
+    border-left: none;
+}
+.ztree .head{
+  
+}
+.ztree .head div.diy{
+    border-top:none;
+    
+   
+    
+    font-family: "Microsoft YaHei";
+    font-size: 14px;
+}
+.treetableck {
+       
+        }
+ .treetablespan {
+       
+        }
+/*end--ztree表格*/
+    </style>
+</head>
+<body>
+    <div id="page-content" class="page-content">
+       <input type="hidden" id="hid_RoleId" runat="server" value="@ViewData["id"]" />
+       <div  style="max-height:430px;  overflow-y:auto;">
+            <ul id="dataTree" class="ztree" style="width:99%;" ></ul>
+       </div>
+       <div class="bottomBtnDiv">
+           <button class="layui-btn layui-btn-small layui-btn-normal" onclick="save()" type="button">确定</button>
+           <button class="layui-btn layui-btn-small layui-btn-primary" onclick="closeWin()" type="button">关闭</button>
+        </div>
+       <div style="clear:left;"></div>
+    </div>
+    
+     <script type="text/javascript">
+         var authArrayed = new Object();
+         $(function () {
+             submitData("/SysBasic/Role/GetRoleAuthority", { roleId: hid_RoleId.value }, function (data) {
+
+                 if (data != null && data.length > 0) {
+                     for (var i = 0 ; i < data.length; i++)
+                     {
+                         var row = data[i];
+                         row.type = "old";
+                         authArrayed[row.AuthorityId] = row;
+
+                     }
+                 }
+
+                treeTableBind();
+             });
+         });
+         var zTreeNodes;
+         var setting = {
+             view: {
+                 showLine: false,
+                 showIcon: false,
+                 addDiyDom: addDiyDom
+             },
+             data: {
+                 key: {
+                     name: "text"
+                 },
+                 simpleData: {
+                     enable: true,
+                     idKey: "id",//节点绑定的字段(数据库表字段groupid)
+                     pIdKey: "pid"//节点的上级字段(数据库表字段parentid)
+                 }
+             }
+         };
+         /**
+      * 自定义DOM节点
+      */
+         function addDiyDom(treeId, treeNode) {
+             var spaceWidth = 15;
+             var liObj = $("#" + treeNode.tId);
+             var aObj = $("#" + treeNode.tId + "_a");
+             var switchObj = $("#" + treeNode.tId + "_switch");
+             var icoObj = $("#" + treeNode.tId + "_ico");
+             var spanObj = $("#" + treeNode.tId + "_span");
+
+
+             aObj.attr('title', treeNode.text);
+             aObj.append('<div class="diy swich" style="width:35%;"></div>');
+
+             var div = $(liObj).find('div').eq(0);
+             switchObj.remove();
+             spanObj.remove();
+             icoObj.remove();
+             div.append(switchObj);
+             div.append(spanObj);
+
+             var spaceStr = "<span style='height:1px;display: inline-block;width:" + (spaceWidth * treeNode.level) + "px'></span>";
+             switchObj.before(spaceStr);
+
+
+             var editStr = '';
+             editStr += '<div class="diy" style="width:65%;text-align: left; padding-left:5px; "> &nbsp;';
+
+             var authArray = treeNode.auth;
+             if (authArray.length > 0) {
+                 for (var i = 0 ; i < authArray.length; i++) {
+                     var auth = authArray[i];
+                     var checked = "";
+
+                     if (authArrayed[auth.Id] != null && authArrayed[auth.Id] != undefined)
+                     {
+                         checked = 'checked="checked"';
+                     };
+                     editStr += '<input onclick="click_cb(this)" value="' + auth.Id + '"  class="authck" type="checkbox" ' + checked + ' style=" float:left;margin-top:10px;margin-right:2px;"  />';
+                     editStr += '<span class="treetablespan" style=" float:left; margin-top:2px;margin-right:10px;">' + auth.AuthorityName + '</span>';
+                 }
+             }
+             editStr += '</div>';
+
+             aObj.append(editStr);
+         }
+         function click_cb(ck) {
+             if (ck.checked) {
+                 if (authArrayed[ck.value] != undefined && authArrayed[ck.value] != null) {
+                     if (authArrayed[ck.value].type == "old") {
+
+                     }
+                     else if (authArrayed[ck.value].type == "remove") {
+
+                         authArrayed[ck.value].type = "add";
+                     }
+                 }
+                 else {
+                     authArrayed[ck.value] = { type: "add", AuthorityId: ck.value };
+                 }
+             }
+             else {
+                 if (authArrayed[ck.value] != undefined && authArrayed[ck.value] != null) {
+                     if (authArrayed[ck.value].type == "old") {
+                         authArrayed[ck.value].type = "remove";
+                     }
+                     else if (authArrayed[ck.value].type == "remove") {
+                     }
+                     else if (authArrayed[ck.value].type == "add") {
+                         delete authArrayed[ck.value];
+                     }
+                 }
+             }
+         }
+
+         function treeTableBind() {
+             submitData("/SysBasic/Menu/GetMenuBindAuthority", {}, function (data) {
+                 //初始化列表
+                 zTreeNodes = data;
+                 //初始化树
+                 $.fn.zTree.init($("#dataTree"), setting, zTreeNodes);
+                 //添加表头
+                 var li_head = ' <li class="head"><a><div class="diy" style="width:35%;">菜单</div><div class="diy" style="width:65%;">权限</div></li>';
+                 var rows = $("#dataTree").find('li');
+
+                 if (rows.length > 0) {
+                     rows.eq(0).before(li_head)
+                 }
+                 else {
+                     $("#dataTree").append(li_head);
+                     $("#dataTree").append('<li ><div style="text-align: center;line-height: 30px;" >无符合条件数据</div></li>')
+                 }
+             });
+         }
+         function save() {
+             submitData("/SysBasic/Role/RoleBindAuthority", { roleId: hid_RoleId.value, data: JSON.stringify(authArrayed) });
+
+         }
+    </script>
+</body>
+</html>

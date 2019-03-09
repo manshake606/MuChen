@@ -1,0 +1,79 @@
+﻿@charset "utf-8";
+/**
+ * @discription 登录样式
+ * @author      hilton
+ * @date        2017.02.21
+ * @other       素材
+ */
+* { padding: 0; margin: 0; }
+html, body
+{
+    height:100%;
+    width:100%
+}
+body { background: #eee; font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei","\9ED1\4F53",Arial,sans-serif; color: #222; font-size: 12px; }
+a { text-decoration: none; }
+
+.f-left { float: left; }
+.f-right { float: right; }
+body { background: url(../images/lg_back.png) repeat; overflow: hidden; }
+.hbes-lg-header { background: #393D49; width: 100%; height: 350px; }
+.hbes-lg-header .header-bars { margin:0 auto; height:70px; width: 450px; padding-top:36px;  }
+.hbes-lg-header .sys-logo {  float:left; }
+.hbes-lg-header .sys-logo img { border: none; }
+ .hbes-lg-header .sys-name {float:left; height: 26px; color: #fff; font-size: 35px; font-weight: bold;  text-shadow: 2px 2px 2px #333; }
+
+.hbes-lg-box { background: rgb(255, 255, 255); margin: -120px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 380px; height: 250px; }
+.hbes-lg-box .animal { width: 165px; height: 96px; position: absolute; }
+.hbes-lg-box .animal .header { background: url("../images/lg_tou.png") no-repeat; width: 97px; height: 92px; position: absolute; top: -87px; left: 140px; }
+
+.hbes-lg-box .animal .hand-left { background: url("../images/lg_left_hand.png") no-repeat; width: 32px; height: 37px; position: absolute; top: -38px; left: 150px; }
+.hbes-lg-box .animal .hand-right { background: url("../images/lg_right_hand.png") no-repeat; width: 32px; height: 37px; position: absolute; top: -38px; right: -64px; }
+
+.hbes-lg-box .animal .initial-hand-left { background: url("../images/lg_hand.png") no-repeat; width: 30px; height: 20px; position: absolute; top: -12px; left: 100px; }
+.hbes-lg-box .animal .initial-hand-right { background: url("../images/lg_hand.png") no-repeat; width: 30px; height: 20px; position: absolute; top: -12px; right: -112px; }
+
+.hbes-lg-box .animal .left_handing { background: url("../images/lg_left_handing.png") no-repeat; width: 30px; height: 20px; position: absolute; top: -24px; left: 139px; }
+.hbes-lg-box .animal .right_handinging { background: url("../images/lg_right_handing.png") no-repeat; width: 30px; height: 20px; position: absolute; top: -21px; left: 210px; }
+
+
+    .hbes-lg-box .logform { }
+
+    .hbes-lg-box div.user { position: relative; padding: 30px 0px 10px; }
+    .hbes-lg-box div.pass { position: relative; padding-bottom: 10px; }
+    .hbes-lg-box div.code { position: relative; padding-bottom: 5px; }
+    .hbes-lg-box div.error { position: relative; padding-bottom: 5px; color: #f00; height: 20px; }
+    .hbes-lg-box div.tool { margin: 0px 35px 20px 40px; }
+
+    .hbes-lg-box .icon-user { background: url("../images/lg_user.png") no-repeat; 
+                              padding: 10px 10px; position: absolute; top: 42px; 
+                              left: 15px; }
+    .hbes-lg-box .icon-pass { background: url("../images/lg_pass.png") no-repeat;
+                               padding: 10px 10px; position: absolute; top: 12px; left: 15px; }
+    .hbes-lg-box .icon-code { background: url("../images/lg_code.png") no-repeat; 
+                              padding: 10px 10px; position: absolute; top: 12px; left: 17px; }
+    .hbes-lg-box .ipt { border: 1px solid #d3d3d3; padding: 10px 10px; width: 250px;
+                         border-radius: 4px; padding-left: 40px;
+                          -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075); box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                           -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+                            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+                             transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; }
+    
+     .hbes-lg-box .ipt:focus { border-color: #66afe9; outline: 0; 
+                               -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6); 
+                               box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6); }
+    .hbes-lg-box .ipt-code { width: 150px; }
+    .hbes-lg-box .cimg { width: 95px; border-radius: 4px; height: 38px; margin-top: -3px; }
+    .hbes-lg-box .logbars { height: 50px; line-height: 50px; border-top-color: rgb(231, 231, 231);
+                             border-top-width: 1px; border-top-style: solid; }
+     
+     .hbes-lg-box .logbars .register { color: rgb(204, 204, 204); margin-right: 10px; }
+     .hbes-lg-box .logbars .forget { color: rgb(204, 204, 204); }
+     .hbes-lg-box .logbars .logbtn { background: rgb(0, 142, 173); padding: 7px 10px; border-radius: 4px;
+                                      border: 1px solid rgb(26, 117, 152); border-image: none; color: rgb(255, 255, 255);
+                                       font-weight: bold; }
+    .hbes-lg-box .logbars .reset { }
+
+.hbes-lg-footer { margin: 60px auto;   height: 26px; color: #333;
+                   font-size: 15px; font-weight: bold; 
+                   width:500px; text-align:center;  text-shadow: 2px 2px 2px #ccc; }

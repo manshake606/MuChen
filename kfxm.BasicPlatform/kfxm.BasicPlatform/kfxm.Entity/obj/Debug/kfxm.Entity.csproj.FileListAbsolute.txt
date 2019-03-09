@@ -1,0 +1,12 @@
+F:\Apathy\2017\DEMO\YBXMGLXT.BasicPlatform\kfxm.Entity\bin\Debug\HBES.Entity.dll
+F:\Apathy\2017\DEMO\YBXMGLXT.BasicPlatform\kfxm.Entity\bin\Debug\HBES.Entity.pdb
+F:\Apathy\2017\DEMO\YBXMGLXT.BasicPlatform\kfxm.Entity\obj\Debug\HBES.Entity.dll
+F:\Apathy\2017\DEMO\YBXMGLXT.BasicPlatform\kfxm.Entity\obj\Debug\HBES.Entity.pdb
+G:\project\2018\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\bin\Debug\HBES.Entity.dll
+G:\project\2018\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\bin\Debug\HBES.Entity.pdb
+G:\project\2018\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\obj\Debug\HBES.Entity.dll
+G:\project\2018\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\obj\Debug\HBES.Entity.pdb
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\bin\Debug\HBES.Entity.dll
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\bin\Debug\HBES.Entity.pdb
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\obj\Debug\HBES.Entity.dll
+D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\obj\Debug\HBES.Entity.pdb
