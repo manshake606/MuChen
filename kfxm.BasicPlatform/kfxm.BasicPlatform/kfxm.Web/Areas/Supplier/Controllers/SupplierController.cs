@@ -132,18 +132,24 @@ namespace kfxms.Web.Areas.Supplier.Controllers
         {
             string resultJson = "";
             Hashtable row = (Hashtable)JsonHelp.Decode(data);
-            Sys_User eUser = new Sys_User();
-            eUser.Id = Guid.NewGuid();
-            eUser.UserName = row["UserName"].ToString().Trim();
-            eUser.Password = MD5Helper.GetMD5("123456");
-            eUser.Name = row["Name"].ToString().Trim();
-            List<Sys_User> listUser = userService.GetWhereData(u => u.UserName.Equals(eUser.UserName)).ToList();
-            if (listUser.Count > 0)
+            S_Supplier eSupplier = new S_Supplier();
+            eSupplier.Id = Guid.NewGuid();
+            eSupplier.SupplierName = row["SupplierName"].ToString().Trim();
+            //eSupplier.Password = MD5Helper.GetMD5("123456");
+            eSupplier.CorporationName = row["CorporationName"].ToString().Trim();
+            eSupplier.CorporationMobile = row["CorporationMobile"].ToString().Trim();
+            eSupplier.ContactName = row["ContactName"].ToString().Trim();
+            eSupplier.ContactMobile = row["ContactMobile"].ToString().Trim();
+            eSupplier.Address = row["Address"].ToString().Trim();
+            eSupplier.Remark = row["Remark"].ToString().Trim();
+
+            List<S_Supplier> listSupplier = supplierService.GetWhereData(u => u.SupplierName.Equals(eSupplier.SupplierName)).ToList();
+            if (listSupplier.Count > 0)
             {
-                resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出警告提示框不关闭窗体, "该用户已经存在！");
-                return Content(resultJson);
+               resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出警告提示框不关闭窗体, "该供应商已经存在！");
+               return Content(resultJson);
             }
-            int num = userService.Add(eUser);
+            int num = supplierService.Add(eSupplier);
             if (num > 0)
             {
                 resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出OK提示框关闭窗体, "新增成功！");

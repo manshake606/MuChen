@@ -24,17 +24,66 @@
                     <col width="35%" />
                 </colgroup>
                 <tr>
-                    <td class="ft_label">项目编号：
+                    <td class="ft_label">公司名称：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="Code" class="hbes-input" style="width: 150px;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" name="SupplierName" class="hbes-input" style="width: 150px;" vtype="required:true;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
-                    <td class="ft_label">项目名称：
+                    <td class="ft_label">法人姓名：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="Name" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" name="CorporationName" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        法人电话：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" name="CorporationMobile" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        联系人姓名：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" name="ContactName" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        联系人电话：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" name="ContactMobile" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        地址：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" name="Address" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        备注：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" name="Remark" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                    </td>
+                </tr>
+               <!-- <tr>
+                    <td class="ft_label">
+                        备注：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <textarea name="Remark" class="layui-textarea" placeholder="供应商备注"></textarea>
+                        @*<input type="text" name="Name" class="hbes-input" style="width: 95%;" placeholder="建设地址、水、电、气、交通、通信、原材料供应、生产技术条件、工程地质条件等" vtype="required:true;" />*@
                     </td>
                 </tr>
 
@@ -52,6 +101,7 @@
                             value="1" data="[{id:1,text:'轨道交通'},{id:2,text:'智能终端'},{id:3,text:'新能源汽车'},{id:4,text:'通用航空'},{id:5,text:'新材料'},{id:6,text:'节能环保'},{id:7,text:'医药产业'},{id:8,text:'页岩气等八大高端成长型产业'},{id:15,text:'绿色食品加工业'},{id:16,text:'现代物流'},{id:9,text:'旅游文化'},{id:10,text:'现代金融'},{id:10,text:'信息服务'},{id:12,text:'教育医疗等五大新兴先导型服务业'},{id:99,text:'其他'}]" />
                     </td>
                 </tr>
+                
                 <tr>
                     <td class="ft_label">所属行业：
                     </td>
@@ -68,6 +118,7 @@
                             value="1" data="[{id:1,text:'轨道交通'},{id:2,text:'智能终端'},{id:3,text:'新能源汽车'},{id:4,text:'通用航空'},{id:5,text:'新材料'},{id:6,text:'节能环保'},{id:7,text:'医药产业'},{id:8,text:'页岩气等八大高端成长型产业'},{id:15,text:'绿色食品加工业'},{id:16,text:'现代物流'},{id:9,text:'旅游文化'},{id:10,text:'现代金融'},{id:10,text:'信息服务'},{id:12,text:'教育医疗等五大新兴先导型服务业'},{id:99,text:'其他'}]" />
                     </td>
                 </tr>
+                
                 <tr>
                     <td class="ft_label">主要内容及建设条件：
                     </td>
@@ -125,6 +176,7 @@
                         <input type="text" name="Name" class="hbes-input" placeholder="联系人、电话、地址、电子邮件" style="width: 95%;" />
                     </td>
                 </tr>
+                    -->
 
             </table>
         </form>
@@ -144,7 +196,7 @@
             }
             var postData = { data: getFormMap("formData") };
 
-            submitData("/SysBasic/User/AddUser", postData);
+            submitData("/Supplier/Supplier/AddSupplier", postData);
         }
     </script>
 </body>

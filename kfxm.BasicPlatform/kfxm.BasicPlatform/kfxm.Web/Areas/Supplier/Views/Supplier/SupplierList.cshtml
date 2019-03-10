@@ -21,9 +21,9 @@
         <div class="page-toolbar">
             <table>
                 <tr>
-                    <td>公司名称：<input type="text" id="txt_Name" class="hbes-input">
+                    <td>公司名称：<input type="text" id="txt_supplierName" class="hbes-input">
                         法人姓名：
-                        <input type="text" id="txt_type" class="hbes-input">
+                        <input type="text" id="txt_corporationName" class="hbes-input">
                     </td>
 
                     <td style="padding-left: 10px;">
@@ -70,22 +70,22 @@
                 search();
             });
             function search() {
-                var userName = $("#txt_UserName").val();
-                var name = $("#txt_Name").val();
-                grid.loadGridData({ "userName": userName, "name": name });
+                var supplierName = $("#txt_supplierName").val();
+                var corporationName = $("#txt_corporationName").val();
+                grid.loadGridData({ "supplierName": supplierName, "corporationName": corporationName });
             }
             function reload() {
                 grid.reload();
             }
             function add() {
                 // 标题      //打开页面               宽    高     窗口正常关闭（非手动关闭）后执行的方法 
-                openWin("添加包装项目", "/Supplier/Supplier/Add", 800, 500, "reload");
+                openWin("添加供应商", "/Supplier/Supplier/Add", 800, 500, "reload");
             }
 
             function edit() {
                 var row = grid.getHbesGridSelected();//选择一行
                 if (row) {
-                    openWin("修改包装项目", "/Supplier/Supplier/Add", 800, 500, "reload");
+                    openWin("修改供应商", "/Supplier/Supplier/Edit", 800, 500, "reload");
                     6
                 }
                 else {
