@@ -10,20 +10,20 @@ using kfxms.IRepository.Supplier;
 
 namespace kfxms.ImpService.Supplier
 {
-    [Export(typeof(IS_TaskService))]
-    public class ImplS_TaskService : IS_TaskService
+    [Export(typeof(IS_SupplierService))]
+    public class ImplS_SupplierService : IS_SupplierService
     {
-        [Import(typeof(IS_TaskRepository))]
-        public IS_TaskRepository IS_TaskRepository_ { get; set; }
+        [Import(typeof(IS_SupplierRepository))]
+        public IS_SupplierRepository IS_SupplierRepository_ { get; set; }
 
         /// <summary>
         /// 添加
         /// </summary>
-        /// <param name="S_Task"></param>
+        /// <param name="S_Supplier"></param>
         /// <returns></returns>
-        public int Add(S_Task entity)
+        public int Add(S_Supplier entity)
         {
-            return IS_TaskRepository_.Add(entity);
+            return IS_SupplierRepository_.Add(entity);
         }
 
 
@@ -32,9 +32,9 @@ namespace kfxms.ImpService.Supplier
         /// </summary>
         /// <param name="entities">实体对象集合</param>
         /// <returns>操作影响的行数 </returns>
-        public int Add(IEnumerable<S_Task> entitys)
+        public int Add(IEnumerable<S_Supplier> entitys)
         {
-            return IS_TaskRepository_.Add(entitys);
+            return IS_SupplierRepository_.Add(entitys);
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace kfxms.ImpService.Supplier
         /// <returns>操作影响的行数 </returns>
         public int Delete(object id)
         {
-            return IS_TaskRepository_.Delete(id);
+            return IS_SupplierRepository_.Delete(id);
         }
 
         /// <summary>
@@ -52,9 +52,9 @@ namespace kfxms.ImpService.Supplier
         /// </summary>
         /// <param name="entity">实体对象 </param>
         /// <returns>操作影响的行数 </returns>
-        public int Delete(S_Task entity)
+        public int Delete(S_Supplier entity)
         {
-            return IS_TaskRepository_.Delete(entity);
+            return IS_SupplierRepository_.Delete(entity);
         }
 
         /// <summary>
@@ -62,9 +62,9 @@ namespace kfxms.ImpService.Supplier
         /// </summary>
         /// <param name="entities">实体对象集合</param>
         /// <returns>操作影响的行数</returns>
-        public int Delete(IEnumerable<S_Task> entitys)
+        public int Delete(IEnumerable<S_Supplier> entitys)
         {
-            return IS_TaskRepository_.Delete(entitys);
+            return IS_SupplierRepository_.Delete(entitys);
         }
 
         /// <summary>
@@ -72,9 +72,9 @@ namespace kfxms.ImpService.Supplier
         /// </summary>
         /// <param name="where">查询条件谓语表达式 </param>
         /// <returns>操作影响的行数 </returns>
-        public int Delete(System.Linq.Expressions.Expression<Func<S_Task, bool>> where)
+        public int Delete(System.Linq.Expressions.Expression<Func<S_Supplier, bool>> where)
         {
-            return IS_TaskRepository_.Delete(where);
+            return IS_SupplierRepository_.Delete(where);
         }
 
         /// <summary>
@@ -82,9 +82,9 @@ namespace kfxms.ImpService.Supplier
         /// </summary>
         /// <param name="entity">实体对象</param>
         /// <returns>操作影响的行数</returns>
-        public int Update(S_Task entity)
+        public int Update(S_Supplier entity)
         {
-            return IS_TaskRepository_.Update(entity);
+            return IS_SupplierRepository_.Update(entity);
         }
 
         /// <summary>
@@ -92,9 +92,9 @@ namespace kfxms.ImpService.Supplier
         /// </summary>
         /// <param name="entities">实体对象集合</param>
         /// <returns>操作影响的行数 </returns>
-        public int Update(IEnumerable<S_Task> entitys)
+        public int Update(IEnumerable<S_Supplier> entitys)
         {
-            return IS_TaskRepository_.Update(entitys);
+            return IS_SupplierRepository_.Update(entitys);
         }
 
         /// <summary>
@@ -102,27 +102,27 @@ namespace kfxms.ImpService.Supplier
         /// </summary>
         /// <param name="key">主键</param>
         /// <returns></returns>
-        public S_Task GetByKey(object key)
+        public S_Supplier GetByKey(object key)
         {
-            return IS_TaskRepository_.GetByKey(key);
+            return IS_SupplierRepository_.GetByKey(key);
         }
 
         /// <summary>
         /// 获取所有数据
         /// </summary>
         /// <returns>实体对象集合</returns>
-        public IEnumerable<S_Task> GetAllData()
+        public IEnumerable<S_Supplier> GetAllData()
         {
-            return IS_TaskRepository_.GetAllData();
+            return IS_SupplierRepository_.GetAllData();
         }
 
         /// <summary>
         /// 根据条件查询
         /// </summary>
         /// <returns>实体对象集合</returns>
-        public IEnumerable<S_Task> GetWhereData(System.Linq.Expressions.Expression<Func<S_Task, bool>> where)
+        public IEnumerable<S_Supplier> GetWhereData(System.Linq.Expressions.Expression<Func<S_Supplier, bool>> where)
         {
-            return IS_TaskRepository_.GetWhereData(where);
+            return IS_SupplierRepository_.GetWhereData(where);
         }
 
 
@@ -130,18 +130,18 @@ namespace kfxms.ImpService.Supplier
         /// 根据条件查询
         /// </summary>
         /// <returns>实体对象集合</returns>
-        public IEnumerable<S_Task> GetWhereData<T>(System.Linq.Expressions.Expression<Func<S_Task, bool>> where, Common.OrderByHelper<S_Task, T> orderBy)
+        public IEnumerable<S_Supplier> GetWhereData<T>(System.Linq.Expressions.Expression<Func<S_Supplier, bool>> where, Common.OrderByHelper<S_Supplier, T> orderBy)
         {
-            return IS_TaskRepository_.GetWhereData(where, orderBy);
+            return IS_SupplierRepository_.GetWhereData(where, orderBy);
         }
 
         /// <summary>
         /// 根据条件查询
         /// </summary>
         /// <returns>实体对象集合</returns>
-        public IEnumerable<S_Task> GetWhereData(System.Linq.Expressions.Expression<Func<S_Task, bool>> where, params Common.OrderByHelper<S_Task>[] orderBy)
+        public IEnumerable<S_Supplier> GetWhereData(System.Linq.Expressions.Expression<Func<S_Supplier, bool>> where, params Common.OrderByHelper<S_Supplier>[] orderBy)
         {
-            return IS_TaskRepository_.GetWhereData(where, orderBy);
+            return IS_SupplierRepository_.GetWhereData(where, orderBy);
         }
 
 
@@ -154,9 +154,9 @@ namespace kfxms.ImpService.Supplier
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<S_Task> GetPageDate<T>(System.Linq.Expressions.Expression<Func<S_Task, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<S_Task, T> orderBy)
+        public IEnumerable<S_Supplier> GetPageDate<T>(System.Linq.Expressions.Expression<Func<S_Supplier, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<S_Supplier, T> orderBy)
         {
-            return IS_TaskRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return IS_SupplierRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
         }
 
 
@@ -169,9 +169,9 @@ namespace kfxms.ImpService.Supplier
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<S_Task> GetPageDate(System.Linq.Expressions.Expression<Func<S_Task, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<S_Task>[] orderBy)
+        public IEnumerable<S_Supplier> GetPageDate(System.Linq.Expressions.Expression<Func<S_Supplier, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<S_Supplier>[] orderBy)
         {
-            return IS_TaskRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return IS_SupplierRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
         }
     }
 }

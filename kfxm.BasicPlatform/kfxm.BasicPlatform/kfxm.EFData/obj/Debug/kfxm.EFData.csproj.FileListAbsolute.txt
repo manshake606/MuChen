@@ -31,3 +31,14 @@ D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Debug\EntityFram
 D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\obj\Debug\kfxm.EFData.csprojResolveAssemblyReference.cache
 D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\obj\Debug\HBES.EFData.dll
 D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\obj\Debug\HBES.EFData.pdb
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Debug\HBES.EFData.dll
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Debug\HBES.EFData.pdb
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Debug\EntityFramework.dll
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Debug\EntityFramework.SqlServer.dll
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Debug\HBES.Entity.dll
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Debug\HBES.Entity.pdb
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Debug\EntityFramework.xml
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\bin\Debug\EntityFramework.SqlServer.xml
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\obj\Debug\kfxm.EFData.csprojResolveAssemblyReference.cache
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\obj\Debug\HBES.EFData.dll
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.EFData\obj\Debug\HBES.EFData.pdb

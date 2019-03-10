@@ -42,5 +42,7 @@ namespace kfxms.EFData
 
         public DbSet<kfxms.Entity.SysBasic.Sys_Dictionary> Dictionarys { get; set; }
 
+        public DbSet<kfxms.Entity.Supplier.S_Supplier> Supplier { get; set; }
+
     }
 }

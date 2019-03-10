@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HBEntity.cs" />
+    <Compile Include="Supplier\S_Supplier.cs" />
     <Compile Include="Supplier\S_Task.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SysBasic\Sys_AuthorityRequest.cs" />

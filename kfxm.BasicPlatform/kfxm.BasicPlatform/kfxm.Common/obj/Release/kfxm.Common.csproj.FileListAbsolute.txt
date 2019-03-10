@@ -5,3 +5,10 @@ D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\bin\Release\HBES.Ent
 D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\obj\Release\kfxm.Common.csprojResolveAssemblyReference.cache
 D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\obj\Release\HBES.Common.dll
 D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\obj\Release\HBES.Common.pdb
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\bin\Release\HBES.Common.dll
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\bin\Release\HBES.Common.pdb
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\bin\Release\HBES.Entity.dll
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\bin\Release\HBES.Entity.pdb
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\obj\Release\kfxm.Common.csprojResolveAssemblyReference.cache
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\obj\Release\HBES.Common.dll
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\obj\Release\HBES.Common.pdb

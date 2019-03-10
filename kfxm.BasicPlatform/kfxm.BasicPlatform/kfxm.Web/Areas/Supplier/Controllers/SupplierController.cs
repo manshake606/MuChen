@@ -10,6 +10,7 @@ using System.Linq.Expressions;
 using kfxms.Common;
 using System.Collections;
 using kfxms.Entity.Supplier;
+using kfxms.IService.Supplier;
 
 namespace kfxms.Web.Areas.Supplier.Controllers
 {
@@ -18,7 +19,11 @@ namespace kfxms.Web.Areas.Supplier.Controllers
     {
 
         [Import]
-        public ISys_UserService userService { get; set; }
+        public new ISys_UserService userService { get; set; }
+
+        [Import]
+        //public new  userService { get; set; }
+        public IS_SupplierService supplierService { get; set; }
 
         [Import]
         public ISys_UserAndRoleService userAndRoleService { get; set; }
@@ -52,27 +57,28 @@ namespace kfxms.Web.Areas.Supplier.Controllers
         {
 
             //条件
-            //Expression<Func<Sys_User, bool>> expre = u => true;
+            Expression<Func<S_Supplier, bool>> expre = u => true;
 
-            //if (Request.Form["userName"] != null && !string.IsNullOrEmpty(Request.Form["userName"]))
-            //{
-            //    string userName = Request.Form["userName"].Trim();
-            //    expre = expre.And(u => u.UserName.Contains(userName));
-            //}
-            //if (Request.Form["name"] != null && !string.IsNullOrEmpty(Request.Form["name"]))
-            //{
-            //    string name = Request.Form["name"].Trim();
-            //    expre = expre.And(u => u.Name.Contains(name));
-            //}
+            if (Request.Form["supplierName"] != null && !string.IsNullOrEmpty(Request.Form["supplierName"]))
+            {
+                string supplierName = Request.Form["supplierName"].Trim();
+                expre = expre.And(u => u.SupplierName.Contains(supplierName));
+            }
+            if (Request.Form["corporationName"] != null && !string.IsNullOrEmpty(Request.Form["corporationName"]))
+            {
+                string corporationName = Request.Form["corporationName"].Trim();
+                expre = expre.And(u => u.CorporationName.Contains(corporationName));
+            }
 
 
             ////排序
-            //OrderByHelper<Sys_User, DateTime> orderBy = new OrderByHelper<Sys_User, DateTime>() { OrderByType = OrderByType.DESC, Expression = u => u.AddTime.Value };
+            OrderByHelper<S_Supplier, DateTime> orderBy = new OrderByHelper<S_Supplier, DateTime>() { OrderByType = OrderByType.DESC, Expression = u => u.AddTime.Value };
 
-            //int total = 0;
+            int total = 0;
 
-            //List<Sys_User> list = userService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<S_Supplier> list = supplierService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
 
+            /*
             var s_Task = new S_Task()
             {
                  ID=Guid.NewGuid(), 
@@ -111,13 +117,18 @@ namespace kfxms.Web.Areas.Supplier.Controllers
 
             ht.Add("total", 3);
             ht.Add("data", list);
+            */
+
+            Hashtable ht = new Hashtable();
+            ht.Add("total", total);
+            ht.Add("data", list);
             string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
 
             return Content(json);
 
         }
 
-        public ActionResult AddUser(string data)
+        public ActionResult AddSupplier(string data)
         {
             string resultJson = "";
             Hashtable row = (Hashtable)JsonHelp.Decode(data);

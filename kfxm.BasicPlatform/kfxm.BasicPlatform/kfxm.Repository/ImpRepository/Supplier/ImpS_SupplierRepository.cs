@@ -9,8 +9,8 @@ using kfxms.IRepository.Supplier;
 
 namespace kfxms.ImpRepository.Supplier
 {
-    [Export(typeof(IS_TaskRepository))]
-    public class ImpS_TaskRepository : ImpBaseRepository<S_Task>, IS_TaskRepository
+    [Export(typeof(IS_SupplierRepository))]
+    public class ImpS_SupplierRepository : ImpBaseRepository<S_Supplier>, IS_SupplierRepository
     {
 
     }

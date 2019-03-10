@@ -12,42 +12,47 @@ namespace kfxms.Entity.Supplier
     {
 
         /// <summary>
-        /// 用户Id
+        /// Id
         /// </summary>
         [Key]
         public Guid? Id { get; set; }
 
         /// <summary>
-        /// 自增用户Id
+        /// 供应商编号
         /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int? Num { get; set; }
 
 
         /// <summary>
-        /// 用户名
+        /// 公司名称
         /// </summary>
-        public string UserName { get; set; }
+        public string SupplierName { get; set; }
 
         /// <summary>
-        /// 密码
+        /// 法人姓名
         /// </summary>
-        public string Password { get; set; }
+        public string CorporationName { get; set; }
 
         /// <summary>
-        /// 用户姓名
+        /// 法人电话
         /// </summary>
-        public string Name { get; set; }
+        public string CorporationMobile { get; set; }
 
         /// <summary>
-        /// 单位id
+        /// 联系人姓名
         /// </summary>
-        public Guid? UnitId { get; set; }
+        public string ContactName { get; set; }
 
         /// <summary>
-        /// 教师id
+        /// 联系人电话
         /// </summary>
-        public Guid? WorkerId { get; set; }
+        public string ContactMobile { get; set; }
+
+        /// <summary>
+        /// 地址
+        /// </summary>
+        public string Address { get; set; }
 
         /// <summary>
         /// 添加时间
@@ -80,11 +85,9 @@ namespace kfxms.Entity.Supplier
         public string LastEditName { get; set; }
 
         /// <summary>
-        /// 联系电话(手机)
+        /// 备注
         /// </summary>
-        public string Mobile { get; set; }
-
-
+        public string Remark { get; set; }
 
     }
 }
