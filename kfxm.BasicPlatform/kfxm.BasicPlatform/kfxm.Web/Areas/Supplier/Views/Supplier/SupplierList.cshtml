@@ -85,8 +85,7 @@
             function edit() {
                 var row = grid.getHbesGridSelected();//选择一行
                 if (row) {
-                    openWin("修改供应商", "/Supplier/Supplier/Edit", 800, 500, "reload");
-                    6
+                    openWin("修改供应商", "/Supplier/Supplier/Edit?supplierId="+row.Id, 800, 500, "reload");
                 }
                 else {
                     layer.alert('请选择一条记录!', { icon: 0, skin: 'layer-ext-moon' });

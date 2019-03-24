@@ -40,16 +40,17 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             return View("SupplierAdd");
         }
 
-        public ActionResult Edit(Guid userId)
+        public ActionResult Edit(Guid supplierId)
         {
-            Sys_User sys_User = userService.GetByKey(userId);
+            S_Supplier sys_Supplier = supplierService.GetByKey(supplierId);
+            
 
-            if (sys_User == null)
+            if (sys_Supplier == null)
             {
                 Response.Write("<p style='color:red;'>该条记录不存在！</p>");
                 Response.End();
             }
-            return View("SupplierEdit", sys_User);
+            return View("SupplierEdit", sys_Supplier);
 
         }
 
@@ -161,30 +162,37 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             return Content(resultJson);
         }
 
-        public ActionResult EditUser(string data)
+        public ActionResult EditSupplier(string data)
         {
 
             string resultJson = "";
             Hashtable row = (Hashtable)JsonHelp.Decode(data);
-            Sys_User eUser = userService.GetByKey(Guid.Parse(row["Id"].ToString()));
-            if (eUser == null)
+            S_Supplier eSupplier = supplierService.GetByKey(Guid.Parse(row["Id"].ToString()));
+            if (eSupplier == null)
             {
                 resultJson = resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出警告提示框不关闭窗体, "该条记录不存在！");
                 return Content(resultJson);
             }
-            String userName = row["UserName"].ToString().Trim();
-            eUser.Name = row["Name"].ToString().Trim();
-            if (!eUser.UserName.Equals(userName))
+            String supplierName = row["SupplierName"].ToString().Trim();
+            //eSupplier.SupplierName = row["SupplierName"].ToString().Trim();
+            if (!eSupplier.SupplierName.Equals(supplierName))
             {
-                List<Sys_User> listUser = userService.GetWhereData(u => u.UserName.Equals(userName)).ToList();
-                if (listUser.Count > 0)
+                List<S_Supplier> listSupplier = supplierService.GetWhereData(u => u.SupplierName.Equals(supplierName)).ToList();
+                if (listSupplier.Count > 0)
                 {
-                    resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出警告提示框不关闭窗体, "该用户已经存在！");
+                    resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出警告提示框不关闭窗体, "该公司名称已经存在！");
                     return Content(resultJson);
                 }
             }
-            eUser.UserName = userName;
-            int num = userService.Update(eUser);
+            eSupplier.SupplierName = supplierName;
+            eSupplier.CorporationName= row["CorporationName"].ToString().Trim();
+            eSupplier.CorporationMobile= row["CorporationMobile"].ToString().Trim();
+            eSupplier.ContactName = row["ContactName"].ToString().Trim();
+            eSupplier.ContactMobile = row["ContactMobile"].ToString().Trim();
+            eSupplier.Address = row["Address"].ToString().Trim();
+            eSupplier.Remark = row["Remark"].ToString().Trim();
+
+            int num = supplierService.Update(eSupplier);
             if (num > 0)
             {
                 resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出OK提示框关闭窗体, "修改成功！");
