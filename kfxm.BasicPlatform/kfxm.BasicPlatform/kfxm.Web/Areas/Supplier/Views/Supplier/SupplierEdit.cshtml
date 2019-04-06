@@ -54,6 +54,17 @@
                 <td class="ft_label">备注</td>
                 <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
             </tr>
+            <tr>
+                <td class="ft_label">供应商类别</td>
+                <td class="ft_control">
+                    <select name="Type" class="layui-select " lay-verify="required" >
+                        <option value="1">设计</option>
+                        <option value="2">软装</option>
+                        <option value="3">硬装</option>
+                        <option value="4">多媒体</option>
+                    </select>
+                </td>
+            </tr>
 
                 </table>
          </form>
@@ -64,7 +75,13 @@
      </div>
 
     <script type="text/javascript">
-
+        $(function () {
+            $('option[value=' + @Model.Type + ']').attr('selected', 'true ');
+            layui.use('form', function () {
+                var form = layui.form;
+                form.render('select'); //刷新select选择框渲染
+            });
+        });
         function save() {
             var isPass = $("#formData").valiForm();
             if (!isPass) {

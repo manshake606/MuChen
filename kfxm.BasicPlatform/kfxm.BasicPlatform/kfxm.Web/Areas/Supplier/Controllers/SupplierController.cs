@@ -143,6 +143,7 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             eSupplier.ContactMobile = row["ContactMobile"].ToString().Trim();
             eSupplier.Address = row["Address"].ToString().Trim();
             eSupplier.Remark = row["Remark"].ToString().Trim();
+            eSupplier.Type = int.Parse(row["Type"].ToString());
 
             List<S_Supplier> listSupplier = supplierService.GetWhereData(u => u.SupplierName.Equals(eSupplier.SupplierName)).ToList();
             if (listSupplier.Count > 0)
@@ -191,6 +192,7 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             eSupplier.ContactMobile = row["ContactMobile"].ToString().Trim();
             eSupplier.Address = row["Address"].ToString().Trim();
             eSupplier.Remark = row["Remark"].ToString().Trim();
+            eSupplier.Type = int.Parse(row["Type"].ToString());
 
             int num = supplierService.Update(eSupplier);
             if (num > 0)
@@ -204,9 +206,9 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             return Content(resultJson);
         }
 
-        public ActionResult DeleteUser(Guid userId)
+        public ActionResult DeleteSupplier(Guid supplierId)
         {
-            int num = userService.Delete(userId);
+            int num = supplierService.Delete(supplierId);
             string resultJson = "";
             if (num > 0)
             {
@@ -219,6 +221,7 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             return Content(resultJson);
         }
 
+        /*
         /// <summary>
         /// 重置密码
         /// </summary>
@@ -297,5 +300,6 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             }
             return Content(resultJson);
         }
+        */
     }
 }

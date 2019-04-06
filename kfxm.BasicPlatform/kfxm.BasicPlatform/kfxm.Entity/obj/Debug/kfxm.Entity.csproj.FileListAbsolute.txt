@@ -12,6 +12,5 @@ D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\obj\Debug\HBES.Entit
 D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\obj\Debug\HBES.Entity.pdb
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\bin\Debug\HBES.Entity.dll
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\bin\Debug\HBES.Entity.pdb
-D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\obj\Debug\kfxm.Entity.csprojResolveAssemblyReference.cache
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\obj\Debug\HBES.Entity.dll
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Entity\obj\Debug\HBES.Entity.pdb

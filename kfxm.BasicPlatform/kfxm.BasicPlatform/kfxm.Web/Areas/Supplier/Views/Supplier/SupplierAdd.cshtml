@@ -3,6 +3,9 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="0">
     <title></title>
     <link href="/css/hbes.grid.css" rel="stylesheet" />
     <link href="/css/hbes.reset.css" rel="stylesheet" />
@@ -75,6 +78,19 @@
                     </td>
                     <td class="ft_control" colspan="3">
                         <input type="text" name="Remark" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        供应商类别：
+                    </td>
+                    <td class="ft_control" colspan="6">
+                        <select name="Type" class="layui-select" lay-verify="required">
+                            <option value="1">设计</option>
+                            <option value="2">软装</option>
+                            <option value="3">硬装</option>
+                            <option value="4">多媒体</option>
+                        </select>
                     </td>
                 </tr>
                <!-- <tr>
@@ -187,6 +203,8 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="layui-btn layui-btn-small layui-btn-primary" onclick="closeWin()" type="button">关闭</button>
     </div>
     <script type="text/javascript">
+        
+
 
         function save() {
             var isPass = $("#formData").valiForm();

@@ -99,7 +99,7 @@
                     layer.confirm("确认删除？", { title: '提示信息', closeBtn: 0, icon: 3, btn: ['确认', '取消'] },
                         function (index) {
                             layer.close(index);
-                            submitData("", { userId: row.Id }, function (data) {
+                            submitData("/Supplier/Supplier/DeleteSupplier", { supplierId: row.Id }, function (data) {
                                 reload();
                             });
 

@@ -152,6 +152,7 @@ D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\bin\zh-Hans\System.Web.
 D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\obj\Debug\kfxm.Web.csprojResolveAssemblyReference.cache
 D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\obj\Debug\HBES.Web.dll
 D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\obj\Debug\HBES.Web.pdb
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\bin\System.Web.Mvc.xml
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\bin\HBES.Web.dll.config
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\bin\HBES.Web.dll
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\bin\HBES.Web.pdb
@@ -190,7 +191,6 @@ D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\bin\System.Net.Http.
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\bin\System.Web.Helpers.xml
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\bin\System.Web.Http.xml
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\bin\System.Web.Http.WebHost.xml
-D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\bin\System.Web.Mvc.xml
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\bin\System.Web.Razor.xml
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\bin\System.Web.WebPages.xml
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\bin\System.Web.WebPages.Deployment.xml

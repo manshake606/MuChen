@@ -101,6 +101,14 @@ function getFormMap(id) {
             resultMap[radioName] = _radio.value;
         }
     }
+    
+    var select = $(".layui-select");
+    var _select = select.val();
+    var selectName = select.attr("name");
+    resultMap[selectName] = _select;
+    
+        
+    
     return JSON.stringify(resultMap);
 }
 function getLayUIFormMap(id) {

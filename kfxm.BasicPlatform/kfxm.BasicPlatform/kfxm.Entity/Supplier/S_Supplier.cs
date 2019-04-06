@@ -89,6 +89,11 @@ namespace kfxms.Entity.Supplier
         /// </summary>
         public string Remark { get; set; }
 
+        /// <summary>
+        /// 类型
+        /// </summary>
+        public int? Type { get; set; }
+
     }
 }
 
