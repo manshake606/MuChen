@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImpService\Client\ImpS_ClientService.cs" />
     <Compile Include="ImpService\Supplier\ImpS_SupplierService.cs" />
     <Compile Include="ImpService\SysBaisc\ImpSys_AuthorityRequestService.cs" />
     <Compile Include="ImpService\SysBaisc\ImpSys_DepartmentService.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="ImpService\SysBaisc\ImpSys_UserAndRoleService.cs" />
     <Compile Include="ImpService\SysBaisc\ImpSys_MenuService.cs" />
     <Compile Include="ImpService\SysBaisc\ImpSys_MenuAuthorityService.cs" />
+    <Compile Include="IService\Client\IS_ClientService.cs" />
     <Compile Include="IService\IBaseService.cs" />
     <Compile Include="ImpService\Supplier\ImpS_TaskService.cs" />
     <Compile Include="IService\Supplier\IS_SupplierService.cs" />

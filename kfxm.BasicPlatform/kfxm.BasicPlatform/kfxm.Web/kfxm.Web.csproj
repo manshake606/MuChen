@@ -143,6 +143,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
+    <Compile Include="Areas\Client\Controllers\ClientController.cs" />
     <Compile Include="Areas\Key\Controllers\KeyController.cs" />
     <Compile Include="Areas\Key\KeyAreaRegistration.cs" />
     <Compile Include="Areas\Supplier\Controllers\SupplierController.cs" />
@@ -360,6 +362,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Client\Models\" />
+    <Folder Include="Areas\Client\Views\Shared\" />
     <Folder Include="Areas\Key\Models\" />
     <Folder Include="Areas\Key\Views\Shared\" />
     <Folder Include="Areas\Supplier\Models\" />
@@ -488,6 +492,21 @@
     <Content Include="Areas\SysBasic\Views\Dictionary\DictionaryAdd.cshtml" />
     <Content Include="Areas\SysBasic\Views\Dictionary\DictionaryEdit.cshtml" />
     <Content Include="Areas\SysBasic\Views\Dictionary\DictionaryList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Client\Views\Client\BindRole.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Client\Views\Client\ClientAdd.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Client\Views\Client\ClientEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Client\Views\Client\ClientList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Client\Views\Web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -103,9 +103,12 @@ function getFormMap(id) {
     }
     
     var select = $(".layui-select");
-    var _select = select.val();
-    var selectName = select.attr("name");
-    resultMap[selectName] = _select;
+    if (select != undefined) {
+        var _select = select.val();
+        var selectName = select.attr("name");
+        resultMap[selectName] = _select;
+    }
+    
     
         
     
