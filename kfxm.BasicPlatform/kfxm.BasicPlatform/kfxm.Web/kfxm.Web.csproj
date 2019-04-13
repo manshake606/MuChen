@@ -147,6 +147,7 @@
     <Compile Include="Areas\Client\Controllers\ClientController.cs" />
     <Compile Include="Areas\Key\Controllers\KeyController.cs" />
     <Compile Include="Areas\Key\KeyAreaRegistration.cs" />
+    <Compile Include="Areas\Supplier\Controllers\SupplierTypeController.cs" />
     <Compile Include="Areas\Supplier\Controllers\SupplierController.cs" />
     <Compile Include="Areas\Supplier\Controllers\UserController.cs" />
     <Compile Include="Areas\Supplier\SupplierAreaRegistration.cs" />
