@@ -11,6 +11,8 @@ using kfxms.Common;
 using System.Collections;
 using kfxms.Entity.Supplier;
 using kfxms.IService.Supplier;
+using kfxms.Entity.SupplierType;
+using kfxms.IService.SupplierType;
 
 namespace kfxms.Web.Areas.Supplier.Controllers
 {
@@ -24,6 +26,10 @@ namespace kfxms.Web.Areas.Supplier.Controllers
         [Import]
         //public new  userService { get; set; }
         public IS_SupplierService supplierService { get; set; }
+
+        [Import]
+        //public new  userService { get; set; }
+        public IS_SupplierTypeService supplierTypeService { get; set; }
 
         [Import]
         public ISys_UserAndRoleService userAndRoleService { get; set; }
@@ -78,6 +84,40 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             int total = 0;
 
             List<S_Supplier> list = supplierService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<S_SupplierType> typeList = supplierTypeService.GetAllData().ToList();
+            List<S_SupplierHasTypeName> listHasTypeName = new List<S_SupplierHasTypeName>();
+            
+            foreach(S_Supplier item in list)
+            {
+                var s_SupplierHasTypeName = new S_SupplierHasTypeName();
+                s_SupplierHasTypeName.AddName = item.AddName;
+                s_SupplierHasTypeName.Address = item.Address;
+                s_SupplierHasTypeName.AddTime = item.AddTime;
+                s_SupplierHasTypeName.AddUserId = item.AddUserId;
+                s_SupplierHasTypeName.ContactMobile = item.ContactMobile;
+                s_SupplierHasTypeName.ContactName = item.ContactName;
+                s_SupplierHasTypeName.CorporationMobile = item.CorporationMobile;
+                s_SupplierHasTypeName.CorporationName = item.CorporationName;
+                s_SupplierHasTypeName.Id = item.Id;
+                s_SupplierHasTypeName.LastEditName = item.LastEditName;
+                s_SupplierHasTypeName.LastEditTime = item.LastEditTime;
+                s_SupplierHasTypeName.LastEditUserID = item.LastEditUserID;
+                s_SupplierHasTypeName.Num = item.Num;
+                s_SupplierHasTypeName.Remark = item.Remark;
+                s_SupplierHasTypeName.SupplierName = item.SupplierName;
+                s_SupplierHasTypeName.Type = item.Type;
+                s_SupplierHasTypeName.TypeName = "";
+                foreach (S_SupplierType typeItem in typeList)
+                {
+                    if(s_SupplierHasTypeName.Type== typeItem.SupplierTypeId)
+                    {
+                        s_SupplierHasTypeName.TypeName = typeItem.SupplierTypeName;
+                    }
+                }
+                listHasTypeName.Add(s_SupplierHasTypeName);
+            }
+            
+
 
             /*
             var s_Task = new S_Task()
@@ -122,7 +162,7 @@ namespace kfxms.Web.Areas.Supplier.Controllers
 
             Hashtable ht = new Hashtable();
             ht.Add("total", total);
-            ht.Add("data", list);
+            ht.Add("data", listHasTypeName);
             string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
 
             return Content(json);
