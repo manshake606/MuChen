@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Client\S_Client.cs" />
     <Compile Include="HBEntity.cs" />
+    <Compile Include="Project\S_Project.cs" />
     <Compile Include="Supplier\S_SupplierHasTypeName.cs" />
     <Compile Include="Supplier\S_SupplierType.cs" />
     <Compile Include="Supplier\S_Supplier.cs" />

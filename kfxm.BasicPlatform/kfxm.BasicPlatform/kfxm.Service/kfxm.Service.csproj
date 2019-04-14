@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ImpService\Client\ImpS_ClientService.cs" />
+    <Compile Include="ImpService\Project\ImpS_ProjectService.cs" />
     <Compile Include="ImpService\Supplier\ImpS_SupplierTypeService.cs" />
     <Compile Include="ImpService\Supplier\ImpS_SupplierService.cs" />
     <Compile Include="ImpService\SysBaisc\ImpSys_AuthorityRequestService.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="IService\Client\IS_ClientService.cs" />
     <Compile Include="IService\IBaseService.cs" />
     <Compile Include="ImpService\Supplier\ImpS_TaskService.cs" />
+    <Compile Include="IService\Project\IS_ProjectService.cs" />
     <Compile Include="IService\Supplier\IS_SupplierTypeService.cs" />
     <Compile Include="IService\Supplier\IS_SupplierService.cs" />
     <Compile Include="IService\Supplier\IS_TaskService.cs" />

@@ -48,5 +48,7 @@ namespace kfxms.EFData
 
         public DbSet<kfxms.Entity.Client.S_Client> Client { get; set; }
 
+        public DbSet<kfxms.Entity.Project.S_Project> Project { get; set; }
+
     }
 }

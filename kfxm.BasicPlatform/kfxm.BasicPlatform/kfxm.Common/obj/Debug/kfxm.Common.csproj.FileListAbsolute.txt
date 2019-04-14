@@ -19,10 +19,10 @@ D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\bin\Debug\HBES.Entit
 D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\obj\Debug\kfxm.Common.csprojResolveAssemblyReference.cache
 D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\obj\Debug\HBES.Common.dll
 D:\ChenMu\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\obj\Debug\HBES.Common.pdb
-D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\obj\Debug\HBES.Common.dll
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\bin\Debug\HBES.Common.dll
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\bin\Debug\HBES.Common.pdb
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\bin\Debug\HBES.Entity.dll
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\bin\Debug\HBES.Entity.pdb
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\obj\Debug\kfxm.Common.csprojResolveAssemblyReference.cache
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\obj\Debug\HBES.Common.dll
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Common\obj\Debug\HBES.Common.pdb

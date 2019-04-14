@@ -147,6 +147,8 @@
     <Compile Include="Areas\Client\Controllers\ClientController.cs" />
     <Compile Include="Areas\Key\Controllers\KeyController.cs" />
     <Compile Include="Areas\Key\KeyAreaRegistration.cs" />
+    <Compile Include="Areas\Project\ProjectAreaRegistration.cs" />
+    <Compile Include="Areas\Project\Controllers\ProjectController.cs" />
     <Compile Include="Areas\Supplier\Controllers\SupplierTypeController.cs" />
     <Compile Include="Areas\Supplier\Controllers\SupplierController.cs" />
     <Compile Include="Areas\Supplier\Controllers\UserController.cs" />
@@ -381,6 +383,8 @@
     <Folder Include="Areas\Client\Views\Shared\" />
     <Folder Include="Areas\Key\Models\" />
     <Folder Include="Areas\Key\Views\Shared\" />
+    <Folder Include="Areas\Project\Models\" />
+    <Folder Include="Areas\Project\Views\Shared\" />
     <Folder Include="Areas\Supplier\Models\" />
     <Folder Include="Areas\Supplier\Views\Shared\" />
     <Folder Include="Log\" />
@@ -522,6 +526,21 @@
     <Content Include="js\layui\font\iconfont.eot" />
     <Content Include="js\layui\font\iconfont.ttf" />
     <Content Include="js\layui\font\iconfont.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Project\Views\Project\BindRole.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Project\Views\Project\ProjectAdd.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Project\Views\Project\ProjectEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Project\Views\Project\ProjectList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Project\Views\Web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
