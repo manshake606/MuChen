@@ -1,0 +1,93 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>客户信息更新</title>
+    <link href="/css/hbes.grid.css" rel="stylesheet" />
+    <link href="/css/hbes.reset.css" rel="stylesheet" />
+    <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/hbes-ui.js"></script>
+    <script src="/js/layui/lay/dest/layui.all.js"></script>  
+    <script src="/js/zTree/jquery.ztree.core.min.js"></script>
+</head>
+<body>
+    <div id="page-content" class="page-content">
+         <form id="formData">
+              <input type="hidden" class="hbes-input" name="Id" value="@Model.Id" />
+                <table  class="formtable" >
+                            <colgroup>
+                                <col style="width:30%;" />
+                              
+                                <col  />
+                            </colgroup>
+              <tr>    
+                <td class="ft_label">甲方名称</td>
+                <td class="ft_control">
+                     <input type="text" name="ClientName" value="@Model.ClientName" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" />
+                </td>
+             </tr>
+             <tr>
+                 <td class="ft_label">统一社会信用编号</td>
+                 <td class="ft_control"><input type="text"  value="@Model.SocialSecurityNum" name="SocialSecurityNum" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+             </tr>
+            <tr>
+                <td class="ft_label">甲方地址</td>
+                <td class="ft_control"><input type="text" value="@Model.ClientAddress" name="ClientAddress" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            <tr>
+                <td class="ft_label">电话</td>
+                <td class="ft_control"><input type="text" value="@Model.TelephoneNum" name="TelephoneNum" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            <tr>
+                <td class="ft_label">开户银行</td>
+                <td class="ft_control"><input type="text" value="@Model.Bank" name="Bank" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            <tr>
+                <td class="ft_label">银行账号</td>
+                <td class="ft_control"><input type="text" value="@Model.BankAccount" name="BankAccount" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            <tr>
+                <td class="ft_label">甲方联系人</td>
+                <td class="ft_control"><input type="text" value="@Model.ClientContact" name="ClientContact" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            <tr>
+                <td class="ft_label">甲方联系人电话</td>
+                <td class="ft_control"><input type="text" value="@Model.ClientContactMobile" name="ClientContactMobile" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            <tr>
+                <td class="ft_label">甲方联系人职位</td>
+                <td class="ft_control"><input type="text" value="@Model.ClientContactPosition" name="ClientContactPosition" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            <tr>
+                <td class="ft_label">备注</td>
+                <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            
+
+                </table>
+         </form>
+          <div class="bottomBtnDiv">
+           <button class="layui-btn layui-btn-small layui-btn-normal" onclick="save()" type="button">确定</button>
+           <button class="layui-btn layui-btn-small layui-btn-primary" onclick="closeWin()" type="button">关闭</button>
+          </div>
+     </div>
+
+    <script type="text/javascript">
+        function save() {
+            var isPass = $("#formData").valiForm();
+            if (!isPass) {
+                layer.alert('请检查填写内容!', { icon: 0 });
+                return;
+            }
+            var postData = { data: getFormMap("formData") };
+
+            submitData("/Client/Client/EditClient", postData);
+        }
+    </script>
+
+</body>
+</html>

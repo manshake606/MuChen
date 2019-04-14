@@ -57,11 +57,8 @@
             <tr>
                 <td class="ft_label">供应商类别</td>
                 <td class="ft_control">
-                    <select name="Type" class="layui-select " lay-verify="required" >
-                        <option value="1">施工</option>
-                        <option value="2">软装</option>
-                        <option value="3">硬装</option>
-                        <option value="4">多媒体</option>
+                    <select id="Type" name="Type" class="layui-select " lay-verify="required" >
+                        
                     </select>
                 </td>
             </tr>
@@ -76,10 +73,12 @@
 
     <script type="text/javascript">
         $(function () {
-            $('option[value=' + @Model.Type + ']').attr('selected', 'true ');
+
+            //$('option[value=' + @Model.Type + ']').attr('selected', 'true ');
+            getDataList(@Model.Type);
             layui.use('form', function () {
-                var form = layui.form;
-                form.render('select'); //刷新select选择框渲染
+                var form = layui.form();
+                form.render('select');
             });
         });
         function save() {
@@ -92,6 +91,37 @@
 
             submitData("/Supplier/Supplier/EditSupplier", postData);
         }
+
+        function getDataList(id) {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/Supplier/SupplierType/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#Type').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].SupplierTypeId == id) {
+                            html += '<option value=' + data[i].SupplierTypeId + ' selected="true" >' + data[i].SupplierTypeName + '</option>';
+                        }
+                        else
+                        {
+                            html += '<option value=' + data[i].SupplierTypeId + '>' + data[i].SupplierTypeName + '</option>';
+                        }
+                    }
+                    $('#Type').append(html);
+
+                }
+            })
+        }
+
+        function strToJson(str) {
+            var json = eval('(' + str + ')');
+            return json;
+        }
+
     </script>
 
 </body>
