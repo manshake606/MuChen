@@ -46,9 +46,13 @@ namespace kfxms.EFData
 
         public DbSet<kfxms.Entity.SupplierType.S_SupplierType> SupplierType { get; set; }
 
+        public DbSet<kfxms.Entity.Supplier.S_SupplierHasTypeName> SupplierHasTypeName { get; set; }
+
         public DbSet<kfxms.Entity.Client.S_Client> Client { get; set; }
 
         public DbSet<kfxms.Entity.Project.S_Project> Project { get; set; }
+
+        public DbSet<kfxms.Entity.Project.S_ProjectInfo> ProjectInfo { get; set; }
 
     }
 }

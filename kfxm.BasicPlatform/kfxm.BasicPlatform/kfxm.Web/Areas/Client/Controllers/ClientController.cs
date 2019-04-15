@@ -134,6 +134,19 @@ namespace kfxms.Web.Areas.Client.Controllers
 
         }
 
+        public ActionResult GetAllData()
+        {
+            //string resultJson = "";
+            //Hashtable row = (Hashtable)JsonHelp.Decode(data);
+            S_Client eClient = new S_Client();
+            List<S_Client> listClient = ClientService.GetAllData().ToList();
+            Hashtable ht = new Hashtable();
+            //ht.Add("total", total);
+            ht.Add("data", listClient);
+            string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            return Content(json);
+        }
+
         public ActionResult AddClient(string data)
         {
             string resultJson = "";

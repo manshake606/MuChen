@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+    <title>添加项目</title>
+    <link href="/css/hbes.grid.css" rel="stylesheet" />
+    <link href="/css/hbes.reset.css" rel="stylesheet" />
+    <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/hbes-ui.js"></script>
+    <script src="~/js/layui/lay/dest/layui.all.js"></script>
+    <script src="/js/zTree/jquery.ztree.core.min.js"></script>
+</head>
+<body>
+    <div id="page-content">
+        <form id="formData">
+            <table style="width: 100%;" class="formtable">
+                <colgroup>
+                    <col width="15%" />
+                    <col width="35%" />
+                    <col width="15%" />
+                    <col width="35%" />
+                </colgroup>
+                <tr>
+                    <td class="ft_label">项目名称：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" name="ProjectName" class="hbes-input" style="width: 150px;" vtype="required:true;rangeLength:0,50;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">合同金额：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" name="ContractAmout" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        结账基数：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" name="SettlementBase" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        客户：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <select id="Client" name="Client" class="layui-select"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        备注：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" name="Remark" class="hbes-input" style="width: 95%;" vtype="required:false;rangeLength:0,50;" />
+                    </td>
+                </tr>
+                <!--<tr>
+                    <td class="ft_label">
+                        供应商类别：
+                    </td>
+                    <td class="ft_control" colspan="6">
+                        <select name="Type" class="layui-select" lay-verify="required">
+                            <option value="1">施工</option>
+                            <option value="2">软装</option>
+                            <option value="3">硬装</option>
+                            <option value="4">多媒体</option>
+                        </select>
+                    </td>
+                </tr>
+                -->
+               <!-- <tr>
+                    <td class="ft_label">
+                        备注：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <textarea name="Remark" class="layui-textarea" placeholder="供应商备注"></textarea>
+                        @*<input type="text" name="Name" class="hbes-input" style="width: 95%;" placeholder="建设地址、水、电、气、交通、通信、原材料供应、生产技术条件、工程地质条件等" vtype="required:true;" />*@
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="ft_label">所属市（州）：
+                    </td>
+                    <td class="ft_control">
+                        <input type="text" name="Name" class="hbes-input" style="width: 95%;" readonly="true" value="宜宾市" vtype="required:true;" />
+                    </td>
+                    <td class="ft_label">项目地点：
+                    </td>
+                    <td class="ft_control">
+                        <input class="hbes-combox" id="t_combox" style="width: 90%;"
+                            shownullitem="true" vtype="required" maxheight="500"
+                            value="1" data="[{id:1,text:'轨道交通'},{id:2,text:'智能终端'},{id:3,text:'新能源汽车'},{id:4,text:'通用航空'},{id:5,text:'新材料'},{id:6,text:'节能环保'},{id:7,text:'医药产业'},{id:8,text:'页岩气等八大高端成长型产业'},{id:15,text:'绿色食品加工业'},{id:16,text:'现代物流'},{id:9,text:'旅游文化'},{id:10,text:'现代金融'},{id:10,text:'信息服务'},{id:12,text:'教育医疗等五大新兴先导型服务业'},{id:99,text:'其他'}]" />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="ft_label">所属行业：
+                    </td>
+                    <td class="ft_control">
+                        <input class="hbes-combox" id="t_combox" style="width: 90%;"
+                            shownullitem="true" vtype="required" maxheight="500"
+                            value="1" data="[{id:1,text:'农业'},{id:2,text:'工业'},{id:3,text:'服务业'},{id:21,text:'基础设施'}]" />
+                    </td>
+                    <td class="ft_label">“8+1+5”项目类别：
+                    </td>
+                    <td class="ft_control">
+                        <input class="hbes-combox" id="t_combox" style="width: 90%;"
+                            shownullitem="true" vtype="required" maxheight="500"
+                            value="1" data="[{id:1,text:'轨道交通'},{id:2,text:'智能终端'},{id:3,text:'新能源汽车'},{id:4,text:'通用航空'},{id:5,text:'新材料'},{id:6,text:'节能环保'},{id:7,text:'医药产业'},{id:8,text:'页岩气等八大高端成长型产业'},{id:15,text:'绿色食品加工业'},{id:16,text:'现代物流'},{id:9,text:'旅游文化'},{id:10,text:'现代金融'},{id:10,text:'信息服务'},{id:12,text:'教育医疗等五大新兴先导型服务业'},{id:99,text:'其他'}]" />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="ft_label">主要内容及建设条件：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <textarea name="Name" class="layui-textarea" placeholder="建设地址、水、电、气、交通、通信、原材料供应、生产技术条件、工程地质条件等"></textarea>
+                        @*<input type="text" name="Name" class="hbes-input" style="width: 95%;" placeholder="建设地址、水、电、气、交通、通信、原材料供应、生产技术条件、工程地质条件等" vtype="required:true;" />*@
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">项目前期工作：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" name="Name" class="hbes-input" style="width: 95%;" placeholder="项目建议书、可行研究报告等的拟定情况、项目备案或项目立项情况等" vtype="required:true;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">投资总额：
+                    </td>
+                    <td class="ft_control">
+                        <input type="text" name="Name" class="hbes-input" style="width: 85%;" vtype="required:true;" />(亿元)
+                    </td>
+
+                    <td class="ft_label">引进资金数额：
+                    </td>
+                    <td class="ft_control">
+                        <input type="text" name="Name" class="hbes-input" style="width: 85%;" />(亿元)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">项目背景：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" name="Name" class="hbes-input" style="width: 95%;" placeholder="" vtype="required:true;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">经济效益分析：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" name="Name" class="hbes-input" style="width: 95%;" placeholder="年销售收入、年利税、建设年限、投资利润率、财务内部收益率等" vtype="required:true;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">合作方式：
+                    </td>
+                    <td class="ft_control">
+                        <input class="hbes-combox" id="t_combox" style="width: 90%;"
+                            shownullitem="true" vtype="required" maxheight="500"
+                            value="1" data="[{id:1,text:'独资'},{id:2,text:'合资'},{id:3,text:'合作'},{id:21,text:'其它'}]" />
+                    </td>
+
+                    <td class="ft_label">联系方式：
+                    </td>
+                    <td class="ft_control">
+                        <input type="text" name="Name" class="hbes-input" placeholder="联系人、电话、地址、电子邮件" style="width: 95%;" />
+                    </td>
+                </tr>
+                    -->
+
+            </table>
+        </form>
+    </div>
+    <br />
+    <div style="text-align: center; bottom: 10px; right: 20px; ">
+        <button class="layui-btn layui-btn-small layui-btn-normal" onclick="save()" type="button">确定</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="layui-btn layui-btn-small layui-btn-primary" onclick="closeWin()" type="button">关闭</button>
+    </div>
+    <script type="text/javascript">
+        
+        function getDataList() {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/Project/Project/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#Client').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        html += '<option value=' + data[i].Num + '>' + data[i].ClientName + '</option>';
+                    }
+                    $('#Client').append(html);
+
+                }
+            })
+        }
+
+        function strToJson(str) {
+            var json = eval('(' + str + ')');
+            return json;
+        }
+
+        $(function () {
+
+            layui.use('form', function () {
+                var form = layui.form();
+                getDataList();
+                form.render('select'); //刷新select选择框渲染
+            });
+        });
+
+        function renderForm() {
+            layui.use('form', function () {
+                var form = layui.form();//高版本建议把括号去掉，有的低版本，需要加()
+                form.render();
+            });
+        }
+
+        function save() {
+            var isPass = $("#formData").valiForm();
+            if (!isPass) {
+                layer.alert('请检查填写内容!', { icon: 0 });
+                return;
+            }
+            var postData = { data: getFormMap("formData") };
+
+            submitData("/Project/Project/AddProject", postData);
+        }
+    </script>
+</body>
+</html>

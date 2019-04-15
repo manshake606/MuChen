@@ -10,7 +10,7 @@ namespace kfxms.IService
 {
     public interface IBaseService<TEntity> where TEntity : HBEntity
     {
-
+        
         /// <summary>
         /// 添加
         /// </summary>
