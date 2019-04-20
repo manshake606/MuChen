@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImpRepository\Revenue\ImpS_RevenueRepository.cs" />
     <Compile Include="ImpRepository\Client\ImpS_ClientRepository.cs" />
     <Compile Include="ImpRepository\ImpBaseRepository.cs" />
     <Compile Include="ImpRepository\Project\ImpS_ProjectRepository.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="ImpRepository\SysBaisc\ImpSys_MenuRepository.cs" />
     <Compile Include="ImpRepository\SysBaisc\ImpSys_MenuAuthorityRepository.cs" />
     <Compile Include="ImpRepository\Supplier\ImpS_TaskRepository.cs" />
+    <Compile Include="IRepository\Revenue\IS_RevenueRepository.cs" />
     <Compile Include="IRepository\Client\IS_ClientRepository.cs" />
     <Compile Include="IRepository\IBaseRepository.cs" />
     <Compile Include="IRepository\Project\IS_ProjectRepository.cs" />

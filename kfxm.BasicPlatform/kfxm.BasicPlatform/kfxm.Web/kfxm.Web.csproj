@@ -143,6 +143,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Revenue\RevenueAreaRegistration.cs" />
+    <Compile Include="Areas\Revenue\Controllers\RevenueController.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
     <Compile Include="Areas\Client\Controllers\ClientController.cs" />
     <Compile Include="Areas\Key\Controllers\KeyController.cs" />
@@ -334,6 +336,9 @@
     <Content Include="js\layui\images\face\71.gif" />
     <Content Include="js\layui\images\face\8.gif" />
     <Content Include="js\layui\images\face\9.gif" />
+    <Content Include="js\layui\laydate\laydate.js" />
+    <Content Include="js\layui\laydate\theme\default\font\iconfont.svg" />
+    <Content Include="js\layui\laydate\theme\default\laydate.css" />
     <Content Include="js\layui\layui.all.js" />
     <Content Include="js\layui\layui.js" />
     <Content Include="js\layui\lay\dest\layui.all.js" />
@@ -385,6 +390,8 @@
     <Folder Include="Areas\Key\Views\Shared\" />
     <Folder Include="Areas\Project\Models\" />
     <Folder Include="Areas\Project\Views\Shared\" />
+    <Folder Include="Areas\Revenue\Models\" />
+    <Folder Include="Areas\Revenue\Views\Shared\" />
     <Folder Include="Areas\Supplier\Models\" />
     <Folder Include="Areas\Supplier\Views\Shared\" />
     <Folder Include="Log\" />
@@ -541,6 +548,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Project\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Revenue\Views\Revenue\RevenueAdd.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Revenue\Views\Revenue\RevenueEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Revenue\Views\Revenue\RevenueList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Revenue\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="js\layui\laydate\theme\default\font\iconfont.eot" />
+    <Content Include="js\layui\laydate\theme\default\font\iconfont.ttf" />
+    <Content Include="js\layui\laydate\theme\default\font\iconfont.woff" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

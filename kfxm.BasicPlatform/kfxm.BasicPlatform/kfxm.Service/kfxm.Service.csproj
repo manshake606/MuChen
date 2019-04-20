@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImpService\Revenue\ImpS_RevenueService.cs" />
     <Compile Include="ImpService\Client\ImpS_ClientService.cs" />
     <Compile Include="ImpService\Project\ImpS_ProjectService.cs" />
     <Compile Include="ImpService\Supplier\ImpS_SupplierTypeService.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="ImpService\SysBaisc\ImpSys_UserAndRoleService.cs" />
     <Compile Include="ImpService\SysBaisc\ImpSys_MenuService.cs" />
     <Compile Include="ImpService\SysBaisc\ImpSys_MenuAuthorityService.cs" />
+    <Compile Include="IService\Revenue\IS_RevenueService.cs" />
     <Compile Include="IService\Client\IS_ClientService.cs" />
     <Compile Include="IService\IBaseService.cs" />
     <Compile Include="ImpService\Supplier\ImpS_TaskService.cs" />
