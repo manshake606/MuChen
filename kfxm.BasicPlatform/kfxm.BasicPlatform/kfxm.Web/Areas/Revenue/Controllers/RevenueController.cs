@@ -63,7 +63,7 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             if (Request.Form["ProjectNum"] != null && !string.IsNullOrEmpty(Request.Form["ProjectNum"]))
             {
                 string ProjectNum = Request.Form["ProjectNum"].Trim();
-                expre = expre.And(u => u.ProjectNum.Contains(ProjectNum));
+                expre = expre.And(u => u.ProjectNum.Equals(ProjectNum));
             }
             
 
@@ -144,7 +144,9 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             Hashtable row = (Hashtable)JsonHelp.Decode(data);
             S_Revenue eRevenue = new S_Revenue();
             eRevenue.Id = Guid.NewGuid();
-           
+            eRevenue.ProjectNum= int.Parse(row["Project"].ToString());
+            eRevenue.RevenueAmout= Convert.ToDecimal(row["RevenueAmout"].ToString().Trim());
+            eRevenue.RevenueTime = Convert.ToDateTime(row["RevenueTime"].ToString().Trim());
             eRevenue.Remark = row["Remark"].ToString().Trim();
 
             
@@ -171,10 +173,13 @@ namespace kfxms.Web.Areas.Revenue.Controllers
                 resultJson = resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出警告提示框不关闭窗体, "该条记录不存在！");
                 return Content(resultJson);
             }
-            String RevenueName = row["RevenueName"].ToString().Trim();
+            //String RevenueName = row["RevenueName"].ToString().Trim();
             //eRevenue.RevenueName = row["RevenueName"].ToString().Trim();
-            
-            
+
+            //eRevenue.ProjectNum = int.Parse(row["Project"].ToString());
+            eRevenue.RevenueAmout = Convert.ToDecimal(row["RevenueAmout"].ToString().Trim());
+            eRevenue.RevenueTime = Convert.ToDateTime(row["RevenueTime"].ToString().Trim());
+            eRevenue.Remark = row["Remark"].ToString().Trim();
             eRevenue.Remark = row["Remark"].ToString().Trim();
 
             int num = RevenueService.Update(eRevenue);

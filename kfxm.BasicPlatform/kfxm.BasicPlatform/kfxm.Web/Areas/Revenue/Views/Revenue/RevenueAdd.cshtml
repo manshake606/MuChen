@@ -46,7 +46,7 @@
                         收款日期：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" id="RevenueTime" name="RevenueTime" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" id="RevenueTime" name="RevenueTime" class="hbes-input" style="width: 95%;" vtype="required:false;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
@@ -183,16 +183,13 @@
     <script type="text/javascript">
 
 
-        function strToJson(str) {
-            var json = eval('(' + str + ')');
-            return json;
-        }
+        
 
         $(function () {
             layui.use(['form','laydate'], function () {
                 var form = layui.form;
                 var laydate = layui.laydate;
-                //getDataList();
+                getDataList();
                 form.render('select'); //刷新select选择框渲染
                 laydate.render({
                     elem: '#RevenueTime' //指定元素
@@ -200,6 +197,29 @@
             });
         });
 
+        function getDataList() {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/Project/Project/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#Project').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        html += '<option value=' + data[i].Num + '>' + data[i].ClientName + '</option>';
+                    }
+                    $('#Project').append(html);
+
+                }
+            })
+        }
+
+        function strToJson(str) {
+            var json = eval('(' + str + ')');
+            return json;
+        }
         
 
         

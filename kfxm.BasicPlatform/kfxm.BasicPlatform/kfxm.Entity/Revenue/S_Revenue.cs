@@ -26,7 +26,7 @@ namespace kfxms.Entity.Revenue
         /// <summary>
         /// 项目编号
         /// </summary>
-        public string ProjectNum { get; set; }
+        public int? ProjectNum { get; set; }
 
         /// <summary>
         /// 收款金额
