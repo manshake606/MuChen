@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="/js/layui/css/layui.css">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/hbes-ui.js"></script>
-    <script src="~/js/layui/lay/dest/layui.all.js"></script>
-    <script src="~/js/layui/laydate/laydate.js"></script>
+    <script src="~/js/layui/layui.all.js"></script>
     <script src="/js/zTree/jquery.ztree.core.min.js"></script>
 </head>
 <body>
@@ -190,21 +189,18 @@
         }
 
         $(function () {
-
-            layui.use('form', function () {
-                var form = layui.form();
+            layui.use(['form','laydate'], function () {
+                var form = layui.form;
+                var laydate = layui.laydate;
                 //getDataList();
                 form.render('select'); //刷新select选择框渲染
+                laydate.render({
+                    elem: '#RevenueTime' //指定元素
+                });
             });
-
-            
-            
-
         });
 
-        laydate.render({
-            elem: '#RevenueTime' //指定元素
-        });
+        
 
         
 

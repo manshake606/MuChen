@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/js/layui/css/layui.css">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/hbes-ui.js"></script>
-    <script src="~/js/layui/lay/dest/layui.all.js"></script>
+    <script src="~/js/layui/layui.all.js"></script>  
     <script src="/js/zTree/jquery.ztree.core.min.js"></script>
 </head>
 <body>
@@ -216,7 +216,7 @@
         $(function () {
 
             layui.use('form', function () {
-                var form = layui.form();
+                var form = layui.form;
                 getDataList();
                 form.render('select'); //刷新select选择框渲染
             });

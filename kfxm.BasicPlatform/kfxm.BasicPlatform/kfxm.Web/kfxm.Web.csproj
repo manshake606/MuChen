@@ -246,13 +246,6 @@
     <Content Include="js\jquery.layout.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jsencrypt.js" />
-    <Content Include="js\layer\layer.js" />
-    <Content Include="js\layer\skin\default\icon-ext.png" />
-    <Content Include="js\layer\skin\default\icon.png" />
-    <Content Include="js\layer\skin\default\layer.css" />
-    <Content Include="js\layer\skin\default\loading-0.gif" />
-    <Content Include="js\layer\skin\default\loading-1.gif" />
-    <Content Include="js\layer\skin\default\loading-2.gif" />
     <Content Include="js\layui\css\layui.css" />
     <Content Include="js\layui\css\layui.mobile.css" />
     <Content Include="js\layui\css\modules\code.css" />
@@ -336,12 +329,8 @@
     <Content Include="js\layui\images\face\71.gif" />
     <Content Include="js\layui\images\face\8.gif" />
     <Content Include="js\layui\images\face\9.gif" />
-    <Content Include="js\layui\laydate\laydate.js" />
-    <Content Include="js\layui\laydate\theme\default\font\iconfont.svg" />
-    <Content Include="js\layui\laydate\theme\default\laydate.css" />
     <Content Include="js\layui\layui.all.js" />
     <Content Include="js\layui\layui.js" />
-    <Content Include="js\layui\lay\dest\layui.all.js" />
     <Content Include="js\layui\lay\modules\carousel.js" />
     <Content Include="js\layui\lay\modules\code.js" />
     <Content Include="js\layui\lay\modules\colorpicker.js" />
@@ -530,11 +519,6 @@
     <Content Include="Areas\Client\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="js\layui\font\iconfont.eot" />
-    <Content Include="js\layui\font\iconfont.ttf" />
-    <Content Include="js\layui\font\iconfont.woff" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Areas\Project\Views\Project\BindRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -562,9 +546,9 @@
     <Content Include="Areas\Revenue\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="js\layui\laydate\theme\default\font\iconfont.eot" />
-    <Content Include="js\layui\laydate\theme\default\font\iconfont.ttf" />
-    <Content Include="js\layui\laydate\theme\default\font\iconfont.woff" />
+    <Content Include="js\layui\font\iconfont.eot" />
+    <Content Include="js\layui\font\iconfont.ttf" />
+    <Content Include="js\layui\font\iconfont.woff" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
