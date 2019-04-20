@@ -235,7 +235,7 @@ namespace kfxms.Web.Areas.Project.Controllers
                 }
             }
             eProject.ProjectName = ProjectName;
-            eProject.ClientId = int.Parse(row["ClientId"].ToString().Trim());
+            eProject.ClientId = int.Parse(row["Client"].ToString().Trim());
             eProject.ContractAmout = Convert.ToDecimal(row["ContractAmout"].ToString().Trim());
             eProject.SettlementBase = Convert.ToDecimal(row["SettlementBase"].ToString().Trim());
             eProject.Status = int.Parse(row["Status"].ToString().Trim());

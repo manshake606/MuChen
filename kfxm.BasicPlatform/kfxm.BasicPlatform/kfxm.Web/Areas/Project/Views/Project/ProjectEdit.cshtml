@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/js/layui/css/layui.css">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/hbes-ui.js"></script>
-    <script src="/js/layui/layui.all.js"></script>  
+    <script src="/js/layui/lay/dest/layui.all.js"></script>  
     <script src="/js/zTree/jquery.ztree.core.min.js"></script>
 </head>
 <body>
@@ -43,7 +43,7 @@
                 <td class="ft_label">项目状态</td>
                 <td class="ft_control">
                     <select id="Status" name="Status" class="layui-select " lay-verify="required">
-                        <option value="1">活动</option>
+                        <option value="1">激活</option>
                         <option value="0">结束</option>
                     </select>
                 </td>
@@ -69,6 +69,40 @@
      </div>
 
     <script type="text/javascript">
+        $(function () {
+
+            $("#Status").find("option[value='@Model.Status']").prop("selected", true);
+            getClientDataList(@Model.ClientId);
+            layui.use('form', function () {
+                var form = layui.form();
+                form.render('select');
+            });
+        });
+
+        function getClientDataList(id) {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/Client/Client/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#Client').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].Num == id) {
+                            html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].ClientName + '</option>';
+                        }
+                        else {
+                            html += '<option value=' + data[i].Num + '>' + data[i].ClientName + '</option>';
+                        }
+                    }
+                    $('#Client').append(html);
+
+                }
+            })
+        }
+
         function save() {
             var isPass = $("#formData").valiForm();
             if (!isPass) {
@@ -78,6 +112,11 @@
             var postData = { data: getFormMap("formData") };
 
             submitData("/Project/Project/EditProject", postData);
+        }
+
+        function strToJson(str) {
+            var json = eval('(' + str + ')');
+            return json;
         }
     </script>
 

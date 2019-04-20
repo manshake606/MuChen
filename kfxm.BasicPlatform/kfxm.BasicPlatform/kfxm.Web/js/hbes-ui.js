@@ -102,15 +102,16 @@ function getFormMap(id) {
         }
     }
     
-    var select = $(".layui-select");
-    if (select != undefined) {
-        var _select = select.val();
-        var selectName = select.attr("name");
-        resultMap[selectName] = _select;
+    var selects = $(".layui-select");
+    if (selects.length > 0) {
+        for (var i = 0; i < selects.length; i++) {
+            var select = selects[i];
+            var _select = select.selectedOptions[0].value
+            var selectName = select.name;
+            resultMap[selectName] = _select;
+        }
     }
-    
-    
-        
+
     
     return JSON.stringify(resultMap);
 }
