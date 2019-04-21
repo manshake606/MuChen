@@ -46,6 +46,9 @@
   <ItemGroup>
     <Compile Include="Client\S_Client.cs" />
     <Compile Include="HBEntity.cs" />
+    <Compile Include="Payment\S_PublicRelationsDetail.cs" />
+    <Compile Include="Payment\S_PublicRelations.cs" />
+    <Compile Include="Revenue\S_RevenueDetail.cs" />
     <Compile Include="Revenue\S_Revenue.cs" />
     <Compile Include="Project\S_ProjectInfo.cs" />
     <Compile Include="Project\S_Project.cs" />

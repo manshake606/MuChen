@@ -11,6 +11,10 @@ using kfxms.Common;
 using System.Collections;
 using kfxms.Entity.Revenue;
 using kfxms.IService.Revenue;
+using kfxms.Entity.Project;
+using kfxms.IService.Project;
+using kfxms.Entity.Client;
+using kfxms.IService.Client;
 
 namespace kfxms.Web.Areas.Revenue.Controllers
 {
@@ -24,6 +28,10 @@ namespace kfxms.Web.Areas.Revenue.Controllers
         [Import]
         //public new  userService { get; set; }
         public IS_RevenueService RevenueService { get; set; }
+
+        [Import]
+        //public new  userService { get; set; }
+        public IS_ProjectService projectService { get; set; }
 
         [Import]
         public ISys_UserAndRoleService userAndRoleService { get; set; }
@@ -60,10 +68,10 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             //条件
             Expression<Func<S_Revenue, bool>> expre = u => true;
 
-            if (Request.Form["ProjectNum"] != null && !string.IsNullOrEmpty(Request.Form["ProjectNum"]))
+            if (Request.Form["remark"] != null && !string.IsNullOrEmpty(Request.Form["remark"]))
             {
-                string ProjectNum = Request.Form["ProjectNum"].Trim();
-                expre = expre.And(u => u.ProjectNum.Equals(ProjectNum));
+                string remark = Request.Form["remark"].Trim();
+                expre = expre.And(u => u.Remark.Contains(remark));
             }
             
 
@@ -74,6 +82,30 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             int total = 0;
 
             List<S_Revenue> list = RevenueService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<S_Project> listProject = projectService.GetAllData().ToList();
+            List<S_RevenueDetail> listDetail = new List<S_RevenueDetail>();
+
+            foreach (S_Revenue item in list)
+            {
+                var s_RevenueDetail = new S_RevenueDetail();
+                s_RevenueDetail.Id = item.Id;
+                s_RevenueDetail.Num = item.Num;
+                s_RevenueDetail.ProjectNum = item.ProjectNum;
+                s_RevenueDetail.Remark = item.Remark;
+                s_RevenueDetail.RevenueAmout = item.RevenueAmout;
+                s_RevenueDetail.RevenueTime = item.RevenueTime;
+
+                foreach (S_Project projectItem in listProject)
+                {
+                    if (s_RevenueDetail.ProjectNum == projectItem.Num)
+                    {
+                        s_RevenueDetail.ProjectName = projectItem.ProjectName;
+                    }
+                }
+                listDetail.Add(s_RevenueDetail);
+            }
+
+
 
             /*
             var s_Task = new S_Task()
@@ -118,7 +150,7 @@ namespace kfxms.Web.Areas.Revenue.Controllers
 
             Hashtable ht = new Hashtable();
             ht.Add("total", total);
-            ht.Add("data", list);
+            ht.Add("data", listDetail);
             string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
 
             return Content(json);
@@ -144,6 +176,7 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             Hashtable row = (Hashtable)JsonHelp.Decode(data);
             S_Revenue eRevenue = new S_Revenue();
             eRevenue.Id = Guid.NewGuid();
+            //eSupplier.Type = int.Parse(arrType[0]);
             eRevenue.ProjectNum= int.Parse(row["Project"].ToString());
             eRevenue.RevenueAmout= Convert.ToDecimal(row["RevenueAmout"].ToString().Trim());
             eRevenue.RevenueTime = Convert.ToDateTime(row["RevenueTime"].ToString().Trim());
@@ -177,10 +210,11 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             //eRevenue.RevenueName = row["RevenueName"].ToString().Trim();
 
             //eRevenue.ProjectNum = int.Parse(row["Project"].ToString());
+
             eRevenue.RevenueAmout = Convert.ToDecimal(row["RevenueAmout"].ToString().Trim());
             eRevenue.RevenueTime = Convert.ToDateTime(row["RevenueTime"].ToString().Trim());
             eRevenue.Remark = row["Remark"].ToString().Trim();
-            eRevenue.Remark = row["Remark"].ToString().Trim();
+
 
             int num = RevenueService.Update(eRevenue);
             if (num > 0)

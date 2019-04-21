@@ -193,7 +193,7 @@
             // 请求
             $.ajax({
                 type: 'get',
-                url: "/Project/Project/GetAllData",
+                url: "/Client/Client/GetAllData",
                 success: function (response) {
                     var data = strToJson(response);
                     data = strToJson(data["ResultData"])["data"];

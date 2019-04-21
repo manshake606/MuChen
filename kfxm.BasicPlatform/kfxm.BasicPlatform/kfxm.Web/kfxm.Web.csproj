@@ -143,6 +143,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Payment\PaymentAreaRegistration.cs" />
+    <Compile Include="Areas\Payment\Controllers\PublicRelationsController.cs" />
     <Compile Include="Areas\Revenue\RevenueAreaRegistration.cs" />
     <Compile Include="Areas\Revenue\Controllers\RevenueController.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
@@ -377,6 +379,8 @@
     <Folder Include="Areas\Client\Views\Shared\" />
     <Folder Include="Areas\Key\Models\" />
     <Folder Include="Areas\Key\Views\Shared\" />
+    <Folder Include="Areas\Payment\Models\" />
+    <Folder Include="Areas\Payment\Views\Shared\" />
     <Folder Include="Areas\Project\Models\" />
     <Folder Include="Areas\Project\Views\Shared\" />
     <Folder Include="Areas\Revenue\Models\" />
@@ -549,6 +553,18 @@
     <Content Include="js\layui\font\iconfont.eot" />
     <Content Include="js\layui\font\iconfont.ttf" />
     <Content Include="js\layui\font\iconfont.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Payment\Views\PublicRelations\PublicRelationsAdd.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Payment\Views\PublicRelations\PublicRelationsEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Payment\Views\PublicRelations\PublicRelationsList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Payment\Views\Web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

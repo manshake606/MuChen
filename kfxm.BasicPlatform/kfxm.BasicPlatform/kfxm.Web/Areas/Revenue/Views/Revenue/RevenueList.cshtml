@@ -21,7 +21,7 @@
         <div class="page-toolbar">
             <table>
                 <tr>
-                    <td>项目编号：<input type="text" id="txt_projectNum" class="hbes-input">
+                    <td>备注：<input type="text" id="txt_remark" class="hbes-input">
                         
                     </td>
 
@@ -50,6 +50,7 @@
             <div property="columns">
                 <div type="indexcolumn" width="30"></div>
                 <div field="ProjectNum" width="120">项目编号</div>
+                <div field="ProjectName" width="120">项目名称</div>
                 <div field="RevenueAmout" width="120">收款金额</div>
                 <div field="RevenueTime"  width="120" >收款日期</div>
                 <div field="Remark" width="120">备注</div>
@@ -82,8 +83,8 @@
 
             });
             function search() {
-                var projectNum = $("#txt_projectNum").val();
-                grid.loadGridData({ "projectNum": projectNum });
+                var remark = $("#txt_remark").val();
+                grid.loadGridData({ "remark": remark });
             }
             function reload() {
                 grid.reload();

@@ -56,5 +56,7 @@ namespace kfxms.EFData
 
         public DbSet<kfxms.Entity.Revenue.S_Revenue> Revenue { get; set; }
 
+        public DbSet<kfxms.Entity.Payment.S_PublicRelations> PublicRelations { get; set; }
+
     }
 }

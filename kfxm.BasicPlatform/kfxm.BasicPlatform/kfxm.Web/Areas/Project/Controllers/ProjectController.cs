@@ -171,11 +171,11 @@ namespace kfxms.Web.Areas.Project.Controllers
         {
             //string resultJson = "";
             //Hashtable row = (Hashtable)JsonHelp.Decode(data);
-            S_Client eClient = new S_Client();
-            List<S_Client> listClient = clientService.GetAllData().ToList();
+            S_Project eProject = new S_Project();
+            List<S_Project> listProject = projectService.GetAllData().ToList();
             Hashtable ht = new Hashtable();
             //ht.Add("total", total);
-            ht.Add("data", listClient);
+            ht.Add("data", listProject);
             string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
             return Content(json);
         }
@@ -188,7 +188,9 @@ namespace kfxms.Web.Areas.Project.Controllers
             eProject.Id = Guid.NewGuid();
             eProject.ProjectName = row["ProjectName"].ToString().Trim();
             //eProject.Password = MD5Helper.GetMD5("123456");
-            eProject.ClientId = int.Parse(row["Client"].ToString().Trim());
+            //string[] arrClient = row["Client"].ToString().Split(':');
+            //eSupplier.Type = int.Parse(arrType[0]);
+            eProject.ClientId = int.Parse(row["Client"].ToString());
             eProject.ContractAmout = Convert.ToDecimal(row["ContractAmout"].ToString().Trim());
             eProject.SettlementBase = Convert.ToDecimal(row["SettlementBase"].ToString().Trim());
             eProject.Status = 1;
@@ -235,6 +237,9 @@ namespace kfxms.Web.Areas.Project.Controllers
                 }
             }
             eProject.ProjectName = ProjectName;
+            //string[] arrClient = row["Client"].ToString().Split(':');
+            //eSupplier.Type = int.Parse(arrType[0]);
+            //eProject.ClientId = int.Parse(arrClient[0]);
             eProject.ClientId = int.Parse(row["Client"].ToString().Trim());
             eProject.ContractAmout = Convert.ToDecimal(row["ContractAmout"].ToString().Trim());
             eProject.SettlementBase = Convert.ToDecimal(row["SettlementBase"].ToString().Trim());
