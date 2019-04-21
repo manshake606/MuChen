@@ -145,6 +145,7 @@
   <ItemGroup>
     <Compile Include="Areas\Payment\PaymentAreaRegistration.cs" />
     <Compile Include="Areas\Payment\Controllers\PublicRelationsController.cs" />
+    <Compile Include="Areas\Project\Controllers\ProjectAndSupplierController.cs" />
     <Compile Include="Areas\Revenue\RevenueAreaRegistration.cs" />
     <Compile Include="Areas\Revenue\Controllers\RevenueController.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
@@ -565,6 +566,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Payment\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Project\Views\ProjectAndSupplier\ProjectAndSupplierAdd.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Project\Views\ProjectAndSupplier\ProjectAndSupplierEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Project\Views\ProjectAndSupplier\ProjectAndSupplierList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

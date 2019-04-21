@@ -48,6 +48,8 @@
     <Compile Include="HBEntity.cs" />
     <Compile Include="Payment\S_PublicRelationsDetail.cs" />
     <Compile Include="Payment\S_PublicRelations.cs" />
+    <Compile Include="Project\S_ProjectAndSupplierDetail.cs" />
+    <Compile Include="Project\S_ProjectAndSupplier.cs" />
     <Compile Include="Revenue\S_RevenueDetail.cs" />
     <Compile Include="Revenue\S_Revenue.cs" />
     <Compile Include="Project\S_ProjectInfo.cs" />

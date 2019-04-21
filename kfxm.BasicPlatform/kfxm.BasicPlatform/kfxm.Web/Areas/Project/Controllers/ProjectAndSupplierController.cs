@@ -9,15 +9,19 @@ using kfxms.Entity.SysBasic;
 using System.Linq.Expressions;
 using kfxms.Common;
 using System.Collections;
+using kfxms.Entity.Project;
+using kfxms.IService.Project;
+using kfxms.Entity.Client;
+using kfxms.IService.Client;
 using kfxms.Entity.Supplier;
 using kfxms.IService.Supplier;
 using kfxms.Entity.SupplierType;
 using kfxms.IService.SupplierType;
 
-namespace kfxms.Web.Areas.Supplier.Controllers
+namespace kfxms.Web.Areas.Project.Controllers
 {
     [Export]
-    public class SupplierController : BaseController
+    public class ProjectAndSupplierController : BaseController
     {
 
         [Import]
@@ -25,11 +29,19 @@ namespace kfxms.Web.Areas.Supplier.Controllers
 
         [Import]
         //public new  userService { get; set; }
+        public IS_ClientService clientService { get; set; }
+
+        [Import]
+        //public new  userService { get; set; }
+        public IS_ProjectService projectService { get; set; }
+
+        [Import]
+        //public new  userService { get; set; }
         public IS_SupplierService supplierService { get; set; }
 
         [Import]
         //public new  userService { get; set; }
-        public IS_SupplierTypeService supplierTypeService { get; set; }
+        public IS_ProjectAndSupplierService ProjectAndSupplierService { get; set; }
 
         [Import]
         public ISys_UserAndRoleService userAndRoleService { get; set; }
@@ -38,99 +50,65 @@ namespace kfxms.Web.Areas.Supplier.Controllers
 
         public ActionResult List()
         {
-            return View("SupplierList");
+            return View("ProjectAndSupplierList");
         }
 
         public ActionResult Add()
         {
-            return View("SupplierAdd");
+            return View("ProjectAndSupplierAdd");
         }
 
-        public ActionResult Edit(Guid supplierId)
+        public ActionResult Edit(Guid projectAndSupplierId)
         {
-            S_Supplier sys_Supplier = supplierService.GetByKey(supplierId);
+            S_ProjectAndSupplier sys_ProjectAndSupplier = ProjectAndSupplierService.GetByKey(projectAndSupplierId);
             
 
-            if (sys_Supplier == null)
+            if (sys_ProjectAndSupplier == null)
             {
                 Response.Write("<p style='color:red;'>该条记录不存在！</p>");
                 Response.End();
             }
-            return View("SupplierEdit", sys_Supplier);
+            return View("ProjectAndSupplierEdit", sys_ProjectAndSupplier);
 
-        }
-
-        public ActionResult GetAllData()
-        {
-            //string resultJson = "";
-            //Hashtable row = (Hashtable)JsonHelp.Decode(data);
-            S_Supplier eSupplier = new S_Supplier();
-            List<S_Supplier> listSupplier = supplierService.GetAllData().ToList();
-            Hashtable ht = new Hashtable();
-            //ht.Add("total", total);
-            ht.Add("data", listSupplier);
-            string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
-            return Content(json);
         }
 
         public ActionResult GetPageData(int pageSize, int pageIndex)
         {
 
             //条件
-            Expression<Func<S_Supplier, bool>> expre = u => true;
+            Expression<Func<S_ProjectAndSupplier, bool>> expre = u => true;
 
-            if (Request.Form["supplierName"] != null && !string.IsNullOrEmpty(Request.Form["supplierName"]))
-            {
-                string supplierName = Request.Form["supplierName"].Trim();
-                expre = expre.And(u => u.SupplierName.Contains(supplierName));
-            }
-            if (Request.Form["corporationName"] != null && !string.IsNullOrEmpty(Request.Form["corporationName"]))
-            {
-                string corporationName = Request.Form["corporationName"].Trim();
-                expre = expre.And(u => u.CorporationName.Contains(corporationName));
-            }
+            //if (Request.Form["ProjectAndSupplierName"] != null && !string.IsNullOrEmpty(Request.Form["ProjectAndSupplierName"]))
+            //{
+            //    string ProjectAndSupplierName = Request.Form["ProjectAndSupplierName"].Trim();
+            //    expre = expre.And(u => u.ProjectAndSupplierName.Contains(ProjectAndSupplierName));
+            //}
+            
 
 
             ////排序
-            OrderByHelper<S_Supplier, DateTime> orderBy = new OrderByHelper<S_Supplier, DateTime>() { OrderByType = OrderByType.DESC, Expression = u => u.AddTime.Value };
+            OrderByHelper<S_ProjectAndSupplier, int?> orderBy = new OrderByHelper<S_ProjectAndSupplier, int?>() { OrderByType = OrderByType.DESC, Expression = u => u.Num };
 
             int total = 0;
 
-            List<S_Supplier> list = supplierService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
-            List<S_SupplierType> typeList = supplierTypeService.GetAllData().ToList();
-            List<S_SupplierHasTypeName> listHasTypeName = new List<S_SupplierHasTypeName>();
-            
-            foreach(S_Supplier item in list)
-            {
-                var s_SupplierHasTypeName = new S_SupplierHasTypeName();
-                s_SupplierHasTypeName.AddName = item.AddName;
-                s_SupplierHasTypeName.Address = item.Address;
-                s_SupplierHasTypeName.AddTime = item.AddTime;
-                s_SupplierHasTypeName.AddUserId = item.AddUserId;
-                s_SupplierHasTypeName.ContactMobile = item.ContactMobile;
-                s_SupplierHasTypeName.ContactName = item.ContactName;
-                s_SupplierHasTypeName.CorporationMobile = item.CorporationMobile;
-                s_SupplierHasTypeName.CorporationName = item.CorporationName;
-                s_SupplierHasTypeName.Id = item.Id;
-                s_SupplierHasTypeName.LastEditName = item.LastEditName;
-                s_SupplierHasTypeName.LastEditTime = item.LastEditTime;
-                s_SupplierHasTypeName.LastEditUserID = item.LastEditUserID;
-                s_SupplierHasTypeName.Num = item.Num;
-                s_SupplierHasTypeName.Remark = item.Remark;
-                s_SupplierHasTypeName.SupplierName = item.SupplierName;
-                s_SupplierHasTypeName.Type = item.Type;
-                s_SupplierHasTypeName.TypeName = "";
-                foreach (S_SupplierType typeItem in typeList)
-                {
-                    if(s_SupplierHasTypeName.Type== typeItem.SupplierTypeId)
-                    {
-                        s_SupplierHasTypeName.TypeName = typeItem.SupplierTypeName;
-                    }
-                }
-                listHasTypeName.Add(s_SupplierHasTypeName);
-            }
-            
+            List<S_ProjectAndSupplier> list = ProjectAndSupplierService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            //List<S_Project> ListProject = projectService.GetAllData().ToList();
+            //List<S_Supplier> ListSupplier = supplierService.GetAllData().ToList();
+            List<S_ProjectAndSupplierDetail> listProjectAndSupplierDetail = new List<S_ProjectAndSupplierDetail>();
+            //List<S_Client> listClient = clientService.GetAllData().ToList();
 
+            foreach (S_ProjectAndSupplier item in list)
+            {
+                S_ProjectAndSupplierDetail s_ProjectAndSupplierDetail = new S_ProjectAndSupplierDetail();
+                List<S_Project> ListProject = projectService.GetWhereData(u => u.Num ==(item.ProjectNum)).ToList();
+                List<S_Supplier> ListSupplier = supplierService.GetWhereData(u => u.Num ==(item.SupplierNum)).ToList();
+                s_ProjectAndSupplierDetail.Id = item.Id;
+                s_ProjectAndSupplierDetail.ProjectNum = item.ProjectNum;
+                s_ProjectAndSupplierDetail.ProjectName = ListProject[0].ProjectName;
+                s_ProjectAndSupplierDetail.SupplierNum = item.SupplierNum;
+                s_ProjectAndSupplierDetail.SupplierName = ListSupplier[0].SupplierName;
+                listProjectAndSupplierDetail.Add(s_ProjectAndSupplierDetail);
+            }
 
             /*
             var s_Task = new S_Task()
@@ -175,36 +153,47 @@ namespace kfxms.Web.Areas.Supplier.Controllers
 
             Hashtable ht = new Hashtable();
             ht.Add("total", total);
-            ht.Add("data", listHasTypeName);
+            ht.Add("data", listProjectAndSupplierDetail);
             string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
 
             return Content(json);
 
         }
 
-        public ActionResult AddSupplier(string data)
+        public ActionResult GetAllData()
+        {
+            //string resultJson = "";
+            //Hashtable row = (Hashtable)JsonHelp.Decode(data);
+            S_ProjectAndSupplier eProjectAndSupplier = new S_ProjectAndSupplier();
+            List<S_ProjectAndSupplier> listProjectAndSupplier = ProjectAndSupplierService.GetAllData().ToList();
+            Hashtable ht = new Hashtable();
+            //ht.Add("total", total);
+            ht.Add("data", listProjectAndSupplier);
+            string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            return Content(json);
+        }
+
+        public ActionResult AddProjectAndSupplier(string data)
         {
             string resultJson = "";
             Hashtable row = (Hashtable)JsonHelp.Decode(data);
-            S_Supplier eSupplier = new S_Supplier();
-            eSupplier.Id = Guid.NewGuid();
-            eSupplier.SupplierName = row["SupplierName"].ToString().Trim();
-            //eSupplier.Password = MD5Helper.GetMD5("123456");
-            eSupplier.CorporationName = row["CorporationName"].ToString().Trim();
-            eSupplier.CorporationMobile = row["CorporationMobile"].ToString().Trim();
-            eSupplier.ContactName = row["ContactName"].ToString().Trim();
-            eSupplier.ContactMobile = row["ContactMobile"].ToString().Trim();
-            eSupplier.Address = row["Address"].ToString().Trim();
-            eSupplier.Remark = row["Remark"].ToString().Trim();
-            eSupplier.Type = int.Parse(row["Type"].ToString());
+            S_ProjectAndSupplier eProjectAndSupplier = new S_ProjectAndSupplier();
+            eProjectAndSupplier.Id = Guid.NewGuid();
+            eProjectAndSupplier.ProjectNum= int.Parse(row["Project"].ToString().Trim());
+            eProjectAndSupplier.SupplierNum= int.Parse(row["Supplier"].ToString().Trim());
+            //eProjectAndSupplier.ProjectAndSupplierName = row["ProjectAndSupplierName"].ToString().Trim();
+            //eProjectAndSupplier.Password = MD5Helper.GetMD5("123456");
+            //string[] arrClient = row["Client"].ToString().Split(':');
+            //eSupplier.Type = int.Parse(arrType[0]);
+            //eProjectAndSupplier.ClientId = int.Parse(row["Client"].ToString());
+            //eProjectAndSupplier.ContractAmout = Convert.ToDecimal(row["ContractAmout"].ToString().Trim());
+            //eProjectAndSupplier.SettlementBase = Convert.ToDecimal(row["SettlementBase"].ToString().Trim());
+            //eProjectAndSupplier.Status = 1;
+            //eProjectAndSupplier.Remark = row["Remark"].ToString().Trim();
 
-            List<S_Supplier> listSupplier = supplierService.GetWhereData(u => u.SupplierName.Equals(eSupplier.SupplierName)).ToList();
-            if (listSupplier.Count > 0)
-            {
-               resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出警告提示框不关闭窗体, "该供应商已经存在！");
-               return Content(resultJson);
-            }
-            int num = supplierService.Add(eSupplier);
+            //List<S_ProjectAndSupplier> listProjectAndSupplier = ProjectAndSupplierService.GetWhereData(u => u.ProjectId.Equals(eProjectAndSupplier.ProjectId)).ToList();
+
+            int num = ProjectAndSupplierService.Add(eProjectAndSupplier);
             if (num > 0)
             {
                 resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出OK提示框关闭窗体, "新增成功！");
@@ -216,38 +205,33 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             return Content(resultJson);
         }
 
-        public ActionResult EditSupplier(string data)
+        public ActionResult EditProjectAndSupplier(string data)
         {
 
             string resultJson = "";
             Hashtable row = (Hashtable)JsonHelp.Decode(data);
-            S_Supplier eSupplier = supplierService.GetByKey(Guid.Parse(row["Id"].ToString()));
-            if (eSupplier == null)
+            S_ProjectAndSupplier eProjectAndSupplier = ProjectAndSupplierService.GetByKey(Guid.Parse(row["Id"].ToString()));
+            if (eProjectAndSupplier == null)
             {
                 resultJson = resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出警告提示框不关闭窗体, "该条记录不存在！");
                 return Content(resultJson);
             }
-            String supplierName = row["SupplierName"].ToString().Trim();
-            //eSupplier.SupplierName = row["SupplierName"].ToString().Trim();
-            if (!eSupplier.SupplierName.Equals(supplierName))
-            {
-                List<S_Supplier> listSupplier = supplierService.GetWhereData(u => u.SupplierName.Equals(supplierName)).ToList();
-                if (listSupplier.Count > 0)
-                {
-                    resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出警告提示框不关闭窗体, "该公司名称已经存在！");
-                    return Content(resultJson);
-                }
-            }
-            eSupplier.SupplierName = supplierName;
-            eSupplier.CorporationName= row["CorporationName"].ToString().Trim();
-            eSupplier.CorporationMobile= row["CorporationMobile"].ToString().Trim();
-            eSupplier.ContactName = row["ContactName"].ToString().Trim();
-            eSupplier.ContactMobile = row["ContactMobile"].ToString().Trim();
-            eSupplier.Address = row["Address"].ToString().Trim();
-            eSupplier.Remark = row["Remark"].ToString().Trim();
-            eSupplier.Type = int.Parse(row["Type"].ToString());
+            //String ProjectAndSupplierName = row["ProjectAndSupplierName"].ToString().Trim();
+            //eProjectAndSupplier.ProjectAndSupplierName = row["ProjectAndSupplierName"].ToString().Trim();\
 
-            int num = supplierService.Update(eSupplier);
+            eProjectAndSupplier.ProjectNum = int.Parse(row["Project"].ToString().Trim());
+            eProjectAndSupplier.SupplierNum = int.Parse(row["Supplier"].ToString().Trim());
+            //eProjectAndSupplier.ProjectAndSupplierName = ProjectAndSupplierName;
+            //string[] arrClient = row["Client"].ToString().Split(':');
+            //eSupplier.Type = int.Parse(arrType[0]);
+            //eProjectAndSupplier.ClientId = int.Parse(arrClient[0]);
+            //eProjectAndSupplier.ClientId = int.Parse(row["Client"].ToString().Trim());
+            //eProjectAndSupplier.ContractAmout = Convert.ToDecimal(row["ContractAmout"].ToString().Trim());
+            //eProjectAndSupplier.SettlementBase = Convert.ToDecimal(row["SettlementBase"].ToString().Trim());
+            //eProjectAndSupplier.Status = int.Parse(row["Status"].ToString().Trim());
+            //eProjectAndSupplier.Remark = row["Remark"].ToString().Trim();
+
+            int num = ProjectAndSupplierService.Update(eProjectAndSupplier);
             if (num > 0)
             {
                 resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出OK提示框关闭窗体, "修改成功！");
@@ -259,9 +243,9 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             return Content(resultJson);
         }
 
-        public ActionResult DeleteSupplier(Guid supplierId)
+        public ActionResult DeleteProjectAndSupplier(Guid ProjectAndSupplierId)
         {
-            int num = supplierService.Delete(supplierId);
+            int num = ProjectAndSupplierService.Delete(ProjectAndSupplierId);
             string resultJson = "";
             if (num > 0)
             {

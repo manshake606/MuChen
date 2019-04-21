@@ -87,6 +87,9 @@ namespace kfxms.Web.Areas.SysBasic.Controllers
             eRole.Id = Guid.NewGuid();
             eRole.RoleName = row["RoleName"].ToString().Trim();
             eRole.Remark = row["Remark"].ToString().Trim();
+            eRole.AddTime = DateTime.Now;
+            eRole.AddUserId = base.LoginUser.Id;
+            eRole.AddName = base.LoginUser.Name;
             int num = roleService.Add(eRole);
             if (num > 0)
             {
