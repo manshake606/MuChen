@@ -47,6 +47,19 @@ namespace kfxms.Web.Areas.SysBasic.Controllers
 
         }
 
+        public ActionResult GetAllData()
+        {
+            //string resultJson = "";
+            //Hashtable row = (Hashtable)JsonHelp.Decode(data);
+            Sys_User eUser = new Sys_User();
+            List<Sys_User> listUser = userService.GetAllData().ToList();
+            Hashtable ht = new Hashtable();
+            //ht.Add("total", total);
+            ht.Add("data", listUser);
+            string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            return Content(json);
+        }
+
         public ActionResult GetPageData(int pageSize, int pageIndex)
         {
 

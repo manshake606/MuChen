@@ -53,6 +53,31 @@ namespace kfxms.Entity.Project
         /// </summary>
         public string Remark { get; set; }
 
+        /// <summary>
+        /// 设计主管
+        /// </summary>
+        public int? CoreDesigner { get; set; }
+
+        /// <summary>
+        /// 设计助理
+        /// </summary>
+        public int? AssistantDesigner { get; set; }
+
+        /// <summary>
+        /// 业务主管
+        /// </summary>
+        public int? BusinessManager { get; set; }
+
+        /// <summary>
+        /// 业务助理
+        /// </summary>
+        public int? BusinessAssistant { get; set; }
+
+        /// <summary>
+        /// 项目经理
+        /// </summary>
+        public int? ProjectManager { get; set; }
+
     }
 }
 

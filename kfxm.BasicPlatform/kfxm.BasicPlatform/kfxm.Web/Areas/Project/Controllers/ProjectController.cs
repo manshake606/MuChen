@@ -191,6 +191,11 @@ namespace kfxms.Web.Areas.Project.Controllers
             //string[] arrClient = row["Client"].ToString().Split(':');
             //eSupplier.Type = int.Parse(arrType[0]);
             eProject.ClientId = int.Parse(row["Client"].ToString());
+            eProject.CoreDesigner= int.Parse(row["CoreDesigner"].ToString());
+            eProject.AssistantDesigner= int.Parse(row["AssistantDesigner"].ToString());
+            eProject.BusinessManager = int.Parse(row["BusinessManager"].ToString());
+            eProject.BusinessAssistant = int.Parse(row["BusinessAssistant"].ToString());
+            eProject.ProjectManager = int.Parse(row["ProjectManager"].ToString());
             eProject.ContractAmout = Convert.ToDecimal(row["ContractAmout"].ToString().Trim());
             eProject.SettlementBase = Convert.ToDecimal(row["SettlementBase"].ToString().Trim());
             eProject.Status = 1;
@@ -241,6 +246,11 @@ namespace kfxms.Web.Areas.Project.Controllers
             //eSupplier.Type = int.Parse(arrType[0]);
             //eProject.ClientId = int.Parse(arrClient[0]);
             eProject.ClientId = int.Parse(row["Client"].ToString().Trim());
+            eProject.CoreDesigner = int.Parse(row["CoreDesigner"].ToString());
+            eProject.AssistantDesigner = int.Parse(row["AssistantDesigner"].ToString());
+            eProject.BusinessManager = int.Parse(row["BusinessManager"].ToString());
+            eProject.BusinessAssistant = int.Parse(row["BusinessAssistant"].ToString());
+            eProject.ProjectManager = int.Parse(row["ProjectManager"].ToString());
             eProject.ContractAmout = Convert.ToDecimal(row["ContractAmout"].ToString().Trim());
             eProject.SettlementBase = Convert.ToDecimal(row["SettlementBase"].ToString().Trim());
             eProject.Status = int.Parse(row["Status"].ToString().Trim());

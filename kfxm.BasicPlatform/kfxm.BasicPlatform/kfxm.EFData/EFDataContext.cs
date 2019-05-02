@@ -58,6 +58,10 @@ namespace kfxms.EFData
 
         public DbSet<kfxms.Entity.Payment.S_PublicRelations> PublicRelations { get; set; }
 
+        public DbSet<kfxms.Entity.Payment.S_InternalPayment> InternalPayment { get; set; }
+
         public DbSet<kfxms.Entity.Project.S_ProjectAndSupplier> ProjectAndSupplier { get; set; }
+
+        public DbSet<kfxms.Entity.Invoice.S_Invoice> Invoice { get; set; }
     }
 }

@@ -46,10 +46,14 @@
   <ItemGroup>
     <Compile Include="Client\S_Client.cs" />
     <Compile Include="HBEntity.cs" />
+    <Compile Include="Payment\S_InternalPaymentDetail.cs" />
+    <Compile Include="Payment\S_InternalPayment.cs" />
     <Compile Include="Payment\S_PublicRelationsDetail.cs" />
     <Compile Include="Payment\S_PublicRelations.cs" />
     <Compile Include="Project\S_ProjectAndSupplierDetail.cs" />
     <Compile Include="Project\S_ProjectAndSupplier.cs" />
+    <Compile Include="Invoice\S_Invoice.cs" />
+    <Compile Include="Invoice\S_InvoiceDetail.cs" />
     <Compile Include="Revenue\S_RevenueDetail.cs" />
     <Compile Include="Revenue\S_Revenue.cs" />
     <Compile Include="Project\S_ProjectInfo.cs" />

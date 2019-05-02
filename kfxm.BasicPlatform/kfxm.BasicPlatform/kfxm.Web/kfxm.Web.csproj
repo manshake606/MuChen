@@ -143,9 +143,12 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Payment\Controllers\InternalPaymentController.cs" />
     <Compile Include="Areas\Payment\PaymentAreaRegistration.cs" />
     <Compile Include="Areas\Payment\Controllers\PublicRelationsController.cs" />
     <Compile Include="Areas\Project\Controllers\ProjectAndSupplierController.cs" />
+    <Compile Include="Areas\Invoice\Controllers\InvoiceController.cs" />
+    <Compile Include="Areas\Invoice\InvoiceAreaRegistration.cs" />
     <Compile Include="Areas\Revenue\RevenueAreaRegistration.cs" />
     <Compile Include="Areas\Revenue\Controllers\RevenueController.cs" />
     <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
@@ -378,6 +381,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Client\Models\" />
     <Folder Include="Areas\Client\Views\Shared\" />
+    <Folder Include="Areas\Invoice\Models\" />
+    <Folder Include="Areas\Invoice\Views\Shared\" />
     <Folder Include="Areas\Key\Models\" />
     <Folder Include="Areas\Key\Views\Shared\" />
     <Folder Include="Areas\Payment\Models\" />
@@ -575,6 +580,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Project\Views\ProjectAndSupplier\ProjectAndSupplierList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Invoice\Views\Invoice\InvoiceAdd.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Invoice\Views\Invoice\InvoiceEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Invoice\Views\Invoice\InvoiceList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Invoice\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Payment\Views\InternalPayment\InternalPaymentAdd.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Payment\Views\InternalPayment\InternalPaymentEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Payment\Views\InternalPayment\InternalPaymentList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
