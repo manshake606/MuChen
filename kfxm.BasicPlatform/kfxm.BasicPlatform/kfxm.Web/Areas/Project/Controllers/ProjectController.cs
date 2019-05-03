@@ -13,6 +13,12 @@ using kfxms.Entity.Project;
 using kfxms.IService.Project;
 using kfxms.Entity.Client;
 using kfxms.IService.Client;
+using kfxms.Entity.Invoice;
+using kfxms.IService.Invoice;
+using kfxms.Entity.Revenue;
+using kfxms.IService.Revenue;
+using kfxms.Entity.Payment;
+using kfxms.IService.Payment;
 
 namespace kfxms.Web.Areas.Project.Controllers
 {
@@ -32,7 +38,28 @@ namespace kfxms.Web.Areas.Project.Controllers
         public IS_ProjectService projectService { get; set; }
 
         [Import]
+        //public new  InvoiceService { get; set; }
+        public IS_InvoiceService InvoiceService { get; set; }
+
+        [Import]
+        //public new  RevenueService { get; set; }
+        public IS_RevenueService RevenueService { get; set; }
+
+        [Import]
+        //public new  ExternalPaymentService { get; set; }
+        public IS_ExternalPaymentService ExternalPaymentService { get; set; }
+
+        [Import]
+        //public new  InternalPaymentService { get; set; }
+        public IS_InternalPaymentService InternalPaymentService { get; set; }
+
+        [Import]
+        //public new  publicRelationsService { get; set; }
+        public IS_PublicRelationsService publicRelationsService { get; set; }
+
+        [Import]
         public ISys_UserAndRoleService userAndRoleService { get; set; }
+
         [Import]
         public ISys_RoleService roleService { get; set; }
 
@@ -115,6 +142,73 @@ namespace kfxms.Web.Areas.Project.Controllers
                         s_ProjectInfo.ClientContactPosition= clientItem.ClientContactPosition;
                     }
                 }
+
+                //Sum Invoice
+                List<S_Invoice> listInvoice = InvoiceService.GetWhereData(u => u.ProjectNum==s_ProjectInfo.Num).ToList();
+                decimal SumInvoice = 0;
+                if (listInvoice.Count > 0)
+                {
+                    foreach(S_Invoice Invoice in listInvoice)
+                    {
+                        SumInvoice += Invoice.InvoiceAmout;
+                    }
+                }
+
+                //Sum Revenue
+                List<S_Revenue> listRevenue = RevenueService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+                decimal SumRevenue = 0;
+                if (listRevenue.Count > 0)
+                {
+                    foreach (S_Revenue Revenue in listRevenue)
+                    {
+                        SumRevenue += Revenue.RevenueAmout;
+                    }
+                }
+
+                //Sum ExternalPayment
+                List<S_ExternalPayment> listExternalPayment = ExternalPaymentService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+                decimal SumExternalPayment = 0;
+                if (listExternalPayment.Count > 0)
+                {
+                    foreach (S_ExternalPayment ExternalPayment in listExternalPayment)
+                    {
+                        SumExternalPayment += ExternalPayment.ExternalPaymentAmout;
+                    }
+                }
+
+                //Sum InternalPayment
+                List<S_InternalPayment> listInternalPayment = InternalPaymentService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+                decimal SumInternalPayment = 0;
+                if (listInternalPayment.Count > 0)
+                {
+                    foreach (S_InternalPayment InternalPayment in listInternalPayment)
+                    {
+                        SumInternalPayment += InternalPayment.InternalPaymentAmout;
+                    }
+                }
+
+                //Sum publicRelations
+                List<S_PublicRelations> listPublicRelations = publicRelationsService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+                decimal SumPublicRelations = 0;
+                if (listPublicRelations.Count > 0)
+                {
+                    foreach (S_PublicRelations PublicRelations in listPublicRelations)
+                    {
+                        SumPublicRelations += PublicRelations.PRAmout;
+                    }
+                }
+
+                decimal SumPayment = SumExternalPayment + SumInternalPayment + SumPublicRelations;
+
+
+                s_ProjectInfo.SumInvoice = SumInvoice;
+                s_ProjectInfo.SumRevenue = SumRevenue;
+                s_ProjectInfo.SumInternalPayment = SumInternalPayment;
+                s_ProjectInfo.SumExternalPayment = SumExternalPayment;
+                s_ProjectInfo.SumPublicRelations = SumPublicRelations;
+                s_ProjectInfo.SumPayment = SumPayment;
+                s_ProjectInfo.RevenueRate = (SumRevenue / item.ContractAmout *100).ToString("0.00")+"%";
+
                 listProjectInfo.Add(s_ProjectInfo);
             }
             /*

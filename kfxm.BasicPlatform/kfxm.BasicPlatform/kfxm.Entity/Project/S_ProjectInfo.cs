@@ -44,6 +44,42 @@ namespace kfxms.Entity.Project
         public decimal SettlementBase { get; set; }
 
         /// <summary>
+        /// 收款比例
+        /// </summary>
+        public string RevenueRate { get; set; }
+
+        /// <summary>
+        /// 总收款额
+        /// </summary>
+        public decimal SumRevenue { get; set; }
+
+
+        /// <summary>
+        /// 总内部付款额
+        /// </summary>
+        public decimal SumInternalPayment { get; set; }
+
+        /// <summary>
+        /// 总外部付款额
+        /// </summary>
+        public decimal SumExternalPayment { get; set; }
+
+        /// <summary>
+        /// 总公关费用
+        /// </summary>
+        public decimal SumPublicRelations { get; set; }
+
+        /// <summary>
+        /// 总开票额
+        /// </summary>
+        public decimal SumInvoice { get; set; }
+
+        /// <summary>
+        /// 总付款额
+        /// </summary>
+        public decimal SumPayment { get; set; }
+
+        /// <summary>
         /// 项目状态
         /// </summary>
         public int? Status { get; set; }
