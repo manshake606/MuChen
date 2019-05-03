@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="Client\S_Client.cs" />
     <Compile Include="HBEntity.cs" />
+    <Compile Include="Payment\S_ExternalPayment.cs" />
+    <Compile Include="Payment\S_ExternalPaymentDetail.cs" />
     <Compile Include="Payment\S_InternalPaymentDetail.cs" />
     <Compile Include="Payment\S_InternalPayment.cs" />
     <Compile Include="Payment\S_PublicRelationsDetail.cs" />

@@ -6,7 +6,7 @@
     <META HTTP-EQUIV="pragma" CONTENT="no-cache">
     <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
     <META HTTP-EQUIV="expires" CONTENT="0">
-    <title>内部付款添加</title>
+    <title>外部付款添加</title>
     <link href="/css/hbes.grid.css" rel="stylesheet" />
     <link href="/css/hbes.reset.css" rel="stylesheet" />
     <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
@@ -35,34 +35,34 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="ft_label">内部付款人：
+                    <td class="ft_label">外部付款供应商：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="InternalPaymentUser" name="InternalPaymentUser" class="layui-select"></select>
+                        <select id="ExternalPaymentSupplier" name="ExternalPaymentSupplier" class="layui-select"></select>
                     </td>
                 </tr>
                 <tr>
                     <td class="ft_label">
-                        内部付款明细：
+                        外部付款明细：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="InternalPaymentContent" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" name="ExternalPaymentContent" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
                     <td class="ft_label">
-                        内部付款金额：
+                        外部付款金额：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="InternalPaymentAmout" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" name="ExternalPaymentAmout" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
                     <td class="ft_label">
-                        内部付款时间：
+                        外部付款时间：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" id="InternalPaymentTime" name="InternalPaymentTime" class="hbes-input" style="width: 95%;" vtype="required:false;rangeLength:0,50;" />
+                        <input type="text" id="ExternalPaymentTime" name="ExternalPaymentTime" class="hbes-input" style="width: 95%;" vtype="required:false;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <!--<tr>
@@ -194,10 +194,10 @@
                 var form = layui.form;
                 var laydate = layui.laydate;
                 getDataList();
-                getUserDataList();
+                getSupplierDataList();
                 form.render('select'); //刷新select选择框渲染
                 laydate.render({
-                    elem: '#InternalPaymentTime' //指定元素
+                    elem: '#ExternalPaymentTime' //指定元素
                 });
             });
         });
@@ -222,20 +222,20 @@
         }
 
 
-        function getUserDataList() {
+        function getSupplierDataList() {
             // 请求
             $.ajax({
                 type: 'get',
-                url: "/SysBasic/User/GetAllData",
+                url: "/Supplier/Supplier/GetAllData",
                 success: function (response) {
                     var data = strToJson(response);
                     data = strToJson(data["ResultData"])["data"];
-                    $('#InternalPaymentUser').empty();
+                    $('#ExternalPaymentSupplier').empty();
                     var html = '';
                     for (var i = 0; i < data.length; i++) {
-                        html += '<option value=' + data[i].Num + '>' + data[i].UserName + '</option>';
+                        html += '<option value=' + data[i].Num + '>' + data[i].SupplierName + '</option>';
                     }
-                    $('#InternalPaymentUser').append(html);
+                    $('#ExternalPaymentSupplier').append(html);
 
                 }
             })
@@ -255,7 +255,7 @@
             }
             var postData = { data: getFormMap("formData") };
 
-            submitData("/Payment/InternalPayment/AddInternalPayment", postData);
+            submitData("/Payment/ExternalPayment/AddExternalPayment", postData);
         }
     </script>
 </body>

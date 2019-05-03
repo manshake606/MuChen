@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImpService\Payment\ImpS_ExternalPaymentService.cs" />
     <Compile Include="ImpService\Payment\ImpS_InternalPaymentService.cs" />
     <Compile Include="ImpService\Payment\ImpS_PublicRelationsService.cs" />
     <Compile Include="ImpService\Project\ImpS_ProjectAndSupplierService.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="ImpService\SysBaisc\ImpSys_UserAndRoleService.cs" />
     <Compile Include="ImpService\SysBaisc\ImpSys_MenuService.cs" />
     <Compile Include="ImpService\SysBaisc\ImpSys_MenuAuthorityService.cs" />
+    <Compile Include="IService\Payment\IS_ExternalPaymentService.cs" />
     <Compile Include="IService\Payment\IS_InternalPaymentService.cs" />
     <Compile Include="IService\Payment\IS_PublicRelationsService.cs" />
     <Compile Include="IService\Project\IS_ProjectAndSupplierService.cs" />
