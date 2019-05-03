@@ -67,12 +67,13 @@ namespace kfxms.Web.Areas.Invoice.Controllers
 
             //条件
             Expression<Func<S_Invoice, bool>> expre = u => true;
-
-            if (Request.Form["remark"] != null && !string.IsNullOrEmpty(Request.Form["remark"]))
+            /*
+            if (Request.Form["projectName"] != null && !string.IsNullOrEmpty(Request.Form["projectName"]))
             {
-                string remark = Request.Form["remark"].Trim();
+                string remark = Request.Form["projectName"].Trim();
                 expre = expre.And(u => u.Remark.Contains(remark));
             }
+            */
             
 
 
@@ -104,6 +105,15 @@ namespace kfxms.Web.Areas.Invoice.Controllers
                 }
                 listDetail.Add(s_InvoiceDetail);
             }
+
+            //Expression<Func<S_InvoiceDetail, bool>> exp = u => true;
+            if (Request.Form["projectName"] != null && !string.IsNullOrEmpty(Request.Form["projectName"]))
+            {
+                listDetail = listDetail.Where(u => u.ProjectName.Contains(Request.Form["projectName"])).ToList();
+            }
+
+
+            
 
 
 

@@ -110,6 +110,13 @@ namespace kfxms.Web.Areas.Project.Controllers
                 listProjectAndSupplierDetail.Add(s_ProjectAndSupplierDetail);
             }
 
+            if (Request.Form["projectName"] != null && !string.IsNullOrEmpty(Request.Form["projectName"]))
+            {
+                listProjectAndSupplierDetail = listProjectAndSupplierDetail.Where(u => u.ProjectName.Contains((Request.Form["projectName"]))).ToList();
+            }
+            
+
+
             /*
             var s_Task = new S_Task()
             {

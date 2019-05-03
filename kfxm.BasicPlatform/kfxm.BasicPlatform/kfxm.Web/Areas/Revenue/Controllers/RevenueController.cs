@@ -68,11 +68,11 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             //条件
             Expression<Func<S_Revenue, bool>> expre = u => true;
 
-            if (Request.Form["remark"] != null && !string.IsNullOrEmpty(Request.Form["remark"]))
-            {
-                string remark = Request.Form["remark"].Trim();
-                expre = expre.And(u => u.Remark.Contains(remark));
-            }
+            //if (Request.Form["remark"] != null && !string.IsNullOrEmpty(Request.Form["remark"]))
+            //{
+            //    string remark = Request.Form["remark"].Trim();
+            //    expre = expre.And(u => u.Remark.Contains(remark));
+            //}
             
 
 
@@ -103,6 +103,11 @@ namespace kfxms.Web.Areas.Revenue.Controllers
                     }
                 }
                 listDetail.Add(s_RevenueDetail);
+            }
+
+            if (Request.Form["projectName"] != null && !string.IsNullOrEmpty(Request.Form["projectName"]))
+            {
+                listDetail=listDetail.Where(u => u.ProjectName.Contains(Request.Form["projectName"])).ToList();
             }
 
 
