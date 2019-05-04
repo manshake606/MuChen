@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="page-content">
-        <form id="formData">
+        <form id="formData" class="layui-form">
             <table style="width: 100%;" class="formtable">
                 <colgroup>
                     <col width="15%" />
@@ -31,7 +31,7 @@
                         项目：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="Project" name="Project" class="layui-select"></select>
+                        <select id="Project" name="Project" lay-search="" class="layui-select"></select>
                     </td>
                 </tr>
                 <tr>
@@ -39,7 +39,7 @@
                         供应商：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="Supplier" name="Supplier" class="layui-select"></select>
+                        <select id="Supplier" name="Supplier" lay-search="" class="layui-select"></select>
                     </td>
                 </tr>
                 <!--<tr>
@@ -181,7 +181,7 @@
                         html += '<option value=' + data[i].Num + '>' + data[i].ProjectName + '</option>';
                     }
                     $('#Project').append(html);
-
+                    layui.form.render();
                 }
             })
         }
@@ -200,7 +200,7 @@
                         html += '<option value=' + data[i].Num + '>' + data[i].SupplierName + '</option>';
                     }
                     $('#Supplier').append(html);
-
+                    layui.form.render();
                 }
             })
         }

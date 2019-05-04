@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="page-content">
-        <form id="formData">
+        <form id="formData" class="layui-form">
             <table style="width: 100%;" class="formtable">
                 <colgroup>
                     <col width="15%" />
@@ -30,14 +30,14 @@
                     <td class="ft_label">项目名称：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="ProjectName" class="hbes-input" style="width: 150px;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" name="ProjectName" class="hbes-input" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
                     <td class="ft_label">合同金额：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="ContractAmout" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" name="ContractAmout" class="hbes-input" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
@@ -45,7 +45,7 @@
                         结账基数：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="SettlementBase" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" name="SettlementBase" class="hbes-input" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
@@ -53,7 +53,7 @@
                         客户：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="Client" name="Client" class="layui-select"></select>
+                        <select id="Client" name="Client"  class="layui-select"></select>
                     </td>
                 </tr>
                 <tr>
@@ -69,7 +69,7 @@
                         设计助理：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="AssistantDesigner" name="AssistantDesigner" class="layui-select"></select>
+                        <select id="AssistantDesigner" name="AssistantDesigner"  class="layui-select"></select>
                     </td>
                 </tr>
                 <tr>
@@ -77,7 +77,7 @@
                         业务经理：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="BusinessManager" name="BusinessManager" class="layui-select"></select>
+                        <select id="BusinessManager" name="BusinessManager"  class="layui-select"></select>
                     </td>
                 </tr>
                 <tr>
@@ -85,7 +85,7 @@
                         业务助理：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="BusinessAssistant" name="BusinessAssistant" class="layui-select"></select>
+                        <select id="BusinessAssistant" name="BusinessAssistant"  class="layui-select"></select>
                     </td>
                 </tr>
                 <tr>
@@ -101,7 +101,7 @@
                         备注：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="Remark" class="hbes-input" style="width: 95%;" vtype="required:false;rangeLength:0,50;" />
+                        <input type="text" name="Remark" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
                     </td>
                 </tr>
 
@@ -129,7 +129,7 @@
                         html += '<option value=' + data[i].Num + '>' + data[i].ClientName + '</option>';
                     }
                     $('#Client').append(html);
-
+                    layui.form.render();
                 }
             })
         }
@@ -161,7 +161,7 @@
                     $('#BusinessManager').append(html);
                     $('#BusinessAssistant').append(html);
                     $('#ProjectManager').append(html);
-
+                    layui.form.render();
                 }
             })
         }

@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="page-content">
-        <form id="formData">
+        <form id="formData" class="layui-form">
             <table style="width: 100%;" class="formtable">
                 <colgroup>
                     <col width="15%" />
@@ -31,14 +31,14 @@
                         项目名称：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="Project" name="Project" class="layui-select"></select>
+                        <select id="Project" name="Project" lay-search="" class="layui-select"></select>
                     </td>
                 </tr>
                 <tr>
                     <td class="ft_label">内部付款人：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="InternalPaymentUser" name="InternalPaymentUser" class="layui-select"></select>
+                        <select id="InternalPaymentUser" lay-search="" name="InternalPaymentUser" class="layui-select"></select>
                     </td>
                 </tr>
                 <tr>
@@ -46,7 +46,7 @@
                         内部付款明细：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="InternalPaymentContent" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" name="InternalPaymentContent" class="hbes-input" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
@@ -54,7 +54,7 @@
                         内部付款金额：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="InternalPaymentAmout" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" name="InternalPaymentAmout" class="hbes-input" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
@@ -62,7 +62,7 @@
                         内部付款时间：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" id="InternalPaymentTime" name="InternalPaymentTime" class="hbes-input" style="width: 95%;" vtype="required:false;rangeLength:0,50;" />
+                        <input type="text" id="InternalPaymentTime" name="InternalPaymentTime" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <!--<tr>
@@ -216,6 +216,7 @@
                         html += '<option value=' + data[i].Num + '>' + data[i].ProjectName + '</option>';
                     }
                     $('#Project').append(html);
+                    layui.form.render();
 
                 }
             })
@@ -236,7 +237,7 @@
                         html += '<option value=' + data[i].Num + '>' + data[i].UserName + '</option>';
                     }
                     $('#InternalPaymentUser').append(html);
-
+                    layui.form.render();
                 }
             })
         }

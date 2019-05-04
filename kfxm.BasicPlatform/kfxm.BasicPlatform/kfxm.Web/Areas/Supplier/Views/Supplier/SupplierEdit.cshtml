@@ -16,7 +16,7 @@
 </head>
 <body>
     <div id="page-content" class="page-content">
-         <form id="formData">
+         <form id="formData" class="layui-form">
               <input type="hidden" class="hbes-input" name="Id" value="@Model.Id" />
                 <table  class="formtable" >
                             <colgroup>
@@ -27,37 +27,37 @@
               <tr>    
                 <td class="ft_label">公司名称</td>
                 <td class="ft_control">
-                     <input type="text" name="SupplierName" value="@Model.SupplierName" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" />
+                     <input type="text" name="SupplierName" value="@Model.SupplierName" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" />
                 </td>
              </tr>
              <tr>
                  <td class="ft_label">法人姓名</td>
-                 <td class="ft_control"><input type="text"  value="@Model.CorporationName" name="CorporationName" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+                 <td class="ft_control"><input type="text"  value="@Model.CorporationName" name="CorporationName" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
              </tr>
             <tr>
                 <td class="ft_label">法人电话</td>
-                <td class="ft_control"><input type="text" value="@Model.CorporationMobile" name="CorporationMobile" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+                <td class="ft_control"><input type="text" value="@Model.CorporationMobile" name="CorporationMobile" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
             </tr>
             <tr>
                 <td class="ft_label">联系人姓名</td>
-                <td class="ft_control"><input type="text" value="@Model.ContactName" name="ContactName" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+                <td class="ft_control"><input type="text" value="@Model.ContactName" name="ContactName" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
             </tr>
             <tr>
                 <td class="ft_label">联系人电话</td>
-                <td class="ft_control"><input type="text" value="@Model.ContactMobile" name="ContactMobile" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+                <td class="ft_control"><input type="text" value="@Model.ContactMobile" name="ContactMobile" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
             </tr>
             <tr>
                 <td class="ft_label">地址</td>
-                <td class="ft_control"><input type="text" value="@Model.Address" name="Address" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+                <td class="ft_control"><input type="text" value="@Model.Address" name="Address" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
             </tr>
             <tr>
                 <td class="ft_label">备注</td>
-                <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+                <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
             </tr>
             <tr>
                 <td class="ft_label">供应商类别</td>
                 <td class="ft_control">
-                    <select id="Type" name="Type" class="layui-select " lay-verify="required" >
+                    <select id="Type" name="Type" class="layui-select " lay-search="" lay-verify="required" >
                         
                     </select>
                 </td>
@@ -112,7 +112,7 @@
                         }
                     }
                     $('#Type').append(html);
-
+                    layui.form.render();
                 }
             })
         }

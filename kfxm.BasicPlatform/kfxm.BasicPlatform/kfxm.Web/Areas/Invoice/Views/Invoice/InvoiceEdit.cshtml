@@ -16,7 +16,7 @@
 </head>
 <body>
     <div id="page-content" class="page-content">
-         <form id="formData">
+         <form id="formData" class="layui-form">
               <input type="hidden" class="hbes-input" name="Id" value="@Model.Id" />
                 <table  class="formtable" >
                             <colgroup>
@@ -27,15 +27,15 @@
               
              <tr>
                  <td class="ft_label">开票金额</td>
-                 <td class="ft_control"><input type="text"  value="@Model.InvoiceAmout" name="InvoiceAmout" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+                 <td class="ft_control"><input type="text"  value="@Model.InvoiceAmout" name="InvoiceAmout" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
              </tr>
             <tr>
                 <td class="ft_label">开票日期</td>
-                <td class="ft_control"><input type="text" id="InvoiceTime" value="@Model.InvoiceTime" name="InvoiceTime" class="hbes-input" style="width:95%;" readonly="readonly" vtype="required:true;rangeLength:0,50;" /></td>
+                <td class="ft_control"><input type="text" id="InvoiceTime" value="@Model.InvoiceTime" name="InvoiceTime" class="hbes-input" style="width:99%;" readonly="readonly" vtype="required:true;rangeLength:0,50;" /></td>
             </tr>
             <tr>
                 <td class="ft_label">备注</td>
-                <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+                <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
             </tr>
             
             
@@ -96,7 +96,7 @@
                         }
                     }
                     $('#Client').append(html);
-
+                    layui.form.render();
                 }
             })
         }

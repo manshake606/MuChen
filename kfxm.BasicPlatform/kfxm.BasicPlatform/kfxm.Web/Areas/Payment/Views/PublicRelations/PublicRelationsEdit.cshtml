@@ -16,7 +16,7 @@
 </head>
 <body>
     <div id="page-content" class="page-content">
-         <form id="formData">
+         <form id="formData" class="layui-form">
               <input type="hidden" class="hbes-input" name="Id" value="@Model.Id" />
                 <table  class="formtable" >
                             <colgroup>
@@ -27,28 +27,28 @@
                     <tr>
                         <td class="ft_label">项目</td>
                         <td class="ft_control">
-                            <select id="Project" name="Project" class="layui-select " lay-verify="required"></select>
+                            <select id="Project" name="Project" lay-search="" class="layui-select " lay-verify="required"></select>
                         </td>
                     </tr>
                     <tr>
                         <td class="ft_label">公关联系人</td>
-                        <td class="ft_control"><input type="text" value="@Model.PRContact" name="PRContact" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+                        <td class="ft_control"><input type="text" value="@Model.PRContact" name="PRContact" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
                     </tr>
                     <tr>
                         <td class="ft_label">公关联系人手机</td>
-                        <td class="ft_control"><input type="text" id="PRContactPhone" value="@Model.PRContactPhone" name="PRContactPhone" class="hbes-input" style="width:95%;" readonly="readonly" vtype="required:true;rangeLength:0,50;" /></td>
+                        <td class="ft_control"><input type="text" id="PRContactPhone" value="@Model.PRContactPhone" name="PRContactPhone" class="hbes-input" style="width:99%;" readonly="readonly" vtype="required:true;rangeLength:0,50;" /></td>
                     </tr>
                     <tr>
                         <td class="ft_label">公关明细</td>
-                        <td class="ft_control"><input type="text" value="@Model.PRContent" name="PRContent" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+                        <td class="ft_control"><input type="text" value="@Model.PRContent" name="PRContent" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
                     </tr>
                     <tr>
                         <td class="ft_label">公关日期</td>
-                        <td class="ft_control"><input type="text" id="PRTime" value="@Model.PRTime" name="PRTime" class="hbes-input" style="width:95%;" readonly="readonly" vtype="required:false;rangeLength:0,50;" /></td>
+                        <td class="ft_control"><input type="text" id="PRTime" value="@Model.PRTime" name="PRTime" class="hbes-input" style="width:99%;" readonly="readonly" vtype="required:false;rangeLength:0,50;" /></td>
                     </tr>
                     <tr>
                         <td class="ft_label">公关费用</td>
-                        <td class="ft_control"><input type="text" value="@Model.PRAmout" name="PRAmout" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+                        <td class="ft_control"><input type="text" value="@Model.PRAmout" name="PRAmout" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
                     </tr>
              
             
@@ -95,7 +95,7 @@
                         }
                     }
                     $('#Project').append(html);
-
+                    layui.form.render();
                 }
             })
         }

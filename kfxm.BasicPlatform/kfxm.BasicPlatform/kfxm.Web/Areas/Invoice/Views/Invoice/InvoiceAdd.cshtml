@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="page-content">
-        <form id="formData">
+        <form id="formData" class="layui-form">
             <table style="width: 100%;" class="formtable">
                 <colgroup>
                     <col width="15%" />
@@ -31,14 +31,16 @@
                         项目名称：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="Project" name="Project" class="layui-select"></select>
+
+                            <select id="Project" name="Project" class="layui-select" lay-search=""></select>
+
                     </td>
                 </tr>
                 <tr>
                     <td class="ft_label">开票金额：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="InvoiceAmout" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" name="InvoiceAmout" class="hbes-input" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
@@ -46,7 +48,7 @@
                         开票日期：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" id="InvoiceTime" name="InvoiceTime" class="hbes-input" style="width: 95%;" vtype="required:false;rangeLength:0,50;" />
+                        <input type="text" id="InvoiceTime" name="InvoiceTime" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
@@ -54,7 +56,7 @@
                         备注：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="Remark" class="hbes-input" style="width: 95%;" vtype="required:false;rangeLength:0,50;" />
+                        <input type="text" name="Remark" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <!--<tr>
@@ -211,7 +213,7 @@
                         html += '<option value=' + data[i].Num + '>' + data[i].ProjectName + '</option>';
                     }
                     $('#Project').append(html);
-
+                    layui.form.render();
                 }
             })
         }

@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="page-content">
-        <form id="formData">
+        <form id="formData" class="layui-form">
             <table style="width: 100%;" class="formtable">
                 <colgroup>
                     <col width="15%" />
@@ -31,14 +31,14 @@
                         项目名称：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="Project" name="Project" class="layui-select"></select>
+                        <select id="Project" name="Project" lay-search="" class="layui-select"></select>
                     </td>
                 </tr>
                 <tr>
                     <td class="ft_label">外部付款供应商：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="ExternalPaymentSupplier" name="ExternalPaymentSupplier" class="layui-select"></select>
+                        <select id="ExternalPaymentSupplier" lay-search=""  name="ExternalPaymentSupplier" class="layui-select"></select>
                     </td>
                 </tr>
                 <tr>
@@ -46,7 +46,7 @@
                         外部付款明细：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="ExternalPaymentContent" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" name="ExternalPaymentContent" class="hbes-input" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
@@ -54,7 +54,7 @@
                         外部付款金额：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="ExternalPaymentAmout" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" name="ExternalPaymentAmout" class="hbes-input" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
@@ -62,7 +62,7 @@
                         外部付款时间：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" id="ExternalPaymentTime" name="ExternalPaymentTime" class="hbes-input" style="width: 95%;" vtype="required:false;rangeLength:0,50;" />
+                        <input type="text" id="ExternalPaymentTime" name="ExternalPaymentTime" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <!--<tr>
@@ -216,6 +216,7 @@
                         html += '<option value=' + data[i].Num + '>' + data[i].ProjectName + '</option>';
                     }
                     $('#Project').append(html);
+                    layui.form.render();
 
                 }
             })
@@ -236,7 +237,7 @@
                         html += '<option value=' + data[i].Num + '>' + data[i].SupplierName + '</option>';
                     }
                     $('#ExternalPaymentSupplier').append(html);
-
+                    layui.form.render();
                 }
             })
         }

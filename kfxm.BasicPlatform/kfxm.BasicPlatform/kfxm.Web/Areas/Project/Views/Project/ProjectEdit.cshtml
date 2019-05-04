@@ -16,7 +16,7 @@
 </head>
 <body>
     <div id="page-content" class="page-content">
-         <form id="formData">
+         <form id="formData" class="layui-form">
               <input type="hidden" class="hbes-input" name="Id" value="@Model.Id" />
                 <table  class="formtable" >
                             <colgroup>
@@ -27,22 +27,22 @@
               <tr>    
                 <td class="ft_label">项目名称</td>
                 <td class="ft_control">
-                     <input type="text" name="ProjectName" value="@Model.ProjectName" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" />
+                     <input type="text" name="ProjectName" value="@Model.ProjectName" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" />
                 </td>
              </tr>
              <tr>
                  <td class="ft_label">合同金额</td>
-                 <td class="ft_control"><input type="text"  value="@Model.ContractAmout" name="ContractAmout" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+                 <td class="ft_control"><input type="text"  value="@Model.ContractAmout" name="ContractAmout" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
              </tr>
             <tr>
                 <td class="ft_label">结账基数</td>
-                <td class="ft_control"><input type="text" value="@Model.SettlementBase" name="SettlementBase" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+                <td class="ft_control"><input type="text" value="@Model.SettlementBase" name="SettlementBase" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
             </tr>
 
             <tr>
                 <td class="ft_label">项目状态</td>
                 <td class="ft_control">
-                    <select id="Status" name="Status" class="layui-select " lay-verify="required">
+                    <select id="Status" name="Status" class="layui-select "  lay-verify="required">
                         <option value="1">激活</option>
                         <option value="0">结束</option>
                     </select>
@@ -51,43 +51,43 @@
             <tr>
                 <td class="ft_label">客户</td>
                 <td class="ft_control">
-                    <select id="Client" name="Client" class="layui-select " lay-verify="required"></select>
+                    <select id="Client" name="Client" class="layui-select " style="width:99%;" lay-verify="required"></select>
                 </td>
             </tr>
             <tr>
                 <td class="ft_label">设计主管</td>
                 <td class="ft_control">
-                    <select id="CoreDesigner" name="CoreDesigner" class="layui-select " lay-verify="required"></select>
+                    <select id="CoreDesigner" name="CoreDesigner" class="layui-select " style="width:99%;" lay-verify="required"></select>
                 </td>
             </tr>
             <tr>
                 <td class="ft_label">设计助理</td>
                 <td class="ft_control">
-                    <select id="AssistantDesigner" name="AssistantDesigner" class="layui-select " lay-verify="required"></select>
+                    <select id="AssistantDesigner" name="AssistantDesigner" class="layui-select " style="width:99%;" lay-verify="required"></select>
                 </td>
             </tr>
             <tr>
                 <td class="ft_label">业务经理</td>
                 <td class="ft_control">
-                    <select id="BusinessManager" name="BusinessManager" class="layui-select " lay-verify="required"></select>
+                    <select id="BusinessManager" name="BusinessManager" class="layui-select " style="width:99%;" lay-verify="required"></select>
                 </td>
             </tr>
             <tr>
                 <td class="ft_label">业务助理</td>
                 <td class="ft_control">
-                    <select id="BusinessAssistant" name="BusinessAssistant" class="layui-select " lay-verify="required"></select>
+                    <select id="BusinessAssistant" name="BusinessAssistant" class="layui-select " style="width:99%;" lay-verify="required"></select>
                 </td>
             </tr>
             <tr>
                 <td class="ft_label">项目经理</td>
                 <td class="ft_control">
-                    <select id="ProjectManager" name="ProjectManager" class="layui-select " lay-verify="required"></select>
+                    <select id="ProjectManager" name="ProjectManager" class="layui-select " style="width:99%;" lay-verify="required"></select>
                 </td>
             </tr>
 
             <tr>
                 <td class="ft_label">备注</td>
-                <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" style="width:95%;" vtype="required:true;rangeLength:0,50;" /></td>
+                <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
             </tr>
             
 
@@ -134,7 +134,7 @@
                         }
                     }
                     $('#Client').append(html);
-
+                    layui.form.render();
                 }
             })
         }
@@ -161,7 +161,7 @@
                         }
                     }
                     $('#CoreDesigner').append(html);
-
+                    layui.form.render();
                 }
             })
         }
@@ -188,7 +188,7 @@
                         }
                     }
                     $('#AssistantDesigner').append(html);
-
+                    layui.form.render();
                 }
             })
         }
@@ -215,7 +215,7 @@
                         }
                     }
                     $('#BusinessManager').append(html);
-
+                    layui.form.render();
                 }
             })
         }
@@ -242,7 +242,7 @@
                         }
                     }
                     $('#BusinessAssistant').append(html);
-
+                    layui.form.render();
                 }
             })
         }
@@ -269,7 +269,7 @@
                         }
                     }
                     $('#ProjectManager').append(html);
-
+                    layui.form.render();
                 }
             })
         }

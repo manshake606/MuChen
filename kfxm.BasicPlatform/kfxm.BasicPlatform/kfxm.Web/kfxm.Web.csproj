@@ -255,8 +255,8 @@
     <Content Include="js\jsencrypt.js" />
     <Content Include="js\layui\css\layui.css" />
     <Content Include="js\layui\css\layui.mobile.css" />
-    <Content Include="js\layui\css\modules\code.css" />
     <Content Include="js\layui\css\modules\laydate\default\laydate.css" />
+    <Content Include="js\layui\css\modules\laydate\laydate.css" />
     <Content Include="js\layui\css\modules\layer\default\icon-ext.png" />
     <Content Include="js\layui\css\modules\layer\default\icon.png" />
     <Content Include="js\layui\css\modules\layer\default\layer.css" />
@@ -337,7 +337,6 @@
     <Content Include="js\layui\images\face\8.gif" />
     <Content Include="js\layui\images\face\9.gif" />
     <Content Include="js\layui\layui.all.js" />
-    <Content Include="js\layui\layui.js" />
     <Content Include="js\layui\lay\modules\carousel.js" />
     <Content Include="js\layui\lay\modules\code.js" />
     <Content Include="js\layui\lay\modules\colorpicker.js" />

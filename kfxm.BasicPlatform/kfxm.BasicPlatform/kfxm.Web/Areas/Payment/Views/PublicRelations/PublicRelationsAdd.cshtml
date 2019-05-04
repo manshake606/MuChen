@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="page-content">
-        <form id="formData">
+        <form id="formData" class="layui-form">
             <table style="width: 100%; height:100%" class="formtable">
                 <colgroup>
                     <col width="15%" />
@@ -31,14 +31,14 @@
                         项目名称：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="Project" name="Project" class="layui-select"></select>
+                        <select id="Project" name="Project" lay-search="" class="layui-select"></select>
                     </td>
                 </tr>
                 <tr>
                     <td class="ft_label">公关联系人：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="PRContact" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" name="PRContact" class="hbes-input" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
@@ -46,7 +46,7 @@
                         公关联系人电话：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="PRContactPhone" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" name="PRContactPhone" class="hbes-input" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
@@ -54,7 +54,7 @@
                         公关明细：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="PRContent" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" name="PRContent" class="hbes-input" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
@@ -62,7 +62,7 @@
                         公关日期：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" id="PRTime" name="PRTime" class="hbes-input" style="width: 95%;" vtype="required:false;rangeLength:0,50;" />
+                        <input type="text" id="PRTime" name="PRTime" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
@@ -70,7 +70,7 @@
                         公关费用：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="PRAmout" class="hbes-input" style="width: 95%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" name="PRAmout" class="hbes-input" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <!--<tr>
@@ -223,7 +223,7 @@
                         html += '<option value=' + data[i].Num + '>' + data[i].ProjectName + '</option>';
                     }
                     $('#Project').append(html);
-
+                    layui.form.render();
                 }
             })
         }
