@@ -87,6 +87,121 @@ namespace kfxms.Web.Areas.Project.Controllers
 
         }
 
+        public ActionResult Detail(Guid ProjectId)
+        {
+            S_Project sys_Project = projectService.GetByKey(ProjectId);
+            S_ProjectInfo s_ProjectInfo = new S_ProjectInfo();
+            List<S_Client> listClient = clientService.GetAllData().ToList();
+            s_ProjectInfo.Id = sys_Project.Id;
+            s_ProjectInfo.Num = sys_Project.Num;
+            s_ProjectInfo.ProjectName = sys_Project.ProjectName;
+            s_ProjectInfo.SettlementBase = sys_Project.SettlementBase;
+            s_ProjectInfo.Status = sys_Project.Status;
+            s_ProjectInfo.CoreDesigner = sys_Project.CoreDesigner;
+            s_ProjectInfo.AssistantDesigner = sys_Project.AssistantDesigner;
+            s_ProjectInfo.BusinessManager = sys_Project.BusinessManager;
+            s_ProjectInfo.BusinessAssistant = sys_Project.BusinessAssistant;
+            s_ProjectInfo.ProjectManager = sys_Project.ProjectManager;
+            if (s_ProjectInfo.Status == 1)
+            {
+                s_ProjectInfo.StatusName = "激活";
+            }
+            else if (s_ProjectInfo.Status == 0)
+            {
+                s_ProjectInfo.StatusName = "结束";
+            }
+            s_ProjectInfo.ClientId = sys_Project.ClientId;
+            s_ProjectInfo.ContractAmout = sys_Project.ContractAmout;
+            s_ProjectInfo.Remark = sys_Project.Remark;
+            foreach (S_Client clientItem in listClient)
+            {
+                if (s_ProjectInfo.ClientId == clientItem.Num)
+                {
+                    s_ProjectInfo.TelephoneNum = clientItem.TelephoneNum;
+                    s_ProjectInfo.ClientName = clientItem.ClientName;
+                    s_ProjectInfo.ClientAddress = clientItem.ClientAddress;
+                    s_ProjectInfo.ClientContact = clientItem.ClientContact;
+                    s_ProjectInfo.ClientContactMobile = clientItem.ClientContactMobile;
+                    s_ProjectInfo.ClientContactPosition = clientItem.ClientContactPosition;
+                }
+            }
+
+            //Sum Invoice
+            List<S_Invoice> listInvoice = InvoiceService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+            decimal SumInvoice = 0;
+            if (listInvoice.Count > 0)
+            {
+                foreach (S_Invoice Invoice in listInvoice)
+                {
+                    SumInvoice += Invoice.InvoiceAmout;
+                }
+            }
+
+            //Sum Revenue
+            List<S_Revenue> listRevenue = RevenueService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+            decimal SumRevenue = 0;
+            if (listRevenue.Count > 0)
+            {
+                foreach (S_Revenue Revenue in listRevenue)
+                {
+                    SumRevenue += Revenue.RevenueAmout;
+                }
+            }
+
+            //Sum ExternalPayment
+            List<S_ExternalPayment> listExternalPayment = ExternalPaymentService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+            decimal SumExternalPayment = 0;
+            if (listExternalPayment.Count > 0)
+            {
+                foreach (S_ExternalPayment ExternalPayment in listExternalPayment)
+                {
+                    SumExternalPayment += ExternalPayment.ExternalPaymentAmout;
+                }
+            }
+
+            //Sum InternalPayment
+            List<S_InternalPayment> listInternalPayment = InternalPaymentService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+            decimal SumInternalPayment = 0;
+            if (listInternalPayment.Count > 0)
+            {
+                foreach (S_InternalPayment InternalPayment in listInternalPayment)
+                {
+                    SumInternalPayment += InternalPayment.InternalPaymentAmout;
+                }
+            }
+
+            //Sum publicRelations
+            List<S_PublicRelations> listPublicRelations = publicRelationsService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+            decimal SumPublicRelations = 0;
+            if (listPublicRelations.Count > 0)
+            {
+                foreach (S_PublicRelations PublicRelations in listPublicRelations)
+                {
+                    SumPublicRelations += PublicRelations.PRAmout;
+                }
+            }
+
+            decimal SumPayment = SumExternalPayment + SumInternalPayment + SumPublicRelations;
+
+
+            s_ProjectInfo.SumInvoice = SumInvoice;
+            s_ProjectInfo.SumRevenue = SumRevenue;
+            s_ProjectInfo.SumInternalPayment = SumInternalPayment;
+            s_ProjectInfo.SumExternalPayment = SumExternalPayment;
+            s_ProjectInfo.SumPublicRelations = SumPublicRelations;
+            s_ProjectInfo.SumPayment = SumPayment;
+            s_ProjectInfo.RevenueRate = (SumRevenue / sys_Project.ContractAmout * 100).ToString("0.00") + "%";
+
+
+            if (sys_Project == null)
+            {
+                Response.Write("<p style='color:red;'>该条记录不存在！</p>");
+                Response.End();
+            }
+            return View("ProjectDetail", s_ProjectInfo);
+
+        }
+
         public ActionResult GetPageData(int pageSize, int pageIndex)
         {
 

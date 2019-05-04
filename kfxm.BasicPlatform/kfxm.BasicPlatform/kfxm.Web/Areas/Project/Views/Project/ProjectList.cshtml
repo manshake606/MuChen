@@ -30,16 +30,24 @@
                             <i class="layui-icon">&#xe615;</i>查询
                         </button>
                     </td>
+                    <td style="padding-left: 10px;">
+                        <button onclick="refresh()" id="btn_Refresh" class="layui-btn layui-btn-mini  layui-btn-primary">
+                            <i class="layui-icon">&#xe669;</i>刷新
+                        </button>
+                    </td>
                 </tr>
             </table>
         </div>
 
         <div class="page-toolbar">
             <button   id="btn_Add" onclick="add()" class="layui-btn layui-btn-small">
-                <i class="layui-icon">&#xe608;</i>添加
+                <i class="layui-icon">&#xe608;</i>添加基本信息
             </button>
             <button   id="btn_Edit" onclick="edit()" class="layui-btn layui-btn-small  hbes-btn-update">
                 <i class="layui-icon">&#xe642;</i>修改基本信息
+            </button>
+            <button id="btn_Detail" onclick="detail()" class="layui-btn layui-btn-small  layui-btn-warm">
+                <i class="layui-icon">&#xe655;</i>查看项目详细
             </button>
             <button   id="btn_Delete" onclick="del()" class="layui-btn layui-btn-small  layui-btn-danger">
                 <i class="layui-icon">&#xe640;</i>删除
@@ -71,6 +79,10 @@
                 var projectName = $("#txt_projectName").val();
                 grid.loadGridData({ "projectName": projectName});
             }
+            function refresh() {
+                var projectName = $("#txt_projectName").val();
+                grid.loadGridData({ "projectName": projectName });
+            }
             function reload() {
                 grid.reload();
             }
@@ -90,6 +102,19 @@
                 }
 
             }
+            function detail() {
+                var row = grid.getHbesGridSelected();//选择一行
+                if (row) {
+                    openWin("查看项目信息", "/Project/Project/Detail?projectId=" + row.Id, 800, 500, "reload");
+                }
+                else {
+                    layer.alert('请选择一条记录!', { icon: 0, skin: 'layer-ext-moon' });
+
+                }
+
+            }
+
+
             function del() {
                 var row = grid.getHbesGridSelected();
                 if (row) {
