@@ -101,6 +101,7 @@ namespace kfxms.Web.Areas.Invoice.Controllers
                     if (s_InvoiceDetail.ProjectNum == projectItem.Num)
                     {
                         s_InvoiceDetail.ProjectName = projectItem.ProjectName;
+                        s_InvoiceDetail.ContractAmout = projectItem.ContractAmout;
                     }
                 }
                 listDetail.Add(s_InvoiceDetail);

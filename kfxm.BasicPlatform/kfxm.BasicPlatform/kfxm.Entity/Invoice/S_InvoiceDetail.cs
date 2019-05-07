@@ -33,6 +33,11 @@ namespace kfxms.Entity.Invoice
         /// </summary>
         public string ProjectName { get; set; }
 
+        /// <summary>
+        /// 合同金额
+        /// </summary>
+        public decimal ContractAmout { get; set; }
+
 
         /// <summary>
         /// 收款金额

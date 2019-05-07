@@ -32,7 +32,27 @@
                     </td>
                     <td class="ft_control" colspan="3">
 
-                            <select id="Project" name="Project" class="layui-select" lay-search=""></select>
+                            <select id="Project" name="Project" class="layui-select" lay-filter="Project" lay-search=""></select>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        项目编号：
+                    </td>
+                    <td class="ft_control" colspan="3">
+
+                        <input type="text" id="ProjectNum" name="ProjectNum" this.style.color='#000' class="hbes-input"  disabled="disabled"   style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        合同金额：
+                    </td>
+                    <td class="ft_control" colspan="3">
+
+                        <input type="text" id="ContractAmout" name="ContractAmout" this.style.color='#000' class="hbes-input" disabled="disabled" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
 
                     </td>
                 </tr>
@@ -59,6 +79,7 @@
                         <input type="text" name="Remark" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
                     </td>
                 </tr>
+
                 <!--<tr>
                     <td class="ft_label">
                         供应商类别：
@@ -196,6 +217,13 @@
                 laydate.render({
                     elem: '#InvoiceTime' //指定元素
                 });
+                
+                //var defaultSelect = $('#Project').val();
+                //$('#ProjectNum').val(defaultSelect);
+                form.on('select(Project)', function (data) {
+                    $('#ProjectNum').val(data.value);
+                    getProjectDataById(data.value)
+                });
             });
         });
 
@@ -210,13 +238,43 @@
                     $('#Project').empty();
                     var html = '';
                     for (var i = 0; i < data.length; i++) {
-                        html += '<option value=' + data[i].Num + '>' + data[i].ProjectName + '</option>';
+                        if (i == 0) {
+                            html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].ProjectName + '</option>';
+                            $('#ProjectNum').val(data[i].Num);
+                            $('#ContractAmout').val(data[i].ContractAmout);
+                        } else
+                        {
+                            html += '<option value=' + data[i].Num + '>' + data[i].ProjectName + '</option>';
+                        }
                     }
                     $('#Project').append(html);
                     layui.form.render();
                 }
             })
         }
+
+        function getProjectDataById(id) {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/Project/Project/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        if (id == data[i].Num) {
+                            $('#ContractAmout').val(data[i].ContractAmout);
+                        }
+                    }
+                    layui.form.render();
+                }
+            })
+        }
+
+
+
+
 
         function strToJson(str) {
             var json = eval('(' + str + ')');
