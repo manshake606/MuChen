@@ -25,6 +25,7 @@ namespace kfxms.Web.Areas.Invoice.Controllers
         [Import]
         public new ISys_UserService userService { get; set; }
 
+
         [Import]
         //public new  userService { get; set; }
         public IS_InvoiceService InvoiceService { get; set; }
@@ -67,6 +68,7 @@ namespace kfxms.Web.Areas.Invoice.Controllers
 
             //条件
             Expression<Func<S_Invoice, bool>> expre = u => true;
+            //var userPojectList;
             /*
             if (Request.Form["projectName"] != null && !string.IsNullOrEmpty(Request.Form["projectName"]))
             {
@@ -74,8 +76,15 @@ namespace kfxms.Web.Areas.Invoice.Controllers
                 expre = expre.And(u => u.Remark.Contains(remark));
             }
             */
+
+            
             
 
+
+            //var userPojectList = projectService.GetWhereData(m => m.ProjectManager == sUser.Num || m.CoreDesigner == sUser.Num || m.AssistantDesigner == sUser.Num || m.BusinessAssistant == sUser.Num || m.BusinessManager == sUser.Num).Select(m=>m.Num);
+            //var userPojectList = projectService.GetAllData().Where(u=>u.Num==5).Select(m => m.Num);
+
+            //int[] userPojectList = new int[] { 3, 5 };
 
             ////排序
             OrderByHelper<S_Invoice, DateTime> orderBy = new OrderByHelper<S_Invoice, DateTime>() { OrderByType = OrderByType.DESC, Expression = u => u.AddTime.Value };
@@ -83,6 +92,10 @@ namespace kfxms.Web.Areas.Invoice.Controllers
             int total = 0;
 
             List<S_Invoice> list = InvoiceService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+
+
+
+
             List<S_Project> listProject = projectService.GetAllData().ToList();
             List<S_InvoiceDetail> listDetail = new List<S_InvoiceDetail>();
 
@@ -113,8 +126,37 @@ namespace kfxms.Web.Areas.Invoice.Controllers
                 listDetail = listDetail.Where(u => u.ProjectName.Contains(Request.Form["projectName"])).ToList();
             }
 
+            Sys_User sUser = base.LoginUser;
+            List<Sys_UserAndRole> currentUserRole = userAndRoleService.GetWhereData(u => u.UserId == sUser.Id).ToList();
+            Guid? currentRoleId = currentUserRole[0].RoleId;
+            List<Sys_Role> currentRoleList = roleService.GetWhereData(m => m.Id == currentRoleId).ToList();
+            string roleName = currentRoleList[0].RoleName;
+            Hashtable ht = new Hashtable();
+            string json = null;
+            if (roleName != "系统管理员" && roleName != "财务")
+            {
+                var userPojectList = projectService.GetWhereData(m => m.ProjectManager == sUser.Num || m.CoreDesigner == sUser.Num || m.AssistantDesigner == sUser.Num || m.BusinessAssistant == sUser.Num || m.BusinessManager == sUser.Num).Select(m => m.Num);
+                var result = from p in listDetail where userPojectList.Contains(p.ProjectNum) select p;
+                
+                ht.Add("total", total);
+                ht.Add("data", result);
+                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
 
-            
+                return Content(json);
+            }
+            else
+            {
+                ht.Add("total", total);
+                ht.Add("data", listDetail);
+                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            }
+
+
+
+
+
+
+
 
 
 
@@ -158,11 +200,13 @@ namespace kfxms.Web.Areas.Invoice.Controllers
             ht.Add("total", 3);
             ht.Add("data", list);
             */
+            //Sys_User suser = base.LoginUser;
+            
 
-            Hashtable ht = new Hashtable();
-            ht.Add("total", total);
-            ht.Add("data", listDetail);
-            string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            //Hashtable ht = new Hashtable();
+            //ht.Add("total", total);
+            //ht.Add("data", result);
+            //string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
 
             return Content(json);
 
@@ -174,10 +218,34 @@ namespace kfxms.Web.Areas.Invoice.Controllers
             //Hashtable row = (Hashtable)JsonHelp.Decode(data);
             S_Invoice eInvoice = new S_Invoice();
             List<S_Invoice> listInvoice = InvoiceService.GetAllData().ToList();
+
+
+            Sys_User sUser = base.LoginUser;
+            List<Sys_UserAndRole> currentUserRole = userAndRoleService.GetWhereData(u => u.UserId == sUser.Id).ToList();
+            Guid? currentRoleId = currentUserRole[0].RoleId;
+            List<Sys_Role> currentRoleList = roleService.GetWhereData(m => m.Id == currentRoleId).ToList();
+            string roleName = currentRoleList[0].RoleName;
+
+
             Hashtable ht = new Hashtable();
-            //ht.Add("total", total);
-            ht.Add("data", listInvoice);
-            string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            string json = null;
+            if (roleName != "系统管理员" && roleName != "财务")
+            {
+                var userPojectList = projectService.GetWhereData(m => m.ProjectManager == sUser.Num || m.CoreDesigner == sUser.Num || m.AssistantDesigner == sUser.Num || m.BusinessAssistant == sUser.Num || m.BusinessManager == sUser.Num).Select(m => m.Num);
+                var result = from p in listInvoice where userPojectList.Contains(p.ProjectNum) select p;
+
+                //ht.Add("total", total);
+                ht.Add("data", result);
+                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+
+                return Content(json);
+            }
+            else
+            {
+                //ht.Add("total", total);
+                ht.Add("data", listInvoice);
+                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            }
             return Content(json);
         }
 

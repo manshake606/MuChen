@@ -31,7 +31,7 @@
                         项目名称：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="Project" name="Project" lay-search="" class="layui-select"></select>
+                        <select id="Project" name="Project" lay-search=""  lay-filter="Project"  class="layui-select"></select>
                     </td>
                 </tr>
                 <tr>
@@ -194,10 +194,14 @@
                 var form = layui.form;
                 var laydate = layui.laydate;
                 getDataList();
-                getUserDataList();
+                //getUserDataList();
                 form.render('select'); //刷新select选择框渲染
                 laydate.render({
                     elem: '#InternalPaymentTime' //指定元素
+                });
+                form.on('select(Project)', function (data) {
+                    getUserDataByProjectNumList(data.value)
+                    layui.form.render();
                 });
             });
         });
@@ -213,11 +217,48 @@
                     $('#Project').empty();
                     var html = '';
                     for (var i = 0; i < data.length; i++) {
+                        if (i == 0) {
+                            getUserDataByProjectNumList(data[i].Num)
+                        }
                         html += '<option value=' + data[i].Num + '>' + data[i].ProjectName + '</option>';
                     }
                     $('#Project').append(html);
                     layui.form.render();
 
+                }
+            })
+        }
+
+        function getUserDataByProjectNumList(num) {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/Project/Project/GetAllProjectDataByProjectNum?ProjectNum=" + num,
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#InternalPaymentUser').empty();
+                    var html = '';
+                    //for (var i = 0; i < data.length; i++) {
+                    if (data[0].CoreDesigner != null) {
+                        html += '<option value=' + data[0].CoreDesigner + '>' + data[0].CoreDesignerName + '</option>';
+                    }
+                    if (data[0].AssistantDesigner != null) {
+                        html += '<option value=' + data[0].AssistantDesigner + '>' + data[0].AssistantDesignerName + '</option>';
+                    }
+                    if (data[0].BusinessManager != null) {
+                        html += '<option value=' + data[0].BusinessManager + '>' + data[0].BusinessManagerName + '</option>';
+                    }
+                    if (data[0].BusinessAssistant != null) {
+                        html += '<option value=' + data[0].BusinessAssistant + '>' + data[0].BusinessAssistantName + '</option>';
+                    }
+                    if (data[0].ProjectManager != null) {
+                        html += '<option value=' + data[0].ProjectManager + '>' + data[0].ProjectManagerName + '</option>';
+                    }
+                        
+                    //}
+                    $('#InternalPaymentUser').append(html);
+                    layui.form.render();
                 }
             })
         }

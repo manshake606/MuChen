@@ -34,7 +34,7 @@ namespace kfxms.Web.Controllers
             {
                 DataCache.RemoveCahche("myRequest");
             }
-            
+            ViewBag.name = base.LoginUser.Name;
 
             return View();
         }

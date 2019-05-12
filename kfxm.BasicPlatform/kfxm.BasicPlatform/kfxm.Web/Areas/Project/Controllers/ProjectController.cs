@@ -367,14 +367,222 @@ namespace kfxms.Web.Areas.Project.Controllers
             ht.Add("data", list);
             */
 
+            Sys_User sUser = base.LoginUser;
+            List<Sys_UserAndRole> currentUserRole = userAndRoleService.GetWhereData(u => u.UserId == sUser.Id).ToList();
+            Guid? currentRoleId = currentUserRole[0].RoleId;
+            List<Sys_Role> currentRoleList = roleService.GetWhereData(m => m.Id == currentRoleId).ToList();
+            string roleName = currentRoleList[0].RoleName;
+
             Hashtable ht = new Hashtable();
-            ht.Add("total", total);
-            ht.Add("data", listProjectInfo);
-            string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            string json = null;
+            if (roleName != "系统管理员" && roleName != "财务")
+            {
+                var userPojectList = projectService.GetWhereData(m => m.ProjectManager == sUser.Num || m.CoreDesigner == sUser.Num || m.AssistantDesigner == sUser.Num || m.BusinessAssistant == sUser.Num || m.BusinessManager == sUser.Num).Select(m => m.Num);
+                var result = from p in listProjectInfo where userPojectList.Contains(p.Num) select p;
+
+                //ht.Add("total", total);
+                ht.Add("data", result);
+                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+
+                return Content(json);
+            }
+            else
+            {
+                //ht.Add("total", total);
+                ht.Add("data", listProjectInfo);
+                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            }
+
+
+            //Hashtable ht = new Hashtable();
+            //ht.Add("total", total);
+            //ht.Add("data", listProjectInfo);
+            //string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
 
             return Content(json);
 
         }
+
+        public ActionResult GetAllProjectDataByProjectNum(int ProjectNum)
+        {
+            //string resultJson = "";
+            //Hashtable row = (Hashtable)JsonHelp.Decode(data);
+            S_Project eProject = new S_Project();
+            List<S_Project> listProject = projectService.GetAllData().Where(u => u.Num == ProjectNum).ToList();
+            List<S_ProjectInfo> listProjectInfo = new List<S_ProjectInfo>();
+            S_Project sys_Project = listProject[0];
+            S_ProjectInfo s_ProjectInfo = new S_ProjectInfo();
+            List<S_Client> listClient = clientService.GetAllData().ToList();
+            List<Sys_User> s_userList = userService.GetAllData().ToList();
+            s_ProjectInfo.Id = sys_Project.Id;
+            s_ProjectInfo.Num = sys_Project.Num;
+            s_ProjectInfo.ProjectName = sys_Project.ProjectName;
+            s_ProjectInfo.SettlementBase = sys_Project.SettlementBase;
+            s_ProjectInfo.Status = sys_Project.Status;
+            s_ProjectInfo.CoreDesigner = sys_Project.CoreDesigner;
+            if (s_ProjectInfo.CoreDesigner != null) 
+            {
+                foreach(Sys_User s_user in s_userList)
+                {
+                    if (s_ProjectInfo.CoreDesigner == s_user.Num)
+                    {
+                        s_ProjectInfo.CoreDesignerName = s_user.Name;
+                        break;
+                    }
+                }
+            }
+
+            s_ProjectInfo.AssistantDesigner = sys_Project.AssistantDesigner;
+            if (s_ProjectInfo.AssistantDesigner != null)
+            {
+                foreach (Sys_User s_user in s_userList)
+                {
+                    if (s_ProjectInfo.AssistantDesigner == s_user.Num)
+                    {
+                        s_ProjectInfo.AssistantDesignerName = s_user.Name;
+                        break;
+                    }
+                }
+            }
+
+
+            s_ProjectInfo.BusinessManager = sys_Project.BusinessManager;
+            if (s_ProjectInfo.BusinessManager != null)
+            {
+                foreach (Sys_User s_user in s_userList)
+                {
+                    if (s_ProjectInfo.BusinessManager == s_user.Num)
+                    {
+                        s_ProjectInfo.BusinessManagerName = s_user.Name;
+                        break;
+                    }
+                }
+            }
+            s_ProjectInfo.BusinessAssistant = sys_Project.BusinessAssistant;
+            if (s_ProjectInfo.BusinessAssistant != null)
+            {
+                foreach (Sys_User s_user in s_userList)
+                {
+                    if (s_ProjectInfo.BusinessAssistant == s_user.Num)
+                    {
+                        s_ProjectInfo.BusinessAssistantName = s_user.Name;
+                        break;
+                    }
+                }
+            }
+            s_ProjectInfo.ProjectManager = sys_Project.ProjectManager;
+            if (s_ProjectInfo.ProjectManager != null)
+            {
+                foreach (Sys_User s_user in s_userList)
+                {
+                    if (s_ProjectInfo.ProjectManager == s_user.Num)
+                    {
+                        s_ProjectInfo.ProjectManagerName = s_user.Name;
+                        break;
+                    }
+                }
+            }
+            if (s_ProjectInfo.Status == 1)
+            {
+                s_ProjectInfo.StatusName = "激活";
+            }
+            else if (s_ProjectInfo.Status == 0)
+            {
+                s_ProjectInfo.StatusName = "结束";
+            }
+            s_ProjectInfo.ClientId = sys_Project.ClientId;
+            s_ProjectInfo.ContractAmout = sys_Project.ContractAmout;
+            s_ProjectInfo.Remark = sys_Project.Remark;
+            foreach (S_Client clientItem in listClient)
+            {
+                if (s_ProjectInfo.ClientId == clientItem.Num)
+                {
+                    s_ProjectInfo.TelephoneNum = clientItem.TelephoneNum;
+                    s_ProjectInfo.ClientName = clientItem.ClientName;
+                    s_ProjectInfo.ClientAddress = clientItem.ClientAddress;
+                    s_ProjectInfo.ClientContact = clientItem.ClientContact;
+                    s_ProjectInfo.ClientContactMobile = clientItem.ClientContactMobile;
+                    s_ProjectInfo.ClientContactPosition = clientItem.ClientContactPosition;
+                }
+            }
+
+            //Sum Invoice
+            List<S_Invoice> listInvoice = InvoiceService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+            decimal SumInvoice = 0;
+            if (listInvoice.Count > 0)
+            {
+                foreach (S_Invoice Invoice in listInvoice)
+                {
+                    SumInvoice += Invoice.InvoiceAmout;
+                }
+            }
+
+            //Sum Revenue
+            List<S_Revenue> listRevenue = RevenueService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+            decimal SumRevenue = 0;
+            if (listRevenue.Count > 0)
+            {
+                foreach (S_Revenue Revenue in listRevenue)
+                {
+                    SumRevenue += Revenue.RevenueAmout;
+                }
+            }
+
+            //Sum ExternalPayment
+            List<S_ExternalPayment> listExternalPayment = ExternalPaymentService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+            decimal SumExternalPayment = 0;
+            if (listExternalPayment.Count > 0)
+            {
+                foreach (S_ExternalPayment ExternalPayment in listExternalPayment)
+                {
+                    SumExternalPayment += ExternalPayment.ExternalPaymentAmout;
+                }
+            }
+
+            //Sum InternalPayment
+            List<S_InternalPayment> listInternalPayment = InternalPaymentService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+            decimal SumInternalPayment = 0;
+            if (listInternalPayment.Count > 0)
+            {
+                foreach (S_InternalPayment InternalPayment in listInternalPayment)
+                {
+                    SumInternalPayment += InternalPayment.InternalPaymentAmout;
+                }
+            }
+
+            //Sum publicRelations
+            List<S_PublicRelations> listPublicRelations = publicRelationsService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+            decimal SumPublicRelations = 0;
+            if (listPublicRelations.Count > 0)
+            {
+                foreach (S_PublicRelations PublicRelations in listPublicRelations)
+                {
+                    SumPublicRelations += PublicRelations.PRAmout;
+                }
+            }
+
+            decimal SumPayment = SumExternalPayment + SumInternalPayment + SumPublicRelations;
+
+
+            s_ProjectInfo.SumInvoice = SumInvoice;
+            s_ProjectInfo.SumRevenue = SumRevenue;
+            s_ProjectInfo.SumInternalPayment = SumInternalPayment;
+            s_ProjectInfo.SumExternalPayment = SumExternalPayment;
+            s_ProjectInfo.SumPublicRelations = SumPublicRelations;
+            s_ProjectInfo.SumPayment = SumPayment;
+            s_ProjectInfo.RevenueRate = (SumRevenue / sys_Project.ContractAmout * 100).ToString("0.00") + "%";
+
+            listProjectInfo.Add(s_ProjectInfo);
+
+            Hashtable ht = new Hashtable();
+            string json = null;
+            ht.Add("data", listProjectInfo);
+            json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+
+
+            return Content(json);
+        }
+
 
         public ActionResult GetAllData()
         {
@@ -382,10 +590,34 @@ namespace kfxms.Web.Areas.Project.Controllers
             //Hashtable row = (Hashtable)JsonHelp.Decode(data);
             S_Project eProject = new S_Project();
             List<S_Project> listProject = projectService.GetAllData().ToList();
+
+
+            Sys_User sUser = base.LoginUser;
+            List<Sys_UserAndRole> currentUserRole = userAndRoleService.GetWhereData(u => u.UserId == sUser.Id).ToList();
+            Guid? currentRoleId = currentUserRole[0].RoleId;
+            List<Sys_Role> currentRoleList = roleService.GetWhereData(m => m.Id == currentRoleId).ToList();
+            string roleName = currentRoleList[0].RoleName;
+
             Hashtable ht = new Hashtable();
-            //ht.Add("total", total);
-            ht.Add("data", listProject);
-            string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            string json = null;
+            if (roleName != "系统管理员" && roleName != "财务")
+            {
+                listProject = listProject.Where(m => m.ProjectManager == sUser.Num || m.CoreDesigner == sUser.Num || m.AssistantDesigner == sUser.Num || m.BusinessAssistant == sUser.Num || m.BusinessManager == sUser.Num).ToList();
+                
+
+                //ht.Add("total", total);
+                ht.Add("data", listProject);
+                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+
+                return Content(json);
+            }
+            else
+            {
+                //ht.Add("total", total);
+                ht.Add("data", listProject);
+                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            }
+
             return Content(json);
         }
 

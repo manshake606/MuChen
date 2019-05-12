@@ -145,9 +145,19 @@ namespace kfxms.Entity.Project
         public int? CoreDesigner { get; set; }
 
         /// <summary>
+        /// 设计主管姓名
+        /// </summary>
+        public string CoreDesignerName { get; set; }
+
+        /// <summary>
         /// 设计助理
         /// </summary>
         public int? AssistantDesigner { get; set; }
+
+        /// <summary>
+        /// 设计助理姓名
+        /// </summary>
+        public string AssistantDesignerName { get; set; }
 
         /// <summary>
         /// 业务主管
@@ -155,14 +165,29 @@ namespace kfxms.Entity.Project
         public int? BusinessManager { get; set; }
 
         /// <summary>
+        /// 业务主管姓名
+        /// </summary>
+        public string BusinessManagerName { get; set; }
+
+        /// <summary>
         /// 业务助理
         /// </summary>
         public int? BusinessAssistant { get; set; }
 
         /// <summary>
+        /// 业务助理姓名
+        /// </summary>
+        public string BusinessAssistantName { get; set; }
+
+        /// <summary>
         /// 项目经理
         /// </summary>
         public int? ProjectManager { get; set; }
+
+        /// <summary>
+        /// 项目经理姓名
+        /// </summary>
+        public string ProjectManagerName { get; set; }
 
 
     }

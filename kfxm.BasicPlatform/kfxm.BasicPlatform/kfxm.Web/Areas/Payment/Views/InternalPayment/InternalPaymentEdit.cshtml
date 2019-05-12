@@ -74,6 +74,8 @@
                     elem: '#InternalPaymentTime', //指定元素
                     type: "date"
                 });
+                $('select').attr('disabled', 'disabled');
+                form.render('select');
             });
         });
 

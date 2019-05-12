@@ -21,7 +21,7 @@
         <div class="page-toolbar">
             <table>
                 <tr>
-                    <td>项目编号：<input type="text" id="txt_projectNum" class="hbes-input">
+                    <td>项目名称：<input type="text" id="txt_projectName" class="hbes-input">
                     </td>
 
                     <td style="padding-left: 10px;">
@@ -91,8 +91,8 @@
             }
 
             function search() {
-                var projectNum = $("#txt_projectNum").val();
-                grid.loadGridData({ "projectNum": projectNum });
+                var projectName = $("#txt_projectName").val();
+                grid.loadGridData({ "projectName": projectName });
             }
             function reload() {
                 grid.reload();

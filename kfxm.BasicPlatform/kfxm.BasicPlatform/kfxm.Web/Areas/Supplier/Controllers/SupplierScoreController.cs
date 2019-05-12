@@ -187,10 +187,40 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             ht.Add("data", list);
             */
 
+            if (Request.Form["projectName"] != null && !string.IsNullOrEmpty(Request.Form["projectName"]))
+            {
+                string projectName = Request.Form["projectName"].Trim();
+                listSupplierScoreDetail = listSupplierScoreDetail.Where(u => u.ProjectName.Contains(projectName)).ToList();
+            }
+
+
+
+            Sys_User sUser = base.LoginUser;
+            List<Sys_UserAndRole> currentUserRole = userAndRoleService.GetWhereData(u => u.UserId == sUser.Id).ToList();
+            Guid? currentRoleId = currentUserRole[0].RoleId;
+            List<Sys_Role> currentRoleList = roleService.GetWhereData(m => m.Id == currentRoleId).ToList();
+            string roleName = currentRoleList[0].RoleName;
+
             Hashtable ht = new Hashtable();
-            ht.Add("total", total);
-            ht.Add("data", listSupplierScoreDetail);
-            string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            string json = null;
+            if (roleName != "系统管理员" && roleName != "财务")
+            {
+                var userPojectList = projectService.GetWhereData(m => m.ProjectManager == sUser.Num || m.CoreDesigner == sUser.Num || m.AssistantDesigner == sUser.Num || m.BusinessAssistant == sUser.Num || m.BusinessManager == sUser.Num).Select(m => m.Num);
+                var result = from p in listSupplierScoreDetail where userPojectList.Contains(p.ProjectNum) select p;
+
+                //ht.Add("total", total);
+                ht.Add("data", result);
+                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+
+                return Content(json);
+            }
+            else
+            {
+                //ht.Add("total", total);
+                ht.Add("data", listSupplierScoreDetail);
+                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            }
+
 
             return Content(json);
 
