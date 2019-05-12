@@ -60,6 +60,8 @@
     <Compile Include="Revenue\S_Revenue.cs" />
     <Compile Include="Project\S_ProjectInfo.cs" />
     <Compile Include="Project\S_Project.cs" />
+    <Compile Include="Supplier\S_SupplierScoreDetail.cs" />
+    <Compile Include="Supplier\S_SupplierScore.cs" />
     <Compile Include="Supplier\S_SupplierHasTypeName.cs" />
     <Compile Include="Supplier\S_SupplierType.cs" />
     <Compile Include="Supplier\S_Supplier.cs" />

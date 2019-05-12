@@ -158,6 +158,7 @@
     <Compile Include="Areas\Key\KeyAreaRegistration.cs" />
     <Compile Include="Areas\Project\ProjectAreaRegistration.cs" />
     <Compile Include="Areas\Project\Controllers\ProjectController.cs" />
+    <Compile Include="Areas\Supplier\Controllers\SupplierScoreController.cs" />
     <Compile Include="Areas\Supplier\Controllers\SupplierTypeController.cs" />
     <Compile Include="Areas\Supplier\Controllers\SupplierController.cs" />
     <Compile Include="Areas\Supplier\Controllers\UserController.cs" />
@@ -613,6 +614,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Project\Views\Project\ProjectDetail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Supplier\Views\SupplierScore\BindRole.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Supplier\Views\SupplierScore\SupplierScoreAdd.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Supplier\Views\SupplierScore\SupplierScoreEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Supplier\Views\SupplierScore\SupplierScoreList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

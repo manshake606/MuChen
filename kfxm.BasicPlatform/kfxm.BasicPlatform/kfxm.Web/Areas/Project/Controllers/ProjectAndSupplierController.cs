@@ -180,6 +180,35 @@ namespace kfxms.Web.Areas.Project.Controllers
             return Content(json);
         }
 
+        public ActionResult GetAllDataByProjectNum(int ProjectNum)
+        {
+            //string resultJson = "";
+            //Hashtable row = (Hashtable)JsonHelp.Decode(data);
+            S_ProjectAndSupplier eProjectAndSupplier = new S_ProjectAndSupplier();
+            List<S_ProjectAndSupplier> listProjectAndSupplier = ProjectAndSupplierService.GetAllData().ToList();
+            listProjectAndSupplier = listProjectAndSupplier.Where(u => u.ProjectNum == ProjectNum).ToList();
+            List<S_ProjectAndSupplierDetail> listProjectAndSupplierDetail = new List<S_ProjectAndSupplierDetail>();
+            
+            foreach (S_ProjectAndSupplier item in listProjectAndSupplier)
+            {
+                S_ProjectAndSupplierDetail s_ProjectAndSupplierDetail = new S_ProjectAndSupplierDetail();
+                List<S_Project> ListProject = projectService.GetWhereData(u => u.Num == (item.ProjectNum)).ToList();
+                List<S_Supplier> ListSupplier = supplierService.GetWhereData(u => u.Num == (item.SupplierNum)).ToList();
+                s_ProjectAndSupplierDetail.Id = item.Id;
+                s_ProjectAndSupplierDetail.ProjectNum = item.ProjectNum;
+                s_ProjectAndSupplierDetail.ProjectName = ListProject[0].ProjectName;
+                s_ProjectAndSupplierDetail.SupplierNum = item.SupplierNum;
+                s_ProjectAndSupplierDetail.SupplierName = ListSupplier[0].SupplierName;
+                listProjectAndSupplierDetail.Add(s_ProjectAndSupplierDetail);
+            }
+
+            Hashtable ht = new Hashtable();
+            //ht.Add("total", total);
+            ht.Add("data", listProjectAndSupplierDetail);
+            string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            return Content(json);
+        }
+
         public ActionResult AddProjectAndSupplier(string data)
         {
             string resultJson = "";
