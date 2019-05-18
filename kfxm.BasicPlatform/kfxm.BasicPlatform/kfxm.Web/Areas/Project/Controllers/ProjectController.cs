@@ -92,16 +92,88 @@ namespace kfxms.Web.Areas.Project.Controllers
             S_Project sys_Project = projectService.GetByKey(ProjectId);
             S_ProjectInfo s_ProjectInfo = new S_ProjectInfo();
             List<S_Client> listClient = clientService.GetAllData().ToList();
+            List<Sys_User> s_userList = userService.GetAllData().ToList();
             s_ProjectInfo.Id = sys_Project.Id;
             s_ProjectInfo.Num = sys_Project.Num;
             s_ProjectInfo.ProjectName = sys_Project.ProjectName;
             s_ProjectInfo.SettlementBase = sys_Project.SettlementBase;
             s_ProjectInfo.Status = sys_Project.Status;
             s_ProjectInfo.CoreDesigner = sys_Project.CoreDesigner;
+
             s_ProjectInfo.AssistantDesigner = sys_Project.AssistantDesigner;
+
             s_ProjectInfo.BusinessManager = sys_Project.BusinessManager;
+
+
             s_ProjectInfo.BusinessAssistant = sys_Project.BusinessAssistant;
+
             s_ProjectInfo.ProjectManager = sys_Project.ProjectManager;
+            
+
+            if (s_ProjectInfo.CoreDesigner != null)
+            {
+                foreach (Sys_User s_user in s_userList)
+                {
+                    if (s_ProjectInfo.CoreDesigner == s_user.Num)
+                    {
+                        s_ProjectInfo.CoreDesignerName = s_user.Name;
+                        break;
+                    }
+                }
+            }
+
+            s_ProjectInfo.AssistantDesigner = sys_Project.AssistantDesigner;
+            if (s_ProjectInfo.AssistantDesigner != null)
+            {
+                foreach (Sys_User s_user in s_userList)
+                {
+                    if (s_ProjectInfo.AssistantDesigner == s_user.Num)
+                    {
+                        s_ProjectInfo.AssistantDesignerName = s_user.Name;
+                        break;
+                    }
+                }
+            }
+
+
+            s_ProjectInfo.BusinessManager = sys_Project.BusinessManager;
+            if (s_ProjectInfo.BusinessManager != null)
+            {
+                foreach (Sys_User s_user in s_userList)
+                {
+                    if (s_ProjectInfo.BusinessManager == s_user.Num)
+                    {
+                        s_ProjectInfo.BusinessManagerName = s_user.Name;
+                        break;
+                    }
+                }
+            }
+            s_ProjectInfo.BusinessAssistant = sys_Project.BusinessAssistant;
+            if (s_ProjectInfo.BusinessAssistant != null)
+            {
+                foreach (Sys_User s_user in s_userList)
+                {
+                    if (s_ProjectInfo.BusinessAssistant == s_user.Num)
+                    {
+                        s_ProjectInfo.BusinessAssistantName = s_user.Name;
+                        break;
+                    }
+                }
+            }
+            s_ProjectInfo.ProjectManager = sys_Project.ProjectManager;
+            if (s_ProjectInfo.ProjectManager != null)
+            {
+                foreach (Sys_User s_user in s_userList)
+                {
+                    if (s_ProjectInfo.ProjectManager == s_user.Num)
+                    {
+                        s_ProjectInfo.ProjectManagerName = s_user.Name;
+                        break;
+                    }
+                }
+            }
+
+
             if (s_ProjectInfo.Status == 1)
             {
                 s_ProjectInfo.StatusName = "激活";

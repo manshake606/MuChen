@@ -85,6 +85,56 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             return Content(json);
         }
 
+        public ActionResult GetAllDataByProjectNum(int ProjectNum)
+        {
+            //string resultJson = "";
+            //Hashtable row = (Hashtable)JsonHelp.Decode(data);
+            S_SupplierScore eSupplierScore = new S_SupplierScore();
+            List<S_SupplierScore> listSupplierScore = SupplierScoreService.GetAllData().Where(u=>u.ProjectNum== ProjectNum).ToList();
+            List<S_SupplierScoreDetail> listSupplierScoreDetail = new List<S_SupplierScoreDetail>();
+            List<S_Project> listProject = listProject = projectService.GetAllData().ToList();
+            List<S_Supplier> listSupplier = supplierService.GetAllData().ToList();
+
+            foreach (S_SupplierScore item in listSupplierScore)
+            {
+                var S_SupplierScoreDetail = new S_SupplierScoreDetail();
+                S_SupplierScoreDetail.ProjectNum = item.ProjectNum;
+                S_SupplierScoreDetail.Id = item.Id;
+
+                S_SupplierScoreDetail.Num = item.Num;
+
+                foreach (S_Project typeItem in listProject)
+                {
+                    if (S_SupplierScoreDetail.ProjectNum == typeItem.Num)
+                    {
+                        S_SupplierScoreDetail.ProjectName = typeItem.ProjectName;
+                    }
+                }
+                S_SupplierScoreDetail.SupplierNum = item.SupplierNum;
+                foreach (S_Supplier typeItem in listSupplier)
+                {
+                    if (S_SupplierScoreDetail.SupplierNum == typeItem.Num)
+                    {
+                        S_SupplierScoreDetail.SupplierName = typeItem.SupplierName;
+                    }
+                }
+                S_SupplierScoreDetail.SupplierScore = item.SupplierScore;
+                S_SupplierScoreDetail.ScoreRemark = item.ScoreRemark;
+
+                listSupplierScoreDetail.Add(S_SupplierScoreDetail);
+            }
+
+            Hashtable ht = new Hashtable();
+            //ht.Add("total", total);
+            ht.Add("data", listSupplierScoreDetail);
+            ht.Add("code", 0);
+
+            string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            return Content(json);
+        }
+
+
+
         public ActionResult GetPageData(int pageSize, int pageIndex)
         {
 

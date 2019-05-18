@@ -41,6 +41,10 @@ namespace kfxms.Web.Areas.Project.Controllers
 
         [Import]
         //public new  userService { get; set; }
+        public IS_SupplierScoreService SupplierScoreService { get; set; }
+
+        [Import]
+        //public new  userService { get; set; }
         public IS_ProjectAndSupplierService ProjectAndSupplierService { get; set; }
 
         [Import]
@@ -210,7 +214,8 @@ namespace kfxms.Web.Areas.Project.Controllers
             List<S_ProjectAndSupplier> listProjectAndSupplier = ProjectAndSupplierService.GetAllData().ToList();
             listProjectAndSupplier = listProjectAndSupplier.Where(u => u.ProjectNum == ProjectNum).ToList();
             List<S_ProjectAndSupplierDetail> listProjectAndSupplierDetail = new List<S_ProjectAndSupplierDetail>();
-            
+            List<S_SupplierScore> listSupplierScore = SupplierScoreService.GetAllData().Where(u => u.ProjectNum == ProjectNum).ToList();
+
             foreach (S_ProjectAndSupplier item in listProjectAndSupplier)
             {
                 S_ProjectAndSupplierDetail s_ProjectAndSupplierDetail = new S_ProjectAndSupplierDetail();
@@ -221,6 +226,16 @@ namespace kfxms.Web.Areas.Project.Controllers
                 s_ProjectAndSupplierDetail.ProjectName = ListProject[0].ProjectName;
                 s_ProjectAndSupplierDetail.SupplierNum = item.SupplierNum;
                 s_ProjectAndSupplierDetail.SupplierName = ListSupplier[0].SupplierName;
+                s_ProjectAndSupplierDetail.SupplierScore = null;
+                foreach (S_SupplierScore score in listSupplierScore)
+                {
+                    if(score.SupplierNum== s_ProjectAndSupplierDetail.SupplierNum)
+                    {
+                        s_ProjectAndSupplierDetail.SupplierScore = score.SupplierScore;
+                    }
+                }
+
+
                 listProjectAndSupplierDetail.Add(s_ProjectAndSupplierDetail);
             }
 
