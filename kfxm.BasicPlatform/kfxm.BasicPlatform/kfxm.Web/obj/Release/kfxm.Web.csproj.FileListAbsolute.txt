@@ -110,3 +110,5 @@ D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\bin\zh-Hans\System.W
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\obj\Release\kfxm.Web.csprojResolveAssemblyReference.cache
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\obj\Release\HBES.Web.dll
 D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\obj\Release\HBES.Web.pdb
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\bin\EntityFramework.SqlServer.dll
+D:\Mu\MuChen\kfxm.BasicPlatform\kfxm.BasicPlatform\kfxm.Web\bin\EntityFramework.SqlServer.xml

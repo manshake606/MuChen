@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>IndustryAdd</title>
+    <link href="/css/hbes.grid.css" rel="stylesheet" />
+    <link href="/css/hbes.reset.css" rel="stylesheet" />
+    <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/hbes-ui.js"></script>
+    <script src="/js/layui/layui.all.js"></script>
+    <script src="/js/zTree/jquery.ztree.core.min.js"></script>
+</head>
+<body>
+    <div id="page-content" class="page-content">
+        
+       <form id="formData" class="layui-form">
+            <input type="hidden" id="txt_DptID" name="txt_DptID" value="@Model.DptID" class="layui-input" />
+            <input type="hidden" id="txt_ParentDptID"  name="txt_ParentDptID" value="@ViewData["ParentDptID"]" runat="server" class="layui-input" />
+            <div class="layui-form-item">
+                <label class="layui-form-label">上级部门名称&nbsp;&nbsp;&nbsp;</label>
+                <div class="layui-input-inline" style="width:70%">
+                    <input type="text" id="txt_ParentText" name="ParentText" class="layui-input" readonly="readonly" value="@ViewData["ParentDptName"]"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">部门名称&nbsp;&nbsp;&nbsp;</label>
+                <div class="layui-input-inline" style="width:70%">
+                    <input type="text" name="txt_DptName" id="txt_DptName" vtype="required:true;maxLength:20;" autocomplete="off" class="layui-input" style="z-index:50;" value="@Model.DptName">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">排序值&nbsp;&nbsp;&nbsp;</label>
+                <div class="layui-input-inline" style="width:70%">
+                    <input type="text" name="txt_OrderIndex" id="txt_OrderIndex" vtype="required:true;int;" autocomplete="off" class="layui-input" style="z-index:50;" value="@Model.OrderIndex">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="button" class="layui-btn" onclick="save()" value="确定"/>
+                    <button type="reset" class="layui-btn layui-btn-primary" onclick="closeWin()">关闭</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+                      
+        function save() {
+            if (!$("#formData").valiLayUIForm()) {
+                return;
+            }
+            var formData = getLayUIFormMap("formData");
+            var postData = { data: formData };
+            submitData("/SysBasic/Department/EditDepartment", postData);
+        }
+
+    </script>
+
+</body>
+</html>

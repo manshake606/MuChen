@@ -1,0 +1,124 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>角色管理</title>
+    <link href="/css/hbes.grid.css" rel="stylesheet" />
+    <link href="/css/hbes.reset.css" rel="stylesheet" />
+    <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/hbes-ui.js"></script>
+    <script src="/js/layui/layui.all.js"></script>  
+    <script src="/js/zTree/jquery.ztree.core.min.js"></script>
+</head>
+<body>
+    <div id="page-content" class="page-content">
+         <div class="page-toolbar">
+            <table>
+                 <tr>
+                     <td>
+                     角色名称：<input type="text"  id="txt_RoleName"  class="hbes-input" >
+                    </td>
+                   <td style=" padding-left:10px;">
+                   <button onclick="search()" id="btn_Query" style="display:none;" class="layui-btn layui-btn-mini  layui-btn-normal">
+                     <i class="layui-icon">&#xe615;</i>查询
+                  </button>
+                   </td>
+                 </tr>
+            </table>
+        </div>
+
+    <div class="page-toolbar">
+     <button style="display:none;" id="btn_Add" onclick="add()"   class="layui-btn layui-btn-small">
+         <i class="layui-icon">&#xe608;</i>添加
+     </button>
+     <button style="display:none;" id="btn_Edit" onclick="edit()" class="layui-btn layui-btn-small  hbes-btn-update">
+         <i class="layui-icon">&#xe642;</i>修改
+     </button>
+     <button style="display:none;" id="btn_Delete"  onclick="del()" class="layui-btn layui-btn-small  layui-btn-danger">
+         <i class="layui-icon">&#xe640;</i>删除
+     </button>
+
+        <button onclick="bindAuth()" id="btn_BindAuth" style="display:none; background:#1E9FFF;"  class="layui-btn layui-btn-small" >
+         <i class="layui-icon">&#xe613;</i>权限绑定
+     </button>
+     </div>
+
+        <div id="grid" class="page-grid" showpager="true" 
+                 showpagealige="bottom" multiselect="false" url="/SysBasic/Role/GetPageData" >
+                <div property="columns">
+                <div type="indexcolumn" width="30"></div>
+                <div field="RoleName"  width="120">角色名</div>
+                <div field="Remark"  width="240" textAlign="left">角色描述</div>
+               
+                <div field="AddTime" width="120">添加时间</div>
+                <div field="AddName" width="120">添加用户</div>
+                </div>
+      </div>
+
+    </div>
+    <script type="text/javascript">
+        var grid = hbes.get("grid");
+        $(function ()
+        {
+            search();
+        });
+        function search() { 
+            grid.loadGridData({ "roleName": $("#txt_RoleName").val().trim()});
+        }
+        function reload() {
+            grid.reload();
+        }
+        function add()
+        {   
+            openWin("添加角色", "/SysBasic/Role/Add", 500, 300, "reload");
+        }
+        function edit() {
+            var row = grid.getHbesGridSelected();
+            if (row) {
+                openWin("修改角色", "/SysBasic/Role/Edit?roleId=" + row.Id, 500, 300, "reload");
+            }
+            else {
+                layer.alert('请选择一条记录!', { icon: 0, skin: 'layer-ext-moon' });
+            }
+
+        }
+        function del()
+        {
+            var row = grid.getHbesGridSelected();
+            if (row) {
+                layer.confirm("确认删除？", { title: '提示信息', closeBtn: 0, icon: 3, btn: ['确认', '取消'] },
+                    function (index) {
+                        layer.close(index);
+                        submitData("/SysBasic/Role/DeleteRole", { roleId: row.Id }, function (data) {
+                            reload();
+                        });
+
+                    }, function () {
+
+                    });
+
+            }
+            else {
+                layer.alert('请选择一条记录!', { icon: 0, skin: 'layer-ext-moon' });
+
+            }
+        }
+
+        function bindAuth() {
+            var row = grid.getHbesGridSelected();
+            if (row) {
+                openWin("角色绑定权限", "/SysBasic/Role/BindAuthority?roleId=" + row.Id, 800, 550, "reload");
+            }
+            else {
+                layer.alert('请选择一条记录!', { icon: 0, skin: 'layer-ext-moon' });
+            }
+
+        }
+    </script>
+</body>
+</html>

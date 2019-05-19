@@ -1,0 +1,128 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link href="/css/hbes.grid.css" rel="stylesheet" />
+    <link href="/css/hbes.reset.css" rel="stylesheet" />
+    <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/hbes-ui.js"></script>
+    <script src="~/js/layui/layui.all.js"></script>  
+    <script src="/js/zTree/jquery.ztree.core.min.js"></script>
+</head>
+<body>
+    <div id="page-content" class="page-content">
+         <form id="formData" class="layui-form">
+              <input type="hidden" class="hbes-input" name="Id" value="@Model.Id" />
+                <table  class="formtable" >
+                            <colgroup>
+                                <col style="width:30%;" />
+                              
+                                <col  />
+                            </colgroup>
+              <tr>    
+                <td class="ft_label">公司名称</td>
+                <td class="ft_control">
+                     <input type="text" name="SupplierName" value="@Model.SupplierName" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" />
+                </td>
+             </tr>
+             <tr>
+                 <td class="ft_label">法人姓名</td>
+                 <td class="ft_control"><input type="text"  value="@Model.CorporationName" name="CorporationName" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+             </tr>
+            <tr>
+                <td class="ft_label">法人电话</td>
+                <td class="ft_control"><input type="text" value="@Model.CorporationMobile" name="CorporationMobile" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            <tr>
+                <td class="ft_label">联系人姓名</td>
+                <td class="ft_control"><input type="text" value="@Model.ContactName" name="ContactName" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            <tr>
+                <td class="ft_label">联系人电话</td>
+                <td class="ft_control"><input type="text" value="@Model.ContactMobile" name="ContactMobile" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            <tr>
+                <td class="ft_label">地址</td>
+                <td class="ft_control"><input type="text" value="@Model.Address" name="Address" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            <tr>
+                <td class="ft_label">备注</td>
+                <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            <tr>
+                <td class="ft_label">供应商类别</td>
+                <td class="ft_control">
+                    <select id="Type" name="Type" class="layui-select " lay-search="" lay-verify="required" >
+                        
+                    </select>
+                </td>
+            </tr>
+
+                </table>
+         </form>
+          <div class="bottomBtnDiv">
+           <button class="layui-btn layui-btn-small layui-btn-normal" onclick="save()" type="button">确定</button>
+           <button class="layui-btn layui-btn-small layui-btn-primary" onclick="closeWin()" type="button">关闭</button>
+          </div>
+     </div>
+
+    <script type="text/javascript">
+        $(function () {
+
+            //$('option[value=' + @Model.Type + ']').attr('selected', 'true ');
+            getDataList(@Model.Type);
+            layui.use('form', function () {
+                var form = layui.form;
+                form.render('select');
+            });
+        });
+        function save() {
+            var isPass = $("#formData").valiForm();
+            if (!isPass) {
+                layer.alert('请检查填写内容!', { icon: 0 });
+                return;
+            }
+            var postData = { data: getFormMap("formData") };
+
+            submitData("/Supplier/Supplier/EditSupplier", postData);
+        }
+
+        function getDataList(id) {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/Supplier/SupplierType/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#Type').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].SupplierTypeId == id) {
+                            html += '<option value=' + data[i].SupplierTypeId + ' selected="true" >' + data[i].SupplierTypeName + '</option>';
+                        }
+                        else
+                        {
+                            html += '<option value=' + data[i].SupplierTypeId + '>' + data[i].SupplierTypeName + '</option>';
+                        }
+                    }
+                    $('#Type').append(html);
+                    layui.form.render();
+                }
+            })
+        }
+
+        function strToJson(str) {
+            var json = eval('(' + str + ')');
+            return json;
+        }
+
+    </script>
+
+</body>
+</html>

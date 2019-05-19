@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <META HTTP-EQUIV="expires" CONTENT="0">
+    <title>添加项目</title>
+    <link href="/css/hbes.grid.css" rel="stylesheet" />
+    <link href="/css/hbes.reset.css" rel="stylesheet" />
+    <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/hbes-ui.js"></script>
+    <script src="~/js/layui/layui.all.js"></script>  
+    <script src="/js/zTree/jquery.ztree.core.min.js"></script>
+</head>
+<body>
+    <div id="page-content">
+        <form id="formData" class="layui-form">
+            <table style="width: 100%;" class="formtable">
+                <colgroup>
+                    <col width="15%" />
+                    <col width="35%" />
+                    <col width="15%" />
+                    <col width="35%" />
+                </colgroup>
+                <tr>
+                    <td class="ft_label">项目名称：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" name="ProjectName" class="hbes-input" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">合同金额：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" name="ContractAmout" class="hbes-input" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        结账基数：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" name="SettlementBase" class="hbes-input" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        客户：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <select id="Client" name="Client"  class="layui-select"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        设计主管：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <select id="CoreDesigner" name="CoreDesigner" class="layui-select"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        设计助理：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <select id="AssistantDesigner" name="AssistantDesigner"  class="layui-select"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        业务经理：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <select id="BusinessManager" name="BusinessManager"  class="layui-select"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        业务助理：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <select id="BusinessAssistant" name="BusinessAssistant"  class="layui-select"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        项目经理：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <select id="ProjectManager" name="ProjectManager" class="layui-select"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        备注：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" name="Remark" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+    <br />
+    <div style="text-align: center; bottom: 10px; right: 20px; ">
+        <button class="layui-btn layui-btn-small layui-btn-normal" onclick="save()" type="button">确定</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="layui-btn layui-btn-small layui-btn-primary" onclick="closeWin()" type="button">关闭</button>
+    </div>
+    <script type="text/javascript">
+        
+        function getDataList() {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/Client/Client/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#Client').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        html += '<option value=' + data[i].Num + '>' + data[i].ClientName + '</option>';
+                    }
+                    $('#Client').append(html);
+                    layui.form.render();
+                }
+            })
+        }
+
+        function getUserDataList() {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/SysBasic/User/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#CoreDesigner').empty();
+                    $('#AssistantDesigner').empty();
+                    $('#BusinessManager').empty();
+                    $('#BusinessAssistant').empty();
+                    $('#ProjectManager').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        if (i == 0) {
+                            html += '<option value=' + 0 + '>' + '请选择' + '</option>';
+                        } else
+                        {
+                            html += '<option value=' + data[i].Num + '>' + data[i].UserName + '</option>';
+                        }
+                    }
+                    $('#CoreDesigner').append(html);
+                    $('#AssistantDesigner').append(html);
+                    $('#BusinessManager').append(html);
+                    $('#BusinessAssistant').append(html);
+                    $('#ProjectManager').append(html);
+                    layui.form.render();
+                }
+            })
+        }
+
+        function strToJson(str) {
+            var json = eval('(' + str + ')');
+            return json;
+        }
+
+        $(function () {
+
+            layui.use('form', function () {
+                var form = layui.form;
+                getDataList();
+                getUserDataList();
+                form.render('select'); //刷新select选择框渲染
+            });
+        });
+
+        function renderForm() {
+            layui.use('form', function () {
+                var form = layui.form();//高版本建议把括号去掉，有的低版本，需要加()
+                form.render();
+            });
+        }
+
+        function save() {
+            var isPass = $("#formData").valiForm();
+            if (!isPass) {
+                layer.alert('请检查填写内容!', { icon: 0 });
+                return;
+            }
+            var postData = { data: getFormMap("formData") };
+
+            submitData("/Project/Project/AddProject", postData);
+        }
+    </script>
+</body>
+</html>

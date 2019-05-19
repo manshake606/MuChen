@@ -1,0 +1,187 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SetRequest</title>
+    <link href="/css/hbes.grid.css" rel="stylesheet" />
+    <link href="/css/hbes.reset.css" rel="stylesheet" />
+    <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+    <link rel="stylesheet" href="/css/fonts/font-awesome.min.css" >
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/hbes-ui.js"></script>
+    <script src="/js/layui/layui.all.js"></script>  
+    <script src="/js/zTree/jquery.ztree.core.min.js"></script>
+     <style type="text/css">
+        #page-grid-table tr { height: 30px; }
+        #page-grid-table td { text-align: center; padding: 0px; margin: 0px; vertical-align: middle; }
+        #page-grid-table td .tdInput { border: none; height: 30px; width: 99%; padding: 0px; margin: 0px; float: left; text-align: center; }
+    </style>
+</head>
+<body>
+    <input type="hidden" id="hib_AuthorityId" value="@ViewData["authorityId"]" />  
+      <div id="page-content" class="page-content">
+         <div class="page-toolbar">
+         <button style="display:inline;" onclick="addRow()"   class="layui-btn layui-btn-small">
+             <i class="layui-icon">&#xe608;</i>添加
+         </button>
+        <button style="display:inline;" onclick="save()"   class="layui-btn layui-btn-small hbes-btn-save">
+             <i class="fa fa-save"></i>保存
+         </button>
+    </div>
+
+        <div id="page-grid-div" style="overflow-y:auto; height: 250px">
+            <table id="page-grid-table" class="hbes-table">
+
+                <thead>
+                    <tr class="text-c" role="row">
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="text-align: center; width: 60px;"></th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="text-align: center;">请求URL</th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="text-align: center; width: 80px;">按钮Id</th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="text-align: center;">操作</th>
+                    </tr>
+                </thead>
+                <tbody id="trBody">
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+     <script type="text/javascript">
+
+         var rowArray = new Object();
+         var num = 0;
+         $(function ()
+         {
+         loadRow();
+         });
+         function loadRow() {
+             submitData("/SysBasic/Menu/GetRequestByAuthorityId", { authorityId: hib_AuthorityId.value },
+                function (data) {
+
+                    rowArray = null;
+                    rowArray = new Object(); num = 0;
+                    if (data != null && data != undefined && data.length > 0) {
+                        for (var i = 0 ; i < data.length; i++) {
+                            var row = data[i];
+                            row.type = "old";
+                            rowArray[num] = row;
+                            num++;
+                        }
+                    }
+                    showTr();
+                });
+         }
+         function showTr() {
+             var html = "";
+             for (var key in rowArray) {
+                 if (rowArray[key].type == "remove") {
+                     continue;
+                 }
+                 html += "<tr role=\"row\"><td>" + (parseInt(key) + 1) +
+                 "<input type='hidden' name='hid_Id' value='" + handlerStr(rowArray[key].Id) + "'/></td>"
+
+                 var RequestType = handlerStr(rowArray[key].RequestType);
+                 var selected = "";
+                 if (RequestType == "1") {
+                     selected = "selected=\"selected\"";
+                 }
+
+
+                 html += "<td> <input type=\"text\" name=\"Url\" onchange=\"rowChangeUrl(this," + key +
+                     ")\"  value=\"" + handlerStr(rowArray[key].Url) + "\"  class=\"tdInput\" /></td>";
+
+                 html += "<td> <input type=\"text\" name=\"ButtonId\" onchange=\"rowChangeButtonId(this," + key +
+                    ")\"  value=\"" + handlerStr(rowArray[key].ButtonId) + "\"  class=\"tdInput\" /></td>";
+
+               
+
+                 html += " <td>"
+                 html += " <button  onclick=\"remove(" + key + ");\" class=\"layui-btn layui-btn-mini  layui-btn-danger\">";
+                 html += " <i class=\"layui-icon\">&#xe640;</i>删除</button>";
+                 html += "</td></tr>";
+             }
+             $("#trBody").html(html);
+
+         }
+         function addRow() {
+             rowArray[num] = { type: "add" };
+             num++;
+             showTr();
+         }
+       
+         function rowChangeUrl(el, key) {
+             if (handlerStr(rowArray[key].Id) != "") {
+                 rowArray[key].type = "update";
+             }
+             rowArray[key].Url = el.value;
+         }
+         function rowChangeButtonId(el, key) {
+             if (handlerStr(rowArray[key].Id) != "") {
+                 rowArray[key].type = "update";
+             }
+             rowArray[key].ButtonId = el.value;
+         }
+        
+
+         function remove(key) {
+             if (handlerStr(rowArray[key].Id) != "") {
+                 rowArray[key].type = "remove";
+             }
+             else {
+                 delete rowArray[key];
+             }
+             showTr();
+         }
+         function isChangeFn() {
+             var isChange = false;
+             for (var key in rowArray) {
+                 if (handlerStr(rowArray[key].type) != "old") {
+                     isChange = true;
+                 }
+             }
+             return isChange;
+         }
+         function save() {
+            
+             if (isChangeFn()) {
+                 var Url = document.getElementsByName("Url");
+                 var isPass = true;
+                 for (var i = 0 ; i < Url.length; i++) {
+                     if ($.trim(Url[i].value) == "") {
+                         Url[i].style.border = "1px solid red";
+                         Url[i].title = "权限名称不能为空！";
+                         isPass = false;
+                     }
+                     else {
+                         Url[i].style.border = "none";
+                         Url[i].title = "";
+                     }
+                 }
+                 if (isPass) {
+
+                     var data = JSON.stringify(rowArray);
+                   
+                     submitData("/SysBasic/Menu/SaveRequest", { authorityId: hib_AuthorityId.value, data: data }, function (data)
+                     {
+                         loadRow();
+                     });
+                 }
+                 else {
+                     layer.alert('请检查填写信息!', { icon: 0, skin: 'layer-ext-moon' });
+                 }
+             }
+             else {
+                 layer.alert('并没有做任何改动！', { icon: 0, skin: 'layer-ext-moon' });
+             }
+         }
+    </script>
+</body>
+</html>

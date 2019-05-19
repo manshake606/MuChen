@@ -1,0 +1,112 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>客户信息更新</title>
+    <link href="/css/hbes.grid.css" rel="stylesheet" />
+    <link href="/css/hbes.reset.css" rel="stylesheet" />
+    <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/hbes-ui.js"></script>
+    <script src="/js/layui/layui.all.js"></script>
+    <script src="/js/zTree/jquery.ztree.core.min.js"></script>
+</head>
+<body>
+    <div id="page-content" class="page-content">
+         <form id="formData" class="layui-form">
+              <input type="hidden" class="hbes-input" name="Id" value="@Model.Id" />
+                <table  class="formtable" >
+                            <colgroup>
+                                <col style="width:30%;" />
+                              
+                                <col  />
+                            </colgroup>
+              
+             <tr>
+                 <td class="ft_label">收款金额</td>
+                 <td class="ft_control"><input type="text"  value="@Model.RevenueAmout" name="RevenueAmout" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+             </tr>
+            <tr>
+                <td class="ft_label">收款日期</td>
+                <td class="ft_control"><input type="text" id="RevenueTime" value="@Model.RevenueTime" name="RevenueTime" class="hbes-input" style="width:99%;" readonly="readonly" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            <tr>
+                <td class="ft_label">备注</td>
+                <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            
+            
+
+                </table>
+         </form>
+          <div class="bottomBtnDiv">
+           <button class="layui-btn layui-btn-small layui-btn-normal" onclick="save()" type="button">确定</button>
+           <button class="layui-btn layui-btn-small layui-btn-primary" onclick="closeWin()" type="button">关闭</button>
+          </div>
+     </div>
+
+    <script type="text/javascript">
+
+        $(function () {
+            layui.use(['form', 'laydate'], function () {
+                var form = layui.form;
+                var laydate = layui.laydate;
+                //getDataList();
+                form.render('select'); //刷新select选择框渲染
+                laydate.render({
+                    elem: '#RevenueTime', //指定元素
+                    type: "date"
+                });
+            });
+        });
+
+
+
+        function save() {
+            var isPass = $("#formData").valiForm();
+            if (!isPass) {
+                layer.alert('请检查填写内容!', { icon: 0 });
+                return;
+            }
+            var postData = { data: getFormMap("formData") };
+
+            submitData("/Revenue/Revenue/EditRevenue", postData);
+        }
+
+
+        function getClientDataList(id) {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/Client/Client/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#Client').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].Num == id) {
+                            html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].ClientName + '</option>';
+                        }
+                        else {
+                            html += '<option value=' + data[i].Num + '>' + data[i].ClientName + '</option>';
+                        }
+                    }
+                    $('#Client').append(html);
+                    layui.form.render();
+                }
+            })
+        }
+
+
+        function strToJson(str) {
+            var json = eval('(' + str + ')');
+            return json;
+        }
+    </script>
+
+</body>
+</html>

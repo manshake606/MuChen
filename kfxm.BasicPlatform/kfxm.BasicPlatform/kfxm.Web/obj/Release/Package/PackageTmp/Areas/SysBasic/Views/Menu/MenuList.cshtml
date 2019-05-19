@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link href="/css/hbes.grid.css" rel="stylesheet" />
+    <link href="/css/hbes.reset.css" rel="stylesheet" />
+    <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/hbes-ui.js"></script>
+    <script src="/js/layui/layui.all.js"></script>  
+    <script src="/js/zTree/jquery.ztree.core.min.js"></script>
+</head>
+<body>
+   <div id="page-content">
+       <div  style="width: 200px; position:absolute; height: 100%;
+            border-right: 1px solid #eee; background-color: #f5f5f5; overflow: auto;">
+            <div style="margin-left:20px; margin-top:10px;">
+                   <button style="display:inline;"  onclick = "$('#ul_Tree').treeBind();" 
+                       class="layui-btn layui-btn-mini layui-btn-primary">
+                     <i class="layui-icon">&#x1002;</i>刷新
+                 </button>
+             </div>
+           <ul id="ul_Tree" class="ztree hbes-tree" style="background:transparent;" 
+            loadSuccess="loadOk" treeClick="selectedTree" url="/SysBasic/Menu/GetTreeData"
+             idFied="id" textFied="text"  pidFied="pid"></ul>
+        </div>
+    <div  class="page-container" style="margin:0px; padding:0px;  left:203px;">
+
+        <div class="page-toolbar">
+             <button style="display:none;" id="btn_Add" onclick="add()"   class="layui-btn layui-btn-small">
+                 <i class="layui-icon">&#xe608;</i>添加
+             </button>
+
+             <button style="display:none;" id="btn_Edit" onclick="edit()" class="layui-btn layui-btn-small  hbes-btn-update">
+                 <i class="layui-icon">&#xe642;</i>修改
+             </button>
+             <button style="display:none;" id="btn_Delete"  onclick="del()" class="layui-btn layui-btn-small  layui-btn-danger">
+                 <i class="layui-icon">&#xe640;</i>删除
+             </button>
+
+            <button style="display:none;" id="btn_SetAuth" onclick="setAuth()"  class="layui-btn layui-btn-small hbes-btn-set">
+         <i class="layui-icon">&#xe620;</i>权限设置
+           </button>
+         </div>
+
+       <div id="grid" class="page-grid" showpager="false" 
+                 showpagealige="bottom" multiselect="false" url="/SysBasic/Menu/GetData" >
+                 <div property="columns">
+                <div type="indexcolumn" width="30"></div>
+                <div field="MenuName" width="200">菜单名称</div>
+                <div field="Url"  width="200">菜单链接</div>
+                <div field="OrderValue" width="80">排序值</div>
+                <div field="AddTime" width="130">添加时间</div>
+                <div field="AddName" width="130">添加人员</div>
+            </div>
+     </div>
+    </div>
+</div>
+    <script type="text/javascript">
+      
+      
+        var parentTreeId = "";
+        function selectedTree(node)
+        {
+            parentTreeId = node.id;
+            search();
+        }
+        function loadOk(tree)
+        {
+           
+            tree.expandAll(true);
+        }
+
+        var grid = hbes.get("grid");
+        $(function () {
+            search();
+        });
+        var parentId = "";
+        function search()
+        {
+           
+            grid.loadGridData({ "ParentId": parentTreeId });
+        }
+
+        function reload()
+        {
+           
+            grid.reload();//重新加载
+            $('#ul_Tree').treeBind();
+        }
+        function add()
+        {
+            openWin("添加菜单", "/SysBasic/Menu/Add?parentId=" + parentTreeId, 400, 300, "reload");
+        }
+
+        function edit() {
+            var row = grid.getHbesGridSelected();
+            if (row) {
+                openWin("修改菜单", "/SysBasic/Menu/Edit?id=" + row.Id, 400, 300, "reload");
+            }
+            else {
+                layer.alert('请选择一条记录！', { icon: 0, skin: 'layer-ext-moon' });
+            }
+        }
+
+        function del()
+        {
+            var row = grid.getHbesGridSelected();
+            if (row) {
+                layer.confirm("确认删除？", { title: '提示信息', closeBtn: 0, icon: 3, btn: ['确认', '取消'] }, function (index) {
+                    layer.close(index);
+                    submitData("/SysBasic/Menu/DeleteMenu", { menuId: row.Id }, function (data)
+                    {
+                        reload();
+                    });
+
+                }, function () {
+
+                });
+            }
+            else {
+                layer.alert('请选择一条记录！', { icon: 0, skin: 'layer-ext-moon' });
+            }
+        }
+
+
+        function setAuth() {
+
+            var row = grid.getHbesGridSelected();
+            if (row) {
+                openWin("权限设置", "/SysBasic/Menu/SetAuthority?id=" + row.Id, 550, 400, "reload");
+            }
+            else {
+                layer.alert('请选择一条记录！', { icon: 0, skin: 'layer-ext-moon' });
+            }
+        }
+    </script>
+</body>
+</html>

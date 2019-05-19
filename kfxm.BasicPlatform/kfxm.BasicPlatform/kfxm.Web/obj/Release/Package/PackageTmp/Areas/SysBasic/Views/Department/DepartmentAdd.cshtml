@@ -1,0 +1,107 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>IndustryAdd</title>
+    <link href="/css/hbes.grid.css" rel="stylesheet" />
+    <link href="/css/hbes.reset.css" rel="stylesheet" />
+    <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/hbes-ui.js"></script>
+    <script src="/js/layui/layui.all.js"></script>
+    <script src="/js/zTree/jquery.ztree.core.min.js"></script>
+</head>
+<body>
+    <div id="page-content" class="page-content">
+        <input type="hidden" id="txt_PassedParentID" value="@ViewData["ParentDptID"]" runat="server" class="layui-input"/>
+        <form id="formData" class="layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label">上级部门名称&nbsp;&nbsp;&nbsp;</label>
+                <div class="layui-input-inline" style="width:70%">
+                    <input type="text" id="txt_ParentText" onclick="$('#ul_Tree').show()"
+                           onblur="isHideTreeFn()" name="ParentText" class="layui-input"/>
+                    <input type="hidden" id="txt_ParentDptID" name="txt_ParentDptID" class="layui-input" />
+                    <ul id="ul_Tree" class="ztree hbes-tree" style="z-index:500;display:none; min-height:0px; max-height:150px; overflow-y:auto;" onmouseover="treeOver()" onmouseleave="treeOut()"
+                        treeClick="selectedTree" loadSuccess="treeLoadOk" url="/SysBasic/Department/GetTreeData"
+                        idFied="id" textFied="text" pidFied="pid" ></ul>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">部门名称&nbsp;&nbsp;&nbsp;</label>
+                <div class="layui-input-inline" style="width:70%">
+                    <input type="text" name="txt_DptName" id="txt_DptName" vtype="required:true;maxLength:20;" autocomplete="off" class="layui-input" style="z-index:50;" >
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">排序值&nbsp;&nbsp;&nbsp;</label>
+                <div class="layui-input-inline" style="width:70%">
+                    <input type="text" name="txt_OrderIndex" id="txt_OrderIndex" vtype="required:true;int;" autocomplete="off" class="layui-input" style="z-index:50;">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="button" class="layui-btn" onclick="save()" value="确定"/>
+                    <button type="reset" class="layui-btn layui-btn-primary" onclick="closeWin()">关闭</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+
+        $(function () {
+            $("#ul_Tree").css("width", $("#txt_ParentText").width() - 3 + "px");
+        });
+        var isHideTree = true;
+        function isHideTreeFn() {
+            if (isHideTree) {
+                $("#ul_Tree").hide();
+            }
+        }
+        function treeLoadOk(tree) {
+            tree.expandAll(false);
+            var parentId = $("#txt_PassedParentID").val();
+
+            if (parentId != null && parentId != undefined && parentId != "") {
+
+                var node = tree.getNodeByParam("id", parentId, null);
+
+                tree.selectNode(node);//设置选中node
+                $("#txt_ParentText").val(node.text);
+                $("#txt_ParentDptID").val(node.id);
+            }
+        }
+        function treeOver() {
+            isHideTree = false;
+        }
+
+        function treeOut() {
+            isHideTree = true;
+            isHideTreeFn();
+        }
+        function selectedTree(node) {
+            $("#txt_ParentText").val(node.text);
+            $("#txt_ParentDptID").val(node.id);
+            isHideTree = true;
+            isHideTreeFn();
+        }
+
+        
+        function save() {
+            if (!$("#formData").valiLayUIForm()) {
+                return;
+            }
+            var formData = getLayUIFormMap("formData");
+            var postData = { data: formData };
+            submitData("/SysBasic/Department/AddDepartment", postData);
+        }
+
+    </script>
+
+</body>
+</html>

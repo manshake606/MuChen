@@ -1,0 +1,613 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>项目详细信息</title>
+    <link href="/css/hbes.grid.css" rel="stylesheet" />
+    <link href="/css/hbes.reset.css" rel="stylesheet" />
+    <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/hbes-ui.js"></script>
+    <script src="~/js/layui/layui.all.js"></script>  
+    <script src="/js/zTree/jquery.ztree.core.min.js"></script>
+</head>
+<body>
+    <div id="page-content" class="page-content">
+         <form id="formData">
+              <input type="hidden" class="hbes-input" name="Id" value="@Model.Id" />
+
+            <div class="layui-card">
+                 <div class="layui-card-header">项目基本信息</div>
+                 <div class="layui-card-body">
+                     <table class="formtable">
+                         <colgroup>
+                             <col style="width:30%;" />
+
+                             <col />
+                         </colgroup>
+                         <tr>
+                             <td class="ft_label">项目名称</td>
+                             <td class="ft_control">
+                                 <input type="text" name="ProjectName" readonly="readonly" value="@Model.ProjectName" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" />
+                             </td>
+                         </tr>
+
+
+                         <tr>
+                             <td class="ft_label">项目状态</td>
+                             <td class="ft_control">
+                                 <select id="Status" name="Status" class="layui-select " disabled="disabled" lay-verify="required">
+                                     <option value="1">激活</option>
+                                     <option value="0">结束</option>
+                                 </select>
+                             </td>
+                         </tr>
+
+
+
+                         <tr>
+                             <td class="ft_label">合同金额</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ContractAmout" name="ContractAmout" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                         </tr>
+                         <tr>
+                             <td class="ft_label">结账基数</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SettlementBase" name="SettlementBase" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                         </tr>
+                         <tr>
+                             <td class="ft_label">总开票额</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumInvoice" name="SumInvoice" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                         </tr>
+                         <tr>
+                             <td class="ft_label">总收入额</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumRevenue" name="SumRevenue" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                         </tr>
+                         <tr>
+                             <td class="ft_label">内部付款总额</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumInternalPayment" name="SumInternalPayment" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                         </tr>
+                         <tr>
+                             <td class="ft_label">外部付款总额</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumExternalPayment" name="SumExternalPayment" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                         </tr>
+                         <tr>
+                             <td class="ft_label">总公关费用</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumPublicRelations" name="SumPublicRelations" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                         </tr>
+                         <tr>
+                             <td class="ft_label">项目总支出</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumPayment" name="SumPayment" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                         </tr>
+                         <tr>
+                             <td class="ft_label">项目收款比例</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.RevenueRate" name="RevenueRate" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                         </tr>
+                         <tr>
+                             <td class="ft_label">备注</td>
+                             <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" readonly="readonly" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                         </tr>
+                         <!-- <tr>
+            <td class="ft_label"></td>
+            <td class="ft_control"><button class="layui-btn layui-btn-small layui-btn-normal" onclick="save()" type="button">确定</button><button class="layui-btn layui-btn-small layui-btn-primary" onclick="closeWin()" type="button">关闭</button></td>
+        </tr>-->
+
+
+                     </table>
+                     
+                 </div>
+             </div>
+
+            <div class="layui-card">
+                 <div class="layui-card-header">甲方信息</div>
+                 <div class="layui-card-body">
+                     <table class="formtable">
+                         <colgroup>
+                             <col style="width:30%;" />
+
+                             <col />
+                         </colgroup>
+                         <tr>
+                             <td class="ft_label">客户</td>
+                             <td class="ft_control">
+                                 <select id="Client" name="Client" class="layui-select " disabled="disabled" lay-verify="required"></select>
+                             </td>
+                         </tr>
+                         <tr>
+                             <td class="ft_label">客户电话</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.TelephoneNum" name="TelephoneNum" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                         </tr>
+                         <tr>
+                             <td class="ft_label">客户地址</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ClientAddress" name="ClientAddress" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                         </tr>
+
+                         <tr>
+                             <td class="ft_label">客户联系人</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ClientContact" name="ClientContact" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                         </tr>
+                         <tr>
+                             <td class="ft_label">客户联系人手机</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ClientContactMobile" name="ClientContactMobile" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                         </tr>
+                         <tr>
+                             <td class="ft_label">客户联系人职位</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ClientContactPosition" name="ClientContactPosition" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                         </tr>
+
+
+                     </table>
+
+                 </div>
+             </div>
+
+             <div class="layui-card">
+                 <div class="layui-card-header">项目联系人</div>
+                 <div class="layui-card-body">
+                     <table class="formtable">
+                         <colgroup>
+                             <col style="width:30%;" />
+
+                             <col />
+                         </colgroup>
+                         <tr>
+                             <td class="ft_label">设计主管</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.CoreDesignerName" name="CoreDesignerName" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                         </tr>
+                         <tr>
+                             <td class="ft_label">设计助理</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.AssistantDesignerName" name="AssistantDesignerName" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                         </tr>
+
+                         <tr>
+                             <td class="ft_label">业务经理</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.BusinessManagerName" name="BusinessManagerName" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                         </tr>
+                         <tr>
+                             <td class="ft_label">业务助理</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.BusinessAssistantName" name="BusinessAssistantName" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                         </tr>
+                         <tr>
+                             <td class="ft_label">项目经理</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ProjectManagerName" name="ProjectManagerName" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                         </tr>
+
+
+                     </table>
+
+                 </div>
+             </div>
+
+            <div class="layui-card">
+                 <div class="layui-card-header">供应商评分信息</div>
+                 <div class="layui-card-body">
+                     <div id="grid" class="page-grid" showpager="true"
+                          showpagealige="bottom" multiselect="false" url="/Project/ProjectAndSupplier/GetAllDataByProjectNum?ProjectNum=@Model.Num">
+                         <div property="columns">
+                             <div type="indexcolumn" width="30"></div>
+                             <div field="SupplierNum" width="120">供应商编号</div>
+                             <div field="SupplierName" width="120">供应商名称</div>
+                             <div field="SupplierScore" width="120">供应商评分</div>
+                             <div field="ScoreRemark" width="120">评分备注</div>
+                         </div>
+                     </div> 
+
+                 </div>
+             </div>
+            
+
+            <!-- <div class="layui-collapse" lay-accordion="" lay-filter="test" >
+                 <div class="layui-colla-item">
+                     <h2 class="layui-colla-title">项目基本信息</h2>
+                     <div class="layui-colla-content layui-show">
+                         <table class="formtable">
+                             <colgroup>
+                                 <col style="width:30%;" />
+
+                                 <col />
+                             </colgroup>
+                             <tr>
+                                 <td class="ft_label">项目名称</td>
+                                 <td class="ft_control">
+                                     <input type="text" name="ProjectName" readonly="readonly" value="@Model.ProjectName" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" />
+                                 </td>
+                             </tr>
+
+
+                             <tr>
+                                 <td class="ft_label">项目状态</td>
+                                 <td class="ft_control">
+                                     <select id="Status" name="Status" class="layui-select " disabled="disabled" lay-verify="required">
+                                         <option value="1">激活</option>
+                                         <option value="0">结束</option>
+                                     </select>
+                                 </td>
+                             </tr>
+
+                            
+                            
+                             <tr>
+                                 <td class="ft_label">合同金额</td>
+                                 <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ContractAmout" name="ContractAmout" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                             </tr>
+                             <tr>
+                                 <td class="ft_label">结账基数</td>
+                                 <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SettlementBase" name="SettlementBase" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                             </tr>
+                             <tr>
+                                 <td class="ft_label">总开票额</td>
+                                 <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumInvoice" name="SumInvoice" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                             </tr>
+                             <tr>
+                                 <td class="ft_label">总收入额</td>
+                                 <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumRevenue" name="SumRevenue" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                             </tr>
+                             <tr>
+                                 <td class="ft_label">内部付款总额</td>
+                                 <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumInternalPayment" name="SumInternalPayment" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                             </tr>
+                             <tr>
+                                 <td class="ft_label">外部付款总额</td>
+                                 <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumExternalPayment" name="SumExternalPayment" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                             </tr>
+                             <tr>
+                                 <td class="ft_label">总公关费用</td>
+                                 <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumPublicRelations" name="SumPublicRelations" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                             </tr>
+                             <tr>
+                                 <td class="ft_label">项目总支出</td>
+                                 <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumPayment" name="SumPayment" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                             </tr>
+                             <tr>
+                                 <td class="ft_label">项目收款比例</td>
+                                 <td class="ft_control"><input type="text" readonly="readonly" value="@Model.RevenueRate" name="RevenueRate" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                             </tr>
+                             <tr>
+                                 <td class="ft_label">备注</td>
+                                 <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" readonly="readonly" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                             </tr>
+                             <!-- <tr>
+            <td class="ft_label"></td>
+            <td class="ft_control"><button class="layui-btn layui-btn-small layui-btn-normal" onclick="save()" type="button">确定</button><button class="layui-btn layui-btn-small layui-btn-primary" onclick="closeWin()" type="button">关闭</button></td>
+        </tr>
+
+
+                         </table>
+
+                     </div>
+                 </div>
+                 <div class="layui-colla-item">
+                     <h2 class="layui-colla-title">甲方信息</h2>
+                     <div class="layui-colla-content layui-show">
+                         <table class="formtable">
+                             <colgroup>
+                                 <col style="width:30%;" />
+
+                                 <col />
+                             </colgroup>
+                             <tr>
+                                 <td class="ft_label">客户</td>
+                                 <td class="ft_control">
+                                     <select id="Client" name="Client" class="layui-select " disabled="disabled" lay-verify="required"></select>
+                                 </td>
+                             </tr>
+                             <tr>
+                                 <td class="ft_label">客户电话</td>
+                                 <td class="ft_control"><input type="text" readonly="readonly" value="@Model.TelephoneNum" name="TelephoneNum" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                             </tr>
+                             <tr>
+                                 <td class="ft_label">客户地址</td>
+                                 <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ClientAddress" name="ClientAddress" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                             </tr>
+
+                             <tr>
+                                 <td class="ft_label">客户联系人</td>
+                                 <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ClientContact" name="ClientContact" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                             </tr>
+                             <tr>
+                                 <td class="ft_label">客户联系人手机</td>
+                                 <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ClientContactMobile" name="ClientContactMobile" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                             </tr>
+                             <tr>
+                                 <td class="ft_label">客户联系人职位</td>
+                                 <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ClientContactPosition" name="ClientContactPosition" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                             </tr>
+
+
+                         </table>
+
+                     </div>
+                 </div>
+                 <div class="layui-colla-item">
+                     <h2 class="layui-colla-title">项目关系人</h2>
+                     <div class="layui-colla-content layui-show">
+                         <div class="layui-colla-content layui-show">
+                             <table class="formtable">
+                                 <colgroup>
+                                     <col style="width:30%;" />
+
+                                     <col />
+                                 </colgroup>
+                                 <tr>
+                                     <td class="ft_label">设计主管</td>
+                                     <td class="ft_control">
+                                         <select id="CoreDesigner" name="CoreDesigner" class="layui-select " disabled="disabled" lay-verify="required"></select>
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td class="ft_label">设计助理</td>
+                                     <td class="ft_control">
+                                         <select id="AssistantDesigner" name="AssistantDesigner" class="layui-select " disabled="disabled" lay-verify="required"></select>
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td class="ft_label">业务经理</td>
+                                     <td class="ft_control">
+                                         <select id="BusinessManager" name="BusinessManager" class="layui-select " disabled="disabled" lay-verify="required"></select>
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td class="ft_label">业务助理</td>
+                                     <td class="ft_control">
+                                         <select id="BusinessAssistant" name="BusinessAssistant" class="layui-select " disabled="disabled" lay-verify="required"></select>
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td class="ft_label">项目经理</td>
+                                     <td class="ft_control">
+                                         <select id="ProjectManager" name="ProjectManager" class="layui-select " disabled="disabled" lay-verify="required"></select>
+                                     </td>
+                                 </tr>
+                                 <!-- <tr>
+                <td class="ft_label"></td>
+                <td class="ft_control"><button class="layui-btn layui-btn-small layui-btn-normal" onclick="save()" type="button">确定</button><button class="layui-btn layui-btn-small layui-btn-primary" onclick="closeWin()" type="button">关闭</button></td>
+            </tr>
+
+
+                             </table>
+
+                         </div>
+                     </div>
+                 </div>
+                 <div class="layui-colla-item">
+                     <h2 class="layui-colla-title">供应商信息</h2>
+                     <div class="layui-colla-content layui-show">
+                         <div class="layui-colla-content layui-show">
+                            
+                             <!--<table id="demo" lay-filter="test"></table>
+
+
+                         </div>
+                     </div>
+                 </div>
+             </div>
+                 
+    -->
+             
+         </form>
+          
+     </div>
+
+    <script type="text/javascript">
+        var grid = hbes.get("grid");
+        $(function () {
+            
+            $("#Status").find("option[value='@Model.Status']").prop("selected", true);
+            getClientDataList(@Model.ClientId);
+            getCoreDesignerDataList(@Model.CoreDesigner);
+            getAssistantDesignerDataList(@Model.AssistantDesigner);
+            getBusinessManagerDataList(@Model.BusinessManager);
+            getBusinessAssistantDataList(@Model.BusinessAssistant);
+            getProjectManagerDataList(@Model.ProjectManager);
+            getSupplierScoreDataList(@Model.Num)
+            layui.use(['form', 'element','table'], function () {
+                var form = layui.form;
+                var element = layui.element;
+                var table = layui.table;
+                form.render('select');
+                element.render();
+                reload();
+            });
+            });
+            //element.on('collapse(test)', function (data) {
+                //layer.msg('展开状态：' + data.show);
+            //    element.render();
+            //});
+        
+        function reload() {
+            grid.reload();
+        }
+
+        function getClientDataList(id) {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/Client/Client/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#Client').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].Num == id) {
+                            html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].ClientName + '</option>';
+                        }
+                        else {
+                            html += '<option value=' + data[i].Num + '>' + data[i].ClientName + '</option>';
+                        }
+                    }
+                    $('#Client').append(html);
+                    layui.form.render();
+                }
+            })
+        }
+
+        function getSupplierScoreDataList(id) {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/Supplier/SupplierScore/GetAllDataByProjectNum?ProjectNum="+id,
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    
+                    layui.form.render();
+                }
+            })
+        }
+
+        function getCoreDesignerDataList(id) {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/SysBasic/User/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#CoreDesigner').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].Num == 0) {
+                            html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
+                        }
+                        else if (data[i].Num == id) {
+                            html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].UserName + '</option>';
+                        }
+                        else {
+                            html += '<option value=' + data[i].Num + '>' + data[i].UserName + '</option>';
+                        }
+                    }
+                    $('#CoreDesigner').append(html);
+                    layui.form.render();
+                }
+            })
+        }
+
+        function getAssistantDesignerDataList(id) {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/SysBasic/User/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#AssistantDesigner').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].Num == 0) {
+                            html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
+                        }
+                        else if (data[i].Num == id) {
+                            html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].UserName + '</option>';
+                        }
+                        else {
+                            html += '<option value=' + data[i].Num + '>' + data[i].UserName + '</option>';
+                        }
+                    }
+                    $('#AssistantDesigner').append(html);
+                    layui.form.render();
+                }
+            })
+        }
+
+        function getBusinessManagerDataList(id) {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/SysBasic/User/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#BusinessManager').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].Num == 0) {
+                            html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
+                        }
+                        else if (data[i].Num == id) {
+                            html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].UserName + '</option>';
+                        }
+                        else {
+                            html += '<option value=' + data[i].Num + '>' + data[i].UserName + '</option>';
+                        }
+                    }
+                    $('#BusinessManager').append(html);
+                    layui.form.render();
+                }
+            })
+        }
+
+        function getBusinessAssistantDataList(id) {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/SysBasic/User/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#BusinessAssistant').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].Num == 0) {
+                            html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
+                        }
+                        else if (data[i].Num == id) {
+                            html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].UserName + '</option>';
+                        }
+                        else {
+                            html += '<option value=' + data[i].Num + '>' + data[i].UserName + '</option>';
+                        }
+                    }
+                    $('#BusinessAssistant').append(html);
+                    layui.form.render();
+                }
+            })
+        }
+
+        function getProjectManagerDataList(id) {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/SysBasic/User/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#ProjectManager').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].Num == 0) {
+                            html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
+                        }
+                        else if (data[i].Num == id) {
+                            html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].UserName + '</option>';
+                        }
+                        else {
+                            html += '<option value=' + data[i].Num + '>' + data[i].UserName + '</option>';
+                        }
+                    }
+                    $('#ProjectManager').append(html);
+                    layui.form.render();
+                }
+            })
+        }
+
+        function save() {
+            var isPass = $("#formData").valiForm();
+            if (!isPass) {
+                layer.alert('请检查填写内容!', { icon: 0 });
+                return;
+            }
+            var postData = { data: getFormMap("formData") };
+
+            submitData("/Project/Project/EditProject", postData);
+        }
+
+        function strToJson(str) {
+            var json = eval('(' + str + ')');
+            return json;
+        }
+    </script>
+
+</body>
+</html>
