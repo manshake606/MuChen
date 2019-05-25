@@ -209,8 +209,13 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             eRevenue.RevenueAmout= Convert.ToDecimal(row["RevenueAmout"].ToString().Trim());
             eRevenue.RevenueTime = Convert.ToDateTime(row["RevenueTime"].ToString().Trim());
             eRevenue.Remark = row["Remark"].ToString().Trim();
+            eRevenue.AddTime = DateTime.Now;
+            eRevenue.AddUserId = base.LoginUser.Id;
+            eRevenue.AddName = base.LoginUser.Name;
+            eRevenue.LastEditName = base.LoginUser.Name;
+            eRevenue.LastEditTime = DateTime.Now;
+            eRevenue.LastEditUserID = base.LoginUser.Id;
 
-            
             int num = RevenueService.Add(eRevenue);
             if (num > 0)
             {
@@ -242,6 +247,9 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             eRevenue.RevenueAmout = Convert.ToDecimal(row["RevenueAmout"].ToString().Trim());
             eRevenue.RevenueTime = Convert.ToDateTime(row["RevenueTime"].ToString().Trim());
             eRevenue.Remark = row["Remark"].ToString().Trim();
+            eRevenue.LastEditName = base.LoginUser.Name;
+            eRevenue.LastEditTime = DateTime.Now;
+            eRevenue.LastEditUserID = base.LoginUser.Id;
 
 
             int num = RevenueService.Update(eRevenue);

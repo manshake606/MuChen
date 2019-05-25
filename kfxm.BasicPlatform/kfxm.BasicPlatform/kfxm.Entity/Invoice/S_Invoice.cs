@@ -52,7 +52,28 @@ namespace kfxms.Entity.Invoice
         /// <summary>
         /// 收款日期
         /// </summary>
+        /// 
         public DateTime? InvoiceTime { get; set; }
+
+        /// <summary>
+        ///  添加用户姓名
+        /// </summary>
+        public string AddName { get; set; }
+
+        /// <summary>
+        ///最后修改时间
+        /// </summary>
+        public DateTime? LastEditTime { get; set; }
+
+        /// <summary>
+        /// 最后修改用户Id
+        /// </summary>
+        public Guid? LastEditUserID { get; set; }
+
+        /// <summary>
+        /// 最后修改用户姓名
+        /// </summary>
+        public string LastEditName { get; set; }
 
     }
 }

@@ -285,8 +285,8 @@ namespace kfxms.Web.Areas.Project.Controllers
                 string ProjectName = Request.Form["ProjectName"].Trim();
                 expre = expre.And(u => u.ProjectName.Contains(ProjectName));
             }
-            
 
+            expre = expre.And(u => u.Status == 1);
 
             ////排序
             OrderByHelper<S_Project, int?> orderBy = new OrderByHelper<S_Project, int?>() { OrderByType = OrderByType.DESC, Expression = u => u.Num };
@@ -661,7 +661,7 @@ namespace kfxms.Web.Areas.Project.Controllers
             //string resultJson = "";
             //Hashtable row = (Hashtable)JsonHelp.Decode(data);
             S_Project eProject = new S_Project();
-            List<S_Project> listProject = projectService.GetAllData().ToList();
+            List<S_Project> listProject = projectService.GetAllData().Where(u=>u.Status==1).ToList();
 
 
             Sys_User sUser = base.LoginUser;
@@ -713,6 +713,12 @@ namespace kfxms.Web.Areas.Project.Controllers
             eProject.SettlementBase = Convert.ToDecimal(row["SettlementBase"].ToString().Trim());
             eProject.Status = 1;
             eProject.Remark = row["Remark"].ToString().Trim();
+            eProject.AddTime = DateTime.Now;
+            eProject.AddUserId = base.LoginUser.Id;
+            eProject.AddName = base.LoginUser.Name;
+            eProject.LastEditName = base.LoginUser.Name;
+            eProject.LastEditTime = DateTime.Now;
+            eProject.LastEditUserID = base.LoginUser.Id;
 
             List<S_Project> listProject = projectService.GetWhereData(u => u.ProjectName.Equals(eProject.ProjectName)).ToList();
             if (listProject.Count > 0)
@@ -729,6 +735,8 @@ namespace kfxms.Web.Areas.Project.Controllers
             {
                 resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出错误提示框不关闭窗体, "新增失败！");
             }
+
+
             return Content(resultJson);
         }
 
@@ -768,6 +776,9 @@ namespace kfxms.Web.Areas.Project.Controllers
             eProject.SettlementBase = Convert.ToDecimal(row["SettlementBase"].ToString().Trim());
             eProject.Status = int.Parse(row["Status"].ToString().Trim());
             eProject.Remark = row["Remark"].ToString().Trim();
+            eProject.LastEditName = base.LoginUser.Name;
+            eProject.LastEditTime = DateTime.Now;
+            eProject.LastEditUserID = base.LoginUser.Id;
 
             int num = projectService.Update(eProject);
             if (num > 0)

@@ -218,8 +218,12 @@ namespace kfxms.Web.Areas.Payment.Controllers
             eExternalPayment.ExternalPaymentContent = row["ExternalPaymentContent"].ToString().Trim();
             eExternalPayment.ExternalPaymentTime = Convert.ToDateTime(row["ExternalPaymentTime"].ToString().Trim());
             eExternalPayment.ExternalPaymentSupplier= int.Parse(row["ExternalPaymentSupplier"].ToString().Trim());
-            eExternalPayment.AddUserId= base.LoginUser.Id;
-            eExternalPayment.AddTime= DateTime.Now;
+            eExternalPayment.AddTime = DateTime.Now;
+            eExternalPayment.AddUserId = base.LoginUser.Id;
+            eExternalPayment.AddName = base.LoginUser.Name;
+            eExternalPayment.LastEditName = base.LoginUser.Name;
+            eExternalPayment.LastEditTime = DateTime.Now;
+            eExternalPayment.LastEditUserID = base.LoginUser.Id;
             //eExternalPayment.PRAmout = Convert.ToDecimal(row["PRAmout"].ToString().Trim());
             //eExternalPayment.PRContact = row["PRContact"].ToString().Trim();
             //eExternalPayment.PRContactPhone= row["PRContactPhone"].ToString().Trim();
@@ -269,6 +273,9 @@ namespace kfxms.Web.Areas.Payment.Controllers
             eExternalPayment.ExternalPaymentContent = row["ExternalPaymentContent"].ToString().Trim();
             eExternalPayment.ExternalPaymentTime = Convert.ToDateTime(row["ExternalPaymentTime"].ToString().Trim());
             eExternalPayment.ExternalPaymentSupplier = int.Parse(row["ExternalPaymentSupplier"].ToString().Trim());
+            eExternalPayment.LastEditName = base.LoginUser.Name;
+            eExternalPayment.LastEditTime = DateTime.Now;
+            eExternalPayment.LastEditUserID = base.LoginUser.Id;
             //String ExternalPaymentName = row["ExternalPaymentName"].ToString().Trim();
 
             //eExternalPayment.PRAmout = Convert.ToDecimal(row["PRAmout"].ToString().Trim());

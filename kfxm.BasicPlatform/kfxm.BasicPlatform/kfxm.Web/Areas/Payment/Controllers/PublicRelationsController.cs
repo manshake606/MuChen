@@ -186,6 +186,12 @@ namespace kfxms.Web.Areas.Payment.Controllers
             ePublicRelations.PRContent= row["PRContent"].ToString().Trim();
             ePublicRelations.ProjectNum= int.Parse(row["Project"].ToString().Trim());
             ePublicRelations.PRTime= Convert.ToDateTime(row["PRTime"].ToString().Trim());
+            ePublicRelations.AddTime = DateTime.Now;
+            ePublicRelations.AddUserId = base.LoginUser.Id;
+            ePublicRelations.AddName = base.LoginUser.Name;
+            ePublicRelations.LastEditName = base.LoginUser.Name;
+            ePublicRelations.LastEditTime = DateTime.Now;
+            ePublicRelations.LastEditUserID = base.LoginUser.Id;
             //ePublicRelations.PublicRelationsName = row["PublicRelationsName"].ToString().Trim();
             //ePublicRelations.Password = MD5Helper.GetMD5("123456");
             //ePublicRelations.ProjectNum
@@ -228,6 +234,9 @@ namespace kfxms.Web.Areas.Payment.Controllers
             ePublicRelations.PRContent = row["PRContent"].ToString().Trim();
             ePublicRelations.ProjectNum = int.Parse(row["Project"].ToString().Trim());
             ePublicRelations.PRTime = Convert.ToDateTime(row["PRTime"].ToString().Trim());
+            ePublicRelations.LastEditName = base.LoginUser.Name;
+            ePublicRelations.LastEditTime = DateTime.Now;
+            ePublicRelations.LastEditUserID = base.LoginUser.Id;
             //ePublicRelations.PublicRelationsName = row["PublicRelationsName"].ToString().Trim();
             /*
              ePublicRelations.PublicRelationsName = PublicRelationsName;

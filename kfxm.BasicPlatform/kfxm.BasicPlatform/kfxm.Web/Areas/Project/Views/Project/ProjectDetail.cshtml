@@ -180,6 +180,7 @@
                              <div field="SupplierName" width="120">供应商名称</div>
                              <div field="SupplierScore" width="120">供应商评分</div>
                              <div field="ScoreRemark" width="120">评分备注</div>
+                             
                          </div>
                      </div> 
 
@@ -379,10 +380,12 @@
           
      </div>
 
-    <script type="text/javascript">
+    
+
+        <script type="text/javascript">
         var grid = hbes.get("grid");
         $(function () {
-            
+
             $("#Status").find("option[value='@Model.Status']").prop("selected", true);
             getClientDataList(@Model.ClientId);
             getCoreDesignerDataList(@Model.CoreDesigner);
@@ -404,10 +407,12 @@
                 //layer.msg('展开状态：' + data.show);
             //    element.render();
             //});
-        
+
         function reload() {
             grid.reload();
         }
+
+
 
         function getClientDataList(id) {
             // 请求
@@ -441,7 +446,7 @@
                 success: function (response) {
                     var data = strToJson(response);
                     data = strToJson(data["ResultData"])["data"];
-                    
+
                     layui.form.render();
                 }
             })
@@ -597,7 +602,7 @@
             var json = eval('(' + str + ')');
             return json;
         }
-    </script>
+        </script>
 
 </body>
 </html>

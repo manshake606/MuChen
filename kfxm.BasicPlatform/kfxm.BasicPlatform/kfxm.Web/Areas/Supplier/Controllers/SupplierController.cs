@@ -197,8 +197,12 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             eSupplier.Address = row["Address"].ToString().Trim();
             eSupplier.Remark = row["Remark"].ToString().Trim();
             eSupplier.Type = int.Parse(row["Type"].ToString());
+            eSupplier.AddTime = DateTime.Now;
             eSupplier.AddUserId = base.LoginUser.Id;
             eSupplier.AddName = base.LoginUser.Name;
+            eSupplier.LastEditName = base.LoginUser.Name;
+            eSupplier.LastEditTime = DateTime.Now;
+            eSupplier.LastEditUserID = base.LoginUser.Id;
 
             List<S_Supplier> listSupplier = supplierService.GetWhereData(u => u.SupplierName.Equals(eSupplier.SupplierName)).ToList();
             if (listSupplier.Count > 0)
@@ -248,6 +252,9 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             eSupplier.Address = row["Address"].ToString().Trim();
             eSupplier.Remark = row["Remark"].ToString().Trim();
             eSupplier.Type = int.Parse(row["Type"].ToString());
+            eSupplier.LastEditName = base.LoginUser.Name;
+            eSupplier.LastEditTime = DateTime.Now;
+            eSupplier.LastEditUserID = base.LoginUser.Id;
 
             int num = supplierService.Update(eSupplier);
             if (num > 0)

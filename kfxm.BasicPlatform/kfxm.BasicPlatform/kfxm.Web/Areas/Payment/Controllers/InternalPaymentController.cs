@@ -212,8 +212,12 @@ namespace kfxms.Web.Areas.Payment.Controllers
             eInternalPayment.InternalPaymentContent = row["InternalPaymentContent"].ToString().Trim();
             eInternalPayment.InternalPaymentTime = Convert.ToDateTime(row["InternalPaymentTime"].ToString().Trim());
             eInternalPayment.InternalPaymentUser= int.Parse(row["InternalPaymentUser"].ToString().Trim());
-            eInternalPayment.AddUserId= base.LoginUser.Id;
-            eInternalPayment.AddTime= DateTime.Now;
+            eInternalPayment.AddTime = DateTime.Now;
+            eInternalPayment.AddUserId = base.LoginUser.Id;
+            eInternalPayment.AddName = base.LoginUser.Name;
+            eInternalPayment.LastEditName = base.LoginUser.Name;
+            eInternalPayment.LastEditTime = DateTime.Now;
+            eInternalPayment.LastEditUserID = base.LoginUser.Id;
             //eInternalPayment.PRAmout = Convert.ToDecimal(row["PRAmout"].ToString().Trim());
             //eInternalPayment.PRContact = row["PRContact"].ToString().Trim();
             //eInternalPayment.PRContactPhone= row["PRContactPhone"].ToString().Trim();
@@ -263,6 +267,9 @@ namespace kfxms.Web.Areas.Payment.Controllers
             eInternalPayment.InternalPaymentContent = row["InternalPaymentContent"].ToString().Trim();
             eInternalPayment.InternalPaymentTime = Convert.ToDateTime(row["InternalPaymentTime"].ToString().Trim());
             eInternalPayment.InternalPaymentUser = int.Parse(row["InternalPaymentUser"].ToString().Trim());
+            eInternalPayment.LastEditName = base.LoginUser.Name;
+            eInternalPayment.LastEditTime = DateTime.Now;
+            eInternalPayment.LastEditUserID = base.LoginUser.Id;
             //String InternalPaymentName = row["InternalPaymentName"].ToString().Trim();
 
             //eInternalPayment.PRAmout = Convert.ToDecimal(row["PRAmout"].ToString().Trim());

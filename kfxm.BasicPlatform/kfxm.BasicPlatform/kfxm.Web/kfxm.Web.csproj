@@ -633,6 +633,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\ChenMu.pubxml" />
+    <None Include="Properties\PublishProfiles\ChenMuTest.pubxml" />
+    <None Include="Properties\PublishProfiles\ChenMuYun.pubxml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\TestPublish.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

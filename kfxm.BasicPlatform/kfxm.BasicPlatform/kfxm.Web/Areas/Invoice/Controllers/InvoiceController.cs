@@ -260,8 +260,14 @@ namespace kfxms.Web.Areas.Invoice.Controllers
             eInvoice.InvoiceAmout= Convert.ToDecimal(row["InvoiceAmout"].ToString().Trim());
             eInvoice.InvoiceTime = Convert.ToDateTime(row["InvoiceTime"].ToString().Trim());
             eInvoice.Remark = row["Remark"].ToString().Trim();
+            eInvoice.AddTime = DateTime.Now;
+            eInvoice.AddUserId = base.LoginUser.Id;
+            eInvoice.AddName = base.LoginUser.Name;
+            eInvoice.LastEditName = base.LoginUser.Name;
+            eInvoice.LastEditTime = DateTime.Now;
+            eInvoice.LastEditUserID = base.LoginUser.Id;
 
-            
+
             int num = InvoiceService.Add(eInvoice);
             if (num > 0)
             {
@@ -293,6 +299,9 @@ namespace kfxms.Web.Areas.Invoice.Controllers
             eInvoice.InvoiceAmout = Convert.ToDecimal(row["InvoiceAmout"].ToString().Trim());
             eInvoice.InvoiceTime = Convert.ToDateTime(row["InvoiceTime"].ToString().Trim());
             eInvoice.Remark = row["Remark"].ToString().Trim();
+            eInvoice.LastEditName = base.LoginUser.Name;
+            eInvoice.LastEditTime = DateTime.Now;
+            eInvoice.LastEditUserID = base.LoginUser.Id;
 
 
             int num = InvoiceService.Update(eInvoice);

@@ -31,12 +31,8 @@
                          <tr>
                              <td class="ft_label">项目名称</td>
                              <td class="ft_control">
-                                 <input type="text" name="ProjectName" readonly="readonly" value="@Model.ProjectName" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" />
+                                 <input type="text" name="ProjectName" readonly="readonly" value="@Model.ProjectName" class="hbes-input"  vtype="required:true;rangeLength:0,50;" />
                              </td>
-                         </tr>
-
-
-                         <tr>
                              <td class="ft_label">项目状态</td>
                              <td class="ft_control">
                                  <select id="Status" name="Status" class="layui-select " disabled="disabled" lay-verify="required">
@@ -48,45 +44,41 @@
 
 
 
+
                          <tr>
                              <td class="ft_label">合同金额</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ContractAmout" name="ContractAmout" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
-                         </tr>
-                         <tr>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ContractAmout" name="ContractAmout" class="hbes-input"  vtype="required:true;rangeLength:0,50;" /></td>
                              <td class="ft_label">结账基数</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SettlementBase" name="SettlementBase" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SettlementBase" name="SettlementBase" class="hbes-input"  vtype="required:true;rangeLength:0,50;" /></td>
                          </tr>
+                         
                          <tr>
                              <td class="ft_label">总开票额</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumInvoice" name="SumInvoice" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
-                         </tr>
-                         <tr>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumInvoice" name="SumInvoice" class="hbes-input"  vtype="required:true;rangeLength:0,50;" /></td>
+                      
                              <td class="ft_label">总收入额</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumRevenue" name="SumRevenue" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumRevenue" name="SumRevenue" class="hbes-input"  vtype="required:true;rangeLength:0,50;" /></td>
                          </tr>
                          <tr>
                              <td class="ft_label">内部付款总额</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumInternalPayment" name="SumInternalPayment" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
-                         </tr>
-                         <tr>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumInternalPayment" name="SumInternalPayment" class="hbes-input"  vtype="required:true;rangeLength:0,50;" /></td>
+                        
                              <td class="ft_label">外部付款总额</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumExternalPayment" name="SumExternalPayment" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumExternalPayment" name="SumExternalPayment" class="hbes-input"  vtype="required:true;rangeLength:0,50;" /></td>
                          </tr>
                          <tr>
                              <td class="ft_label">总公关费用</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumPublicRelations" name="SumPublicRelations" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
-                         </tr>
-                         <tr>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumPublicRelations" name="SumPublicRelations" class="hbes-input"  vtype="required:true;rangeLength:0,50;" /></td>
+                        
                              <td class="ft_label">项目总支出</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumPayment" name="SumPayment" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SumPayment" name="SumPayment" class="hbes-input"  vtype="required:true;rangeLength:0,50;" /></td>
                          </tr>
                          <tr>
                              <td class="ft_label">项目收款比例</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.RevenueRate" name="RevenueRate" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
-                         </tr>
-                         <tr>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.RevenueRate" name="RevenueRate" class="hbes-input"  vtype="required:true;rangeLength:0,50;" /></td>
+                        
                              <td class="ft_label">备注</td>
-                             <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" readonly="readonly" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                             <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" readonly="readonly"  vtype="required:true;rangeLength:0,50;" /></td>
                          </tr>
                          <!-- <tr>
             <td class="ft_label"></td>
@@ -153,24 +145,22 @@
                          </colgroup>
                          <tr>
                              <td class="ft_label">设计主管</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.CoreDesignerName" name="CoreDesignerName" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
-                         </tr>
-                         <tr>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.CoreDesignerName" name="CoreDesignerName" class="hbes-input"  vtype="required:false;rangeLength:0,50;" /></td>
+                        
                              <td class="ft_label">设计助理</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.AssistantDesignerName" name="AssistantDesignerName" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.AssistantDesignerName" name="AssistantDesignerName" class="hbes-input"  vtype="required:false;rangeLength:0,50;" /></td>
                          </tr>
 
                          <tr>
                              <td class="ft_label">业务经理</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.BusinessManagerName" name="BusinessManagerName" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
-                         </tr>
-                         <tr>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.BusinessManagerName" name="BusinessManagerName" class="hbes-input"  vtype="required:false;rangeLength:0,50;" /></td>
+                       
                              <td class="ft_label">业务助理</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.BusinessAssistantName" name="BusinessAssistantName" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.BusinessAssistantName" name="BusinessAssistantName" class="hbes-input"  vtype="required:false;rangeLength:0,50;" /></td>
                          </tr>
                          <tr>
                              <td class="ft_label">项目经理</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ProjectManagerName" name="ProjectManagerName" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ProjectManagerName" name="ProjectManagerName" class="hbes-input"  vtype="required:false;rangeLength:0,50;" /></td>
                          </tr>
 
 
@@ -190,6 +180,7 @@
                              <div field="SupplierName" width="120">供应商名称</div>
                              <div field="SupplierScore" width="120">供应商评分</div>
                              <div field="ScoreRemark" width="120">评分备注</div>
+                             
                          </div>
                      </div> 
 
@@ -389,10 +380,12 @@
           
      </div>
 
-    <script type="text/javascript">
+    
+
+        <script type="text/javascript">
         var grid = hbes.get("grid");
         $(function () {
-            
+
             $("#Status").find("option[value='@Model.Status']").prop("selected", true);
             getClientDataList(@Model.ClientId);
             getCoreDesignerDataList(@Model.CoreDesigner);
@@ -414,10 +407,12 @@
                 //layer.msg('展开状态：' + data.show);
             //    element.render();
             //});
-        
+
         function reload() {
             grid.reload();
         }
+
+
 
         function getClientDataList(id) {
             // 请求
@@ -451,7 +446,7 @@
                 success: function (response) {
                     var data = strToJson(response);
                     data = strToJson(data["ResultData"])["data"];
-                    
+
                     layui.form.render();
                 }
             })
@@ -607,7 +602,7 @@
             var json = eval('(' + str + ')');
             return json;
         }
-    </script>
+        </script>
 
 </body>
 </html>

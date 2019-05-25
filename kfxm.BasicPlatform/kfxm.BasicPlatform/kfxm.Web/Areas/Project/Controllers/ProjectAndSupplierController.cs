@@ -254,6 +254,12 @@ namespace kfxms.Web.Areas.Project.Controllers
             eProjectAndSupplier.Id = Guid.NewGuid();
             eProjectAndSupplier.ProjectNum= int.Parse(row["Project"].ToString().Trim());
             eProjectAndSupplier.SupplierNum= int.Parse(row["Supplier"].ToString().Trim());
+            eProjectAndSupplier.AddTime = DateTime.Now;
+            eProjectAndSupplier.AddUserId = base.LoginUser.Id;
+            eProjectAndSupplier.AddName = base.LoginUser.Name;
+            eProjectAndSupplier.LastEditName = base.LoginUser.Name;
+            eProjectAndSupplier.LastEditTime = DateTime.Now;
+            eProjectAndSupplier.LastEditUserID = base.LoginUser.Id;
             //eProjectAndSupplier.ProjectAndSupplierName = row["ProjectAndSupplierName"].ToString().Trim();
             //eProjectAndSupplier.Password = MD5Helper.GetMD5("123456");
             //string[] arrClient = row["Client"].ToString().Split(':');
@@ -305,6 +311,9 @@ namespace kfxms.Web.Areas.Project.Controllers
             //eProjectAndSupplier.Remark = row["Remark"].ToString().Trim();
 
             int num = ProjectAndSupplierService.Update(eProjectAndSupplier);
+            eProjectAndSupplier.LastEditName = base.LoginUser.Name;
+            eProjectAndSupplier.LastEditTime = DateTime.Now;
+            eProjectAndSupplier.LastEditUserID = base.LoginUser.Id;
             if (num > 0)
             {
                 resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出OK提示框关闭窗体, "修改成功！");

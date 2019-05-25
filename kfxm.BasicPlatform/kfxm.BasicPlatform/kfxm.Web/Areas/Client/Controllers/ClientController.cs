@@ -164,6 +164,12 @@ namespace kfxms.Web.Areas.Client.Controllers
             eClient.ClientContactMobile = row["ClientContactMobile"].ToString().Trim();
             eClient.ClientContactPosition = row["ClientContactPosition"].ToString().Trim();
             eClient.Remark = row["Remark"].ToString().Trim();
+            eClient.AddTime = DateTime.Now;
+            eClient.AddUserId = base.LoginUser.Id;
+            eClient.AddName = base.LoginUser.Name;
+            eClient.LastEditName = base.LoginUser.Name;
+            eClient.LastEditTime = DateTime.Now;
+            eClient.LastEditUserID = base.LoginUser.Id;
 
             List<S_Client> listClient = ClientService.GetWhereData(u => u.ClientName.Equals(eClient.ClientName)).ToList();
             if (listClient.Count > 0)
@@ -180,6 +186,9 @@ namespace kfxms.Web.Areas.Client.Controllers
             {
                 resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出错误提示框不关闭窗体, "新增失败！");
             }
+
+           
+
             return Content(resultJson);
         }
 
@@ -215,6 +224,9 @@ namespace kfxms.Web.Areas.Client.Controllers
             eClient.ClientContactMobile = row["ClientContactMobile"].ToString().Trim();
             eClient.ClientContactPosition = row["ClientContactPosition"].ToString().Trim();
             eClient.Remark = row["Remark"].ToString().Trim();
+            eClient.LastEditName = base.LoginUser.Name;
+            eClient.LastEditTime = DateTime.Now;
+            eClient.LastEditUserID = base.LoginUser.Id;
 
             int num = ClientService.Update(eClient);
             if (num > 0)

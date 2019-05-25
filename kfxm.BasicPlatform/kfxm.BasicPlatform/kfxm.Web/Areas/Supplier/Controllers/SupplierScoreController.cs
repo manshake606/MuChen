@@ -286,9 +286,12 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             eSupplierScore.SupplierNum= int.Parse(row["Supplier"].ToString().Trim());
             eSupplierScore.SupplierScore= int.Parse(row["SupplierScore"].ToString().Trim());
             eSupplierScore.ScoreRemark = row["ScoreRemark"].ToString().Trim();
-            eSupplierScore.AddUserId = base.LoginUser.Id;
             eSupplierScore.AddTime = DateTime.Now;
+            eSupplierScore.AddUserId = base.LoginUser.Id;
             eSupplierScore.AddName = base.LoginUser.Name;
+            eSupplierScore.LastEditName = base.LoginUser.Name;
+            eSupplierScore.LastEditTime = DateTime.Now;
+            eSupplierScore.LastEditUserID = base.LoginUser.Id;
             //eSupplierScore.Password = MD5Helper.GetMD5("123456");
             // eSupplierScore.CorporationName = row["CorporationName"].ToString().Trim();
             //eSupplierScore.CorporationMobile = row["CorporationMobile"].ToString().Trim();
@@ -342,6 +345,9 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             eSupplierScore.SupplierNum = int.Parse(row["Supplier"].ToString().Trim());
             eSupplierScore.SupplierScore = int.Parse(row["SupplierScore"].ToString().Trim());
             eSupplierScore.ScoreRemark = row["ScoreRemark"].ToString().Trim();
+            eSupplierScore.LastEditName = base.LoginUser.Name;
+            eSupplierScore.LastEditTime = DateTime.Now;
+            eSupplierScore.LastEditUserID = base.LoginUser.Id;
 
             int num = SupplierScoreService.Update(eSupplierScore);
             if (num > 0)
