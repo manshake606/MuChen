@@ -189,6 +189,7 @@ namespace kfxms.Web.Areas.Project.Controllers
             {
                 if (s_ProjectInfo.ClientId == clientItem.Num)
                 {
+                    s_ProjectInfo.ClientKey = clientItem.Id;
                     s_ProjectInfo.TelephoneNum = clientItem.TelephoneNum;
                     s_ProjectInfo.ClientName = clientItem.ClientName;
                     s_ProjectInfo.ClientAddress = clientItem.ClientAddress;
@@ -284,6 +285,12 @@ namespace kfxms.Web.Areas.Project.Controllers
             {
                 string ProjectName = Request.Form["ProjectName"].Trim();
                 expre = expre.And(u => u.ProjectName.Contains(ProjectName));
+            }
+
+            if (Request.Form["projectStatus"] != null && !string.IsNullOrEmpty(Request.Form["projectStatus"]))
+            {
+                int ProjectStatus = int.Parse(Request.Form["projectStatus"].Trim());
+                expre = expre.And(u => u.Status== ProjectStatus);
             }
 
             //expre = expre.And(u => u.Status == 1);
@@ -569,6 +576,7 @@ namespace kfxms.Web.Areas.Project.Controllers
             {
                 if (s_ProjectInfo.ClientId == clientItem.Num)
                 {
+                    s_ProjectInfo.ClientKey = clientItem.Id;
                     s_ProjectInfo.TelephoneNum = clientItem.TelephoneNum;
                     s_ProjectInfo.ClientName = clientItem.ClientName;
                     s_ProjectInfo.ClientAddress = clientItem.ClientAddress;

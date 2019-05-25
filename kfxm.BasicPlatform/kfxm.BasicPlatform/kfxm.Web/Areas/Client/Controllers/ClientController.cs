@@ -35,6 +35,7 @@ namespace kfxms.Web.Areas.Client.Controllers
             return View("ClientList");
         }
 
+
         public ActionResult Add()
         {
             return View("ClientAdd");
@@ -51,6 +52,20 @@ namespace kfxms.Web.Areas.Client.Controllers
                 Response.End();
             }
             return View("ClientEdit", sys_Client);
+
+        }
+
+        public ActionResult Detail(Guid clientId)
+        {
+            S_Client sys_Client = ClientService.GetByKey(clientId);
+
+
+            if (sys_Client == null)
+            {
+                Response.Write("<p style='color:red;'>该条记录不存在！</p>");
+                Response.End();
+            }
+            return View("ClientDetail", sys_Client);
 
         }
 

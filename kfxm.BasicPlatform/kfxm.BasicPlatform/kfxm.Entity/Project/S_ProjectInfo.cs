@@ -34,6 +34,11 @@ namespace kfxms.Entity.Project
         public int? ClientId { get; set; }
 
         /// <summary>
+        /// 客户Key
+        /// </summary>
+        public Guid? ClientKey { get; set; }
+
+        /// <summary>
         /// 合同金额
         /// </summary>
         public decimal ContractAmout { get; set; }

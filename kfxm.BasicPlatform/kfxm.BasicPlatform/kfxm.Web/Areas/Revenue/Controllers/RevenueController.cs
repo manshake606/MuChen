@@ -229,7 +229,7 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             S_Project targetProject = targetProjectList[0];
             decimal contractAmout = targetProject.ContractAmout;
 
-            if (eRevenue.RevenueAmout < =0)
+            if (eRevenue.RevenueAmout <=0)
             {
                 resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出错误提示框不关闭窗体, "收入金额需大于0！");
                 return Content(resultJson);
