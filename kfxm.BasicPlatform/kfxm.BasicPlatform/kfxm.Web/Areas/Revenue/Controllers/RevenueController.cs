@@ -216,9 +216,38 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             eRevenue.LastEditTime = DateTime.Now;
             eRevenue.LastEditUserID = base.LoginUser.Id;
 
+            decimal? existRevenueSum = 0;
+            List < S_Revenue > existRevenuelist = RevenueService.GetWhereData(u=>u.ProjectNum== eRevenue.ProjectNum).ToList();
+            if (existRevenuelist.Count > 0)
+            {
+                foreach (S_Revenue existRevenue in existRevenuelist)
+                {
+                    existRevenueSum += existRevenue.RevenueAmout;
+                }
+            }
+            List<S_Project> targetProjectList = projectService.GetWhereData(u => u.Num == eRevenue.ProjectNum).ToList();
+            S_Project targetProject = targetProjectList[0];
+            decimal contractAmout = targetProject.ContractAmout;
+
+            if (eRevenue.RevenueAmout < =0)
+            {
+                resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出错误提示框不关闭窗体, "收入金额需大于0！");
+                return Content(resultJson);
+            }else if((contractAmout - existRevenueSum- eRevenue.RevenueAmout)<0)
+            {
+                resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出错误提示框不关闭窗体, "收入超出合同剩余金额，请检查！");
+                return Content(resultJson);
+            }
+
+
             int num = RevenueService.Add(eRevenue);
             if (num > 0)
             {
+                if((contractAmout - existRevenueSum - eRevenue.RevenueAmout) == 0)
+                {
+                    targetProject.Status = 0;
+                    projectService.Update(targetProject);
+                }
                 resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出OK提示框关闭窗体, "新增成功！");
             }
             else

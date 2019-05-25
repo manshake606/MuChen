@@ -286,7 +286,7 @@ namespace kfxms.Web.Areas.Project.Controllers
                 expre = expre.And(u => u.ProjectName.Contains(ProjectName));
             }
 
-            expre = expre.And(u => u.Status == 1);
+            //expre = expre.And(u => u.Status == 1);
 
             ////排序
             OrderByHelper<S_Project, int?> orderBy = new OrderByHelper<S_Project, int?>() { OrderByType = OrderByType.DESC, Expression = u => u.Num };
@@ -661,7 +661,7 @@ namespace kfxms.Web.Areas.Project.Controllers
             //string resultJson = "";
             //Hashtable row = (Hashtable)JsonHelp.Decode(data);
             S_Project eProject = new S_Project();
-            List<S_Project> listProject = projectService.GetAllData().Where(u=>u.Status==1).ToList();
+            List<S_Project> listProject = projectService.GetAllData().ToList();
 
 
             Sys_User sUser = base.LoginUser;
