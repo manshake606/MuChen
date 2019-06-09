@@ -111,6 +111,8 @@ namespace kfxms.Web.Areas.Project.Controllers
                 s_ProjectAndSupplierDetail.ProjectName = ListProject[0].ProjectName;
                 s_ProjectAndSupplierDetail.SupplierNum = item.SupplierNum;
                 s_ProjectAndSupplierDetail.SupplierName = ListSupplier[0].SupplierName;
+                s_ProjectAndSupplierDetail.SupplierScore = item.SupplierScore;
+                s_ProjectAndSupplierDetail.ScoreRemark = item.ScoreRemark;
                 listProjectAndSupplierDetail.Add(s_ProjectAndSupplierDetail);
             }
 
@@ -211,10 +213,10 @@ namespace kfxms.Web.Areas.Project.Controllers
             //string resultJson = "";
             //Hashtable row = (Hashtable)JsonHelp.Decode(data);
             S_ProjectAndSupplier eProjectAndSupplier = new S_ProjectAndSupplier();
-            List<S_ProjectAndSupplier> listProjectAndSupplier = ProjectAndSupplierService.GetAllData().ToList();
-            listProjectAndSupplier = listProjectAndSupplier.Where(u => u.ProjectNum == ProjectNum).ToList();
+            List<S_ProjectAndSupplier> listProjectAndSupplier = ProjectAndSupplierService.GetAllData().Where(u => u.ProjectNum == ProjectNum).ToList();
+            //listProjectAndSupplier = listProjectAndSupplier.Where(u => u.ProjectNum == ProjectNum).ToList();
             List<S_ProjectAndSupplierDetail> listProjectAndSupplierDetail = new List<S_ProjectAndSupplierDetail>();
-            List<S_SupplierScore> listSupplierScore = SupplierScoreService.GetAllData().Where(u => u.ProjectNum == ProjectNum).ToList();
+            //List<S_SupplierScore> listSupplierScore = SupplierScoreService.GetAllData();
 
             foreach (S_ProjectAndSupplier item in listProjectAndSupplier)
             {
@@ -226,14 +228,58 @@ namespace kfxms.Web.Areas.Project.Controllers
                 s_ProjectAndSupplierDetail.ProjectName = ListProject[0].ProjectName;
                 s_ProjectAndSupplierDetail.SupplierNum = item.SupplierNum;
                 s_ProjectAndSupplierDetail.SupplierName = ListSupplier[0].SupplierName;
-                s_ProjectAndSupplierDetail.SupplierScore = null;
-                foreach (S_SupplierScore score in listSupplierScore)
-                {
-                    if(score.SupplierNum== s_ProjectAndSupplierDetail.SupplierNum)
-                    {
-                        s_ProjectAndSupplierDetail.SupplierScore = score.SupplierScore;
-                    }
-                }
+                s_ProjectAndSupplierDetail.SupplierScore = item.SupplierScore;
+                s_ProjectAndSupplierDetail.ScoreRemark = item.ScoreRemark;
+
+                //foreach (S_SupplierScore score in listSupplierScore)
+                //{
+                //    if(score.SupplierNum== s_ProjectAndSupplierDetail.SupplierNum)
+                //    {
+                //        s_ProjectAndSupplierDetail.SupplierScore = score.SupplierScore;
+                //    }
+                //}
+
+
+                listProjectAndSupplierDetail.Add(s_ProjectAndSupplierDetail);
+            }
+
+            Hashtable ht = new Hashtable();
+            //ht.Add("total", total);
+            ht.Add("data", listProjectAndSupplierDetail);
+            string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            return Content(json);
+        }
+
+        public ActionResult GetAllDataBySupplierNum(int SupplierNum)
+        {
+            //string resultJson = "";
+            //Hashtable row = (Hashtable)JsonHelp.Decode(data);
+            S_ProjectAndSupplier eProjectAndSupplier = new S_ProjectAndSupplier();
+            List<S_ProjectAndSupplier> listProjectAndSupplier = ProjectAndSupplierService.GetAllData().ToList();
+            listProjectAndSupplier = listProjectAndSupplier.Where(u => u.SupplierNum == SupplierNum).ToList();
+            List<S_ProjectAndSupplierDetail> listProjectAndSupplierDetail = new List<S_ProjectAndSupplierDetail>();
+            //List<S_SupplierScore> listSupplierScore = SupplierScoreService.GetAllData().Where(u => u.ProjectNum == ProjectNum).ToList();
+
+            foreach (S_ProjectAndSupplier item in listProjectAndSupplier)
+            {
+                S_ProjectAndSupplierDetail s_ProjectAndSupplierDetail = new S_ProjectAndSupplierDetail();
+                List<S_Project> ListProject = projectService.GetWhereData(u => u.Num == (item.ProjectNum)).ToList();
+                List<S_Supplier> ListSupplier = supplierService.GetWhereData(u => u.Num == (item.SupplierNum)).ToList();
+                s_ProjectAndSupplierDetail.Id = item.Id;
+                s_ProjectAndSupplierDetail.ProjectNum = item.ProjectNum;
+                s_ProjectAndSupplierDetail.ProjectName = ListProject[0].ProjectName;
+                s_ProjectAndSupplierDetail.SupplierNum = item.SupplierNum;
+                s_ProjectAndSupplierDetail.SupplierName = ListSupplier[0].SupplierName;
+                s_ProjectAndSupplierDetail.SupplierScore = item.SupplierScore;
+                s_ProjectAndSupplierDetail.ScoreRemark = item.ScoreRemark;
+
+                //foreach (S_SupplierScore score in listSupplierScore)
+                //{
+                //    if(score.SupplierNum== s_ProjectAndSupplierDetail.SupplierNum)
+                //    {
+                //        s_ProjectAndSupplierDetail.SupplierScore = score.SupplierScore;
+                //    }
+                //}
 
 
                 listProjectAndSupplierDetail.Add(s_ProjectAndSupplierDetail);
@@ -254,6 +300,8 @@ namespace kfxms.Web.Areas.Project.Controllers
             eProjectAndSupplier.Id = Guid.NewGuid();
             eProjectAndSupplier.ProjectNum= int.Parse(row["Project"].ToString().Trim());
             eProjectAndSupplier.SupplierNum= int.Parse(row["Supplier"].ToString().Trim());
+            eProjectAndSupplier.SupplierScore = int.Parse(row["SupplierScore"].ToString().Trim());
+            eProjectAndSupplier.ScoreRemark = row["ScoreRemark"].ToString().Trim();
             eProjectAndSupplier.AddTime = DateTime.Now;
             eProjectAndSupplier.AddUserId = base.LoginUser.Id;
             eProjectAndSupplier.AddName = base.LoginUser.Name;
@@ -300,6 +348,8 @@ namespace kfxms.Web.Areas.Project.Controllers
 
             eProjectAndSupplier.ProjectNum = int.Parse(row["Project"].ToString().Trim());
             eProjectAndSupplier.SupplierNum = int.Parse(row["Supplier"].ToString().Trim());
+            eProjectAndSupplier.SupplierScore = int.Parse(row["SupplierScore"].ToString().Trim());
+            eProjectAndSupplier.ScoreRemark = row["ScoreRemark"].ToString().Trim();
             //eProjectAndSupplier.ProjectAndSupplierName = ProjectAndSupplierName;
             //string[] arrClient = row["Client"].ToString().Split(':');
             //eSupplier.Type = int.Parse(arrType[0]);

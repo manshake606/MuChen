@@ -76,7 +76,7 @@ input[type="search"] { -webkit-appearance: textfield; /* 1 */ -moz-box-sizing: c
 }
 .hbes-input
 {
- width:135px; height:28px; border:1px solid #d2d2d2; border-radius:2px; padding:0px; margin:0px;padding-left:5px; 
+ width:155px; height:28px; border:1px solid #d2d2d2; border-radius:2px; padding:0px; margin:0px;padding-left:5px; 
 }
  .hbes-input:hover{
         border:1px solid #c2c2c2;

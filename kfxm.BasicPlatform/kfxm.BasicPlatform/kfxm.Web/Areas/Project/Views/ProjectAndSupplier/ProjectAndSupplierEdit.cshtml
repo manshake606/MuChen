@@ -27,16 +27,23 @@
             <tr>
                 <td class="ft_label">项目</td>
                 <td class="ft_control">
-                    <select id="Project" name="Project" class="layui-select " lay-search="" lay-verify="required"></select>
+                    <select id="Project" name="Project" class="layui-select " lay-search="" lay-verify="required" style="width:99%;"></select>
                 </td>
             </tr>
             <tr>
                 <td class="ft_label">供应商</td>
                 <td class="ft_control">
-                    <select id="Supplier" name="Supplier" class="layui-select " lay-search="" lay-verify="required"></select>
+                    <select id="Supplier" name="Supplier" class="layui-select " lay-search="" lay-verify="required" style="width:99%;"></select>
                 </td>
             </tr>
-            
+            <tr>
+                <td class="ft_label">供应商打分</td>
+                <td class="ft_control"><input type="text" value="@Model.SupplierScore" name="SupplierScore" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            <tr>
+                <td class="ft_label">供应商打分备注</td>
+                <td class="ft_control"><input type="text" value="@Model.ScoreRemark" name="ScoreRemark" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
 
                 </table>
          </form>

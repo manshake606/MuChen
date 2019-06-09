@@ -34,6 +34,16 @@ namespace kfxms.Entity.Project
         public int? SupplierNum { get; set; }
 
         /// <summary>
+        /// 添加供应商打分
+        /// </summary>
+        public int? SupplierScore { get; set; }
+
+        /// <summary>
+        /// 添加供应商打分备注
+        /// </summary>
+        public string ScoreRemark { get; set; }
+
+        /// <summary>
         ///添加时间
         /// </summary>
         public DateTime? AddTime { get; set; }

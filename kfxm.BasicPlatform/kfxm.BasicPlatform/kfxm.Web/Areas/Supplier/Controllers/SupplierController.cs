@@ -13,6 +13,8 @@ using kfxms.Entity.Supplier;
 using kfxms.IService.Supplier;
 using kfxms.Entity.SupplierType;
 using kfxms.IService.SupplierType;
+using kfxms.Entity.Project;
+using kfxms.IService.Project;
 
 namespace kfxms.Web.Areas.Supplier.Controllers
 {
@@ -26,6 +28,14 @@ namespace kfxms.Web.Areas.Supplier.Controllers
         [Import]
         //public new  userService { get; set; }
         public IS_SupplierService supplierService { get; set; }
+
+        [Import]
+        //public new  userService { get; set; }
+        public IS_ProjectService projectService { get; set; }
+
+        [Import]
+        //public new  userService { get; set; }
+        public IS_ProjectAndSupplierService ProjectAndSupplierService { get; set; }
 
         [Import]
         //public new  userService { get; set; }
@@ -129,7 +139,7 @@ namespace kfxms.Web.Areas.Supplier.Controllers
                 }
                 listHasTypeName.Add(s_SupplierHasTypeName);
             }
-            
+
 
 
             /*
@@ -173,10 +183,36 @@ namespace kfxms.Web.Areas.Supplier.Controllers
             ht.Add("data", list);
             */
 
+            Sys_User sUser = base.LoginUser;
+            List<Sys_UserAndRole> currentUserRole = userAndRoleService.GetWhereData(u => u.UserId == sUser.Id).ToList();
+            Guid? currentRoleId = currentUserRole[0].RoleId;
+            List<Sys_Role> currentRoleList = roleService.GetWhereData(m => m.Id == currentRoleId).ToList();
+            string roleName = currentRoleList[0].RoleName;
+
             Hashtable ht = new Hashtable();
-            ht.Add("total", total);
-            ht.Add("data", listHasTypeName);
-            string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            string json = null;
+            if (roleName != "系统管理员" && roleName != "财务")
+            {
+                var userPojectList = projectService.GetWhereData(m => m.ProjectManager == sUser.Num || m.CoreDesigner == sUser.Num || m.AssistantDesigner == sUser.Num || m.BusinessAssistant == sUser.Num || m.BusinessManager == sUser.Num).Select(m => m.Num);
+                List<S_ProjectAndSupplier> listProjectAndSupplier = ProjectAndSupplierService.GetAllData().ToList();
+                var result = from p in listProjectAndSupplier where userPojectList.Contains(p.ProjectNum) select p.SupplierNum;
+                var listResult = from m in listHasTypeName where result.Contains(m.Num) select (m);
+
+
+                //ht.Add("total", total);
+                ht.Add("data", listResult);
+                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+
+                return Content(json);
+            }
+            else
+            {
+                ht.Add("total", total);
+                ht.Add("data", listHasTypeName);
+                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            }
+
+          
 
             return Content(json);
 

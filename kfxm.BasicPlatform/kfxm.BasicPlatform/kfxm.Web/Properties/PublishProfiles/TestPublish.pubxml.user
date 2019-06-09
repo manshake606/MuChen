@@ -16,6 +16,9 @@
     <File Include="Areas/Client/Views/Client/ClientAdd.cshtml">
       <publishTime>05/04/2019 21:14:55</publishTime>
     </File>
+    <File Include="Areas/Client/Views/Client/ClientDetail.cshtml">
+      <publishTime>05/25/2019 22:03:49</publishTime>
+    </File>
     <File Include="Areas/Client/Views/Client/ClientEdit.cshtml">
       <publishTime>05/04/2019 21:15:19</publishTime>
     </File>
@@ -83,13 +86,13 @@
       <publishTime>05/04/2019 22:31:59</publishTime>
     </File>
     <File Include="Areas/Project/Views/Project/ProjectDetail.cshtml">
-      <publishTime>05/19/2019 20:19:51</publishTime>
+      <publishTime>05/26/2019 10:43:29</publishTime>
     </File>
     <File Include="Areas/Project/Views/Project/ProjectEdit.cshtml">
       <publishTime>05/19/2019 21:26:32</publishTime>
     </File>
     <File Include="Areas/Project/Views/Project/ProjectList.cshtml">
-      <publishTime>05/04/2019 17:56:24</publishTime>
+      <publishTime>05/26/2019 10:39:31</publishTime>
     </File>
     <File Include="Areas/Project/Views/ProjectAndSupplier/ProjectAndSupplierAdd.cshtml">
       <publishTime>05/04/2019 21:36:13</publishTime>
@@ -212,22 +215,22 @@
       <publishTime>06/01/2017 13:41:31</publishTime>
     </File>
     <File Include="bin/HBES.Common.dll">
-      <publishTime>05/19/2019 08:20:41</publishTime>
+      <publishTime>05/26/2019 11:08:47</publishTime>
     </File>
     <File Include="bin/HBES.EFData.dll">
-      <publishTime>05/19/2019 08:20:41</publishTime>
+      <publishTime>05/26/2019 11:08:48</publishTime>
     </File>
     <File Include="bin/HBES.Entity.dll">
-      <publishTime>05/19/2019 08:20:40</publishTime>
+      <publishTime>05/26/2019 11:08:46</publishTime>
     </File>
     <File Include="bin/HBES.Repository.dll">
-      <publishTime>05/19/2019 08:20:43</publishTime>
+      <publishTime>05/26/2019 11:08:49</publishTime>
     </File>
     <File Include="bin/HBES.Service.dll">
-      <publishTime>05/19/2019 08:20:43</publishTime>
+      <publishTime>05/26/2019 11:08:49</publishTime>
     </File>
     <File Include="bin/HBES.Web.dll">
-      <publishTime>05/21/2019 20:58:14</publishTime>
+      <publishTime>05/26/2019 11:08:51</publishTime>
     </File>
     <File Include="bin/ICSharpCode.SharpZipLib.dll">
       <publishTime>01/03/2011 14:16:38</publishTime>
@@ -326,7 +329,7 @@
       <publishTime>06/20/2017 19:08:33</publishTime>
     </File>
     <File Include="css/hbes.reset.css">
-      <publishTime>05/04/2019 17:04:28</publishTime>
+      <publishTime>05/25/2019 22:00:47</publishTime>
     </File>
     <File Include="css/img/bullet_down1.png">
       <publishTime>06/01/2017 13:43:39</publishTime>
@@ -524,7 +527,7 @@
       <publishTime>06/01/2017 13:45:07</publishTime>
     </File>
     <File Include="js/layui/css/layui.css">
-      <publishTime>05/04/2019 18:02:33</publishTime>
+      <publishTime>05/25/2019 22:45:28</publishTime>
     </File>
     <File Include="js/layui/css/layui.mobile.css">
       <publishTime>05/04/2019 18:02:33</publishTime>
@@ -893,7 +896,7 @@
       <publishTime>06/01/2017 13:46:34</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/21/2019 20:58:23</publishTime>
+      <publishTime>05/26/2019 11:11:07</publishTime>
     </File>
   </ItemGroup>
 </Project>

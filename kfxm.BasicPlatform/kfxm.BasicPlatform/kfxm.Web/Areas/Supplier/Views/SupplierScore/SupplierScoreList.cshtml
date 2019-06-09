@@ -21,7 +21,7 @@
         <div class="page-toolbar">
             <table>
                 <tr>
-                    <td>项目名称：<input type="text" id="txt_projectName" class="hbes-input">
+                    <td>供应商名称：<input type="text" id="txt_supplierName" class="hbes-input">
                     </td>
 
                     <td style="padding-left: 10px;">
@@ -34,15 +34,15 @@
         </div>
 
         <div class="page-toolbar">
-            <button   id="btn_Add" onclick="add()" class="layui-btn layui-btn-small">
+            <!--<button   id="btn_Add" onclick="add()"  class="layui-btn layui-btn-small">
                 <i class="layui-icon">&#xe608;</i>添加
-            </button>
+            </button>-->
             <button   id="btn_Edit" onclick="edit()" class="layui-btn layui-btn-small  hbes-btn-update">
                 <i class="layui-icon">&#xe642;</i>修改
             </button>
-            <button   id="btn_Delete" onclick="del()" class="layui-btn layui-btn-small  layui-btn-danger">
+            <!--<<button   id="btn_Delete" onclick="del()" class="layui-btn layui-btn-small  layui-btn-danger">
                 <i class="layui-icon">&#xe640;</i>删除
-            </button>
+            </button>-->
 
             <!--<button   id="btn_ResetPwd" onclick="resetPwd()" class="layui-btn layui-btn-small hbes-btn-set">
                 <i class="layui-icon">&#x1002;</i>提交审核
@@ -56,10 +56,10 @@
             showpagealige="bottom" multiselect="false" url="/Supplier/SupplierScore/GetPageData" >
             <div property="columns">
                 <div type="indexcolumn" width="30"></div>
-                <div field="ProjectNum" width="120">项目编号</div>
-                <div field="ProjectName" width="120">项目名称</div>
                 <div field="SupplierNum" width="120">供应商编号</div>
                 <div field="SupplierName" width="120">供应商名称</div>
+                <div field="ProjectNum" width="120">项目编号</div>
+                <div field="ProjectName" width="120">项目名称</div>
                 <div field="SupplierScore" width="120">供应商评分</div>
                 <div field="ScoreRemark" width="120">评分备注</div>
             </div>
@@ -74,7 +74,25 @@
             var grid = hbes.get("grid");
             $(function () {
                
-                search();
+                $("#btn_Add").hide();
+                $("#btn_Delete").hide();
+                
+
+                layui.use('form', function () {
+                    var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+                    $("#btn_Add").hide();
+                    $("#btn_Delete").hide();
+                    //……
+                    search();
+
+                    //但是，如果你的HTML是动态生成的，自动渲染就会失效
+                    //因此你需要在相应的地方，执行下述方法来手动渲染，跟这类似的还有 element.init();
+                    //form.render();
+                    form.on('button(btn_Query)', function (data) {
+                        layui.form.render();
+                    });
+                });
+                
                 //change();
 
             });
@@ -91,11 +109,15 @@
             }
 
             function search() {
-                var projectName = $("#txt_projectName").val();
-                grid.loadGridData({ "projectName": projectName });
+                var supplierName = $("#txt_supplierName").val();
+                grid.loadGridData({ "supplierName": supplierName });
+                $("#btn_Add").hide();
+                $("#btn_Delete").hide();
             }
             function reload() {
                 grid.reload();
+                $("#btn_Add").hide();
+                $("#btn_Delete").hide();
             }
             function add() {
                 // 标题      //打开页面               宽    高     窗口正常关闭（非手动关闭）后执行的方法

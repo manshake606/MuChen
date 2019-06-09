@@ -455,7 +455,7 @@
             // 请求
             $.ajax({
                 type: 'get',
-                url: "/Supplier/SupplierScore/GetAllDataByProjectNum?ProjectNum="+id,
+                url: "/Project/ProjectAndSupplier/GetAllDataByProjectNum?ProjectNum=" + id,
                 success: function (response) {
                     var data = strToJson(response);
                     data = strToJson(data["ResultData"])["data"];

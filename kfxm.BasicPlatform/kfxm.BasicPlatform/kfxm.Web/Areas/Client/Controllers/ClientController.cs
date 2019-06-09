@@ -11,6 +11,8 @@ using kfxms.Common;
 using System.Collections;
 using kfxms.Entity.Client;
 using kfxms.IService.Client;
+using kfxms.Entity.Project;
+using kfxms.IService.Project;
 
 namespace kfxms.Web.Areas.Client.Controllers
 {
@@ -29,6 +31,10 @@ namespace kfxms.Web.Areas.Client.Controllers
         public ISys_UserAndRoleService userAndRoleService { get; set; }
         [Import]
         public ISys_RoleService roleService { get; set; }
+
+        [Import]
+        //public new  userService { get; set; }
+        public IS_ProjectService projectService { get; set; }
 
         public ActionResult List()
         {
@@ -99,6 +105,34 @@ namespace kfxms.Web.Areas.Client.Controllers
 
             List<S_Client> list = ClientService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
 
+            Sys_User sUser = base.LoginUser;
+            List<Sys_UserAndRole> currentUserRole = userAndRoleService.GetWhereData(u => u.UserId == sUser.Id).ToList();
+            Guid? currentRoleId = currentUserRole[0].RoleId;
+            List<Sys_Role> currentRoleList = roleService.GetWhereData(m => m.Id == currentRoleId).ToList();
+            string roleName = currentRoleList[0].RoleName;
+
+            Hashtable ht = new Hashtable();
+            string json = null;
+            if (roleName != "系统管理员" && roleName != "财务")
+            {
+                var userPojectList = projectService.GetWhereData(m => m.ProjectManager == sUser.Num || m.CoreDesigner == sUser.Num || m.AssistantDesigner == sUser.Num || m.BusinessAssistant == sUser.Num || m.BusinessManager == sUser.Num).Select(m => m.ClientId);
+                var result = from p in list where userPojectList.Contains(p.Num) select p;
+
+
+                //ht.Add("total", total);
+                ht.Add("data", result);
+                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+
+                return Content(json);
+            }
+            else
+            {
+                //ht.Add("total", total);
+                ht.Add("data", list);
+                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            }
+
+
             /*
             var s_Task = new S_Task()
             {
@@ -140,10 +174,10 @@ namespace kfxms.Web.Areas.Client.Controllers
             ht.Add("data", list);
             */
 
-            Hashtable ht = new Hashtable();
-            ht.Add("total", total);
-            ht.Add("data", list);
-            string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            //Hashtable ht = new Hashtable();
+            //ht.Add("total", total);
+           // ht.Add("data", list);
+            //string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
 
             return Content(json);
 

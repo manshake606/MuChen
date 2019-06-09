@@ -31,7 +31,7 @@
                          <tr>
                              <td class="ft_label">项目名称</td>
                              <td class="ft_control">
-                                 <input type="text" name="ProjectName" readonly="readonly" value="@Model.ProjectName" class="hbes-input"  vtype="required:true;rangeLength:0,50;" />
+                                 <input type="text" name="ProjectName" readonly="readonly" value="@Model.ProjectName" class="hbes-input"  vtype="required:true;rangeLength:0,50;"/>
                              </td>
                              <td class="ft_label">项目状态</td>
                              <td class="ft_control">
@@ -80,6 +80,13 @@
                              <td class="ft_label">备注</td>
                              <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" readonly="readonly"  vtype="required:true;rangeLength:0,50;" /></td>
                          </tr>
+                         <tr>
+                             <td class="ft_label">甲方名称</td>
+                             <td class="ft_control"><input type="text" value="@Model.ClientName" name="ClientName" class="hbes-input" readonly="readonly" vtype="required:true;rangeLength:0,80;" onclick="OpenClient()"/></td>
+
+                             <td class="ft_label"></td>
+                             <td class="ft_control"></td>
+                         </tr>
                          <!-- <tr>
             <td class="ft_label"></td>
             <td class="ft_control"><button class="layui-btn layui-btn-small layui-btn-normal" onclick="save()" type="button">确定</button><button class="layui-btn layui-btn-small layui-btn-primary" onclick="closeWin()" type="button">关闭</button></td>
@@ -91,6 +98,7 @@
                  </div>
              </div>
 
+             <!--
             <div class="layui-card">
                  <div class="layui-card-header">甲方信息</div>
                  <div class="layui-card-body">
@@ -133,6 +141,7 @@
 
                  </div>
              </div>
+                 -->
 
              <div class="layui-card">
                  <div class="layui-card-header">项目联系人</div>
@@ -410,6 +419,10 @@
 
         function reload() {
             grid.reload();
+        }
+
+        function OpenClient(){
+            openWin("甲方信息", "/Client/Client/Detail?clientId=" +'@Model.ClientKey', 800, 500, "reload");
         }
 
 
