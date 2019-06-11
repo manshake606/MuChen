@@ -17,6 +17,8 @@ using kfxms.Entity.Supplier;
 using kfxms.IService.Supplier;
 using kfxms.Entity.SupplierType;
 using kfxms.IService.SupplierType;
+using kfxms.Entity.Payment;
+using kfxms.IService.Payment;
 
 namespace kfxms.Web.Areas.Project.Controllers
 {
@@ -42,6 +44,10 @@ namespace kfxms.Web.Areas.Project.Controllers
         [Import]
         //public new  userService { get; set; }
         public IS_SupplierScoreService SupplierScoreService { get; set; }
+
+        [Import]
+        //public new  userService { get; set; }
+        public IS_ExternalPaymentService ExternalPaymentService { get; set; }
 
         [Import]
         //public new  userService { get; set; }
@@ -113,6 +119,21 @@ namespace kfxms.Web.Areas.Project.Controllers
                 s_ProjectAndSupplierDetail.SupplierName = ListSupplier[0].SupplierName;
                 s_ProjectAndSupplierDetail.SupplierScore = item.SupplierScore;
                 s_ProjectAndSupplierDetail.ScoreRemark = item.ScoreRemark;
+                s_ProjectAndSupplierDetail.SupplierContractAmout = item.SupplierContractAmout;
+                List<S_ExternalPayment> listExternalPayment = ExternalPaymentService.GetAllData().Where(u => u.ProjectNum == item.ProjectNum && u.ExternalPaymentSupplier == item.SupplierNum).ToList();
+                decimal? SupplierCurrentPaymentAmout = 0;
+                if (listExternalPayment.Count > 0)
+                {
+                    foreach (S_ExternalPayment ExternalPayment in listExternalPayment)
+                    {
+                        SupplierCurrentPaymentAmout += ExternalPayment.ExternalPaymentAmout;
+                    }
+                }
+                decimal? SupplierLeftPaymentAmout = s_ProjectAndSupplierDetail.SupplierContractAmout - SupplierCurrentPaymentAmout;
+                s_ProjectAndSupplierDetail.SupplierCurrentPaymentAmout = SupplierCurrentPaymentAmout;
+                s_ProjectAndSupplierDetail.SupplierLeftPaymentAmout = SupplierLeftPaymentAmout;
+
+
                 listProjectAndSupplierDetail.Add(s_ProjectAndSupplierDetail);
             }
 
@@ -230,6 +251,19 @@ namespace kfxms.Web.Areas.Project.Controllers
                 s_ProjectAndSupplierDetail.SupplierName = ListSupplier[0].SupplierName;
                 s_ProjectAndSupplierDetail.SupplierScore = item.SupplierScore;
                 s_ProjectAndSupplierDetail.ScoreRemark = item.ScoreRemark;
+                s_ProjectAndSupplierDetail.SupplierContractAmout = item.SupplierContractAmout;
+                List<S_ExternalPayment> listExternalPayment = ExternalPaymentService.GetAllData().Where(u => u.ProjectNum == item.ProjectNum && u.ExternalPaymentSupplier == item.SupplierNum).ToList();
+                decimal? SupplierCurrentPaymentAmout = 0;
+                if (listExternalPayment.Count > 0)
+                {
+                    foreach (S_ExternalPayment ExternalPayment in listExternalPayment)
+                    {
+                        SupplierCurrentPaymentAmout += ExternalPayment.ExternalPaymentAmout;
+                    }
+                }
+                decimal? SupplierLeftPaymentAmout = s_ProjectAndSupplierDetail.SupplierContractAmout - SupplierCurrentPaymentAmout;
+                s_ProjectAndSupplierDetail.SupplierCurrentPaymentAmout = SupplierCurrentPaymentAmout;
+                s_ProjectAndSupplierDetail.SupplierLeftPaymentAmout = SupplierLeftPaymentAmout;
 
                 //foreach (S_SupplierScore score in listSupplierScore)
                 //{
@@ -272,6 +306,26 @@ namespace kfxms.Web.Areas.Project.Controllers
                 s_ProjectAndSupplierDetail.SupplierName = ListSupplier[0].SupplierName;
                 s_ProjectAndSupplierDetail.SupplierScore = item.SupplierScore;
                 s_ProjectAndSupplierDetail.ScoreRemark = item.ScoreRemark;
+                s_ProjectAndSupplierDetail.SupplierContractAmout = item.SupplierContractAmout;
+                //foreach (S_SupplierScore score in listSupplierScore)
+                //{
+                //    if(score.SupplierNum== s_ProjectAndSupplierDetail.SupplierNum)
+                //    {
+                //        s_ProjectAndSupplierDetail.SupplierScore = score.SupplierScore;
+                //    }
+                //}
+                List<S_ExternalPayment> listExternalPayment = ExternalPaymentService.GetAllData().Where(u => u.ProjectNum == item.ProjectNum && u.ExternalPaymentSupplier == item.SupplierNum).ToList();
+                decimal? SupplierCurrentPaymentAmout = 0;
+                if (listExternalPayment.Count > 0)
+                {
+                    foreach (S_ExternalPayment ExternalPayment in listExternalPayment)
+                    {
+                        SupplierCurrentPaymentAmout += ExternalPayment.ExternalPaymentAmout;
+                    }
+                }
+                decimal? SupplierLeftPaymentAmout = s_ProjectAndSupplierDetail.SupplierContractAmout - SupplierCurrentPaymentAmout;
+                s_ProjectAndSupplierDetail.SupplierCurrentPaymentAmout = SupplierCurrentPaymentAmout;
+                s_ProjectAndSupplierDetail.SupplierLeftPaymentAmout = SupplierLeftPaymentAmout;
 
                 //foreach (S_SupplierScore score in listSupplierScore)
                 //{
@@ -302,12 +356,14 @@ namespace kfxms.Web.Areas.Project.Controllers
             eProjectAndSupplier.SupplierNum= int.Parse(row["Supplier"].ToString().Trim());
             eProjectAndSupplier.SupplierScore = int.Parse(row["SupplierScore"].ToString().Trim());
             eProjectAndSupplier.ScoreRemark = row["ScoreRemark"].ToString().Trim();
+            eProjectAndSupplier.SupplierContractAmout= Convert.ToDecimal(row["SupplierContractAmout"].ToString().Trim());
             eProjectAndSupplier.AddTime = DateTime.Now;
             eProjectAndSupplier.AddUserId = base.LoginUser.Id;
             eProjectAndSupplier.AddName = base.LoginUser.Name;
             eProjectAndSupplier.LastEditName = base.LoginUser.Name;
             eProjectAndSupplier.LastEditTime = DateTime.Now;
             eProjectAndSupplier.LastEditUserID = base.LoginUser.Id;
+
             //eProjectAndSupplier.ProjectAndSupplierName = row["ProjectAndSupplierName"].ToString().Trim();
             //eProjectAndSupplier.Password = MD5Helper.GetMD5("123456");
             //string[] arrClient = row["Client"].ToString().Split(':');
@@ -319,6 +375,13 @@ namespace kfxms.Web.Areas.Project.Controllers
             //eProjectAndSupplier.Remark = row["Remark"].ToString().Trim();
 
             //List<S_ProjectAndSupplier> listProjectAndSupplier = ProjectAndSupplierService.GetWhereData(u => u.ProjectId.Equals(eProjectAndSupplier.ProjectId)).ToList();
+            List<S_ProjectAndSupplier> listSupplierScore = ProjectAndSupplierService.GetWhereData(u => u.ProjectNum == eProjectAndSupplier.ProjectNum && u.SupplierNum == eProjectAndSupplier.SupplierNum).ToList();
+            if (listSupplierScore.Count > 0)
+            {
+                resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出警告提示框不关闭窗体, "该供应商关系已经存在！");
+                return Content(resultJson);
+            }
+
 
             int num = ProjectAndSupplierService.Add(eProjectAndSupplier);
             if (num > 0)
@@ -350,6 +413,7 @@ namespace kfxms.Web.Areas.Project.Controllers
             eProjectAndSupplier.SupplierNum = int.Parse(row["Supplier"].ToString().Trim());
             eProjectAndSupplier.SupplierScore = int.Parse(row["SupplierScore"].ToString().Trim());
             eProjectAndSupplier.ScoreRemark = row["ScoreRemark"].ToString().Trim();
+            eProjectAndSupplier.SupplierContractAmout = Convert.ToDecimal(row["SupplierContractAmout"].ToString().Trim());
             //eProjectAndSupplier.ProjectAndSupplierName = ProjectAndSupplierName;
             //string[] arrClient = row["Client"].ToString().Split(':');
             //eSupplier.Type = int.Parse(arrType[0]);
@@ -377,8 +441,19 @@ namespace kfxms.Web.Areas.Project.Controllers
 
         public ActionResult DeleteProjectAndSupplier(Guid ProjectAndSupplierId)
         {
-            int num = ProjectAndSupplierService.Delete(ProjectAndSupplierId);
+            
+            S_ProjectAndSupplier eProjectAndSupplier = ProjectAndSupplierService.GetByKey(ProjectAndSupplierId);
+            List<S_ExternalPayment> listExternalPayment = ExternalPaymentService.GetAllData().Where(u => u.ProjectNum == eProjectAndSupplier.ProjectNum && u.ExternalPaymentSupplier == eProjectAndSupplier.SupplierNum).ToList();
+
+
+
             string resultJson = "";
+            if (listExternalPayment.Count > 0)
+            {
+                resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出OK提示框不关闭窗体, "该供应商已有付款信息，请删除付款信息后再删除该供应商关系！");
+                return Content(resultJson);
+            }
+            int num = ProjectAndSupplierService.Delete(ProjectAndSupplierId);
             if (num > 0)
             {
                 resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出OK提示框不关闭窗体, "删除成功！");

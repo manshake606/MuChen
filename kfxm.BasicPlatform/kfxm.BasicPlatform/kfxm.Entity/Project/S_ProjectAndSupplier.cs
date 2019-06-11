@@ -44,6 +44,11 @@ namespace kfxms.Entity.Project
         public string ScoreRemark { get; set; }
 
         /// <summary>
+        /// 供应商应付账款
+        /// </summary>
+        public decimal? SupplierContractAmout { get; set; }
+
+        /// <summary>
         ///添加时间
         /// </summary>
         public DateTime? AddTime { get; set; }

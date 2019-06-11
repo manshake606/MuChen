@@ -40,6 +40,10 @@ namespace kfxms.Web.Areas.Payment.Controllers
         public IS_ExternalPaymentService ExternalPaymentService { get; set; }
 
         [Import]
+        //public new  userService { get; set; }
+        public IS_ProjectAndSupplierService ProjectAndSupplierService { get; set; }
+
+        [Import]
         public ISys_UserAndRoleService userAndRoleService { get; set; }
         [Import]
         public ISys_RoleService roleService { get; set; }
@@ -224,6 +228,28 @@ namespace kfxms.Web.Areas.Payment.Controllers
             eExternalPayment.LastEditName = base.LoginUser.Name;
             eExternalPayment.LastEditTime = DateTime.Now;
             eExternalPayment.LastEditUserID = base.LoginUser.Id;
+            List<S_ProjectAndSupplier> listProjectAndSupplier = ProjectAndSupplierService.GetAllData().Where(u => u.ProjectNum == eExternalPayment.ProjectNum && u.SupplierNum == eExternalPayment.ExternalPaymentSupplier).ToList();
+            decimal? SupplierContractAmout = 0;
+            if (listProjectAndSupplier.Count > 0)
+            {
+                SupplierContractAmout = listProjectAndSupplier[0].SupplierContractAmout;
+            }
+            List<S_ExternalPayment> listExternalPayment = ExternalPaymentService.GetAllData().Where(u => u.ProjectNum == eExternalPayment.ProjectNum && u.ExternalPaymentSupplier == eExternalPayment.ExternalPaymentSupplier).ToList();
+            decimal? SupplierCurrentPaymentAmout = 0;
+            if (listExternalPayment.Count > 0)
+            {
+                foreach (S_ExternalPayment ExternalPayment in listExternalPayment)
+                {
+                    SupplierCurrentPaymentAmout += ExternalPayment.ExternalPaymentAmout;
+                }
+            }
+            decimal? SupplierLeftPaymentAmout = SupplierContractAmout - SupplierCurrentPaymentAmout;
+            if (eExternalPayment.ExternalPaymentAmout > SupplierLeftPaymentAmout)
+            {
+                resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出错误提示框不关闭窗体, "新增付款额大于剩余付款额:" + SupplierLeftPaymentAmout.ToString() + "，请检查付款金额！");
+                return Content(resultJson);
+            }
+
             //eExternalPayment.PRAmout = Convert.ToDecimal(row["PRAmout"].ToString().Trim());
             //eExternalPayment.PRContact = row["PRContact"].ToString().Trim();
             //eExternalPayment.PRContactPhone= row["PRContactPhone"].ToString().Trim();
@@ -261,6 +287,7 @@ namespace kfxms.Web.Areas.Payment.Controllers
             string resultJson = "";
             Hashtable row = (Hashtable)JsonHelp.Decode(data);
             S_ExternalPayment eExternalPayment = ExternalPaymentService.GetByKey(Guid.Parse(row["Id"].ToString()));
+            decimal? existingSupplierContractAmout = eExternalPayment.ExternalPaymentAmout;
             if (eExternalPayment == null)
             {
                 resultJson = resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出警告提示框不关闭窗体, "该条记录不存在！");
@@ -269,13 +296,37 @@ namespace kfxms.Web.Areas.Payment.Controllers
 
             eExternalPayment.ProjectNum = int.Parse(row["Project"].ToString().Trim());
             //eExternalPayment.ProjectNum = int.Parse(row["Project"].ToString().Trim()); 
-            eExternalPayment.ExternalPaymentAmout = Convert.ToDecimal(row["ExternalPaymentAmout"].ToString().Trim());
+            
             eExternalPayment.ExternalPaymentContent = row["ExternalPaymentContent"].ToString().Trim();
             eExternalPayment.ExternalPaymentTime = Convert.ToDateTime(row["ExternalPaymentTime"].ToString().Trim());
             eExternalPayment.ExternalPaymentSupplier = int.Parse(row["ExternalPaymentSupplier"].ToString().Trim());
             eExternalPayment.LastEditName = base.LoginUser.Name;
             eExternalPayment.LastEditTime = DateTime.Now;
             eExternalPayment.LastEditUserID = base.LoginUser.Id;
+            List<S_ProjectAndSupplier> listProjectAndSupplier = ProjectAndSupplierService.GetAllData().Where(u => u.ProjectNum == eExternalPayment.ProjectNum && u.SupplierNum == eExternalPayment.ExternalPaymentSupplier).ToList();
+            decimal? SupplierContractAmout = 0;
+            if (listProjectAndSupplier.Count > 0)
+            {
+                SupplierContractAmout = listProjectAndSupplier[0].SupplierContractAmout;
+            }
+            List<S_ExternalPayment> listExternalPayment = ExternalPaymentService.GetAllData().Where(u => u.ProjectNum == eExternalPayment.ProjectNum && u.ExternalPaymentSupplier == eExternalPayment.ExternalPaymentSupplier).ToList();
+            decimal? SupplierCurrentPaymentAmout = 0;
+            if (listExternalPayment.Count > 0)
+            {
+                foreach (S_ExternalPayment ExternalPayment in listExternalPayment)
+                {
+                    SupplierCurrentPaymentAmout += ExternalPayment.ExternalPaymentAmout;
+                }
+            }
+            decimal? SupplierLeftPaymentAmout = SupplierContractAmout - SupplierCurrentPaymentAmout+ existingSupplierContractAmout;
+
+            if (Convert.ToDecimal(row["ExternalPaymentAmout"].ToString().Trim()) > SupplierLeftPaymentAmout)
+            {
+                resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出错误提示框不关闭窗体, "更新付款额大于剩余付款额:"+SupplierLeftPaymentAmout.ToString()+"，请检查付款金额！");
+                return Content(resultJson);
+            }
+
+            eExternalPayment.ExternalPaymentAmout = Convert.ToDecimal(row["ExternalPaymentAmout"].ToString().Trim());
             //String ExternalPaymentName = row["ExternalPaymentName"].ToString().Trim();
 
             //eExternalPayment.PRAmout = Convert.ToDecimal(row["PRAmout"].ToString().Trim());

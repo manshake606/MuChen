@@ -15,6 +15,8 @@ using kfxms.Entity.Project;
 using kfxms.IService.Project;
 using kfxms.Entity.SupplierType;
 using kfxms.IService.SupplierType;
+using kfxms.Entity.Payment;
+using kfxms.IService.Payment;
 
 
 
@@ -42,6 +44,10 @@ namespace kfxms.Web.Areas.Supplier.Controllers
         [Import]
         //public new  userService { get; set; }
         public IS_ProjectService projectService { get; set; }
+
+        [Import]
+        //public new  userService { get; set; }
+        public IS_ExternalPaymentService ExternalPaymentService { get; set; }
 
         [Import]
         //public new  userService { get; set; }
@@ -128,6 +134,19 @@ namespace kfxms.Web.Areas.Supplier.Controllers
                 }
                 S_ProjectAndSupplierDetail.SupplierScore = item.SupplierScore;
                 S_ProjectAndSupplierDetail.ScoreRemark = item.ScoreRemark;
+                S_ProjectAndSupplierDetail.SupplierContractAmout = item.SupplierContractAmout;
+                List<S_ExternalPayment> listExternalPayment = ExternalPaymentService.GetAllData().Where(u => u.ProjectNum == item.ProjectNum && u.ExternalPaymentSupplier == item.SupplierNum).ToList();
+                decimal? SupplierCurrentPaymentAmout = 0;
+                if (listExternalPayment.Count > 0)
+                {
+                    foreach (S_ExternalPayment ExternalPayment in listExternalPayment)
+                    {
+                        SupplierCurrentPaymentAmout += ExternalPayment.ExternalPaymentAmout;
+                    }
+                }
+                decimal? SupplierLeftPaymentAmout = S_ProjectAndSupplierDetail.SupplierContractAmout - SupplierCurrentPaymentAmout;
+                S_ProjectAndSupplierDetail.SupplierCurrentPaymentAmout = SupplierCurrentPaymentAmout;
+                S_ProjectAndSupplierDetail.SupplierLeftPaymentAmout = SupplierLeftPaymentAmout;
 
                 listSupplierScoreDetail.Add(S_ProjectAndSupplierDetail);
             }
@@ -198,6 +217,19 @@ namespace kfxms.Web.Areas.Supplier.Controllers
                 }
                 S_ProjectAndSupplierDetail.SupplierScore = item.SupplierScore;
                 S_ProjectAndSupplierDetail.ScoreRemark = item.ScoreRemark;
+                S_ProjectAndSupplierDetail.SupplierContractAmout = item.SupplierContractAmout;
+                List<S_ExternalPayment> listExternalPayment = ExternalPaymentService.GetAllData().Where(u => u.ProjectNum == item.ProjectNum && u.ExternalPaymentSupplier == item.SupplierNum).ToList();
+                decimal? SupplierCurrentPaymentAmout = 0;
+                if (listExternalPayment.Count > 0)
+                {
+                    foreach (S_ExternalPayment ExternalPayment in listExternalPayment)
+                    {
+                        SupplierCurrentPaymentAmout += ExternalPayment.ExternalPaymentAmout;
+                    }
+                }
+                decimal? SupplierLeftPaymentAmout = S_ProjectAndSupplierDetail.SupplierContractAmout - SupplierCurrentPaymentAmout;
+                S_ProjectAndSupplierDetail.SupplierCurrentPaymentAmout = SupplierCurrentPaymentAmout;
+                S_ProjectAndSupplierDetail.SupplierLeftPaymentAmout = SupplierLeftPaymentAmout;
 
                 listSupplierScoreDetail.Add(S_ProjectAndSupplierDetail);
             }
