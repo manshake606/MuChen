@@ -25,17 +25,18 @@
                                 <col  />
                             </colgroup>
               
-             <tr>
-                 <td class="ft_label">收款金额</td>
-                 <td class="ft_control"><input type="text"  value="@Model.RevenueAmout" name="RevenueAmout" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
-             </tr>
+            
             <tr>
                 <td class="ft_label">收款日期</td>
                 <td class="ft_control"><input type="text" id="RevenueTime" value="@Model.RevenueTime" name="RevenueTime" class="hbes-input" style="width:99%;" readonly="readonly" vtype="required:true;rangeLength:0,50;" /></td>
             </tr>
             <tr>
+                <td class="ft_label">收款金额</td>
+                <td class="ft_control"><input type="text" value="@Model.RevenueAmout" name="RevenueAmout" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            <tr>
                 <td class="ft_label">备注</td>
-                <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
             </tr>
             
             

@@ -354,9 +354,22 @@ namespace kfxms.Web.Areas.Project.Controllers
             eProjectAndSupplier.Id = Guid.NewGuid();
             eProjectAndSupplier.ProjectNum= int.Parse(row["Project"].ToString().Trim());
             eProjectAndSupplier.SupplierNum= int.Parse(row["Supplier"].ToString().Trim());
-            eProjectAndSupplier.SupplierScore = int.Parse(row["SupplierScore"].ToString().Trim());
+            if(row["SupplierScore"] == null || row["SupplierScore"].ToString() == "")
+            {
+                eProjectAndSupplier.SupplierScore = null;
+            }
+            else
+            {
+                eProjectAndSupplier.SupplierScore = int.Parse(row["SupplierScore"].ToString().Trim());
+            }
             eProjectAndSupplier.ScoreRemark = row["ScoreRemark"].ToString().Trim();
-            eProjectAndSupplier.SupplierContractAmout= Convert.ToDecimal(row["SupplierContractAmout"].ToString().Trim());
+            if(row["SupplierContractAmout"]==null || row["SupplierContractAmout"].ToString() == "")
+            {
+                eProjectAndSupplier.SupplierContractAmout = null;
+            }else
+            {
+                eProjectAndSupplier.SupplierContractAmout = Convert.ToDecimal(row["SupplierContractAmout"].ToString().Trim());
+            }
             eProjectAndSupplier.AddTime = DateTime.Now;
             eProjectAndSupplier.AddUserId = base.LoginUser.Id;
             eProjectAndSupplier.AddName = base.LoginUser.Name;
@@ -411,9 +424,26 @@ namespace kfxms.Web.Areas.Project.Controllers
 
             eProjectAndSupplier.ProjectNum = int.Parse(row["Project"].ToString().Trim());
             eProjectAndSupplier.SupplierNum = int.Parse(row["Supplier"].ToString().Trim());
-            eProjectAndSupplier.SupplierScore = int.Parse(row["SupplierScore"].ToString().Trim());
+            if (row["SupplierScore"] == null || row["SupplierScore"].ToString() == "")
+            {
+                eProjectAndSupplier.SupplierScore = null;
+            }
+            else
+            {
+                eProjectAndSupplier.SupplierScore = int.Parse(row["SupplierScore"].ToString().Trim());
+            }
             eProjectAndSupplier.ScoreRemark = row["ScoreRemark"].ToString().Trim();
-            eProjectAndSupplier.SupplierContractAmout = Convert.ToDecimal(row["SupplierContractAmout"].ToString().Trim());
+            if (row["SupplierContractAmout"] == null || row["SupplierContractAmout"].ToString() == "")
+            {
+                eProjectAndSupplier.SupplierContractAmout = null;
+            }
+            else
+            {
+                eProjectAndSupplier.SupplierContractAmout = Convert.ToDecimal(row["SupplierContractAmout"].ToString().Trim());
+            }
+            //eProjectAndSupplier.SupplierScore = int.Parse(row["SupplierScore"].ToString().Trim());
+            eProjectAndSupplier.ScoreRemark = row["ScoreRemark"].ToString().Trim();
+            //eProjectAndSupplier.SupplierContractAmout = Convert.ToDecimal(row["SupplierContractAmout"].ToString().Trim());
             //eProjectAndSupplier.ProjectAndSupplierName = ProjectAndSupplierName;
             //string[] arrClient = row["Client"].ToString().Split(':');
             //eSupplier.Type = int.Parse(arrType[0]);

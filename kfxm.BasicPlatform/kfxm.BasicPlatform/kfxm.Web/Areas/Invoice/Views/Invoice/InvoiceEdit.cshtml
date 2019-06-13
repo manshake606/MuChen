@@ -25,17 +25,18 @@
                                 <col  />
                             </colgroup>
               
-             <tr>
-                 <td class="ft_label">开票金额</td>
-                 <td class="ft_control"><input type="text"  value="@Model.InvoiceAmout" name="InvoiceAmout" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
-             </tr>
+             
             <tr>
                 <td class="ft_label">开票日期</td>
                 <td class="ft_control"><input type="text" id="InvoiceTime" value="@Model.InvoiceTime" name="InvoiceTime" class="hbes-input" style="width:99%;" readonly="readonly" vtype="required:true;rangeLength:0,50;" /></td>
             </tr>
             <tr>
+                <td class="ft_label">开票金额</td>
+                <td class="ft_control"><input type="text" value="@Model.InvoiceAmout" name="InvoiceAmout" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+            </tr>
+            <tr>
                 <td class="ft_label">备注</td>
-                <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                <td class="ft_control"><input type="text" value="@Model.Remark" name="Remark" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
             </tr>
             
             
