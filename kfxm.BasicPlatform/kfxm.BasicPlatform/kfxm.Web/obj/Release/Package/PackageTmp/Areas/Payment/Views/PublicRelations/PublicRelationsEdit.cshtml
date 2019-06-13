@@ -38,10 +38,7 @@
                         <td class="ft_label">公关联系人手机</td>
                         <td class="ft_control"><input type="text" id="PRContactPhone" value="@Model.PRContactPhone" name="PRContactPhone" class="hbes-input" style="width:99%;" readonly="readonly" vtype="required:true;rangeLength:0,50;" /></td>
                     </tr>
-                    <tr>
-                        <td class="ft_label">公关明细</td>
-                        <td class="ft_control"><input type="text" value="@Model.PRContent" name="PRContent" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
-                    </tr>
+                   
                     <tr>
                         <td class="ft_label">公关日期</td>
                         <td class="ft_control"><input type="text" id="PRTime" value="@Model.PRTime" name="PRTime" class="hbes-input" style="width:99%;" readonly="readonly" vtype="required:false;rangeLength:0,50;" /></td>
@@ -50,7 +47,10 @@
                         <td class="ft_label">公关费用</td>
                         <td class="ft_control"><input type="text" value="@Model.PRAmout" name="PRAmout" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
                     </tr>
-             
+                    <tr>
+                        <td class="ft_label">公关备注</td>
+                        <td class="ft_control"><input type="text" value="@Model.PRContent" name="PRContent" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                    </tr>
             
 
                 </table>

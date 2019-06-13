@@ -634,6 +634,7 @@
   <ItemGroup>
     <Content Include="Areas\Client\Views\Client\ClientDetail.cshtml" />
     <None Include="Properties\PublishProfiles\ChenMu.pubxml" />
+    <None Include="Properties\PublishProfiles\ChenMuPublish.pubxml" />
     <None Include="Properties\PublishProfiles\ChenMuTest.pubxml" />
     <None Include="Properties\PublishProfiles\ChenMuYun.pubxml">
       <SubType>Designer</SubType>

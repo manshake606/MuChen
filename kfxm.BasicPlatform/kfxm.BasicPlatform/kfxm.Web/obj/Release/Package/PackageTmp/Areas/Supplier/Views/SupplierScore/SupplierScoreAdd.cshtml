@@ -28,18 +28,18 @@
                 </colgroup>
                 <tr>
                     <td class="ft_label">
-                        项目名称：
+                        供应商名称：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="Project" name="Project" class="layui-select" lay-search="" lay-filter="Project" vtype="required:true"></select>
+                        <select id="Supplier" name="Supplier" class="layui-select" lay-search="" lay-filter="Supplier" vtype="required:true"></select>
                     </td>
                 </tr>
                 <tr>
                     <td class="ft_label">
-                        供应商名称：
+                        项目名称：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="Supplier" name="Supplier" class="layui-select" lay-search="" vtype="required:true"></select>
+                        <select id="Project" name="Project" class="layui-select" lay-search="" lay-filter="Project" vtype="required:true"></select>
                     </td>
                 </tr>
                 <tr>
@@ -191,6 +191,49 @@
             })
         }
 
+        function getSupplierDataList() {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/Supplier/Supplier/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#Supplier').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        if (i == 0) {
+                            getProjectDataBySupplierNum(data[i].Num);
+                        }
+                        html += '<option value=' + data[i].Num + '>' + data[i].SupplierName + '</option>';
+                    }
+                    $('#Supplier').append(html);
+                    layui.form.render();
+                }
+            })
+        }
+
+        function getProjectDataBySupplierNum(num) {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/Project/ProjectAndSupplier/GetAllDataBySupplierNum?supplierNum=" + num,
+                data: num,
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#Project').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        html += '<option value=' + data[i].ProjectNum + '>' + data[i].ProjectName + '</option>';
+                    }
+                    $('#Project').append(html);
+                    layui.form.render();
+                }
+            })
+        }
+
+
         function getSupplierDataByProjectNum(num) {
             // 请求
             $.ajax({
@@ -220,11 +263,11 @@
             
             layui.use('form', function () {
                 var form = layui.form;
-                getDataList();
+                getSupplierDataList();
                 form.render('select'); //刷新select选择框渲染
                 
-                form.on('select(Project)', function (data) {
-                    getSupplierDataByProjectNum(data.value)
+                form.on('select(Supplier)', function (data) {
+                    getProjectDataBySupplierNum(data.value)
                     layui.form.render();
                 });
 

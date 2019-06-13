@@ -179,7 +179,7 @@
              </div>
 
             <div class="layui-card">
-                 <div class="layui-card-header">供应商评分信息</div>
+                 <div class="layui-card-header">供应商项目信息</div>
                  <div class="layui-card-body">
                      <div id="grid" class="page-grid" showpager="true"
                           showpagealige="bottom" multiselect="false" url="/Project/ProjectAndSupplier/GetAllDataByProjectNum?ProjectNum=@Model.Num">
@@ -189,7 +189,9 @@
                              <div field="SupplierName" width="120">供应商名称</div>
                              <div field="SupplierScore" width="120">供应商评分</div>
                              <div field="ScoreRemark" width="120">评分备注</div>
-                             
+                             <div field="SupplierContractAmout" width="120">供应商应付账款</div>
+                             <div field="SupplierCurrentPaymentAmout" width="120">供应商已付账款</div>
+                             <div field="SupplierLeftPaymentAmout" width="120">供应商剩余付款</div>
                          </div>
                      </div> 
 
@@ -455,7 +457,7 @@
             // 请求
             $.ajax({
                 type: 'get',
-                url: "/Supplier/SupplierScore/GetAllDataByProjectNum?ProjectNum="+id,
+                url: "/Project/ProjectAndSupplier/GetAllDataByProjectNum?ProjectNum=" + id,
                 success: function (response) {
                     var data = strToJson(response);
                     data = strToJson(data["ResultData"])["data"];

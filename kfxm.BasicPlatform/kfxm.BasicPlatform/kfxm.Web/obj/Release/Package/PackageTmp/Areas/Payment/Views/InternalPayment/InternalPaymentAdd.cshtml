@@ -41,12 +41,14 @@
                         <select id="InternalPaymentUser" lay-search="" name="InternalPaymentUser" class="layui-select"></select>
                     </td>
                 </tr>
+                
+                
                 <tr>
                     <td class="ft_label">
-                        内部付款明细：
+                        内部付款时间：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" name="InternalPaymentContent" class="hbes-input" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" id="InternalPaymentTime" name="InternalPaymentTime" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
@@ -59,10 +61,10 @@
                 </tr>
                 <tr>
                     <td class="ft_label">
-                        内部付款时间：
+                        内部付款备注：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <input type="text" id="InternalPaymentTime" name="InternalPaymentTime" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
+                        <input type="text" name="InternalPaymentContent" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <!--<tr>

@@ -146,6 +146,7 @@ namespace kfxms.Web.Areas.SysBasic.Controllers
                 }
             }
             eUser.UserName = userName;
+            eUser.Mobile = row["Mobile"].ToString().Trim();
             int num = userService.Update(eUser);
             if (num > 0)
             {
