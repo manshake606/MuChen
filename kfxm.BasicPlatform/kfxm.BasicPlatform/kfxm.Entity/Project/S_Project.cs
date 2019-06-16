@@ -49,6 +49,16 @@ namespace kfxms.Entity.Project
         public int? Status { get; set; }
 
         /// <summary>
+        /// 面积
+        /// </summary>
+        public decimal? Area { get; set; }
+
+        /// <summary>
+        /// 单方造价
+        /// </summary>
+        public decimal? UnitPrice { get; set; }
+
+        /// <summary>
         /// 备注
         /// </summary>
         public string Remark { get; set; }

@@ -99,6 +99,8 @@ namespace kfxms.Web.Areas.Project.Controllers
             s_ProjectInfo.SettlementBase = sys_Project.SettlementBase;
             s_ProjectInfo.Status = sys_Project.Status;
             s_ProjectInfo.CoreDesigner = sys_Project.CoreDesigner;
+            s_ProjectInfo.Area = sys_Project.Area;
+            
 
             s_ProjectInfo.AssistantDesigner = sys_Project.AssistantDesigner;
 
@@ -184,6 +186,14 @@ namespace kfxms.Web.Areas.Project.Controllers
             }
             s_ProjectInfo.ClientId = sys_Project.ClientId;
             s_ProjectInfo.ContractAmout = sys_Project.ContractAmout;
+            if (s_ProjectInfo.ContractAmout > 0 && s_ProjectInfo.Area > 0)
+            {
+                s_ProjectInfo.UnitPrice = s_ProjectInfo.ContractAmout / s_ProjectInfo.Area;
+            }
+            else
+            {
+                s_ProjectInfo.UnitPrice = null;
+            }
             s_ProjectInfo.Remark = sys_Project.Remark;
             foreach (S_Client clientItem in listClient)
             {
@@ -314,6 +324,8 @@ namespace kfxms.Web.Areas.Project.Controllers
                 s_ProjectInfo.ProjectName = item.ProjectName;
                 s_ProjectInfo.SettlementBase = item.SettlementBase;
                 s_ProjectInfo.Status = item.Status;
+                s_ProjectInfo.Area = item.Area;
+
                 if (s_ProjectInfo.Status == 1)
                 {
                     s_ProjectInfo.StatusName = "激活";
@@ -324,6 +336,14 @@ namespace kfxms.Web.Areas.Project.Controllers
                 s_ProjectInfo.ClientId = item.ClientId;
                 s_ProjectInfo.ContractAmout = item.ContractAmout;
                 s_ProjectInfo.Remark = item.Remark;
+                if (s_ProjectInfo.ContractAmout > 0 && s_ProjectInfo.Area>0)
+                {
+                    s_ProjectInfo.UnitPrice = s_ProjectInfo.ContractAmout / s_ProjectInfo.Area;
+                }
+                else
+                {
+                    s_ProjectInfo.UnitPrice = null;
+                }
                 foreach (S_Client clientItem in listClient)
                 {
                     if (s_ProjectInfo.ClientId == clientItem.Num)
@@ -571,6 +591,15 @@ namespace kfxms.Web.Areas.Project.Controllers
             }
             s_ProjectInfo.ClientId = sys_Project.ClientId;
             s_ProjectInfo.ContractAmout = sys_Project.ContractAmout;
+            s_ProjectInfo.Area = sys_Project.Area;
+            if (s_ProjectInfo.ContractAmout > 0 && s_ProjectInfo.Area > 0)
+            {
+                s_ProjectInfo.UnitPrice = s_ProjectInfo.ContractAmout / s_ProjectInfo.Area;
+            }
+            else
+            {
+                s_ProjectInfo.UnitPrice = null;
+            }
             s_ProjectInfo.Remark = sys_Project.Remark;
             foreach (S_Client clientItem in listClient)
             {
@@ -718,6 +747,15 @@ namespace kfxms.Web.Areas.Project.Controllers
             eProject.BusinessAssistant = int.Parse(row["BusinessAssistant"].ToString());
             eProject.ProjectManager = int.Parse(row["ProjectManager"].ToString());
             eProject.ContractAmout = Convert.ToDecimal(row["ContractAmout"].ToString().Trim());
+            eProject.Area= Convert.ToDecimal(row["Area"].ToString().Trim());
+            if(eProject.ContractAmout>0 && eProject.Area>0)
+            {
+                eProject.UnitPrice = eProject.ContractAmout / eProject.Area;
+            }
+            else
+            {
+                eProject.UnitPrice = null;
+            }
             eProject.SettlementBase = Convert.ToDecimal(row["SettlementBase"].ToString().Trim());
             eProject.Status = 1;
             eProject.Remark = row["Remark"].ToString().Trim();
@@ -782,6 +820,15 @@ namespace kfxms.Web.Areas.Project.Controllers
             eProject.ProjectManager = int.Parse(row["ProjectManager"].ToString());
             eProject.ContractAmout = Convert.ToDecimal(row["ContractAmout"].ToString().Trim());
             eProject.SettlementBase = Convert.ToDecimal(row["SettlementBase"].ToString().Trim());
+            eProject.Area = Convert.ToDecimal(row["Area"].ToString().Trim());
+            if (eProject.ContractAmout > 0 && eProject.Area > 0)
+            {
+                eProject.UnitPrice = eProject.ContractAmout / eProject.Area;
+            }
+            else
+            {
+                eProject.UnitPrice = null;
+            }
             eProject.Status = int.Parse(row["Status"].ToString().Trim());
             eProject.Remark = row["Remark"].ToString().Trim();
             eProject.LastEditName = base.LoginUser.Name;
