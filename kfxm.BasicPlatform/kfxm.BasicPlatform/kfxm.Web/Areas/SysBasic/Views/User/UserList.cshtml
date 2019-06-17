@@ -21,12 +21,15 @@
         <div class="page-toolbar">
             <table>
                  <tr>
-                     <td>
-                     用户名：<input type="text"  id="txt_UserName"  class="hbes-input" >
-                     姓名： <input type="text"  id="txt_Name"  class="hbes-input" >
-                    </td>
-                    
-                   <td style=" padding-left:10px;">
+                     <td style="padding-left:10px">
+                         用户名：<input type="text" id="txt_UserName" class="hbes-input">
+                     </td>
+                     <td style="padding-left:10px">
+                         姓名： <input type="text" id="txt_Name" class="hbes-input">
+                         </td>
+
+
+                    <td style="padding-left:10px">
                    <button onclick="search()" id="btn_Query" style="display:none;" class="layui-btn layui-btn-mini  layui-btn-normal">
                      <i class="layui-icon">&#xe615;</i>查询
                   </button>
@@ -36,7 +39,7 @@
         </div>
 
     <div class="page-toolbar">
-     <button style="display:none;" id="btn_Add" onclick="add()"   class="layui-btn layui-btn-small">
+     <button style="display:none; margin-left:10px" id="btn_Add" onclick="add()"   class="layui-btn layui-btn-small">
          <i class="layui-icon">&#xe608;</i>添加
      </button>
      <button style="display:none;" id="btn_Edit" onclick="edit()" class="layui-btn layui-btn-small  hbes-btn-update">

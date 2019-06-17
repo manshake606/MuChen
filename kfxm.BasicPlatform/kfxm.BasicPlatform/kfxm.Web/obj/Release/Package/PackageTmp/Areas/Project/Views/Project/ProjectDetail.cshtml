@@ -51,6 +51,12 @@
                              <td class="ft_label">结账基数</td>
                              <td class="ft_control"><input type="text" readonly="readonly" value="@Model.SettlementBase" name="SettlementBase" class="hbes-input"  vtype="required:true;rangeLength:0,50;" /></td>
                          </tr>
+                         <tr>
+                             <td class="ft_label">面积(平方)</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.Area" name="Area" class="hbes-input" vtype="required:false;rangeLength:0,50;" /></td>
+                             <td class="ft_label">单方造价</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.UnitPrice" name="UnitPrice" class="hbes-input" vtype="required:false;rangeLength:0,50;" /></td>
+                         </tr>
                          
                          <tr>
                              <td class="ft_label">总开票额</td>
