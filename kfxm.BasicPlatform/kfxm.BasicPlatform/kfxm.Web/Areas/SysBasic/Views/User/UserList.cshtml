@@ -15,7 +15,7 @@
     <script src="/js/layui/layui.all.js"></script>  
     <script src="/js/zTree/jquery.ztree.core.min.js"></script>
 </head>
-<body>
+<body style="overflow-x: hidden;position:fixed;">
     <div id="page-content" class="page-content">
 
         <div class="page-toolbar">
@@ -57,7 +57,7 @@
          <i class="layui-icon">&#xe613;</i>绑定角色
      </button>
      </div>
-     <div id="grid" class="page-grid" showpager="true" 
+     <div style="overflow-x:scroll" id="grid" class="page-grid" showpager="true" 
                  showpagealige="bottom" multiselect="false" url="/SysBasic/User/GetPageData" >
                 <div property="columns">
                 <div type="indexcolumn" width="30"></div>
