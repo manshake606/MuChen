@@ -14,28 +14,28 @@
       <publishTime>04/07/2019 11:32:50</publishTime>
     </File>
     <File Include="Areas/Client/Views/Client/ClientAdd.cshtml">
-      <publishTime>05/04/2019 21:14:55</publishTime>
+      <publishTime>06/17/2019 23:21:15</publishTime>
     </File>
     <File Include="Areas/Client/Views/Client/ClientDetail.cshtml">
-      <publishTime>05/25/2019 22:03:49</publishTime>
+      <publishTime>06/17/2019 23:21:24</publishTime>
     </File>
     <File Include="Areas/Client/Views/Client/ClientEdit.cshtml">
-      <publishTime>05/04/2019 21:15:19</publishTime>
+      <publishTime>06/17/2019 23:21:30</publishTime>
     </File>
     <File Include="Areas/Client/Views/Client/ClientList.cshtml">
-      <publishTime>06/17/2019 22:44:10</publishTime>
+      <publishTime>06/17/2019 23:21:07</publishTime>
     </File>
     <File Include="Areas/Client/Views/Web.config">
       <publishTime>04/07/2019 11:32:50</publishTime>
     </File>
     <File Include="Areas/Invoice/Views/Invoice/InvoiceAdd.cshtml">
-      <publishTime>06/13/2019 21:42:42</publishTime>
+      <publishTime>06/17/2019 23:21:46</publishTime>
     </File>
     <File Include="Areas/Invoice/Views/Invoice/InvoiceEdit.cshtml">
-      <publishTime>06/13/2019 21:43:10</publishTime>
+      <publishTime>06/17/2019 23:21:51</publishTime>
     </File>
     <File Include="Areas/Invoice/Views/Invoice/InvoiceList.cshtml">
-      <publishTime>06/17/2019 22:47:26</publishTime>
+      <publishTime>06/17/2019 23:22:07</publishTime>
     </File>
     <File Include="Areas/Invoice/Views/Web.config">
       <publishTime>04/27/2019 11:48:12</publishTime>
@@ -50,31 +50,31 @@
       <publishTime>06/01/2017 13:40:58</publishTime>
     </File>
     <File Include="Areas/Payment/Views/ExternalPayment/ExternalPaymentAdd.cshtml">
-      <publishTime>06/13/2019 21:26:50</publishTime>
+      <publishTime>06/17/2019 23:22:25</publishTime>
     </File>
     <File Include="Areas/Payment/Views/ExternalPayment/ExternalPaymentEdit.cshtml">
-      <publishTime>06/13/2019 21:26:17</publishTime>
+      <publishTime>06/17/2019 23:22:30</publishTime>
     </File>
     <File Include="Areas/Payment/Views/ExternalPayment/ExternalPaymentList.cshtml">
-      <publishTime>06/17/2019 22:48:17</publishTime>
+      <publishTime>06/17/2019 23:22:36</publishTime>
     </File>
     <File Include="Areas/Payment/Views/InternalPayment/InternalPaymentAdd.cshtml">
-      <publishTime>06/13/2019 21:23:45</publishTime>
+      <publishTime>06/17/2019 23:22:42</publishTime>
     </File>
     <File Include="Areas/Payment/Views/InternalPayment/InternalPaymentEdit.cshtml">
-      <publishTime>06/13/2019 21:24:37</publishTime>
+      <publishTime>06/17/2019 23:22:47</publishTime>
     </File>
     <File Include="Areas/Payment/Views/InternalPayment/InternalPaymentList.cshtml">
-      <publishTime>06/17/2019 22:49:23</publishTime>
+      <publishTime>06/17/2019 23:22:53</publishTime>
     </File>
     <File Include="Areas/Payment/Views/PublicRelations/PublicRelationsAdd.cshtml">
-      <publishTime>06/13/2019 21:27:23</publishTime>
+      <publishTime>06/17/2019 23:23:00</publishTime>
     </File>
     <File Include="Areas/Payment/Views/PublicRelations/PublicRelationsEdit.cshtml">
-      <publishTime>06/13/2019 21:27:55</publishTime>
+      <publishTime>06/17/2019 23:23:04</publishTime>
     </File>
     <File Include="Areas/Payment/Views/PublicRelations/PublicRelationsList.cshtml">
-      <publishTime>06/17/2019 22:49:57</publishTime>
+      <publishTime>06/17/2019 23:23:10</publishTime>
     </File>
     <File Include="Areas/Payment/Views/Web.config">
       <publishTime>04/21/2019 10:29:44</publishTime>
@@ -86,34 +86,34 @@
       <publishTime>06/16/2019 13:29:19</publishTime>
     </File>
     <File Include="Areas/Project/Views/Project/ProjectDetail.cshtml">
-      <publishTime>06/16/2019 13:35:12</publishTime>
+      <publishTime>06/17/2019 23:23:24</publishTime>
     </File>
     <File Include="Areas/Project/Views/Project/ProjectEdit.cshtml">
-      <publishTime>06/16/2019 13:39:14</publishTime>
+      <publishTime>06/17/2019 23:23:33</publishTime>
     </File>
     <File Include="Areas/Project/Views/Project/ProjectList.cshtml">
-      <publishTime>06/17/2019 21:56:14</publishTime>
+      <publishTime>07/28/2019 15:22:52</publishTime>
     </File>
     <File Include="Areas/Project/Views/ProjectAndSupplier/ProjectAndSupplierAdd.cshtml">
-      <publishTime>06/13/2019 21:28:54</publishTime>
+      <publishTime>06/17/2019 23:23:47</publishTime>
     </File>
     <File Include="Areas/Project/Views/ProjectAndSupplier/ProjectAndSupplierEdit.cshtml">
-      <publishTime>06/13/2019 21:29:05</publishTime>
+      <publishTime>06/17/2019 23:23:52</publishTime>
     </File>
     <File Include="Areas/Project/Views/ProjectAndSupplier/ProjectAndSupplierList.cshtml">
-      <publishTime>06/17/2019 22:50:32</publishTime>
+      <publishTime>06/17/2019 23:23:56</publishTime>
     </File>
     <File Include="Areas/Project/Views/Web.config">
       <publishTime>04/14/2019 20:58:56</publishTime>
     </File>
     <File Include="Areas/Revenue/Views/Revenue/RevenueAdd.cshtml">
-      <publishTime>06/13/2019 21:45:37</publishTime>
+      <publishTime>06/17/2019 23:24:03</publishTime>
     </File>
     <File Include="Areas/Revenue/Views/Revenue/RevenueEdit.cshtml">
-      <publishTime>06/13/2019 21:45:58</publishTime>
+      <publishTime>06/17/2019 23:24:07</publishTime>
     </File>
     <File Include="Areas/Revenue/Views/Revenue/RevenueList.cshtml">
-      <publishTime>06/17/2019 22:51:22</publishTime>
+      <publishTime>06/17/2019 23:24:12</publishTime>
     </File>
     <File Include="Areas/Revenue/Views/Web.config">
       <publishTime>04/20/2019 22:13:57</publishTime>
@@ -122,82 +122,82 @@
       <publishTime>04/14/2019 15:50:18</publishTime>
     </File>
     <File Include="Areas/Supplier/Views/Supplier/SupplierAdd.cshtml">
-      <publishTime>05/04/2019 21:39:37</publishTime>
+      <publishTime>06/17/2019 23:24:21</publishTime>
     </File>
     <File Include="Areas/Supplier/Views/Supplier/SupplierEdit.cshtml">
-      <publishTime>05/04/2019 21:40:33</publishTime>
+      <publishTime>06/17/2019 23:24:27</publishTime>
     </File>
     <File Include="Areas/Supplier/Views/Supplier/SupplierList.cshtml">
-      <publishTime>06/17/2019 22:52:10</publishTime>
+      <publishTime>06/17/2019 23:24:31</publishTime>
     </File>
     <File Include="Areas/Supplier/Views/SupplierScore/BindRole.cshtml">
       <publishTime>05/11/2019 17:15:39</publishTime>
     </File>
     <File Include="Areas/Supplier/Views/SupplierScore/SupplierScoreAdd.cshtml">
-      <publishTime>06/09/2019 13:45:42</publishTime>
+      <publishTime>06/17/2019 23:24:37</publishTime>
     </File>
     <File Include="Areas/Supplier/Views/SupplierScore/SupplierScoreEdit.cshtml">
-      <publishTime>05/12/2019 14:38:34</publishTime>
+      <publishTime>06/17/2019 23:24:42</publishTime>
     </File>
     <File Include="Areas/Supplier/Views/SupplierScore/SupplierScoreList.cshtml">
-      <publishTime>06/17/2019 22:52:42</publishTime>
+      <publishTime>06/17/2019 23:24:49</publishTime>
     </File>
     <File Include="Areas/Supplier/Views/Web.config">
       <publishTime>06/01/2017 13:41:00</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/Department/DepartmentAdd.cshtml">
-      <publishTime>05/04/2019 17:56:24</publishTime>
+      <publishTime>06/17/2019 23:24:58</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/Department/DepartmentEdit.cshtml">
-      <publishTime>05/04/2019 17:56:24</publishTime>
+      <publishTime>06/17/2019 23:25:03</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/Department/DepartmentList.cshtml">
-      <publishTime>06/17/2019 22:42:40</publishTime>
+      <publishTime>06/17/2019 23:25:08</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/Dictionary/DictionaryAdd.cshtml">
-      <publishTime>05/04/2019 17:56:24</publishTime>
+      <publishTime>06/17/2019 23:25:13</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/Dictionary/DictionaryEdit.cshtml">
-      <publishTime>05/04/2019 17:56:24</publishTime>
+      <publishTime>06/17/2019 23:25:18</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/Dictionary/DictionaryList.cshtml">
-      <publishTime>06/17/2019 22:42:09</publishTime>
+      <publishTime>06/17/2019 23:25:22</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/Menu/MenuAdd.cshtml">
-      <publishTime>05/04/2019 17:56:24</publishTime>
+      <publishTime>06/17/2019 23:25:29</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/Menu/MenuEdit.cshtml">
-      <publishTime>05/04/2019 17:56:24</publishTime>
+      <publishTime>06/17/2019 23:25:34</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/Menu/MenuList.cshtml">
-      <publishTime>06/17/2019 22:41:41</publishTime>
+      <publishTime>06/17/2019 23:25:39</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/Menu/SetAuthority.cshtml">
-      <publishTime>05/04/2019 17:56:24</publishTime>
+      <publishTime>06/17/2019 23:25:46</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/Menu/SetRequest.cshtml">
-      <publishTime>05/04/2019 17:56:24</publishTime>
+      <publishTime>06/17/2019 23:25:51</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/Role/BindAuthority.cshtml">
-      <publishTime>05/04/2019 17:56:24</publishTime>
+      <publishTime>06/17/2019 23:26:04</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/Role/RoleAdd.cshtml">
-      <publishTime>05/04/2019 17:56:24</publishTime>
+      <publishTime>06/17/2019 23:26:10</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/Role/RoleEdit.cshtml">
-      <publishTime>05/04/2019 17:56:24</publishTime>
+      <publishTime>06/17/2019 23:26:14</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/Role/RoleList.cshtml">
-      <publishTime>06/17/2019 22:41:10</publishTime>
+      <publishTime>06/17/2019 23:26:23</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/User/BindRole.cshtml">
-      <publishTime>05/04/2019 17:56:24</publishTime>
+      <publishTime>06/17/2019 23:26:32</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/User/UserAdd.cshtml">
-      <publishTime>05/04/2019 17:56:24</publishTime>
+      <publishTime>06/17/2019 23:26:39</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/User/UserEdit.cshtml">
-      <publishTime>06/13/2019 22:52:34</publishTime>
+      <publishTime>06/17/2019 23:26:43</publishTime>
     </File>
     <File Include="Areas/SysBasic/Views/User/UserList.cshtml">
       <publishTime>06/17/2019 23:15:36</publishTime>
@@ -215,22 +215,22 @@
       <publishTime>06/01/2017 13:41:31</publishTime>
     </File>
     <File Include="bin/HBES.Common.dll">
-      <publishTime>06/16/2019 13:44:44</publishTime>
+      <publishTime>07/28/2019 15:25:06</publishTime>
     </File>
     <File Include="bin/HBES.EFData.dll">
-      <publishTime>06/16/2019 13:44:44</publishTime>
+      <publishTime>07/28/2019 15:25:08</publishTime>
     </File>
     <File Include="bin/HBES.Entity.dll">
-      <publishTime>06/16/2019 13:44:43</publishTime>
+      <publishTime>07/28/2019 15:25:06</publishTime>
     </File>
     <File Include="bin/HBES.Repository.dll">
-      <publishTime>06/16/2019 13:44:45</publishTime>
+      <publishTime>07/28/2019 15:25:08</publishTime>
     </File>
     <File Include="bin/HBES.Service.dll">
-      <publishTime>06/16/2019 13:44:45</publishTime>
+      <publishTime>07/28/2019 15:25:09</publishTime>
     </File>
     <File Include="bin/HBES.Web.dll">
-      <publishTime>06/16/2019 13:44:46</publishTime>
+      <publishTime>07/28/2019 15:25:11</publishTime>
     </File>
     <File Include="bin/ICSharpCode.SharpZipLib.dll">
       <publishTime>01/03/2011 14:16:38</publishTime>
