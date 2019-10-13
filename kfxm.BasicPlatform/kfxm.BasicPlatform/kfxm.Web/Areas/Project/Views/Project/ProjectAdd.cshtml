@@ -16,7 +16,7 @@
     <script src="~/js/layui/layui.all.js"></script>  
     <script src="/js/zTree/jquery.ztree.core.min.js"></script>
 </head>
-<body style="overflow-x: hidden;position:fixed;">
+<body>
     <div id="page-content">
         <form id="formData" class="layui-form">
             <table style="width: 100%;" class="formtable">
@@ -134,6 +134,7 @@
                     data = strToJson(data["ResultData"])["data"];
                     $('#Client').empty();
                     var html = '';
+                    html += '<option value=' + 0 + '>' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
                         html += '<option value=' + data[i].Num + '>' + data[i].ClientName + '</option>';
                     }
@@ -157,13 +158,9 @@
                     $('#BusinessAssistant').empty();
                     $('#ProjectManager').empty();
                     var html = '';
+                    html += '<option value=' + 0 + '>' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
-                        if (i == 0) {
-                            html += '<option value=' + 0 + '>' + '请选择' + '</option>';
-                        } else
-                        {
-                            html += '<option value=' + data[i].Num + '>' + data[i].UserName + '</option>';
-                        }
+                        html += '<option value=' + data[i].Num + '>' + data[i].UserName + '</option>';
                     }
                     $('#CoreDesigner').append(html);
                     $('#AssistantDesigner').append(html);
