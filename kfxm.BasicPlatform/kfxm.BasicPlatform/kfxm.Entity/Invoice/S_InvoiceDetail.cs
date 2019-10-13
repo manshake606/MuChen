@@ -45,6 +45,11 @@ namespace kfxms.Entity.Invoice
         public decimal InvoiceAmout { get; set; }
 
         /// <summary>
+        /// 快递单号
+        /// </summary>
+        public string TrackingNum { get; set; }
+
+        /// <summary>
         /// 备注
         /// </summary>
         public string Remark { get; set; }

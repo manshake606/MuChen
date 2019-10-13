@@ -105,6 +105,7 @@ namespace kfxms.Web.Areas.Invoice.Controllers
                 s_InvoiceDetail.Id = item.Id;
                 s_InvoiceDetail.Num = item.Num;
                 s_InvoiceDetail.ProjectNum = item.ProjectNum;
+                s_InvoiceDetail.TrackingNum = item.TrackingNum;
                 s_InvoiceDetail.Remark = item.Remark;
                 s_InvoiceDetail.InvoiceAmout = item.InvoiceAmout;
                 s_InvoiceDetail.InvoiceTime = item.InvoiceTime;
@@ -259,6 +260,7 @@ namespace kfxms.Web.Areas.Invoice.Controllers
             eInvoice.ProjectNum= int.Parse(row["Project"].ToString());
             eInvoice.InvoiceAmout= Convert.ToDecimal(row["InvoiceAmout"].ToString().Trim());
             eInvoice.InvoiceTime = Convert.ToDateTime(row["InvoiceTime"].ToString().Trim());
+            eInvoice.TrackingNum = row["TrackingNum"].ToString();
             eInvoice.Remark = row["Remark"].ToString().Trim();
             eInvoice.AddTime = DateTime.Now;
             eInvoice.AddUserId = base.LoginUser.Id;
@@ -298,6 +300,7 @@ namespace kfxms.Web.Areas.Invoice.Controllers
 
             eInvoice.InvoiceAmout = Convert.ToDecimal(row["InvoiceAmout"].ToString().Trim());
             eInvoice.InvoiceTime = Convert.ToDateTime(row["InvoiceTime"].ToString().Trim());
+            eInvoice.TrackingNum= row["TrackingNum"].ToString().Trim();
             eInvoice.Remark = row["Remark"].ToString().Trim();
             eInvoice.LastEditName = base.LoginUser.Name;
             eInvoice.LastEditTime = DateTime.Now;
