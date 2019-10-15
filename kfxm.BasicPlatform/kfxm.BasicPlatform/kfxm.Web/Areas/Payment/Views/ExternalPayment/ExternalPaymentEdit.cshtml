@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>外部付款更新</title>
+    <title>外部结算更新</title>
     <link href="/css/hbes.grid.css" rel="stylesheet" />
     <link href="/css/hbes.reset.css" rel="stylesheet" />
     <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
@@ -32,22 +32,22 @@
                     </tr>
                     <tr>
                         <td class="ft_label">
-                            外部付款供应商：
+                            外部结算供应商：
                         </td>
                         <td class="ft_control">
                             <select id="ExternalPaymentSupplier" name="ExternalPaymentSupplier" lay-search=""  class="layui-select"></select>
                         </td>
                     </tr>
                     <tr>
-                        <td class="ft_label">外部付款时间</td>
+                        <td class="ft_label">外部结算时间</td>
                         <td class="ft_control"><input type="text" id="ExternalPaymentTime" value="@Model.ExternalPaymentTime" name="ExternalPaymentTime" class="hbes-input" style="width:99%;"  vtype="required:true;rangeLength:0,50;" /></td>
                     </tr>
                     <tr>
-                        <td class="ft_label">外部付款金额</td>
+                        <td class="ft_label">外部结算金额</td>
                         <td class="ft_control"><input type="text" value="@Model.ExternalPaymentAmout" name="ExternalPaymentAmout" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
                     </tr>
                     <tr>
-                        <td class="ft_label">外部付款备注</td>
+                        <td class="ft_label">外部结算备注</td>
                         <td class="ft_control"><input type="text" id="InternalPaymentContent" value="@Model.ExternalPaymentContent" name="ExternalPaymentContent" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
                     </tr>
 

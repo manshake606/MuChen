@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>公关信息管理</title>
+    <title>报销信息管理</title>
     <link href="/css/hbes.grid.css" rel="stylesheet" />
     <link href="/css/hbes.reset.css" rel="stylesheet" />
     <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
@@ -22,7 +22,7 @@
             <table>
                 <tr>
                     <td style="padding-left: 10px;">
-                        公关联系人：<input type="text" id="txt_PRContact" class="hbes-input">
+                        报销联系人：<input type="text" id="txt_PRContact" class="hbes-input">
                         
                     </td>
 
@@ -52,11 +52,11 @@
                 <div type="indexcolumn" width="30"></div>
                 <div field="ProjectNum" width="120">项目编号</div>
                 <div field="ProjectName" width="120">项目名称</div>
-                <div field="PRContact" width="120">公关联系人</div>
-                <div field="PRContactPhone" width="120">公关联系人电话</div>
-                <div field="PRTime" width="120">公关时间</div>
-                <div field="PRAmout" width="120">公关费用</div>
-                <div field="PRContent" width="120">公关备注</div>
+                <div field="PRContact" width="120">报销联系人</div>
+                <div field="PRContactPhone" width="120">报销联系人电话</div>
+                <div field="PRTime" width="120">报销时间</div>
+                <div field="PRAmout" width="120">报销费用</div>
+                <div field="PRContent" width="120">报销备注</div>
 
             </div>
         </div>
@@ -76,13 +76,13 @@
             }
             function add() {
                 // 标题      //打开页面               宽    高     窗口正常关闭（非手动关闭）后执行的方法 
-                openWin("添加公关信息", "/Payment/PublicRelations/Add", 800, 500, "reload");
+                openWin("添加报销信息", "/Payment/PublicRelations/Add", 800, 500, "reload");
             }
 
             function edit() {
                 var row = grid.getHbesGridSelected();//选择一行
                 if (row) {
-                    openWin("修改公关信息", "/Payment/PublicRelations/Edit?publicRelationsId=" + row.Id, 800, 500, "reload");
+                    openWin("修改报销信息", "/Payment/PublicRelations/Edit?publicRelationsId=" + row.Id, 800, 500, "reload");
                 }
                 else {
                     layer.alert('请选择一条记录!', { icon: 0, skin: 'layer-ext-moon' });

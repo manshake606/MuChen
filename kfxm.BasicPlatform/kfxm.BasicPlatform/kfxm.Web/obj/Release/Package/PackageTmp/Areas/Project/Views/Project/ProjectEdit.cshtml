@@ -14,7 +14,7 @@
     <script src="~/js/layui/layui.all.js"></script>  
     <script src="/js/zTree/jquery.ztree.core.min.js"></script>
 </head>
-<body style="overflow-x: hidden;position:fixed;">
+<body>
     <div id="page-content" class="page-content">
          <form id="formData" class="layui-form">
               <input type="hidden" class="hbes-input" name="Id" value="@Model.Id" />
@@ -130,6 +130,7 @@
                     data = strToJson(data["ResultData"])["data"];
                     $('#Client').empty();
                     var html = '';
+                    html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
                         if (data[i].Num == id) {
                             html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].ClientName + '</option>';
@@ -154,11 +155,9 @@
                     data = strToJson(data["ResultData"])["data"];
                     $('#CoreDesigner').empty();
                     var html = '';
+                    html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
-                        if (data[i].Num == 0) {
-                            html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
-                        }
-                        else if (data[i].Num == id) {
+                        if (data[i].Num == id) {
                             html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].UserName + '</option>';
                         }
                         else {
@@ -181,11 +180,9 @@
                     data = strToJson(data["ResultData"])["data"];
                     $('#AssistantDesigner').empty();
                     var html = '';
+                    html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
-                        if (data[i].Num == 0) {
-                            html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
-                        }
-                        else if (data[i].Num == id) {
+                        if (data[i].Num == id) {
                             html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].UserName + '</option>';
                         }
                         else {
@@ -208,11 +205,9 @@
                     data = strToJson(data["ResultData"])["data"];
                     $('#BusinessManager').empty();
                     var html = '';
+                    html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
-                        if (data[i].Num == 0) {
-                            html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
-                        }
-                        else if (data[i].Num == id) {
+                        if (data[i].Num == id) {
                             html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].UserName + '</option>';
                         }
                         else {
@@ -235,11 +230,9 @@
                     data = strToJson(data["ResultData"])["data"];
                     $('#BusinessAssistant').empty();
                     var html = '';
+                    html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
-                        if (data[i].Num == 0) {
-                            html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
-                        }
-                        else if (data[i].Num == id) {
+                        if (data[i].Num == id) {
                             html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].UserName + '</option>';
                         }
                         else {
@@ -262,11 +255,9 @@
                     data = strToJson(data["ResultData"])["data"];
                     $('#ProjectManager').empty();
                     var html = '';
+                    html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
-                        if (data[i].Num == 0) {
-                            html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
-                        }
-                        else if (data[i].Num == id) {
+                        if (data[i].Num == id) {
                             html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].UserName + '</option>';
                         }
                         else {
