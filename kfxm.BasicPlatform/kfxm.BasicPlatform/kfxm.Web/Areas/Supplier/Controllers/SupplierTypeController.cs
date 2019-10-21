@@ -9,7 +9,7 @@ using kfxms.Entity.SysBasic;
 using System.Linq.Expressions;
 using kfxms.Common;
 using System.Collections;
-using kfxms.Entity.SupplierType;
+using kfxms.Entity.Supplier;
 using kfxms.IService.SupplierType;
 
 namespace kfxms.Web.Areas.Supplier.Controllers

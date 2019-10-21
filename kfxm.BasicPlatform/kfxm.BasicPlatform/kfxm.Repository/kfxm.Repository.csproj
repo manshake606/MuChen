@@ -63,6 +63,7 @@
     <Compile Include="ImpRepository\ImpBaseRepository.cs" />
     <Compile Include="ImpRepository\Project\ImpS_ProjectRepository.cs" />
     <Compile Include="ImpRepository\Supplier\ImpS_SupplierScoreRepository.cs" />
+    <Compile Include="ImpRepository\Supplier\ImpS_SupplierScoreValueRepository.cs" />
     <Compile Include="ImpRepository\Supplier\ImpS_SupplierTypeRepository.cs" />
     <Compile Include="ImpRepository\Supplier\ImpS_SupplierRepository.cs" />
     <Compile Include="ImpRepository\SysBaisc\ImpSys_AuthorityRequestRepository.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="IRepository\IBaseRepository.cs" />
     <Compile Include="IRepository\Project\IS_ProjectRepository.cs" />
     <Compile Include="IRepository\Supplier\IS_SupplierScoreRepository.cs" />
+    <Compile Include="IRepository\Supplier\IS_SupplierScoreValueRepository.cs" />
     <Compile Include="IRepository\Supplier\IS_SupplierTypeRepository.cs" />
     <Compile Include="IRepository\Supplier\IS_SupplierRepository.cs" />
     <Compile Include="IRepository\Supplier\IS_TaskRepository.cs" />

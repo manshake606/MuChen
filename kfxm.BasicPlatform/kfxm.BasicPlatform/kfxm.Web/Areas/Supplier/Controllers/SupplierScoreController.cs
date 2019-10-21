@@ -13,7 +13,6 @@ using kfxms.Entity.Supplier;
 using kfxms.IService.Supplier;
 using kfxms.Entity.Project;
 using kfxms.IService.Project;
-using kfxms.Entity.SupplierType;
 using kfxms.IService.SupplierType;
 using kfxms.Entity.Payment;
 using kfxms.IService.Payment;

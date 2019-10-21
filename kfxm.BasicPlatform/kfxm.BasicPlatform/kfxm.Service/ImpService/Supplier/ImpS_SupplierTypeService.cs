@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.Composition;
-using kfxms.Entity.SupplierType;
+using kfxms.Entity.Supplier;
 using kfxms.IService.SupplierType;
-using kfxms.IRepository.SupplierType;
+using kfxms.IRepository.Supplier;
 
 namespace kfxms.ImpService.SupplierType
 {

@@ -4,8 +4,8 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using kfxms.Entity.SupplierType;
-using kfxms.IRepository.SupplierType;
+using kfxms.Entity.Supplier;
+using kfxms.IRepository.Supplier;
 
 namespace kfxms.ImpRepository.SupplierType
 {

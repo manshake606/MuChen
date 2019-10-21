@@ -15,7 +15,6 @@ using kfxms.Entity.Client;
 using kfxms.IService.Client;
 using kfxms.Entity.Supplier;
 using kfxms.IService.Supplier;
-using kfxms.Entity.SupplierType;
 using kfxms.IService.SupplierType;
 using kfxms.Entity.Payment;
 using kfxms.IService.Payment;

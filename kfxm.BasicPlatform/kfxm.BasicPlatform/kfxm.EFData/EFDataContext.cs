@@ -46,7 +46,9 @@ namespace kfxms.EFData
 
         public DbSet<kfxms.Entity.Supplier.S_SupplierScore> SupplierScore { get; set; }
 
-        public DbSet<kfxms.Entity.SupplierType.S_SupplierType> SupplierType { get; set; }
+        public DbSet<kfxms.Entity.Supplier.S_SupplierType> SupplierType { get; set; }
+
+        public DbSet<kfxms.Entity.Supplier.S_SupplierScoreValue> SupplierScoreValue { get; set; }
 
         public DbSet<kfxms.Entity.Supplier.S_SupplierHasTypeName> SupplierHasTypeName { get; set; }
 

@@ -64,6 +64,7 @@
     <Compile Include="Supplier\S_SupplierScoreDetail.cs" />
     <Compile Include="Supplier\S_SupplierScore.cs" />
     <Compile Include="Supplier\S_SupplierHasTypeName.cs" />
+    <Compile Include="Supplier\S_SupplierScoreValue.cs" />
     <Compile Include="Supplier\S_SupplierType.cs" />
     <Compile Include="Supplier\S_Supplier.cs" />
     <Compile Include="Supplier\S_Task.cs" />

@@ -163,6 +163,7 @@
     <Compile Include="Areas\Project\ProjectAreaRegistration.cs" />
     <Compile Include="Areas\Project\Controllers\ProjectController.cs" />
     <Compile Include="Areas\Supplier\Controllers\SupplierScoreController.cs" />
+    <Compile Include="Areas\Supplier\Controllers\SupplierScoreValueController.cs" />
     <Compile Include="Areas\Supplier\Controllers\SupplierTypeController.cs" />
     <Compile Include="Areas\Supplier\Controllers\SupplierController.cs" />
     <Compile Include="Areas\Supplier\Controllers\UserController.cs" />

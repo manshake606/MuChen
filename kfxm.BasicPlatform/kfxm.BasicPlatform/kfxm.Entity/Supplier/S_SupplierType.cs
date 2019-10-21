@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace kfxms.Entity.SupplierType
+namespace kfxms.Entity.Supplier
 {
     public class S_SupplierType: HBEntity
     {
