@@ -42,7 +42,9 @@
             </tr>
             <tr>
                 <td class="ft_label">供应商打分</td>
-                <td class="ft_control"><input type="text" value="@Model.SupplierScore" name="SupplierScore" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
+                <td class="ft_control">
+                    <select id="SupplierScore" name="SupplierScore" class="layui-select " lay-search="" style="width:99%;"></select>
+                </td>
             </tr>
             <tr>
                 <td class="ft_label">供应商打分备注</td>
@@ -63,9 +65,10 @@
 
             getProjectDataList(@Model.ProjectNum);
             getSupplierDataList(@Model.SupplierNum);
+            getSupplierScoreDataList(@Model.SupplierScore);
             layui.use('form', function () {
                 var form = layui.form;
-                form.render('select');
+                //form.render('select');
             });
         });
 
@@ -116,6 +119,31 @@
                 }
             })
         }
+
+        function getSupplierScoreDataList(id) {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/Supplier/SupplierScoreValue/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#SupplierScore').empty();
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].SupplierScoreValueScore == id) {
+                            html += '<option value=' + data[i].SupplierScoreValueId + ' selected="true" >' + data[i].SupplierScoreValueScore + '</option>';
+                        }
+                        else {
+                            html += '<option value=' + data[i].SupplierScoreValueId + '>' + data[i].SupplierScoreValueScore + '</option>';
+                        }
+                    }
+                    $('#SupplierScore').append(html);
+                    layui.form.render();
+                }
+            
+                })
+            }
 
         function save() {
             var isPass = $("#formData").valiForm();

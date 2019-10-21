@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>内部付款更新</title>
+    <title>内部结算更新</title>
     <link href="/css/hbes.grid.css" rel="stylesheet" />
     <link href="/css/hbes.reset.css" rel="stylesheet" />
     <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
@@ -32,22 +32,22 @@
                     </tr>
                     <tr>
                         <td class="ft_label">
-                            内部付款人：
+                            内部结算人：
                         </td>
                         <td class="ft_control">
                             <select id="InternalPaymentUser" name="InternalPaymentUser" lay-search="" class="layui-select"></select>
                         </td>
                     </tr>
                     <tr>
-                        <td class="ft_label">内部付款时间</td>
+                        <td class="ft_label">内部结算时间</td>
                         <td class="ft_control"><input type="text" id="InternalPaymentTime" value="@Model.InternalPaymentTime" name="InternalPaymentTime" class="hbes-input" style="width:99%;"  vtype="required:true;rangeLength:0,50;" /></td>
                     </tr>
                     <tr>
-                        <td class="ft_label">内部付款金额</td>
+                        <td class="ft_label">内部结算金额</td>
                         <td class="ft_control"><input type="text" value="@Model.InternalPaymentAmout" name="InternalPaymentAmout" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
                     </tr>
                     <tr>
-                        <td class="ft_label">内部付款备注</td>
+                        <td class="ft_label">内部结算备注</td>
                         <td class="ft_control"><input type="text" id="InternalPaymentContent" value="@Model.InternalPaymentContent" name="InternalPaymentContent" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
                     </tr>
                 </table>

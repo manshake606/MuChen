@@ -320,6 +320,7 @@ namespace kfxms.Web.Areas.Project.Controllers
             {
                 S_ProjectInfo s_ProjectInfo = new S_ProjectInfo();
                 s_ProjectInfo.Id = item.Id;
+                s_ProjectInfo.AddTime = item.AddTime;
                 s_ProjectInfo.Num = item.Num;
                 s_ProjectInfo.ProjectName = item.ProjectName;
                 s_ProjectInfo.SettlementBase = item.SettlementBase;
