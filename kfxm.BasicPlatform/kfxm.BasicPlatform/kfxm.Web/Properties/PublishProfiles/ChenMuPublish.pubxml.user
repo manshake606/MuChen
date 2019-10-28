@@ -89,10 +89,10 @@
       <publishTime>10/13/2019 09:59:51</publishTime>
     </File>
     <File Include="Areas/Project/Views/Project/ProjectEdit.cshtml">
-      <publishTime>10/13/2019 10:33:11</publishTime>
+      <publishTime>10/21/2019 22:09:58</publishTime>
     </File>
     <File Include="Areas/Project/Views/Project/ProjectList.cshtml">
-      <publishTime>07/28/2019 15:22:52</publishTime>
+      <publishTime>10/21/2019 22:08:41</publishTime>
     </File>
     <File Include="Areas/Project/Views/ProjectAndSupplier/ProjectAndSupplierAdd.cshtml">
       <publishTime>10/19/2019 12:28:09</publishTime>
@@ -230,7 +230,7 @@
       <publishTime>10/21/2019 21:56:15</publishTime>
     </File>
     <File Include="bin/HBES.Web.dll">
-      <publishTime>10/21/2019 21:56:19</publishTime>
+      <publishTime>10/21/2019 22:11:56</publishTime>
     </File>
     <File Include="bin/ICSharpCode.SharpZipLib.dll">
       <publishTime>01/03/2011 14:16:38</publishTime>

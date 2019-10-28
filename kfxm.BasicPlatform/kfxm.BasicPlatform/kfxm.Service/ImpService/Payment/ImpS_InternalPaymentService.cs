@@ -154,9 +154,9 @@ namespace kfxms.ImpService.Payment
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<S_InternalPayment> GetPageDate<T>(System.Linq.Expressions.Expression<Func<S_InternalPayment, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<S_InternalPayment, T> orderBy)
+        public IEnumerable<S_InternalPayment> GetPageData<T>(System.Linq.Expressions.Expression<Func<S_InternalPayment, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<S_InternalPayment, T> orderBy)
         {
-            return IS_InternalPaymentRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return IS_InternalPaymentRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
 
 
@@ -169,9 +169,9 @@ namespace kfxms.ImpService.Payment
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<S_InternalPayment> GetPageDate(System.Linq.Expressions.Expression<Func<S_InternalPayment, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<S_InternalPayment>[] orderBy)
+        public IEnumerable<S_InternalPayment> GetPageData(System.Linq.Expressions.Expression<Func<S_InternalPayment, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<S_InternalPayment>[] orderBy)
         {
-            return IS_InternalPaymentRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return IS_InternalPaymentRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
     }
 }

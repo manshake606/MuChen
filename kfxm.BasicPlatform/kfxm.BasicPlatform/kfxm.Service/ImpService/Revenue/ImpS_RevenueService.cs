@@ -154,9 +154,9 @@ namespace kfxms.ImpService.Revenue
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<S_Revenue> GetPageDate<T>(System.Linq.Expressions.Expression<Func<S_Revenue, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<S_Revenue, T> orderBy)
+        public IEnumerable<S_Revenue> GetPageData<T>(System.Linq.Expressions.Expression<Func<S_Revenue, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<S_Revenue, T> orderBy)
         {
-            return IS_RevenueRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return IS_RevenueRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
 
 
@@ -169,9 +169,9 @@ namespace kfxms.ImpService.Revenue
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<S_Revenue> GetPageDate(System.Linq.Expressions.Expression<Func<S_Revenue, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<S_Revenue>[] orderBy)
+        public IEnumerable<S_Revenue> GetPageData(System.Linq.Expressions.Expression<Func<S_Revenue, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<S_Revenue>[] orderBy)
         {
-            return IS_RevenueRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return IS_RevenueRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
     }
 }

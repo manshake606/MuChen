@@ -94,7 +94,7 @@ namespace kfxms.Web.Areas.Payment.Controllers
 
             int total = 0;
 
-            List<S_ExternalPayment> list = ExternalPaymentService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<S_ExternalPayment> list = ExternalPaymentService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
             List<S_Project> listProject = projectService.GetAllData().ToList();
             List<S_Supplier> ListSupplier = supplierService.GetAllData().ToList();
             List<S_ExternalPaymentDetail> listExternalPaymentDetail = new List<S_ExternalPaymentDetail>();

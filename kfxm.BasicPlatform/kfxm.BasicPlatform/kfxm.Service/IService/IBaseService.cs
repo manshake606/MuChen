@@ -112,7 +112,7 @@ namespace kfxms.IService
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        IEnumerable<TEntity> GetPageDate<T>(Expression<Func<TEntity, bool>> where, int pageIndex, int pageSize, out int total, OrderByHelper<TEntity, T> orderBy);
+        IEnumerable<TEntity> GetPageData<T>(Expression<Func<TEntity, bool>> where, int pageIndex, int pageSize, out int total, OrderByHelper<TEntity, T> orderBy);
 
         /// <summary>
         /// 分页查询
@@ -123,7 +123,7 @@ namespace kfxms.IService
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        IEnumerable<TEntity> GetPageDate(Expression<Func<TEntity, bool>> where, int pageIndex, int pageSize, out int total, params OrderByHelper<TEntity>[] orderBy);
+        IEnumerable<TEntity> GetPageData(Expression<Func<TEntity, bool>> where, int pageIndex, int pageSize, out int total, params OrderByHelper<TEntity>[] orderBy);
 
     }
 }

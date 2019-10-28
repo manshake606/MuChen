@@ -154,9 +154,9 @@ namespace kfxms.ImpService.SysBasic
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<Sys_AuthorityRequest> GetPageDate<T>(System.Linq.Expressions.Expression<Func<Sys_AuthorityRequest, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<Sys_AuthorityRequest, T> orderBy)
+        public IEnumerable<Sys_AuthorityRequest> GetPageData<T>(System.Linq.Expressions.Expression<Func<Sys_AuthorityRequest, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<Sys_AuthorityRequest, T> orderBy)
         {
-            return ISys_AuthorityRequestRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return ISys_AuthorityRequestRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
 
 
@@ -169,9 +169,9 @@ namespace kfxms.ImpService.SysBasic
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<Sys_AuthorityRequest> GetPageDate(System.Linq.Expressions.Expression<Func<Sys_AuthorityRequest, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<Sys_AuthorityRequest>[] orderBy)
+        public IEnumerable<Sys_AuthorityRequest> GetPageData(System.Linq.Expressions.Expression<Func<Sys_AuthorityRequest, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<Sys_AuthorityRequest>[] orderBy)
         {
-            return ISys_AuthorityRequestRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return ISys_AuthorityRequestRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
 
          /// <summary>

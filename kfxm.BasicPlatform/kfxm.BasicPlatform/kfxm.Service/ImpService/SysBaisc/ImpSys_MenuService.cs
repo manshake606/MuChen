@@ -153,9 +153,9 @@ namespace kfxms.ImplService.SysBasic
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<Sys_Menu> GetPageDate<T>(System.Linq.Expressions.Expression<Func<Sys_Menu, bool>> where, int pageIndex, int pageSize, out int total,Common.OrderByHelper<Sys_Menu,T> orderBy)
+        public IEnumerable<Sys_Menu> GetPageData<T>(System.Linq.Expressions.Expression<Func<Sys_Menu, bool>> where, int pageIndex, int pageSize, out int total,Common.OrderByHelper<Sys_Menu,T> orderBy)
         {
-            return ISys_MenuRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return ISys_MenuRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
 
 
@@ -168,9 +168,9 @@ namespace kfxms.ImplService.SysBasic
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<Sys_Menu> GetPageDate(System.Linq.Expressions.Expression<Func<Sys_Menu, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<Sys_Menu>[] orderBy)
+        public IEnumerable<Sys_Menu> GetPageData(System.Linq.Expressions.Expression<Func<Sys_Menu, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<Sys_Menu>[] orderBy)
         {
-            return ISys_MenuRepository_.GetPageDate(where, pageIndex, pageSize, out total,orderBy);
+            return ISys_MenuRepository_.GetPageData(where, pageIndex, pageSize, out total,orderBy);
         }
 
 

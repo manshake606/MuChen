@@ -91,7 +91,7 @@ namespace kfxms.Web.Areas.Invoice.Controllers
 
             int total = 0;
 
-            List<S_Invoice> list = InvoiceService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<S_Invoice> list = InvoiceService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
 
 
 

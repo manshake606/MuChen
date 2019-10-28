@@ -154,9 +154,9 @@ namespace kfxms.ImpService.Payment
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<S_ExternalPayment> GetPageDate<T>(System.Linq.Expressions.Expression<Func<S_ExternalPayment, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<S_ExternalPayment, T> orderBy)
+        public IEnumerable<S_ExternalPayment> GetPageData<T>(System.Linq.Expressions.Expression<Func<S_ExternalPayment, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<S_ExternalPayment, T> orderBy)
         {
-            return IS_ExternalPaymentRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return IS_ExternalPaymentRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
 
 
@@ -169,9 +169,9 @@ namespace kfxms.ImpService.Payment
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<S_ExternalPayment> GetPageDate(System.Linq.Expressions.Expression<Func<S_ExternalPayment, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<S_ExternalPayment>[] orderBy)
+        public IEnumerable<S_ExternalPayment> GetPageData(System.Linq.Expressions.Expression<Func<S_ExternalPayment, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<S_ExternalPayment>[] orderBy)
         {
-            return IS_ExternalPaymentRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return IS_ExternalPaymentRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
     }
 }

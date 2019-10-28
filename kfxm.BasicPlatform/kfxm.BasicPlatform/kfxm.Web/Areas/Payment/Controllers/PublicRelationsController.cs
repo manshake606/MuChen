@@ -82,7 +82,7 @@ namespace kfxms.Web.Areas.Payment.Controllers
 
             int total = 0;
 
-            List<S_PublicRelations> list = publicRelationsService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<S_PublicRelations> list = publicRelationsService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
             List<S_Project> listProject = projectService.GetAllData().ToList();
             List<S_PublicRelationsDetail> listPublicRelationsDetail = new List<S_PublicRelationsDetail>();
 

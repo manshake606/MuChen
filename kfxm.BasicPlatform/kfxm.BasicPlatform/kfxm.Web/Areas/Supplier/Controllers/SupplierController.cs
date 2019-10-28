@@ -105,7 +105,7 @@ namespace kfxms.Web.Areas.Supplier.Controllers
 
             int total = 0;
 
-            List<S_Supplier> list = supplierService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<S_Supplier> list = supplierService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
             List<S_SupplierType> typeList = supplierTypeService.GetAllData().ToList();
             List<S_SupplierHasTypeName> listHasTypeName = new List<S_SupplierHasTypeName>();
             

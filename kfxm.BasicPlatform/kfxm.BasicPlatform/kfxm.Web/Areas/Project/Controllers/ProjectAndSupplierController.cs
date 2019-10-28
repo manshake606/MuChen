@@ -100,7 +100,7 @@ namespace kfxms.Web.Areas.Project.Controllers
 
             int total = 0;
 
-            List<S_ProjectAndSupplier> list = ProjectAndSupplierService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<S_ProjectAndSupplier> list = ProjectAndSupplierService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
             //List<S_Project> ListProject = projectService.GetAllData().ToList();
             //List<S_Supplier> ListSupplier = supplierService.GetAllData().ToList();
             List<S_ProjectAndSupplierDetail> listProjectAndSupplierDetail = new List<S_ProjectAndSupplierDetail>();

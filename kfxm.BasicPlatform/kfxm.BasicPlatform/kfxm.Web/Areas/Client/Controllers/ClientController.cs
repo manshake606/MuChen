@@ -103,7 +103,7 @@ namespace kfxms.Web.Areas.Client.Controllers
 
             int total = 0;
 
-            List<S_Client> list = ClientService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<S_Client> list = ClientService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
 
             Sys_User sUser = base.LoginUser;
             List<Sys_UserAndRole> currentUserRole = userAndRoleService.GetWhereData(u => u.UserId == sUser.Id).ToList();

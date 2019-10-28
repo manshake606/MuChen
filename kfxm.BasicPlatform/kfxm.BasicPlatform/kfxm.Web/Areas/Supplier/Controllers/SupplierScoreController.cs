@@ -184,7 +184,7 @@ namespace kfxms.Web.Areas.Supplier.Controllers
 
             int total = 0;
 
-            List<S_ProjectAndSupplier> list = ProjectAndSupplierService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<S_ProjectAndSupplier> list = ProjectAndSupplierService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
             List<S_ProjectAndSupplierDetail> listSupplierScoreDetail = new List<S_ProjectAndSupplierDetail>();
             List<S_Project> listProject = listProject = projectService.GetAllData().ToList();
             List<S_Supplier> listSupplier = supplierService.GetAllData().ToList();

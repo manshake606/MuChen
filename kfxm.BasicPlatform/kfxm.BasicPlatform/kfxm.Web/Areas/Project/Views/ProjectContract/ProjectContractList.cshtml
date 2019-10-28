@@ -1,0 +1,145 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>项目合同管理</title>
+    <link href="/css/hbes.grid.css" rel="stylesheet" />
+    <link href="/css/hbes.reset.css" rel="stylesheet" />
+    <link href="/css/zTree/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/js/layui/css/layui.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/hbes-ui.js"></script>
+    <script src="~/js/layui/layui.all.js"></script>  
+    <script src="/js/zTree/jquery.ztree.core.min.js"></script>
+
+</head>
+<body style="overflow-x: hidden;position:fixed;">
+    <div id="page-content" class="page-content">
+
+        <div class="page-toolbar">
+            <table>
+                <tr>
+                    <td style="padding-left: 10px;">
+                        项目名称：<input type="text" id="txt_projectName" class="hbes-input">
+                        
+                    </td>
+
+                    <td style="padding-left: 10px;">
+                        <button onclick="search()" id="btn_Query"   class="layui-btn layui-btn-mini  layui-btn-normal">
+                            <i class="layui-icon">&#xe615;</i>查询
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="page-toolbar">
+            <button style="margin-left:10px"  id="btn_Add" onclick="add()" class="layui-btn layui-btn-small">
+                <i class="layui-icon">&#xe608;</i>添加
+            </button>
+            <button   id="btn_Edit" onclick="edit()" class="layui-btn layui-btn-small  hbes-btn-update">
+                <i class="layui-icon">&#xe642;</i>修改
+            </button>
+            <button   id="btn_Delete" onclick="del()" class="layui-btn layui-btn-small  layui-btn-danger">
+                <i class="layui-icon">&#xe640;</i>删除
+            </button>
+        </div>
+         <div id="grid" class="page-grid" showpager="true"
+            showpagealige="bottom" multiselect="false" url="/Project/ProjectContract/GetPageData" >
+            <div property="columns">
+                <div type="indexcolumn" width="30"></div>
+
+                <div field="ProjectName" width="120">项目名称</div>
+                <div field="ProjectContractDetail" width="120">项目合同详细</div>
+                <div field="LastEditName" width="120">更新人姓名</div>
+                <div field="LastEditTime" width="120">更新时间</div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            var grid = hbes.get("grid");
+            $(function () {
+
+                search();
+            });
+            function search() {
+                var projectName = $("#txt_projectName").val();
+                grid.loadGridData({ "projectName": projectName});
+            }
+            function reload() {
+                grid.reload();
+            }
+            function add() {
+                // 标题      //打开页面               宽    高     窗口正常关闭（非手动关闭）后执行的方法 
+                openWin("添加项目信息", "/Project/ProjectContract/Add", 800, 500, "reload");
+            }
+
+            function edit() {
+                var row = grid.getHbesGridSelected();//选择一行
+                if (row) {
+                    openWin("修改项目信息", "/Project/ProjectContract/Edit?projectContractId=" + row.Id, 800, 500, "reload");
+                }
+                else {
+                    layer.alert('请选择一条记录!', { icon: 0, skin: 'layer-ext-moon' });
+
+                }
+
+            }
+            function del() {
+                var row = grid.getHbesGridSelected();
+                if (row) {
+                    layer.confirm("确认删除？", { title: '提示信息', closeBtn: 0, icon: 3, btn: ['确认', '取消'] },
+                        function (index) {
+                            layer.close(index);
+                            submitData("/Project/ProjectContract/DeleteProjectContract", { projectContractId: row.Id }, function (data) {
+                                reload();
+                            });
+
+                        }, function () {
+
+                        });
+
+                }
+                else {
+                    layer.alert('请选择一条记录!', { icon: 0, skin: 'layer-ext-moon' });
+
+                }
+            }
+            function resetPwd() {
+                var row = grid.getHbesGridSelected();
+                if (row) {
+                    layer.confirm("确认重置？", { title: '提示信息', closeBtn: 0, icon: 3, btn: ['确认', '取消'] },
+                        function (index) {
+                            layer.close(index);
+                            submitData("/SysBasic/User/ResetPwd", { userId: row.Id });
+
+                        }, function () {
+
+                        });
+
+                }
+                else {
+                    layer.alert('请选择一条记录!', { icon: 0, skin: 'layer-ext-moon' });
+
+                }
+            }
+            function bindRole() {
+                var row = grid.getHbesGridSelected();
+
+                if (row) {
+                    openWin("绑定角色（" + row.Name + "）", "/SysBasic/User/BindRole?userId=" + row.Id, 550, 400, "reload");
+
+                }
+                else {
+                    layer.alert('请选择一条记录!', { icon: 0, skin: 'layer-ext-moon' });
+
+                }
+            }
+        </script>
+
+    </div>
+</body>
+</html>
+

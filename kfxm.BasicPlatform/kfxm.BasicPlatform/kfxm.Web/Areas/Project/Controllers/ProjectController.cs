@@ -310,7 +310,7 @@ namespace kfxms.Web.Areas.Project.Controllers
 
             int total = 0;
 
-            List<S_Project> list = projectService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<S_Project> list = projectService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
 
             List<S_Client> listClient = clientService.GetAllData().ToList();
 

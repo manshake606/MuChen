@@ -68,7 +68,7 @@ namespace kfxms.Web.Areas.SysBasic.Controllers
             //排序
             OrderByHelper<Sys_Role, DateTime> orderBy = new OrderByHelper<Sys_Role, DateTime>() { OrderByType = OrderByType.DESC, Expression = u => u.AddTime.Value };
 
-            List<Sys_Role> list = roleService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<Sys_Role> list = roleService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
 
             Hashtable ht = new Hashtable();
 

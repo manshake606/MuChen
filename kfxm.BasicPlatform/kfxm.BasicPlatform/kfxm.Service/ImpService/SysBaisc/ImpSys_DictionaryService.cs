@@ -155,9 +155,9 @@ namespace kfxms.ImpService.SysBasic
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<Sys_Dictionary> GetPageDate<T>(System.Linq.Expressions.Expression<Func<Sys_Dictionary, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<Sys_Dictionary, T> orderBy)
+        public IEnumerable<Sys_Dictionary> GetPageData<T>(System.Linq.Expressions.Expression<Func<Sys_Dictionary, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<Sys_Dictionary, T> orderBy)
         {
-            return ISys_DictionaryRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return ISys_DictionaryRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
 
 
@@ -170,9 +170,9 @@ namespace kfxms.ImpService.SysBasic
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<Sys_Dictionary> GetPageDate(System.Linq.Expressions.Expression<Func<Sys_Dictionary, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<Sys_Dictionary>[] orderBy)
+        public IEnumerable<Sys_Dictionary> GetPageData(System.Linq.Expressions.Expression<Func<Sys_Dictionary, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<Sys_Dictionary>[] orderBy)
         {
-            return ISys_DictionaryRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return ISys_DictionaryRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
     }
 }

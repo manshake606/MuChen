@@ -81,7 +81,7 @@ namespace kfxms.Web.Areas.Revenue.Controllers
 
             int total = 0;
 
-            List<S_Revenue> list = RevenueService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<S_Revenue> list = RevenueService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
             List<S_Project> listProject = projectService.GetAllData().ToList();
             List<S_RevenueDetail> listDetail = new List<S_RevenueDetail>();
 

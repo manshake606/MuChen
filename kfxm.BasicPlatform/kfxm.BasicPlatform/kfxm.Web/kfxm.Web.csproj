@@ -151,6 +151,8 @@
     <Compile Include="Areas\Payment\Controllers\InternalPaymentController.cs" />
     <Compile Include="Areas\Payment\PaymentAreaRegistration.cs" />
     <Compile Include="Areas\Payment\Controllers\PublicRelationsController.cs" />
+    <Compile Include="Areas\Project\Controllers\ProjectContractController.cs" />
+    <Compile Include="Areas\Project\Controllers\ProjectProgressController.cs" />
     <Compile Include="Areas\Project\Controllers\ProjectAndSupplierController.cs" />
     <Compile Include="Areas\Invoice\Controllers\InvoiceController.cs" />
     <Compile Include="Areas\Invoice\InvoiceAreaRegistration.cs" />
@@ -634,6 +636,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Client\Views\Client\ClientDetail.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectProgress\ProjectProgressAdd.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectProgress\ProjectProgressEdit.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectProgress\ProjectProgressList.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectContract\ProjectContractAdd.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectContract\ProjectContractEdit.cshtml" />
+    <Content Include="Areas\Project\Views\ProjectContract\ProjectContractList.cshtml" />
     <None Include="Properties\PublishProfiles\ChenMu.pubxml" />
     <None Include="Properties\PublishProfiles\ChenMuPublish.pubxml" />
     <None Include="Properties\PublishProfiles\ChenMuTest.pubxml" />

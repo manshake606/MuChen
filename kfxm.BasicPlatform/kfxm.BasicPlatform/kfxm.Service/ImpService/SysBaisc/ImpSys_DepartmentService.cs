@@ -155,9 +155,9 @@ namespace kfxms.ImpService.SysBasic
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<Sys_Department> GetPageDate<T>(System.Linq.Expressions.Expression<Func<Sys_Department, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<Sys_Department, T> orderBy)
+        public IEnumerable<Sys_Department> GetPageData<T>(System.Linq.Expressions.Expression<Func<Sys_Department, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<Sys_Department, T> orderBy)
         {
-            return ISys_DepartmentRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return ISys_DepartmentRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
 
 
@@ -170,9 +170,9 @@ namespace kfxms.ImpService.SysBasic
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<Sys_Department> GetPageDate(System.Linq.Expressions.Expression<Func<Sys_Department, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<Sys_Department>[] orderBy)
+        public IEnumerable<Sys_Department> GetPageData(System.Linq.Expressions.Expression<Func<Sys_Department, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<Sys_Department>[] orderBy)
         {
-            return ISys_DepartmentRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return ISys_DepartmentRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
     }
 }

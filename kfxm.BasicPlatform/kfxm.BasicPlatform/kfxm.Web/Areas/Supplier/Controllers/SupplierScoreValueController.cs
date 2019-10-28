@@ -68,7 +68,7 @@ namespace kfxms.Web.Areas.Supplier.Controllers
 
             int total = 0;
 
-            List<S_SupplierScoreValue> list = SupplierScoreValueService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<S_SupplierScoreValue> list = SupplierScoreValueService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
 
             /*
             var s_Task = new S_Task()

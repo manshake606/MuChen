@@ -154,9 +154,9 @@ namespace kfxms.ImpService.Supplier
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<S_SupplierScore> GetPageDate<T>(System.Linq.Expressions.Expression<Func<S_SupplierScore, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<S_SupplierScore, T> orderBy)
+        public IEnumerable<S_SupplierScore> GetPageData<T>(System.Linq.Expressions.Expression<Func<S_SupplierScore, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<S_SupplierScore, T> orderBy)
         {
-            return IS_SupplierScoreRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return IS_SupplierScoreRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
 
 
@@ -169,9 +169,9 @@ namespace kfxms.ImpService.Supplier
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<S_SupplierScore> GetPageDate(System.Linq.Expressions.Expression<Func<S_SupplierScore, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<S_SupplierScore>[] orderBy)
+        public IEnumerable<S_SupplierScore> GetPageData(System.Linq.Expressions.Expression<Func<S_SupplierScore, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<S_SupplierScore>[] orderBy)
         {
-            return IS_SupplierScoreRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return IS_SupplierScoreRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
     }
 }

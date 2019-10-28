@@ -84,7 +84,7 @@ namespace kfxms.Web.Areas.Payment.Controllers
 
             int total = 0;
 
-            List<S_InternalPayment> list = InternalPaymentService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<S_InternalPayment> list = InternalPaymentService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
             List<S_Project> listProject = projectService.GetAllData().ToList();
             List<Sys_User> ListUser = userService.GetAllData().ToList();
             List<S_InternalPaymentDetail> listInternalPaymentDetail = new List<S_InternalPaymentDetail>();

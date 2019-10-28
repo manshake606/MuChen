@@ -53,6 +53,10 @@
     <Compile Include="Payment\S_InternalPayment.cs" />
     <Compile Include="Payment\S_PublicRelationsDetail.cs" />
     <Compile Include="Payment\S_PublicRelations.cs" />
+    <Compile Include="Project\S_ProjectContractDetail.cs" />
+    <Compile Include="Project\S_ProjectContract.cs" />
+    <Compile Include="Project\S_ProjectProgressDetail.cs" />
+    <Compile Include="Project\S_ProjectProgress.cs" />
     <Compile Include="Project\S_ProjectAndSupplierDetail.cs" />
     <Compile Include="Project\S_ProjectAndSupplier.cs" />
     <Compile Include="Invoice\S_Invoice.cs" />

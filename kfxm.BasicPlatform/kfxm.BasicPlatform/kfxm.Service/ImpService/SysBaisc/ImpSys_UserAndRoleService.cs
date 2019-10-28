@@ -155,9 +155,9 @@ namespace kfxms.ImplService.SysBasic
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<Sys_UserAndRole> GetPageDate<T>(System.Linq.Expressions.Expression<Func<Sys_UserAndRole, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<Sys_UserAndRole,T> orderBy)
+        public IEnumerable<Sys_UserAndRole> GetPageData<T>(System.Linq.Expressions.Expression<Func<Sys_UserAndRole, bool>> where, int pageIndex, int pageSize, out int total, Common.OrderByHelper<Sys_UserAndRole,T> orderBy)
         {
-            return ISys_UserAndRoleRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return ISys_UserAndRoleRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
 
         /// <summary>
@@ -169,9 +169,9 @@ namespace kfxms.ImplService.SysBasic
         /// <param name="pageSize">记录条数</param>
         /// <param name="Total">总条数</param>
         /// <returns></returns>
-        public IEnumerable<Sys_UserAndRole> GetPageDate(System.Linq.Expressions.Expression<Func<Sys_UserAndRole, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<Sys_UserAndRole>[] orderBy)
+        public IEnumerable<Sys_UserAndRole> GetPageData(System.Linq.Expressions.Expression<Func<Sys_UserAndRole, bool>> where, int pageIndex, int pageSize, out int total, params Common.OrderByHelper<Sys_UserAndRole>[] orderBy)
         {
-            return ISys_UserAndRoleRepository_.GetPageDate(where, pageIndex, pageSize, out total, orderBy);
+            return ISys_UserAndRoleRepository_.GetPageData(where, pageIndex, pageSize, out total, orderBy);
         }
     }
 }

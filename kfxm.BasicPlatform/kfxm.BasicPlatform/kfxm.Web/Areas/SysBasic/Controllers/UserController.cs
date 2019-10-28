@@ -83,7 +83,7 @@ namespace kfxms.Web.Areas.SysBasic.Controllers
 
             int total = 0;
 
-            List<Sys_User> list = userService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<Sys_User> list = userService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
 
             Hashtable ht = new Hashtable();
 

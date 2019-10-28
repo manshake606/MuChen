@@ -68,7 +68,7 @@ namespace kfxms.Web.Areas.Supplier.Controllers
 
             int total = 0;
 
-            List<S_SupplierType> list = supplierTypeService.GetPageDate(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<S_SupplierType> list = supplierTypeService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
 
             /*
             var s_Task = new S_Task()
