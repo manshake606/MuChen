@@ -58,6 +58,14 @@ namespace kfxms.Web.Areas.Project.Controllers
         public IS_PublicRelationsService publicRelationsService { get; set; }
 
         [Import]
+        //public new  publicRelationsService { get; set; }
+        public IS_ProjectProgressService projectProgressService { get; set; }
+
+        [Import]
+        //public new  publicRelationsService { get; set; }
+        public IS_ProjectContractService projectContractService { get; set; }
+
+        [Import]
         public ISys_UserAndRoleService userAndRoleService { get; set; }
 
         [Import]
@@ -263,6 +271,8 @@ namespace kfxms.Web.Areas.Project.Controllers
                     SumPublicRelations += PublicRelations.PRAmout;
                 }
             }
+
+            
 
             decimal SumPayment = SumExternalPayment + SumInternalPayment + SumPublicRelations;
 

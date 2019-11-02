@@ -18,6 +18,7 @@ using kfxms.IService.Supplier;
 using kfxms.IService.SupplierType;
 using kfxms.Entity.Payment;
 using kfxms.IService.Payment;
+using Newtonsoft.Json;
 
 namespace kfxms.Web.Areas.Project.Controllers
 {
@@ -278,8 +279,10 @@ namespace kfxms.Web.Areas.Project.Controllers
 
             Hashtable ht = new Hashtable();
             //ht.Add("total", total);
+            ht.Add("code", 0);
+            ht.Add("msg", "");
             ht.Add("data", listProjectAndSupplierDetail);
-            string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            string json = JsonConvert.SerializeObject(ht);
             return Content(json);
         }
 

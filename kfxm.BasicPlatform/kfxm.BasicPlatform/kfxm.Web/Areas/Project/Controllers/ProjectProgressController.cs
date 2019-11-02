@@ -18,6 +18,7 @@ using kfxms.IService.Supplier;
 using kfxms.IService.SupplierType;
 using kfxms.Entity.Payment;
 using kfxms.IService.Payment;
+using Newtonsoft.Json;
 
 namespace kfxms.Web.Areas.Project.Controllers
 {
@@ -191,7 +192,7 @@ namespace kfxms.Web.Areas.Project.Controllers
             return Content(json);
         }
 
-        /*
+        
         public ActionResult GetAllDataByProjectNum(int ProjectNum)
         {
             
@@ -207,49 +208,30 @@ namespace kfxms.Web.Areas.Project.Controllers
             {
                 S_ProjectProgressDetail s_ProjectProgressDetail = new S_ProjectProgressDetail();
                 List<S_Project> ListProject = projectService.GetWhereData(u => u.Num == (item.ProjectNum)).ToList();
-                List<S_Supplier> ListSupplier = supplierService.GetWhereData(u => u.Num == (item.SupplierNum)).ToList();
                 s_ProjectProgressDetail.Id = item.Id;
+                s_ProjectProgressDetail.Num = item.Num;
                 s_ProjectProgressDetail.ProjectNum = item.ProjectNum;
                 s_ProjectProgressDetail.ProjectName = ListProject[0].ProjectName;
-                s_ProjectProgressDetail.SupplierNum = item.SupplierNum;
-                s_ProjectProgressDetail.SupplierName = ListSupplier[0].SupplierName;
-                s_ProjectProgressDetail.SupplierScore = item.SupplierScore;
-                s_ProjectProgressDetail.ScoreRemark = item.ScoreRemark;
-                s_ProjectProgressDetail.SupplierContractAmout = item.SupplierContractAmout;
-                List<S_ExternalPayment> listExternalPayment = ExternalPaymentService.GetAllData().Where(u => u.ProjectNum == item.ProjectNum && u.ExternalPaymentSupplier == item.SupplierNum).ToList();
-                decimal? SupplierCurrentPaymentAmout = 0;
-                if (listExternalPayment.Count > 0)
-                {
-                    foreach (S_ExternalPayment ExternalPayment in listExternalPayment)
-                    {
-                        SupplierCurrentPaymentAmout += ExternalPayment.ExternalPaymentAmout;
-                    }
-                }
-                decimal? SupplierLeftPaymentAmout = s_ProjectProgressDetail.SupplierContractAmout - SupplierCurrentPaymentAmout;
-                s_ProjectProgressDetail.SupplierCurrentPaymentAmout = SupplierCurrentPaymentAmout;
-                s_ProjectProgressDetail.SupplierLeftPaymentAmout = SupplierLeftPaymentAmout;
-
-                //foreach (S_SupplierScore score in listSupplierScore)
-                //{
-                //    if(score.SupplierNum== s_ProjectProgressDetail.SupplierNum)
-                //    {
-                //        s_ProjectProgressDetail.SupplierScore = score.SupplierScore;
-                //    }
-                //}
-
-
+                s_ProjectProgressDetail.ProjectDetail = item.ProjectDetail;
+                s_ProjectProgressDetail.LastEditName = item.LastEditName;
+                s_ProjectProgressDetail.LastEditTime = item.LastEditTime;
                 listProjectProgressDetail.Add(s_ProjectProgressDetail);
             }
 
             Hashtable ht = new Hashtable();
             //ht.Add("total", total);
+            ht.Add("code", 0);
+            ht.Add("msg", "");
             ht.Add("data", listProjectProgressDetail);
-            string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+
+            string json=JsonConvert.SerializeObject(ht);
+            
+           
             return Content(json);
 
             
     }
-    */
+    
 
         /*
         public ActionResult GetAllDataBySupplierNum(int SupplierNum)
