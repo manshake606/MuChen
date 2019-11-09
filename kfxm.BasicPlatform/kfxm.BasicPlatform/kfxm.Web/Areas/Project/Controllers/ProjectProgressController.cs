@@ -58,14 +58,26 @@ namespace kfxms.Web.Areas.Project.Controllers
         [Import]
         public ISys_RoleService roleService { get; set; }
 
-        public ActionResult List()
+        public ActionResult List(Guid ProjectId)
         {
-            return View("ProjectProgressList");
+            S_Project s_Project = projectService.GetByKey(ProjectId);
+            if (s_Project == null)
+            {
+                Response.Write("<p style='color:red;'>该条记录不存在！</p>");
+                Response.End();
+            }
+            return View("ProjectProgressList", s_Project);
         }
 
-        public ActionResult Add()
+        public ActionResult Add(Guid ProjectId)
         {
-            return View("ProjectProgressAdd");
+            S_Project s_Project = projectService.GetByKey(ProjectId);
+            if (s_Project == null)
+            {
+                Response.Write("<p style='color:red;'>该条记录不存在！</p>");
+                Response.End();
+            }
+            return View("ProjectProgressAdd", s_Project);
         }
 
         public ActionResult Edit(Guid projectProgressId)
@@ -231,7 +243,45 @@ namespace kfxms.Web.Areas.Project.Controllers
 
             
     }
-    
+
+        public ActionResult GetAllDataBySelectedProjectNum(int ProjectNum)
+        {
+
+            //string resultJson = "";
+            //Hashtable row = (Hashtable)JsonHelp.Decode(data);
+            S_ProjectProgress eProjectProgress = new S_ProjectProgress();
+            List<S_ProjectProgress> listProjectProgress = ProjectProgressService.GetAllData().Where(u => u.ProjectNum == ProjectNum).ToList();
+            //listProjectProgress = listProjectProgress.Where(u => u.ProjectNum == ProjectNum).ToList();
+            List<S_ProjectProgressDetail> listProjectProgressDetail = new List<S_ProjectProgressDetail>();
+            //List<S_SupplierScore> listSupplierScore = SupplierScoreService.GetAllData();
+
+            foreach (S_ProjectProgress item in listProjectProgress)
+            {
+                S_ProjectProgressDetail s_ProjectProgressDetail = new S_ProjectProgressDetail();
+                List<S_Project> ListProject = projectService.GetWhereData(u => u.Num == (item.ProjectNum)).ToList();
+                s_ProjectProgressDetail.Id = item.Id;
+                s_ProjectProgressDetail.Num = item.Num;
+                s_ProjectProgressDetail.ProjectNum = item.ProjectNum;
+                s_ProjectProgressDetail.ProjectName = ListProject[0].ProjectName;
+                s_ProjectProgressDetail.ProjectDetail = item.ProjectDetail;
+                s_ProjectProgressDetail.LastEditName = item.LastEditName;
+                s_ProjectProgressDetail.LastEditTime = item.LastEditTime;
+                listProjectProgressDetail.Add(s_ProjectProgressDetail);
+            }
+
+            Hashtable ht = new Hashtable();
+            //ht.Add("total", total);
+            ht.Add("data", listProjectProgressDetail);
+            string json = null;
+
+            json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+
+
+            return Content(json);
+
+
+        }
+
 
         /*
         public ActionResult GetAllDataBySupplierNum(int SupplierNum)

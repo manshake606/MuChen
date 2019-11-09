@@ -61,8 +61,12 @@
                 <i class="layui-icon">&#xe640;</i>删除
             </button>
 
+            <button id="btn_Progress" onclick="projectProgress()" class="layui-btn layui-btn-small">
+                <i class="layui-icon">&#xe641;</i>项目进度管理
+            </button>
+
             <button id="btn_Contract" onclick="projectContract()" class="layui-btn layui-btn-small  layui-btn-warm">
-                <i class="layui-icon">&#xe641;</i>项目合同详细
+                <i class="layui-icon">&#xe641;</i>项目合同管理
             </button>
 
         </div>
@@ -121,7 +125,7 @@
             function projectContract() {
                 var row = grid.getHbesGridSelected();//选择一行
                 if (row) {
-                    openWin("修改项目信息", "/Project/ProjectContract/List?projectId="+row.Id, 800, 500, "reload");
+                    openWin("修改项目合同信息", "/Project/ProjectContract/List?projectId="+row.Id, 800, 500, "reload");
                 }
                 else {
                     layer.alert('请选择一条记录!', { icon: 0, skin: 'layer-ext-moon' });
@@ -129,6 +133,19 @@
                 }
 
             }
+
+            function projectProgress() {
+                var row = grid.getHbesGridSelected();//选择一行
+                if (row) {
+                    openWin("修改项目进度信息", "/Project/ProjectProgress/List?projectId=" + row.Id, 800, 500, "reload");
+                }
+                else {
+                    layer.alert('请选择一条记录!', { icon: 0, skin: 'layer-ext-moon' });
+
+                }
+
+            }
+
             function detail() {
                 var row = grid.getHbesGridSelected();//选择一行
                 if (row) {
