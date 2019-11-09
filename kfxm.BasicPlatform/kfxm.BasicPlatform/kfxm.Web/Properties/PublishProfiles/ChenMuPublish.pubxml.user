@@ -103,6 +103,24 @@
     <File Include="Areas/Project/Views/ProjectAndSupplier/ProjectAndSupplierList.cshtml">
       <publishTime>06/17/2019 23:23:56</publishTime>
     </File>
+    <File Include="Areas/Project/Views/ProjectContract/ProjectContractAdd.cshtml">
+      <publishTime>10/28/2019 14:27:08</publishTime>
+    </File>
+    <File Include="Areas/Project/Views/ProjectContract/ProjectContractEdit.cshtml">
+      <publishTime>10/28/2019 14:27:35</publishTime>
+    </File>
+    <File Include="Areas/Project/Views/ProjectContract/ProjectContractList.cshtml">
+      <publishTime>10/28/2019 19:49:09</publishTime>
+    </File>
+    <File Include="Areas/Project/Views/ProjectProgress/ProjectProgressAdd.cshtml">
+      <publishTime>10/28/2019 10:27:22</publishTime>
+    </File>
+    <File Include="Areas/Project/Views/ProjectProgress/ProjectProgressEdit.cshtml">
+      <publishTime>10/28/2019 11:00:35</publishTime>
+    </File>
+    <File Include="Areas/Project/Views/ProjectProgress/ProjectProgressList.cshtml">
+      <publishTime>10/28/2019 19:49:43</publishTime>
+    </File>
     <File Include="Areas/Project/Views/Web.config">
       <publishTime>04/14/2019 20:58:56</publishTime>
     </File>
@@ -215,22 +233,22 @@
       <publishTime>06/01/2017 13:41:31</publishTime>
     </File>
     <File Include="bin/HBES.Common.dll">
-      <publishTime>10/21/2019 21:56:11</publishTime>
+      <publishTime>11/02/2019 08:23:39</publishTime>
     </File>
     <File Include="bin/HBES.EFData.dll">
-      <publishTime>10/21/2019 21:56:13</publishTime>
+      <publishTime>11/02/2019 08:23:39</publishTime>
     </File>
     <File Include="bin/HBES.Entity.dll">
-      <publishTime>10/21/2019 21:56:09</publishTime>
+      <publishTime>11/02/2019 08:23:39</publishTime>
     </File>
     <File Include="bin/HBES.Repository.dll">
-      <publishTime>10/21/2019 21:56:14</publishTime>
+      <publishTime>11/02/2019 08:23:40</publishTime>
     </File>
     <File Include="bin/HBES.Service.dll">
-      <publishTime>10/21/2019 21:56:15</publishTime>
+      <publishTime>11/02/2019 08:23:40</publishTime>
     </File>
     <File Include="bin/HBES.Web.dll">
-      <publishTime>10/21/2019 22:11:56</publishTime>
+      <publishTime>11/02/2019 08:23:41</publishTime>
     </File>
     <File Include="bin/ICSharpCode.SharpZipLib.dll">
       <publishTime>01/03/2011 14:16:38</publishTime>

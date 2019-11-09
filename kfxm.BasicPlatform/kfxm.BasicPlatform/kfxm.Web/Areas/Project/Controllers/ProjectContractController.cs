@@ -58,14 +58,28 @@ namespace kfxms.Web.Areas.Project.Controllers
         [Import]
         public ISys_RoleService roleService { get; set; }
 
-        public ActionResult List()
+        public ActionResult List(Guid ProjectId)
         {
-            return View("ProjectContractList");
+            S_Project s_Project = projectService.GetByKey(ProjectId);
+            if (s_Project == null)
+            {
+                Response.Write("<p style='color:red;'>该条记录不存在！</p>");
+                Response.End();
+            }
+            return View("ProjectContractList", s_Project);
         }
 
-        public ActionResult Add()
+
+
+        public ActionResult Add(Guid ProjectId)
         {
-            return View("ProjectContractAdd");
+            S_Project s_Project = projectService.GetByKey(ProjectId);
+            if (s_Project == null)
+            {
+                Response.Write("<p style='color:red;'>该条记录不存在！</p>");
+                Response.End();
+            }
+            return View("ProjectContractAdd",s_Project);
         }
 
         public ActionResult Edit(Guid projectContractId)
@@ -119,6 +133,7 @@ namespace kfxms.Web.Areas.Project.Controllers
                 s_ProjectContractDetail.ProjectNum = item.ProjectNum;
                 s_ProjectContractDetail.ProjectName = ListProject[0].ProjectName;
                 s_ProjectContractDetail.ProjectContractDetail = item.ProjectContractDetail;
+                s_ProjectContractDetail.ProjectContractAmount = item.ProjectContractAmount;
                 s_ProjectContractDetail.AddName = item.AddName;
                 s_ProjectContractDetail.AddTime = item.AddTime;
                 s_ProjectContractDetail.AddUserId = item.AddUserId;
@@ -213,6 +228,7 @@ namespace kfxms.Web.Areas.Project.Controllers
                 s_ProjectContractDetail.ProjectNum = item.ProjectNum;
                 s_ProjectContractDetail.ProjectName = ListProject[0].ProjectName;
                 s_ProjectContractDetail.ProjectContractDetail = item.ProjectContractDetail;
+                s_ProjectContractDetail.ProjectContractAmount = item.ProjectContractAmount;
                 s_ProjectContractDetail.LastEditName = item.LastEditName;
                 s_ProjectContractDetail.LastEditTime = item.LastEditTime;
                 
@@ -223,8 +239,8 @@ namespace kfxms.Web.Areas.Project.Controllers
 
             Hashtable ht = new Hashtable();
             //ht.Add("total", total);
-            ht.Add("code", 0);
-            ht.Add("msg", "");
+            //ht.Add("code", 0);
+            //ht.Add("msg", "");
             ht.Add("data", listProjectContractDetail);
 
 
@@ -233,7 +249,47 @@ namespace kfxms.Web.Areas.Project.Controllers
 
             
     }
-    
+
+        public ActionResult GetAllDataBySelectedProjectNum(int ProjectNum)
+        {
+
+            //string resultJson = "";
+            //Hashtable row = (Hashtable)JsonHelp.Decode(data);
+            S_ProjectContract eProjectContract = new S_ProjectContract();
+            List<S_ProjectContract> listProjectContract = ProjectContractService.GetAllData().Where(u => u.ProjectNum == ProjectNum).ToList();
+            //listProjectContract = listProjectContract.Where(u => u.ProjectNum == ProjectNum).ToList();
+            List<S_ProjectContractDetail> listProjectContractDetail = new List<S_ProjectContractDetail>();
+            //List<S_SupplierScore> listSupplierScore = SupplierScoreService.GetAllData();
+
+            foreach (S_ProjectContract item in listProjectContract)
+            {
+                S_ProjectContractDetail s_ProjectContractDetail = new S_ProjectContractDetail();
+                List<S_Project> ListProject = projectService.GetWhereData(u => u.Num == (item.ProjectNum)).ToList();
+                s_ProjectContractDetail.Id = item.Id;
+                s_ProjectContractDetail.Num = item.Num;
+                s_ProjectContractDetail.ProjectNum = item.ProjectNum;
+                s_ProjectContractDetail.ProjectName = ListProject[0].ProjectName;
+                s_ProjectContractDetail.ProjectContractDetail = item.ProjectContractDetail;
+                s_ProjectContractDetail.ProjectContractAmount = item.ProjectContractAmount;
+                s_ProjectContractDetail.LastEditName = item.LastEditName;
+                s_ProjectContractDetail.LastEditTime = item.LastEditTime;
+
+
+
+                listProjectContractDetail.Add(s_ProjectContractDetail);
+            }
+
+            Hashtable ht = new Hashtable();
+            //ht.Add("total", total);
+            ht.Add("data", listProjectContractDetail);
+            string json = null;
+
+            json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            return Content(json);
+
+
+        }
+
 
         /*
         public ActionResult GetAllDataBySupplierNum(int SupplierNum)
@@ -308,6 +364,7 @@ namespace kfxms.Web.Areas.Project.Controllers
             eProjectContract.Id = Guid.NewGuid();
             eProjectContract.ProjectNum = int.Parse(row["Project"].ToString().Trim());
             eProjectContract.ProjectContractDetail = row["ProjectContractDetail"].ToString().Trim();
+            eProjectContract.ProjectContractAmount = Convert.ToDecimal( row["ProjectContractAmount"].ToString().Trim());
             /*
             //eProjectContract.SupplierNum= int.Parse(row["Supplier"].ToString().Trim());
             if(row["SupplierScore"] == null || row["SupplierScore"].ToString() == "")
@@ -382,7 +439,7 @@ namespace kfxms.Web.Areas.Project.Controllers
 
             eProjectContract.ProjectNum = int.Parse(row["Project"].ToString().Trim());
             eProjectContract.ProjectContractDetail = row["ProjectContractDetail"].ToString().Trim();
-
+            eProjectContract.ProjectContractAmount = Convert.ToDecimal(row["ProjectContractAmount"].ToString().Trim());
             //eProjectContract.SupplierScore = int.Parse(row["SupplierScore"].ToString().Trim());
             //eProjectContract.ScoreRemark = row["ScoreRemark"].ToString().Trim();
             //eProjectContract.SupplierContractAmout = Convert.ToDecimal(row["SupplierContractAmout"].ToString().Trim());

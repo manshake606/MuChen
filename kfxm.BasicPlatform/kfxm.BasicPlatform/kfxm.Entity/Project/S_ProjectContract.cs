@@ -34,6 +34,11 @@ namespace kfxms.Entity.Project
         public string ProjectContractDetail { get; set; }
 
         /// <summary>
+        /// 合同金额
+        /// </summary>
+        public decimal? ProjectContractAmount { get; set; }
+
+        /// <summary>
         ///添加时间
         /// </summary>
         public DateTime? AddTime { get; set; }

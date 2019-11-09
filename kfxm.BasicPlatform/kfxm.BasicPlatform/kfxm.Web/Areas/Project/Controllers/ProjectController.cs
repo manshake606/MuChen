@@ -193,7 +193,18 @@ namespace kfxms.Web.Areas.Project.Controllers
                 s_ProjectInfo.StatusName = "结束";
             }
             s_ProjectInfo.ClientId = sys_Project.ClientId;
-            s_ProjectInfo.ContractAmout = sys_Project.ContractAmout;
+            // Sum Contract Amount
+            List<S_ProjectContract> listContract = projectContractService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+            decimal? ContractAmout = 0;
+            if (listContract.Count > 0)
+            {
+                foreach (S_ProjectContract Contract in listContract)
+                {
+                    ContractAmout += Contract.ProjectContractAmount;
+                }
+            }
+            s_ProjectInfo.ContractAmout = ContractAmout;
+
             if (s_ProjectInfo.ContractAmout > 0 && s_ProjectInfo.Area > 0)
             {
                 s_ProjectInfo.UnitPrice = s_ProjectInfo.ContractAmout / s_ProjectInfo.Area;
@@ -283,7 +294,15 @@ namespace kfxms.Web.Areas.Project.Controllers
             s_ProjectInfo.SumExternalPayment = SumExternalPayment;
             s_ProjectInfo.SumPublicRelations = SumPublicRelations;
             s_ProjectInfo.SumPayment = SumPayment;
-            s_ProjectInfo.RevenueRate = (SumRevenue / sys_Project.ContractAmout * 100).ToString("0.00") + "%";
+            if (sys_Project.ContractAmout > 0)
+            {
+                s_ProjectInfo.RevenueRate = (SumRevenue / sys_Project.ContractAmout * 100).ToString("0.00") + "%";
+            }
+            else
+            {
+                s_ProjectInfo.RevenueRate= "0.00" +"%";
+            }
+            
 
 
             if (sys_Project == null)
@@ -345,8 +364,19 @@ namespace kfxms.Web.Areas.Project.Controllers
                     s_ProjectInfo.StatusName = "结束";
                 }
                 s_ProjectInfo.ClientId = item.ClientId;
-                s_ProjectInfo.ContractAmout = item.ContractAmout;
                 s_ProjectInfo.Remark = item.Remark;
+
+                //Sum Contract Amount
+                List<S_ProjectContract> listContract = projectContractService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+                decimal? ContractAmout = 0;
+                if (listContract.Count > 0)
+                {
+                    foreach (S_ProjectContract Contract in listContract)
+                    {
+                        ContractAmout += Contract.ProjectContractAmount;
+                    }
+                }
+                s_ProjectInfo.ContractAmout = ContractAmout;
                 if (s_ProjectInfo.ContractAmout > 0 && s_ProjectInfo.Area>0)
                 {
                     s_ProjectInfo.UnitPrice = s_ProjectInfo.ContractAmout / s_ProjectInfo.Area;
@@ -432,7 +462,15 @@ namespace kfxms.Web.Areas.Project.Controllers
                 s_ProjectInfo.SumExternalPayment = SumExternalPayment;
                 s_ProjectInfo.SumPublicRelations = SumPublicRelations;
                 s_ProjectInfo.SumPayment = SumPayment;
-                s_ProjectInfo.RevenueRate = (SumRevenue / item.ContractAmout *100).ToString("0.00")+"%";
+                if (item.ContractAmout > 0)
+                {
+                    s_ProjectInfo.RevenueRate = (SumRevenue / item.ContractAmout * 100).ToString("0.00") + "%";
+                }
+                else
+                {
+                    s_ProjectInfo.RevenueRate ="0.00" + "%";
+                }
+                
 
                 listProjectInfo.Add(s_ProjectInfo);
             }
@@ -530,6 +568,18 @@ namespace kfxms.Web.Areas.Project.Controllers
             s_ProjectInfo.SettlementBase = sys_Project.SettlementBase;
             s_ProjectInfo.Status = sys_Project.Status;
             s_ProjectInfo.CoreDesigner = sys_Project.CoreDesigner;
+            //Sum Contract Amount
+            List<S_ProjectContract> listContract = projectContractService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+            decimal? ContractAmout = 0;
+            if (listContract.Count > 0)
+            {
+                foreach (S_ProjectContract Contract in listContract)
+                {
+                    ContractAmout += Contract.ProjectContractAmount;
+                }
+            }
+            s_ProjectInfo.ContractAmout = ContractAmout;
+
             if (s_ProjectInfo.CoreDesigner != null) 
             {
                 foreach(Sys_User s_user in s_userList)
@@ -757,7 +807,6 @@ namespace kfxms.Web.Areas.Project.Controllers
             eProject.BusinessManager = int.Parse(row["BusinessManager"].ToString());
             eProject.BusinessAssistant = int.Parse(row["BusinessAssistant"].ToString());
             eProject.ProjectManager = int.Parse(row["ProjectManager"].ToString());
-            eProject.ContractAmout = Convert.ToDecimal(row["ContractAmout"].ToString().Trim());
             eProject.Area= Convert.ToDecimal(row["Area"].ToString().Trim());
             if(eProject.ContractAmout>0 && eProject.Area>0)
             {
@@ -829,7 +878,6 @@ namespace kfxms.Web.Areas.Project.Controllers
             eProject.BusinessManager = int.Parse(row["BusinessManager"].ToString());
             eProject.BusinessAssistant = int.Parse(row["BusinessAssistant"].ToString());
             eProject.ProjectManager = int.Parse(row["ProjectManager"].ToString());
-            eProject.ContractAmout = Convert.ToDecimal(row["ContractAmout"].ToString().Trim());
             eProject.SettlementBase = Convert.ToDecimal(row["SettlementBase"].ToString().Trim());
             eProject.Area = Convert.ToDecimal(row["Area"].ToString().Trim());
             if (eProject.ContractAmout > 0 && eProject.Area > 0)
