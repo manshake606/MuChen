@@ -28,10 +28,32 @@
                 </colgroup>
                 <tr>
                     <td class="ft_label">
-                        项目名称：
+                        合同编号：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="Project" name="Project" class="layui-select"  lay-search="" vtype="required:true"></select>
+
+                        <input type="text" readonly="readonly" value="@Model.Num" name="ContractNum" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        合同名称：
+                    </td>
+                    <td class="ft_control" colspan="3">
+
+                        <input type="text" readonly="readonly" value="@Model.ProjectContractName" name="ProjectContractName" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        合同金额：
+                    </td>
+                    <td class="ft_control" colspan="3">
+
+                        <input type="text" readonly="readonly" value="@Model.ProjectContractAmount" name="ContractAmount" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
+
                     </td>
                 </tr>
                 <tr>

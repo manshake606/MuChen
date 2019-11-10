@@ -35,18 +35,34 @@ namespace kfxms.Web.Areas.Invoice.Controllers
         public IS_ProjectService projectService { get; set; }
 
         [Import]
+        //public new  userService { get; set; }
+        public IS_ProjectContractService projectContractService { get; set; }
+
+        [Import]
         public ISys_UserAndRoleService userAndRoleService { get; set; }
         [Import]
         public ISys_RoleService roleService { get; set; }
 
-        public ActionResult List()
+        public ActionResult List(Guid projectContractId)
         {
-            return View("InvoiceList");
+            S_ProjectContract s_ProjectContract = projectContractService.GetByKey(projectContractId);
+            if (s_ProjectContract == null)
+            {
+                Response.Write("<p style='color:red;'>该条记录不存在！</p>");
+                Response.End();
+            }
+            return View("InvoiceList", s_ProjectContract);
         }
 
-        public ActionResult Add()
+        public ActionResult Add(Guid projectContractId)
         {
-            return View("InvoiceAdd");
+            S_ProjectContract s_ProjectContract = projectContractService.GetByKey(projectContractId);
+            if (s_ProjectContract == null)
+            {
+                Response.Write("<p style='color:red;'>该条记录不存在！</p>");
+                Response.End();
+            }
+            return View("InvoiceAdd", s_ProjectContract);
         }
 
         public ActionResult Edit(Guid InvoiceId)
@@ -96,7 +112,7 @@ namespace kfxms.Web.Areas.Invoice.Controllers
 
 
 
-            List<S_Project> listProject = projectService.GetAllData().ToList();
+            List<S_ProjectContract> listProjectContract = projectContractService.GetAllData().ToList();
             List<S_InvoiceDetail> listDetail = new List<S_InvoiceDetail>();
 
             foreach (S_Invoice item in list)
@@ -104,27 +120,27 @@ namespace kfxms.Web.Areas.Invoice.Controllers
                 var s_InvoiceDetail = new S_InvoiceDetail();
                 s_InvoiceDetail.Id = item.Id;
                 s_InvoiceDetail.Num = item.Num;
-                s_InvoiceDetail.ProjectNum = item.ProjectNum;
+                s_InvoiceDetail.ContractNum = item.ContractNum;
                 s_InvoiceDetail.TrackingNum = item.TrackingNum;
                 s_InvoiceDetail.Remark = item.Remark;
                 s_InvoiceDetail.InvoiceAmout = item.InvoiceAmout;
                 s_InvoiceDetail.InvoiceTime = item.InvoiceTime;
 
-                foreach (S_Project projectItem in listProject)
+                foreach (S_ProjectContract projectItem in listProjectContract)
                 {
-                    if (s_InvoiceDetail.ProjectNum == projectItem.Num)
+                    if (s_InvoiceDetail.ContractNum == projectItem.Num)
                     {
-                        s_InvoiceDetail.ProjectName = projectItem.ProjectName;
-                        s_InvoiceDetail.ContractAmout = projectItem.ContractAmout;
+                        s_InvoiceDetail.ContractName = projectItem.ProjectContractName;
+                        s_InvoiceDetail.ContractAmout = projectItem.ProjectContractAmount;
                     }
                 }
                 listDetail.Add(s_InvoiceDetail);
             }
 
             //Expression<Func<S_InvoiceDetail, bool>> exp = u => true;
-            if (Request.Form["projectName"] != null && !string.IsNullOrEmpty(Request.Form["projectName"]))
+            if (Request.Form["contractName"] != null && !string.IsNullOrEmpty(Request.Form["contractName"]))
             {
-                listDetail = listDetail.Where(u => u.ProjectName.Contains(Request.Form["projectName"])).ToList();
+                listDetail = listDetail.Where(u => u.ContractName.Contains(Request.Form["contractName"])).ToList();
             }
 
             Sys_User sUser = base.LoginUser;
@@ -134,81 +150,123 @@ namespace kfxms.Web.Areas.Invoice.Controllers
             string roleName = currentRoleList[0].RoleName;
             Hashtable ht = new Hashtable();
             string json = null;
-            if (roleName != "系统管理员" && roleName != "财务")
-            {
-                var userPojectList = projectService.GetWhereData(m => m.ProjectManager == sUser.Num || m.CoreDesigner == sUser.Num || m.AssistantDesigner == sUser.Num || m.BusinessAssistant == sUser.Num || m.BusinessManager == sUser.Num).Select(m => m.Num);
-                var result = from p in listDetail where userPojectList.Contains(p.ProjectNum) select p;
-                
-                ht.Add("total", total);
-                ht.Add("data", result);
-                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            //if (roleName != "系统管理员" && roleName != "财务")
+            //{
+            //    var userPojectList = projectService.GetWhereData(m => m.ProjectManager == sUser.Num || m.CoreDesigner == sUser.Num || m.AssistantDesigner == sUser.Num || m.BusinessAssistant == sUser.Num || m.BusinessManager == sUser.Num).Select(m => m.Num);
+            //    var result = from p in listDetail where userPojectList.Contains(p.ContractNum) select p;
 
-                return Content(json);
-            }
-            else
-            {
-                ht.Add("total", total);
-                ht.Add("data", listDetail);
-                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
-            }
+            //    ht.Add("total", total);
+            //    ht.Add("data", result);
+            //    json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
 
+            //    return Content(json);
+            //}
+            //else
+            //{
+            //    ht.Add("total", total);
+            //    ht.Add("data", listDetail);
+            //    json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            //}
 
+            ht.Add("total", total);
+            ht.Add("data", listDetail);
+            json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            return Content(json);
 
+        }
 
+        public ActionResult GetPageDataBySelectedContractNum(int pageSize, int pageIndex, int ContractNum)
+        {
 
-
-
-
-
-
+            //条件
+            Expression<Func<S_Invoice, bool>> expre = u => true;
+            //var userPojectList;
             /*
-            var s_Task = new S_Task()
+            if (Request.Form["projectName"] != null && !string.IsNullOrEmpty(Request.Form["projectName"]))
             {
-                 ID=Guid.NewGuid(), 
-                 Code="包[2016]00001",
-                 Name = "包装一次项目",
-                 Number = "一产业",
-                 AgreedMatters = "关于包装某二次项目*******改造工程",
-                 AddUserName="李xx",
-                 AddTime = DateTime.Now
-            };
-            var s_Task1 = new S_Task()
-            {
-                ID = Guid.NewGuid(),
-                Code = "包[2016]00002",
-                Name = "包装某二次项目",
-                Number = "二产业",
-                AgreedMatters = "关于包装某二次项目石化天然气管道改造工程",
-                AddUserName = "李xx",
-                AddTime = DateTime.Now
-            };
-            var s_Task2 = new S_Task()
-            {
-                ID = Guid.NewGuid(),
-                Code = "包[2016]00003",
-                Name = "包装某三次项目",
-                Number = "三产业",
-                AgreedMatters = "关于包装某三次项目夏季暴雨后果树管理 ",
-                AddUserName = "李xx",
-                AddTime = DateTime.Now
-            };
-            List<S_Task> list = new List<S_Task>();
-            list.Add(s_Task);
-            list.Add(s_Task1);
-            list.Add(s_Task2);
-            Hashtable ht = new Hashtable();
-
-            ht.Add("total", 3);
-            ht.Add("data", list);
+                string remark = Request.Form["projectName"].Trim();
+                expre = expre.And(u => u.Remark.Contains(remark));
+            }
             */
-            //Sys_User suser = base.LoginUser;
-            
 
-            //Hashtable ht = new Hashtable();
+
+
+
+
+            //var userPojectList = projectService.GetWhereData(m => m.ProjectManager == sUser.Num || m.CoreDesigner == sUser.Num || m.AssistantDesigner == sUser.Num || m.BusinessAssistant == sUser.Num || m.BusinessManager == sUser.Num).Select(m=>m.Num);
+            //var userPojectList = projectService.GetAllData().Where(u=>u.Num==5).Select(m => m.Num);
+
+            //int[] userPojectList = new int[] { 3, 5 };
+
+            ////排序
+            OrderByHelper<S_Invoice, DateTime> orderBy = new OrderByHelper<S_Invoice, DateTime>() { OrderByType = OrderByType.DESC, Expression = u => u.AddTime.Value };
+
+            int total = 0;
+
+            List<S_Invoice> list = InvoiceService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).Where(u=>u.ContractNum== ContractNum).ToList();
+
+
+
+
+            List<S_ProjectContract> listProjectContract = projectContractService.GetAllData().ToList();
+            List<S_InvoiceDetail> listDetail = new List<S_InvoiceDetail>();
+
+            foreach (S_Invoice item in list)
+            {
+                var s_InvoiceDetail = new S_InvoiceDetail();
+                s_InvoiceDetail.Id = item.Id;
+                s_InvoiceDetail.Num = item.Num;
+                s_InvoiceDetail.ContractNum = item.ContractNum;
+                s_InvoiceDetail.TrackingNum = item.TrackingNum;
+                s_InvoiceDetail.Remark = item.Remark;
+                s_InvoiceDetail.InvoiceAmout = item.InvoiceAmout;
+                s_InvoiceDetail.InvoiceTime = item.InvoiceTime;
+
+                foreach (S_ProjectContract projectItem in listProjectContract)
+                {
+                    if (s_InvoiceDetail.ContractNum == projectItem.Num)
+                    {
+                        s_InvoiceDetail.ContractName = projectItem.ProjectContractName;
+                        s_InvoiceDetail.ContractAmout = projectItem.ProjectContractAmount;
+                    }
+                }
+                listDetail.Add(s_InvoiceDetail);
+            }
+
+            //Expression<Func<S_InvoiceDetail, bool>> exp = u => true;
+            if (Request.Form["contractName"] != null && !string.IsNullOrEmpty(Request.Form["contractName"]))
+            {
+                listDetail = listDetail.Where(u => u.ContractName.Contains(Request.Form["contractName"])).ToList();
+            }
+
+            Sys_User sUser = base.LoginUser;
+            List<Sys_UserAndRole> currentUserRole = userAndRoleService.GetWhereData(u => u.UserId == sUser.Id).ToList();
+            Guid? currentRoleId = currentUserRole[0].RoleId;
+            List<Sys_Role> currentRoleList = roleService.GetWhereData(m => m.Id == currentRoleId).ToList();
+            string roleName = currentRoleList[0].RoleName;
+            Hashtable ht = new Hashtable();
+            string json = null;
+            //if (roleName != "系统管理员" && roleName != "财务")
+            //{
+            //    var userPojectList = projectService.GetWhereData(m => m.ProjectManager == sUser.Num || m.CoreDesigner == sUser.Num || m.AssistantDesigner == sUser.Num || m.BusinessAssistant == sUser.Num || m.BusinessManager == sUser.Num).Select(m => m.Num);
+            //    var result = from p in listDetail where userPojectList.Contains(p.ContractNum) select p;
+
+            //    ht.Add("total", total);
+            //    ht.Add("data", result);
+            //    json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+
+            //    return Content(json);
+            //}
+            //else
+            //{
+            //    ht.Add("total", total);
+            //    ht.Add("data", listDetail);
+            //    json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            //}
+
             //ht.Add("total", total);
-            //ht.Add("data", result);
-            //string json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
-
+            ht.Add("data", listDetail);
+            json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
             return Content(json);
 
         }
@@ -230,23 +288,25 @@ namespace kfxms.Web.Areas.Invoice.Controllers
 
             Hashtable ht = new Hashtable();
             string json = null;
-            if (roleName != "系统管理员" && roleName != "财务")
-            {
-                var userPojectList = projectService.GetWhereData(m => m.ProjectManager == sUser.Num || m.CoreDesigner == sUser.Num || m.AssistantDesigner == sUser.Num || m.BusinessAssistant == sUser.Num || m.BusinessManager == sUser.Num).Select(m => m.Num);
-                var result = from p in listInvoice where userPojectList.Contains(p.ProjectNum) select p;
+            //if (roleName != "系统管理员" && roleName != "财务")
+            //{
+            //    var userPojectList = projectService.GetWhereData(m => m.ProjectManager == sUser.Num || m.CoreDesigner == sUser.Num || m.AssistantDesigner == sUser.Num || m.BusinessAssistant == sUser.Num || m.BusinessManager == sUser.Num).Select(m => m.Num);
+            //    var result = from p in listInvoice where userPojectList.Contains(p.ProjectNum) select p;
 
-                //ht.Add("total", total);
-                ht.Add("data", result);
-                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            //    //ht.Add("total", total);
+            //    ht.Add("data", result);
+            //    json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
 
-                return Content(json);
-            }
-            else
-            {
-                //ht.Add("total", total);
-                ht.Add("data", listInvoice);
-                json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
-            }
+            //    return Content(json);
+            //}
+            //else
+            //{
+            //    //ht.Add("total", total);
+            //    ht.Add("data", listInvoice);
+            //    json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            //}
+            ht.Add("data", listInvoice);
+            json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
             return Content(json);
         }
 
@@ -257,7 +317,7 @@ namespace kfxms.Web.Areas.Invoice.Controllers
             S_Invoice eInvoice = new S_Invoice();
             eInvoice.Id = Guid.NewGuid();
             //eSupplier.Type = int.Parse(arrType[0]);
-            eInvoice.ProjectNum= int.Parse(row["Project"].ToString());
+            eInvoice.ContractNum= int.Parse(row["ContractNum"].ToString());
             eInvoice.InvoiceAmout= Convert.ToDecimal(row["InvoiceAmout"].ToString().Trim());
             eInvoice.InvoiceTime = Convert.ToDateTime(row["InvoiceTime"].ToString().Trim());
             eInvoice.TrackingNum = row["TrackingNum"].ToString();

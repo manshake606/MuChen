@@ -229,26 +229,26 @@ namespace kfxms.Web.Areas.Project.Controllers
             }
 
             //Sum Invoice
-            List<S_Invoice> listInvoice = InvoiceService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
-            decimal SumInvoice = 0;
-            if (listInvoice.Count > 0)
-            {
-                foreach (S_Invoice Invoice in listInvoice)
-                {
-                    SumInvoice += Invoice.InvoiceAmout;
-                }
-            }
+            //List<S_Invoice> listInvoice = InvoiceService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+            //decimal SumInvoice = 0;
+            //if (listInvoice.Count > 0)
+            //{
+            //    foreach (S_Invoice Invoice in listInvoice)
+            //    {
+            //        SumInvoice += Invoice.InvoiceAmout;
+            //    }
+            //}
 
             //Sum Revenue
-            List<S_Revenue> listRevenue = RevenueService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
-            decimal SumRevenue = 0;
-            if (listRevenue.Count > 0)
-            {
-                foreach (S_Revenue Revenue in listRevenue)
-                {
-                    SumRevenue += Revenue.RevenueAmout;
-                }
-            }
+            //List<S_Revenue> listRevenue = RevenueService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+            //decimal SumRevenue = 0;
+            //if (listRevenue.Count > 0)
+            //{
+            //    foreach (S_Revenue Revenue in listRevenue)
+            //    {
+            //        SumRevenue += Revenue.RevenueAmout;
+            //    }
+            //}
 
             //Sum ExternalPayment
             List<S_ExternalPayment> listExternalPayment = ExternalPaymentService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
@@ -288,20 +288,20 @@ namespace kfxms.Web.Areas.Project.Controllers
             decimal SumPayment = SumExternalPayment + SumInternalPayment + SumPublicRelations;
 
 
-            s_ProjectInfo.SumInvoice = SumInvoice;
-            s_ProjectInfo.SumRevenue = SumRevenue;
+            //s_ProjectInfo.SumInvoice = SumInvoice;
+            //s_ProjectInfo.SumRevenue = SumRevenue;
             s_ProjectInfo.SumInternalPayment = SumInternalPayment;
             s_ProjectInfo.SumExternalPayment = SumExternalPayment;
             s_ProjectInfo.SumPublicRelations = SumPublicRelations;
             s_ProjectInfo.SumPayment = SumPayment;
-            if (sys_Project.ContractAmout > 0)
-            {
-                s_ProjectInfo.RevenueRate = (SumRevenue / sys_Project.ContractAmout * 100).ToString("0.00") + "%";
-            }
-            else
-            {
-                s_ProjectInfo.RevenueRate= "0.00" +"%";
-            }
+            //if (sys_Project.ContractAmout > 0)
+            //{
+            //    s_ProjectInfo.RevenueRate = (SumRevenue / sys_Project.ContractAmout * 100).ToString("0.00") + "%";
+            //}
+            //else
+            //{
+            //    s_ProjectInfo.RevenueRate= "0.00" +"%";
+            //}
             
 
 
@@ -399,26 +399,26 @@ namespace kfxms.Web.Areas.Project.Controllers
                 }
 
                 //Sum Invoice
-                List<S_Invoice> listInvoice = InvoiceService.GetWhereData(u => u.ProjectNum==s_ProjectInfo.Num).ToList();
-                decimal SumInvoice = 0;
-                if (listInvoice.Count > 0)
-                {
-                    foreach(S_Invoice Invoice in listInvoice)
-                    {
-                        SumInvoice += Invoice.InvoiceAmout;
-                    }
-                }
+                //List<S_Invoice> listInvoice = InvoiceService.GetWhereData(u => u.ProjectNum==s_ProjectInfo.Num).ToList();
+                //decimal SumInvoice = 0;
+                //if (listInvoice.Count > 0)
+                //{
+                //    foreach(S_Invoice Invoice in listInvoice)
+                //    {
+                //        SumInvoice += Invoice.InvoiceAmout;
+                //    }
+                //}
 
                 //Sum Revenue
-                List<S_Revenue> listRevenue = RevenueService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
-                decimal SumRevenue = 0;
-                if (listRevenue.Count > 0)
-                {
-                    foreach (S_Revenue Revenue in listRevenue)
-                    {
-                        SumRevenue += Revenue.RevenueAmout;
-                    }
-                }
+                //List<S_Revenue> listRevenue = RevenueService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+                //decimal SumRevenue = 0;
+                //if (listRevenue.Count > 0)
+                //{
+                //    foreach (S_Revenue Revenue in listRevenue)
+                //    {
+                //        SumRevenue += Revenue.RevenueAmout;
+                //    }
+                //}
 
                 //Sum ExternalPayment
                 List<S_ExternalPayment> listExternalPayment = ExternalPaymentService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
@@ -456,20 +456,20 @@ namespace kfxms.Web.Areas.Project.Controllers
                 decimal SumPayment = SumExternalPayment + SumInternalPayment + SumPublicRelations;
 
 
-                s_ProjectInfo.SumInvoice = SumInvoice;
-                s_ProjectInfo.SumRevenue = SumRevenue;
+                //s_ProjectInfo.SumInvoice = SumInvoice;
+                //s_ProjectInfo.SumRevenue = SumRevenue;
                 s_ProjectInfo.SumInternalPayment = SumInternalPayment;
                 s_ProjectInfo.SumExternalPayment = SumExternalPayment;
                 s_ProjectInfo.SumPublicRelations = SumPublicRelations;
                 s_ProjectInfo.SumPayment = SumPayment;
-                if (item.ContractAmout > 0)
-                {
-                    s_ProjectInfo.RevenueRate = (SumRevenue / item.ContractAmout * 100).ToString("0.00") + "%";
-                }
-                else
-                {
-                    s_ProjectInfo.RevenueRate ="0.00" + "%";
-                }
+                //if (item.ContractAmout > 0)
+                //{
+                //    s_ProjectInfo.RevenueRate = (SumRevenue / item.ContractAmout * 100).ToString("0.00") + "%";
+                //}
+                //else
+                //{
+                //    s_ProjectInfo.RevenueRate ="0.00" + "%";
+                //}
                 
 
                 listProjectInfo.Add(s_ProjectInfo);
@@ -677,26 +677,26 @@ namespace kfxms.Web.Areas.Project.Controllers
             }
 
             //Sum Invoice
-            List<S_Invoice> listInvoice = InvoiceService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
-            decimal SumInvoice = 0;
-            if (listInvoice.Count > 0)
-            {
-                foreach (S_Invoice Invoice in listInvoice)
-                {
-                    SumInvoice += Invoice.InvoiceAmout;
-                }
-            }
+            //List<S_Invoice> listInvoice = InvoiceService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+            //decimal SumInvoice = 0;
+            //if (listInvoice.Count > 0)
+            //{
+            //    foreach (S_Invoice Invoice in listInvoice)
+            //    {
+            //        SumInvoice += Invoice.InvoiceAmout;
+            //    }
+            //}
 
             //Sum Revenue
-            List<S_Revenue> listRevenue = RevenueService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
-            decimal SumRevenue = 0;
-            if (listRevenue.Count > 0)
-            {
-                foreach (S_Revenue Revenue in listRevenue)
-                {
-                    SumRevenue += Revenue.RevenueAmout;
-                }
-            }
+            //List<S_Revenue> listRevenue = RevenueService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
+            //decimal SumRevenue = 0;
+            //if (listRevenue.Count > 0)
+            //{
+            //    foreach (S_Revenue Revenue in listRevenue)
+            //    {
+            //        SumRevenue += Revenue.RevenueAmout;
+            //    }
+            //}
 
             //Sum ExternalPayment
             List<S_ExternalPayment> listExternalPayment = ExternalPaymentService.GetWhereData(u => u.ProjectNum == s_ProjectInfo.Num).ToList();
@@ -734,13 +734,13 @@ namespace kfxms.Web.Areas.Project.Controllers
             decimal SumPayment = SumExternalPayment + SumInternalPayment + SumPublicRelations;
 
 
-            s_ProjectInfo.SumInvoice = SumInvoice;
-            s_ProjectInfo.SumRevenue = SumRevenue;
+            //s_ProjectInfo.SumInvoice = SumInvoice;
+            //s_ProjectInfo.SumRevenue = SumRevenue;
             s_ProjectInfo.SumInternalPayment = SumInternalPayment;
             s_ProjectInfo.SumExternalPayment = SumExternalPayment;
             s_ProjectInfo.SumPublicRelations = SumPublicRelations;
             s_ProjectInfo.SumPayment = SumPayment;
-            s_ProjectInfo.RevenueRate = (SumRevenue / sys_Project.ContractAmout * 100).ToString("0.00") + "%";
+            //s_ProjectInfo.RevenueRate = (SumRevenue / sys_Project.ContractAmout * 100).ToString("0.00") + "%";
 
             listProjectInfo.Add(s_ProjectInfo);
 

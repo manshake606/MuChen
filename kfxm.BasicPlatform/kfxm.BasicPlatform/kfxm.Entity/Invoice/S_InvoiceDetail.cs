@@ -24,19 +24,19 @@ namespace kfxms.Entity.Invoice
         public int? Num { get; set; }
 
         /// <summary>
-        /// 项目编号
+        /// 合同编号
         /// </summary>
-        public int? ProjectNum { get; set; }
+        public int? ContractNum { get; set; }
 
         /// <summary>
         /// 项目名称
         /// </summary>
-        public string ProjectName { get; set; }
+        public string ContractName { get; set; }
 
         /// <summary>
         /// 合同金额
         /// </summary>
-        public decimal ContractAmout { get; set; }
+        public decimal? ContractAmout { get; set; }
 
 
         /// <summary>

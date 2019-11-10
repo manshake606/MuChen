@@ -132,6 +132,7 @@ namespace kfxms.Web.Areas.Project.Controllers
                 s_ProjectContractDetail.Id = item.Id;
                 s_ProjectContractDetail.ProjectNum = item.ProjectNum;
                 s_ProjectContractDetail.ProjectName = ListProject[0].ProjectName;
+                s_ProjectContractDetail.ProjectContractName = item.ProjectContractName;
                 s_ProjectContractDetail.ProjectContractDetail = item.ProjectContractDetail;
                 s_ProjectContractDetail.ProjectContractAmount = item.ProjectContractAmount;
                 s_ProjectContractDetail.AddName = item.AddName;
@@ -227,6 +228,7 @@ namespace kfxms.Web.Areas.Project.Controllers
                 s_ProjectContractDetail.Num = item.Num;
                 s_ProjectContractDetail.ProjectNum = item.ProjectNum;
                 s_ProjectContractDetail.ProjectName = ListProject[0].ProjectName;
+                s_ProjectContractDetail.ProjectContractName = item.ProjectContractName;
                 s_ProjectContractDetail.ProjectContractDetail = item.ProjectContractDetail;
                 s_ProjectContractDetail.ProjectContractAmount = item.ProjectContractAmount;
                 s_ProjectContractDetail.LastEditName = item.LastEditName;
@@ -269,6 +271,7 @@ namespace kfxms.Web.Areas.Project.Controllers
                 s_ProjectContractDetail.Num = item.Num;
                 s_ProjectContractDetail.ProjectNum = item.ProjectNum;
                 s_ProjectContractDetail.ProjectName = ListProject[0].ProjectName;
+                s_ProjectContractDetail.ProjectContractName = item.ProjectContractName;
                 s_ProjectContractDetail.ProjectContractDetail = item.ProjectContractDetail;
                 s_ProjectContractDetail.ProjectContractAmount = item.ProjectContractAmount;
                 s_ProjectContractDetail.LastEditName = item.LastEditName;
@@ -363,6 +366,7 @@ namespace kfxms.Web.Areas.Project.Controllers
             S_ProjectContract eProjectContract = new S_ProjectContract();
             eProjectContract.Id = Guid.NewGuid();
             eProjectContract.ProjectNum = int.Parse(row["Project"].ToString().Trim());
+            eProjectContract.ProjectContractName = row["ProjectContractName"].ToString().Trim();
             eProjectContract.ProjectContractDetail = row["ProjectContractDetail"].ToString().Trim();
             eProjectContract.ProjectContractAmount = Convert.ToDecimal( row["ProjectContractAmount"].ToString().Trim());
             /*
@@ -438,6 +442,7 @@ namespace kfxms.Web.Areas.Project.Controllers
             //eProjectContract.ProjectContractName = row["ProjectContractName"].ToString().Trim();\
 
             eProjectContract.ProjectNum = int.Parse(row["Project"].ToString().Trim());
+            eProjectContract.ProjectContractName = row["ProjectContractName"].ToString().Trim();
             eProjectContract.ProjectContractDetail = row["ProjectContractDetail"].ToString().Trim();
             eProjectContract.ProjectContractAmount = Convert.ToDecimal(row["ProjectContractAmount"].ToString().Trim());
             //eProjectContract.SupplierScore = int.Parse(row["SupplierScore"].ToString().Trim());

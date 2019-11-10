@@ -34,18 +34,34 @@ namespace kfxms.Web.Areas.Revenue.Controllers
         public IS_ProjectService projectService { get; set; }
 
         [Import]
+        //public new  userService { get; set; }
+        public IS_ProjectContractService projectContractService { get; set; }
+
+        [Import]
         public ISys_UserAndRoleService userAndRoleService { get; set; }
         [Import]
         public ISys_RoleService roleService { get; set; }
 
-        public ActionResult List()
+        public ActionResult List(Guid projectContractId)
         {
-            return View("RevenueList");
+            S_ProjectContract s_ProjectContract = projectContractService.GetByKey(projectContractId);
+            if (s_ProjectContract == null)
+            {
+                Response.Write("<p style='color:red;'>该条记录不存在！</p>");
+                Response.End();
+            }
+            return View("RevenueList", s_ProjectContract);
         }
 
-        public ActionResult Add()
+        public ActionResult Add(Guid projectContractId)
         {
-            return View("RevenueAdd");
+            S_ProjectContract s_ProjectContract = projectContractService.GetByKey(projectContractId);
+            if (s_ProjectContract == null)
+            {
+                Response.Write("<p style='color:red;'>该条记录不存在！</p>");
+                Response.End();
+            }
+            return View("RevenueAdd", s_ProjectContract);
         }
 
         public ActionResult Edit(Guid RevenueId)
@@ -82,7 +98,7 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             int total = 0;
 
             List<S_Revenue> list = RevenueService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
-            List<S_Project> listProject = projectService.GetAllData().ToList();
+            List<S_ProjectContract> listProjectContract = projectContractService.GetAllData().ToList();
             List<S_RevenueDetail> listDetail = new List<S_RevenueDetail>();
 
             foreach (S_Revenue item in list)
@@ -90,24 +106,25 @@ namespace kfxms.Web.Areas.Revenue.Controllers
                 var s_RevenueDetail = new S_RevenueDetail();
                 s_RevenueDetail.Id = item.Id;
                 s_RevenueDetail.Num = item.Num;
-                s_RevenueDetail.ProjectNum = item.ProjectNum;
+                s_RevenueDetail.ContractNum = item.ContractNum;
                 s_RevenueDetail.Remark = item.Remark;
                 s_RevenueDetail.RevenueAmout = item.RevenueAmout;
                 s_RevenueDetail.RevenueTime = item.RevenueTime;
 
-                foreach (S_Project projectItem in listProject)
+                foreach (S_ProjectContract projectItem in listProjectContract)
                 {
-                    if (s_RevenueDetail.ProjectNum == projectItem.Num)
+                    if (s_RevenueDetail.ContractNum == projectItem.Num)
                     {
-                        s_RevenueDetail.ProjectName = projectItem.ProjectName;
+                        s_RevenueDetail.ContractName = projectItem.ProjectContractName;
+                        s_RevenueDetail.ContractAmout = projectItem.ProjectContractAmount;
                     }
                 }
                 listDetail.Add(s_RevenueDetail);
             }
 
-            if (Request.Form["projectName"] != null && !string.IsNullOrEmpty(Request.Form["projectName"]))
+            if (Request.Form["contractName"] != null && !string.IsNullOrEmpty(Request.Form["contractName"]))
             {
-                listDetail=listDetail.Where(u => u.ProjectName.Contains(Request.Form["projectName"])).ToList();
+                listDetail=listDetail.Where(u => u.ContractName.Contains(Request.Form["contractName"])).ToList();
             }
 
 
@@ -164,7 +181,7 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             if (roleName != "系统管理员" && roleName != "财务")
             {
                 var userPojectList = projectService.GetWhereData(m => m.ProjectManager == sUser.Num || m.CoreDesigner == sUser.Num || m.AssistantDesigner == sUser.Num || m.BusinessAssistant == sUser.Num || m.BusinessManager == sUser.Num).Select(m => m.Num);
-                var result = from p in listDetail where userPojectList.Contains(p.ProjectNum) select p;
+                var result = from p in listDetail where userPojectList.Contains(p.ContractNum) select p;
 
                 ht.Add("total", total);
                 ht.Add("data", result);
@@ -180,6 +197,132 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             }
 
            
+
+            return Content(json);
+
+        }
+
+        public ActionResult GetPageDataBySelectedContractNum(int pageSize, int pageIndex, int ContractNum)
+        {
+
+            //条件
+            Expression<Func<S_Revenue, bool>> expre = u => true;
+
+            //if (Request.Form["remark"] != null && !string.IsNullOrEmpty(Request.Form["remark"]))
+            //{
+            //    string remark = Request.Form["remark"].Trim();
+            //    expre = expre.And(u => u.Remark.Contains(remark));
+            //}
+
+
+
+            ////排序
+            OrderByHelper<S_Revenue, DateTime> orderBy = new OrderByHelper<S_Revenue, DateTime>() { OrderByType = OrderByType.DESC, Expression = u => u.AddTime.Value };
+
+            int total = 0;
+
+            List<S_Revenue> list = RevenueService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
+            List<S_ProjectContract> listProjectContract = projectContractService.GetAllData().ToList();
+            List<S_RevenueDetail> listDetail = new List<S_RevenueDetail>();
+
+            foreach (S_Revenue item in list)
+            {
+                var s_RevenueDetail = new S_RevenueDetail();
+                s_RevenueDetail.Id = item.Id;
+                s_RevenueDetail.Num = item.Num;
+                s_RevenueDetail.ContractNum = item.ContractNum;
+                s_RevenueDetail.Remark = item.Remark;
+                s_RevenueDetail.RevenueAmout = item.RevenueAmout;
+                s_RevenueDetail.RevenueTime = item.RevenueTime;
+
+                foreach (S_ProjectContract projectItem in listProjectContract)
+                {
+                    if (s_RevenueDetail.ContractNum == projectItem.Num)
+                    {
+                        s_RevenueDetail.ContractName = projectItem.ProjectContractName;
+                        s_RevenueDetail.ContractAmout = projectItem.ProjectContractAmount;
+                    }
+                }
+                listDetail.Add(s_RevenueDetail);
+            }
+
+            if (Request.Form["contractName"] != null && !string.IsNullOrEmpty(Request.Form["contractName"]))
+            {
+                listDetail = listDetail.Where(u => u.ContractName.Contains(Request.Form["contractName"])).ToList();
+            }
+
+
+
+            /*
+            var s_Task = new S_Task()
+            {
+                 ID=Guid.NewGuid(), 
+                 Code="包[2016]00001",
+                 Name = "包装一次项目",
+                 Number = "一产业",
+                 AgreedMatters = "关于包装某二次项目*******改造工程",
+                 AddUserName="李xx",
+                 AddTime = DateTime.Now
+            };
+            var s_Task1 = new S_Task()
+            {
+                ID = Guid.NewGuid(),
+                Code = "包[2016]00002",
+                Name = "包装某二次项目",
+                Number = "二产业",
+                AgreedMatters = "关于包装某二次项目石化天然气管道改造工程",
+                AddUserName = "李xx",
+                AddTime = DateTime.Now
+            };
+            var s_Task2 = new S_Task()
+            {
+                ID = Guid.NewGuid(),
+                Code = "包[2016]00003",
+                Name = "包装某三次项目",
+                Number = "三产业",
+                AgreedMatters = "关于包装某三次项目夏季暴雨后果树管理 ",
+                AddUserName = "李xx",
+                AddTime = DateTime.Now
+            };
+            List<S_Task> list = new List<S_Task>();
+            list.Add(s_Task);
+            list.Add(s_Task1);
+            list.Add(s_Task2);
+            Hashtable ht = new Hashtable();
+
+            ht.Add("total", 3);
+            ht.Add("data", list);
+            */
+
+
+            Sys_User sUser = base.LoginUser;
+            List<Sys_UserAndRole> currentUserRole = userAndRoleService.GetWhereData(u => u.UserId == sUser.Id).ToList();
+            Guid? currentRoleId = currentUserRole[0].RoleId;
+            List<Sys_Role> currentRoleList = roleService.GetWhereData(m => m.Id == currentRoleId).ToList();
+            string roleName = currentRoleList[0].RoleName;
+            Hashtable ht = new Hashtable();
+            string json = null;
+            //if (roleName != "系统管理员" && roleName != "财务")
+            //{
+            //    var userPojectList = projectService.GetWhereData(m => m.ProjectManager == sUser.Num || m.CoreDesigner == sUser.Num || m.AssistantDesigner == sUser.Num || m.BusinessAssistant == sUser.Num || m.BusinessManager == sUser.Num).Select(m => m.Num);
+            //    var result = from p in listDetail where userPojectList.Contains(p.ContractNum) select p;
+
+            //    ht.Add("total", total);
+            //    ht.Add("data", result);
+            //    json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+
+            //    return Content(json);
+            //}
+            //else
+            //{
+            //    ht.Add("total", total);
+            //    ht.Add("data", listDetail);
+            //    json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+            //}
+            //ht.Add("total", total);
+            ht.Add("data", listDetail);
+            json = HbesAjaxHelper.AjaxResult(HbesAjaxType.执行数据源, ht);
+
 
             return Content(json);
 
@@ -205,7 +348,7 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             S_Revenue eRevenue = new S_Revenue();
             eRevenue.Id = Guid.NewGuid();
             //eSupplier.Type = int.Parse(arrType[0]);
-            eRevenue.ProjectNum= int.Parse(row["Project"].ToString());
+            eRevenue.ContractNum= int.Parse(row["ContractNum"].ToString());
             eRevenue.RevenueAmout= Convert.ToDecimal(row["RevenueAmout"].ToString().Trim());
             eRevenue.RevenueTime = Convert.ToDateTime(row["RevenueTime"].ToString().Trim());
             eRevenue.Remark = row["Remark"].ToString().Trim();
@@ -217,7 +360,7 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             eRevenue.LastEditUserID = base.LoginUser.Id;
 
             decimal? existRevenueSum = 0;
-            List < S_Revenue > existRevenuelist = RevenueService.GetWhereData(u=>u.ProjectNum== eRevenue.ProjectNum).ToList();
+            List < S_Revenue > existRevenuelist = RevenueService.GetWhereData(u=>u.ContractNum== eRevenue.ContractNum).ToList();
             if (existRevenuelist.Count > 0)
             {
                 foreach (S_Revenue existRevenue in existRevenuelist)
@@ -225,9 +368,9 @@ namespace kfxms.Web.Areas.Revenue.Controllers
                     existRevenueSum += existRevenue.RevenueAmout;
                 }
             }
-            List<S_Project> targetProjectList = projectService.GetWhereData(u => u.Num == eRevenue.ProjectNum).ToList();
-            S_Project targetProject = targetProjectList[0];
-            decimal contractAmout = targetProject.ContractAmout;
+            List<S_ProjectContract> targetProjectContractList = projectContractService.GetWhereData(u => u.Num == eRevenue.ContractNum).ToList();
+            S_ProjectContract targetProject = targetProjectContractList[0];
+            decimal? contractAmout = targetProject.ProjectContractAmount;
 
             if (eRevenue.RevenueAmout <=0)
             {
@@ -243,11 +386,6 @@ namespace kfxms.Web.Areas.Revenue.Controllers
             int num = RevenueService.Add(eRevenue);
             if (num > 0)
             {
-                if((contractAmout - existRevenueSum - eRevenue.RevenueAmout) == 0)
-                {
-                    targetProject.Status = 0;
-                    projectService.Update(targetProject);
-                }
                 resultJson = HbesAjaxHelper.AjaxResult(HbesAjaxType.弹出OK提示框关闭窗体, "新增成功！");
             }
             else

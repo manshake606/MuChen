@@ -26,7 +26,7 @@ namespace kfxms.Entity.Revenue
         /// <summary>
         /// 项目编号
         /// </summary>
-        public int? ProjectNum { get; set; }
+        public int? ContractNum { get; set; }
 
 
         /// <summary>

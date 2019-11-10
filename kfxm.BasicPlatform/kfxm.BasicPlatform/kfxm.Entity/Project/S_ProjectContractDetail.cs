@@ -34,6 +34,11 @@ namespace kfxms.Entity.Project
         public string ProjectName { get; set; }
 
         /// <summary>
+        /// 合同名称
+        /// </summary>
+        public string ProjectContractName { get; set; }
+
+        /// <summary>
         /// 合同详细
         /// </summary>
         public string ProjectContractDetail { get; set; }

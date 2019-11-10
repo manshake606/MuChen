@@ -18,19 +18,19 @@ namespace kfxms.Entity.Invoice
         public Guid? Id { get; set; }
 
         /// <summary>
-        /// 收款编号
+        /// 开票编号
         /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int? Num { get; set; }
 
         /// <summary>
-        /// 项目编号
+        /// 合同编号
         /// </summary>
-        public int? ProjectNum { get; set; }
+        public int? ContractNum { get; set; }
 
 
         /// <summary>
-        /// 收款金额
+        /// 开票金额
         /// </summary>
         public decimal InvoiceAmout { get; set; }
 
