@@ -221,8 +221,8 @@ namespace kfxms.Web.Areas.Revenue.Controllers
 
             int total = 0;
 
-            List<S_Revenue> list = RevenueService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).ToList();
-            List<S_ProjectContract> listProjectContract = projectContractService.GetAllData().ToList();
+            List<S_Revenue> list = RevenueService.GetPageData(expre, pageIndex, pageSize, out total, orderBy).Where(u=>u.ContractNum== ContractNum).ToList();
+            List<S_ProjectContract> listProjectContract = projectContractService.GetAllData().Where(u=>u.Num== ContractNum).ToList();
             List<S_RevenueDetail> listDetail = new List<S_RevenueDetail>();
 
             foreach (S_Revenue item in list)

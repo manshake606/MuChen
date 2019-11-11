@@ -41,7 +41,7 @@ namespace kfxms.Entity.Project
         /// <summary>
         /// 合同金额
         /// </summary>
-        public decimal? ContractAmout { get; set; }
+        public decimal ContractAmout { get; set; }
 
         /// <summary>
         /// 结账基数
@@ -56,7 +56,7 @@ namespace kfxms.Entity.Project
         /// <summary>
         /// 总收款额
         /// </summary>
-        public decimal SumRevenue { get; set; }
+        public decimal? SumRevenue { get; set; }
 
 
         /// <summary>
