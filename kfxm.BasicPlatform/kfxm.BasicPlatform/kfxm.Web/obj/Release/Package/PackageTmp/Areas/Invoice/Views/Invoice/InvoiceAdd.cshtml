@@ -26,24 +26,25 @@
                     <col width="15%" />
                     <col width="35%" />
                 </colgroup>
+                
                 <tr>
                     <td class="ft_label">
-                        项目名称：
+                        合同编号：
                     </td>
                     <td class="ft_control" colspan="3">
 
-                            <select id="Project" name="Project" class="layui-select" lay-filter="Project" lay-search=""></select>
-
+                        <input type="text" readonly="readonly" value="@Model.Num" name="ContractNum" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
+                        
                     </td>
                 </tr>
                 <tr>
                     <td class="ft_label">
-                        项目编号：
+                        合同名称：
                     </td>
                     <td class="ft_control" colspan="3">
 
-                        <input type="text" id="ProjectNum" name="ProjectNum" this.style.color='#000' class="hbes-input"  disabled="disabled"   style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
-                        
+                        <input type="text" readonly="readonly" value="@Model.ProjectContractName" name="ProjectContractName" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
+
                     </td>
                 </tr>
                 <tr>
@@ -52,7 +53,7 @@
                     </td>
                     <td class="ft_control" colspan="3">
 
-                        <input type="text" id="ContractAmout" name="ContractAmout" this.style.color='#000' class="hbes-input" disabled="disabled" style="width: 99%;" vtype="required:true;rangeLength:0,50;" />
+                        <input type="text" readonly="readonly" value="@Model.ProjectContractAmount" name="ContractAmount" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
 
                     </td>
                 </tr>
@@ -221,18 +222,18 @@
             layui.use(['form','laydate'], function () {
                 var form = layui.form;
                 var laydate = layui.laydate;
-                getDataList();
-                form.render('select'); //刷新select选择框渲染
+                //getDataList();
+                //form.render('select'); //刷新select选择框渲染
                 laydate.render({
                     elem: '#InvoiceTime' //指定元素
                 });
                 
                 //var defaultSelect = $('#Project').val();
                 //$('#ProjectNum').val(defaultSelect);
-                form.on('select(Project)', function (data) {
-                    $('#ProjectNum').val(data.value);
-                    getProjectDataById(data.value)
-                });
+                //form.on('select(Project)', function (data) {
+                //    $('#ProjectNum').val(data.value);
+                //    getProjectDataById(data.value)
+                //});
             });
         });
 

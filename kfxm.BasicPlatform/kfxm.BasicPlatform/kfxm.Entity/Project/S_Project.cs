@@ -89,6 +89,11 @@ namespace kfxms.Entity.Project
         public int? ProjectManager { get; set; }
 
         /// <summary>
+        /// 项目经理
+        /// </summary>
+        public int? ProjectManagerAssistant { get; set; }
+
+        /// <summary>
         /// 添加时间
         /// </summary>
         public DateTime? AddTime { get; set; }

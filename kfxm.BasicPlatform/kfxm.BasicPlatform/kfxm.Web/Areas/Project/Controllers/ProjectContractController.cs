@@ -241,8 +241,8 @@ namespace kfxms.Web.Areas.Project.Controllers
 
             Hashtable ht = new Hashtable();
             //ht.Add("total", total);
-            //ht.Add("code", 0);
-            //ht.Add("msg", "");
+            ht.Add("code", 0);
+            ht.Add("msg", "");
             ht.Add("data", listProjectContractDetail);
 
 

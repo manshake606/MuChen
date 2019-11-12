@@ -204,6 +204,16 @@ namespace kfxms.Entity.Project
         /// </summary>
         public string ProjectManagerName { get; set; }
 
+        /// <summary>
+        /// 项目经理助理
+        /// </summary>
+        public int? ProjectManagerAssistant { get; set; }
+
+        /// <summary>
+        /// 项目经理助理姓名
+        /// </summary>
+        public string ProjectManagerAssistantName { get; set; }
+
 
         /// <summary>
         /// 添加时间

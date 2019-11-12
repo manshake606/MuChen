@@ -29,13 +29,13 @@
       <publishTime>04/07/2019 11:32:50</publishTime>
     </File>
     <File Include="Areas/Invoice/Views/Invoice/InvoiceAdd.cshtml">
-      <publishTime>10/13/2019 11:22:07</publishTime>
+      <publishTime>11/10/2019 21:31:43</publishTime>
     </File>
     <File Include="Areas/Invoice/Views/Invoice/InvoiceEdit.cshtml">
       <publishTime>10/13/2019 11:31:28</publishTime>
     </File>
     <File Include="Areas/Invoice/Views/Invoice/InvoiceList.cshtml">
-      <publishTime>10/13/2019 11:33:27</publishTime>
+      <publishTime>11/10/2019 22:20:51</publishTime>
     </File>
     <File Include="Areas/Invoice/Views/Web.config">
       <publishTime>04/27/2019 11:48:12</publishTime>
@@ -92,7 +92,7 @@
       <publishTime>11/09/2019 11:16:08</publishTime>
     </File>
     <File Include="Areas/Project/Views/Project/ProjectList.cshtml">
-      <publishTime>11/09/2019 14:28:52</publishTime>
+      <publishTime>11/10/2019 21:46:05</publishTime>
     </File>
     <File Include="Areas/Project/Views/ProjectAndSupplier/ProjectAndSupplierAdd.cshtml">
       <publishTime>10/19/2019 12:28:09</publishTime>
@@ -104,34 +104,34 @@
       <publishTime>06/17/2019 23:23:56</publishTime>
     </File>
     <File Include="Areas/Project/Views/ProjectContract/ProjectContractAdd.cshtml">
-      <publishTime>11/09/2019 15:07:55</publishTime>
+      <publishTime>11/10/2019 21:17:01</publishTime>
     </File>
     <File Include="Areas/Project/Views/ProjectContract/ProjectContractEdit.cshtml">
-      <publishTime>11/09/2019 11:07:48</publishTime>
+      <publishTime>11/10/2019 21:16:32</publishTime>
     </File>
     <File Include="Areas/Project/Views/ProjectContract/ProjectContractList.cshtml">
-      <publishTime>10/28/2019 19:49:09</publishTime>
+      <publishTime>11/10/2019 22:43:53</publishTime>
     </File>
     <File Include="Areas/Project/Views/ProjectProgress/ProjectProgressAdd.cshtml">
-      <publishTime>10/28/2019 10:27:22</publishTime>
+      <publishTime>11/09/2019 23:00:35</publishTime>
     </File>
     <File Include="Areas/Project/Views/ProjectProgress/ProjectProgressEdit.cshtml">
       <publishTime>10/28/2019 11:00:35</publishTime>
     </File>
     <File Include="Areas/Project/Views/ProjectProgress/ProjectProgressList.cshtml">
-      <publishTime>10/28/2019 19:49:43</publishTime>
+      <publishTime>11/09/2019 23:18:13</publishTime>
     </File>
     <File Include="Areas/Project/Views/Web.config">
       <publishTime>04/14/2019 20:58:56</publishTime>
     </File>
     <File Include="Areas/Revenue/Views/Revenue/RevenueAdd.cshtml">
-      <publishTime>06/17/2019 23:24:03</publishTime>
+      <publishTime>11/10/2019 22:21:50</publishTime>
     </File>
     <File Include="Areas/Revenue/Views/Revenue/RevenueEdit.cshtml">
       <publishTime>06/17/2019 23:24:07</publishTime>
     </File>
     <File Include="Areas/Revenue/Views/Revenue/RevenueList.cshtml">
-      <publishTime>06/17/2019 23:24:12</publishTime>
+      <publishTime>11/12/2019 07:27:43</publishTime>
     </File>
     <File Include="Areas/Revenue/Views/Web.config">
       <publishTime>04/20/2019 22:13:57</publishTime>
@@ -233,22 +233,22 @@
       <publishTime>06/01/2017 13:41:31</publishTime>
     </File>
     <File Include="bin/HBES.Common.dll">
-      <publishTime>11/09/2019 15:14:01</publishTime>
+      <publishTime>11/12/2019 07:55:56</publishTime>
     </File>
     <File Include="bin/HBES.EFData.dll">
-      <publishTime>11/09/2019 15:14:02</publishTime>
+      <publishTime>11/12/2019 07:55:57</publishTime>
     </File>
     <File Include="bin/HBES.Entity.dll">
-      <publishTime>11/09/2019 15:14:01</publishTime>
+      <publishTime>11/12/2019 07:55:56</publishTime>
     </File>
     <File Include="bin/HBES.Repository.dll">
-      <publishTime>11/09/2019 15:14:03</publishTime>
+      <publishTime>11/12/2019 07:55:57</publishTime>
     </File>
     <File Include="bin/HBES.Service.dll">
-      <publishTime>11/09/2019 15:14:03</publishTime>
+      <publishTime>11/12/2019 07:55:58</publishTime>
     </File>
     <File Include="bin/HBES.Web.dll">
-      <publishTime>11/09/2019 15:14:04</publishTime>
+      <publishTime>11/12/2019 07:56:00</publishTime>
     </File>
     <File Include="bin/ICSharpCode.SharpZipLib.dll">
       <publishTime>01/03/2011 14:16:38</publishTime>

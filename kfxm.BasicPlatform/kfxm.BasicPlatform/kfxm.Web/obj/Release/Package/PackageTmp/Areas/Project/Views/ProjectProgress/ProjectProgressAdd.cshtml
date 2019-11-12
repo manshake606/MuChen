@@ -28,10 +28,18 @@
                 </colgroup>
                 <tr>
                     <td class="ft_label">
-                        项目：
+                        项目编号：
                     </td>
                     <td class="ft_control" colspan="3">
-                        <select id="Project" name="Project" lay-search="" class="layui-select"></select>
+                        <input type="text" readonly="readonly" value="@Model.Num" name="Project" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
+                        项目名称：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <input type="text" readonly="readonly" value="@Model.ProjectName" name="ProjectName" class="hbes-input" style="width: 99%;" vtype="required:false;rangeLength:0,50;" />
                     </td>
                 </tr>
                 <tr>
@@ -195,7 +203,7 @@
 
             layui.use('form', function () {
                 var form = layui.form;
-                getDataList();
+                //getDataList();
                 form.render('select'); //刷新select选择框渲染
             });
         });

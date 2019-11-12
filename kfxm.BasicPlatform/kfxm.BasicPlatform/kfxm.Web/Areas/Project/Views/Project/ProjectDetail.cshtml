@@ -177,6 +177,10 @@
                              <td class="ft_label">项目经理</td>
                              <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ProjectManagerName" name="ProjectManagerName" class="hbes-input"  vtype="required:false;rangeLength:0,50;" /></td>
                          </tr>
+                         <tr>
+                             <td class="ft_label">项目经理助理</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ProjectManagerAssistantName" name="ProjectManagerAssistantName" class="hbes-input" vtype="required:false;rangeLength:0,50;" /></td>
+                         </tr>
 
 
                      </table>
@@ -244,6 +248,7 @@
                 getBusinessManagerDataList(@Model.BusinessManager);
                 getBusinessAssistantDataList(@Model.BusinessAssistant);
                 getProjectManagerDataList(@Model.ProjectManager);
+                getProjectManagerAssistantDataList(@Model.ProjectManagerAssistant);
                 getSupplierScoreDataList(@Model.Num);
                 layui.use(['form', 'element', 'table'], function () {
                     var form = layui.form;
@@ -275,7 +280,7 @@
                           , { field: 'ProjectName',  title: '项目名称' }
                            , { field: 'LastEditName', title: '更新人' }
                            , { field: 'LastEditTime',  title: '更新时间' }
-                           
+
                         ]]
                     });
 
@@ -498,6 +503,33 @@
                             }
                         }
                         $('#ProjectManager').append(html);
+                        layui.form.render();
+                    }
+                })
+            }
+
+            function getProjectManagerAssistantDataList(id) {
+                // 请求
+                $.ajax({
+                    type: 'get',
+                    url: "/SysBasic/User/GetAllData",
+                    success: function (response) {
+                        var data = strToJson(response);
+                        data = strToJson(data["ResultData"])["data"];
+                        $('#ProjectManagerAssistant').empty();
+                        var html = '';
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].Num == 0) {
+                                html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
+                            }
+                            else if (data[i].Num == id) {
+                                html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].UserName + '</option>';
+                            }
+                            else {
+                                html += '<option value=' + data[i].Num + '>' + data[i].UserName + '</option>';
+                            }
+                        }
+                        $('#ProjectManagerAssistant').append(html);
                         layui.form.render();
                     }
                 })
