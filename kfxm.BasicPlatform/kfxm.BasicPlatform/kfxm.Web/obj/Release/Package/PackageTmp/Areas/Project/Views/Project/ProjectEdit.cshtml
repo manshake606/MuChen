@@ -90,6 +90,12 @@
                     <select id="ProjectManager" name="ProjectManager" class="layui-select " style="width:99%;" lay-verify="required"></select>
                 </td>
             </tr>
+            <tr>
+                <td class="ft_label">项目经理助理</td>
+                <td class="ft_control">
+                    <select id="ProjectManagerAssistant" name="ProjectManagerAssistant" class="layui-select " style="width:99%;" lay-verify="required"></select>
+                </td>
+            </tr>
 
             <tr>
                 <td class="ft_label">备注</td>
@@ -116,6 +122,7 @@
             getBusinessManagerDataList(@Model.BusinessManager);
             getBusinessAssistantDataList(@Model.BusinessAssistant);
             getProjectManagerDataList(@Model.ProjectManager);
+            getProjectManagerAssistantDataList(@Model.ProjectManagerAssistant);
             layui.use('form', function () {
                 var form = layui.form;
                 form.render('select');
@@ -267,6 +274,31 @@
                         }
                     }
                     $('#ProjectManager').append(html);
+                    layui.form.render();
+                }
+            })
+        }
+
+        function getProjectManagerAssistantDataList(id) {
+            // 请求
+            $.ajax({
+                type: 'get',
+                url: "/SysBasic/User/GetAllData",
+                success: function (response) {
+                    var data = strToJson(response);
+                    data = strToJson(data["ResultData"])["data"];
+                    $('#ProjectManagerAssistant').empty();
+                    var html = '';
+                    html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].Num == id) {
+                            html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].UserName + '</option>';
+                        }
+                        else {
+                            html += '<option value=' + data[i].Num + '>' + data[i].UserName + '</option>';
+                        }
+                    }
+                    $('#ProjectManagerAssistant').append(html);
                     layui.form.render();
                 }
             })

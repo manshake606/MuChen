@@ -130,6 +130,7 @@
                     data = strToJson(data["ResultData"])["data"];
                     $('#SupplierScore').empty();
                     var html = '';
+                    html += '<option value=' + 0 + '>' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
                         if (data[i].SupplierScoreValueScore == id) {
                             html += '<option value=' + data[i].SupplierScoreValueId + ' selected="true" >' + data[i].SupplierScoreValueScore + '</option>';

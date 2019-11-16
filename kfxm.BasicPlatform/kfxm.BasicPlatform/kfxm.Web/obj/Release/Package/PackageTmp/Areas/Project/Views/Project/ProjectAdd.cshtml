@@ -99,6 +99,14 @@
                 </tr>
                 <tr>
                     <td class="ft_label">
+                        项目经理助理：
+                    </td>
+                    <td class="ft_control" colspan="3">
+                        <select id="ProjectManagerAssistant" name="ProjectManagerAssistant" class="layui-select"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ft_label">
                         备注：
                     </td>
                     <td class="ft_control" colspan="3">
@@ -150,6 +158,7 @@
                     $('#BusinessManager').empty();
                     $('#BusinessAssistant').empty();
                     $('#ProjectManager').empty();
+                    $('#ProjectManagerAssistant').empty();
                     var html = '';
                     html += '<option value=' + 0 + '>' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
@@ -160,6 +169,7 @@
                     $('#BusinessManager').append(html);
                     $('#BusinessAssistant').append(html);
                     $('#ProjectManager').append(html);
+                    $('#ProjectManagerAssistant').append(html);
                     layui.form.render();
                 }
             })
