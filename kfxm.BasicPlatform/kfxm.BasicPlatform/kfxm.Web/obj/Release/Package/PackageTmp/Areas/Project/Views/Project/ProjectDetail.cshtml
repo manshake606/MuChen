@@ -90,9 +90,10 @@
                              <td class="ft_label">甲方名称</td>
                              <td class="ft_control"><input type="text" value="@Model.ClientName" name="ClientName" class="hbes-input" readonly="readonly" vtype="required:true;rangeLength:0,80;" onclick="OpenClient()"/></td>
 
-                             <td class="ft_label"></td>
-                             <td class="ft_control"></td>
+                             <td class="ft_label">项目毛利</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ProjectProfit" name="ProjectProfit" class="hbes-input" vtype="required:true;rangeLength:0,50;" /></td>
                          </tr>
+                        
                          <!-- <tr>
             <td class="ft_label"></td>
             <td class="ft_control"><button class="layui-btn layui-btn-small layui-btn-normal" onclick="save()" type="button">确定</button><button class="layui-btn layui-btn-small layui-btn-primary" onclick="closeWin()" type="button">关闭</button></td>

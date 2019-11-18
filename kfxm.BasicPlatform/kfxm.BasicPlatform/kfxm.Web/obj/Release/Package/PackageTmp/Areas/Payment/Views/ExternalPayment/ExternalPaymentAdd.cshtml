@@ -1,6 +1,4 @@
-﻿<!DOCTYPE html>
-
-<html>
+﻿<html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <META HTTP-EQUIV="pragma" CONTENT="no-cache">
@@ -194,7 +192,7 @@
                 var form = layui.form;
                 var laydate = layui.laydate;
                 getDataList();
-                //getSupplierDataList();
+                getSupplierDataList();
                 form.render('select'); //刷新select选择框渲染
                 laydate.render({
                     elem: '#ExternalPaymentTime' //指定元素
@@ -233,7 +231,7 @@
             // 请求
             $.ajax({
                 type: 'get',
-                url: "/Project/ProjectAndSupplier/GetAllDataByProjectNum?projectNum=" + num,
+                url: "/Project/ProjectAndSupplier/GetAllDataByProjectNumForSelect?projectNum=" + num,
                 data: num,
                 success: function (response) {
                     var data = strToJson(response);
