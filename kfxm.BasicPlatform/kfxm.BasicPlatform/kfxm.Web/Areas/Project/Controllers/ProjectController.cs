@@ -314,15 +314,15 @@ namespace kfxms.Web.Areas.Project.Controllers
             s_ProjectInfo.SumExternalPayment = SumExternalPayment;
             s_ProjectInfo.SumPublicRelations = SumPublicRelations;
             s_ProjectInfo.SumPayment = SumPayment;
-            if (sys_Project.ContractAmout > 0)
+            if (ContractAmout > 0)
             {
-                s_ProjectInfo.RevenueRate = (SumRevenue / sys_Project.ContractAmout * 100).ToString("0.00") + "%";
+                s_ProjectInfo.RevenueRate = (SumRevenue / s_ProjectInfo.ContractAmout * 100).ToString("0.00") + "%";
             }
             else
             {
                 s_ProjectInfo.RevenueRate = "0.00" + "%";
             }
-
+            s_ProjectInfo.ProjectProfit = s_ProjectInfo.ContractAmout - SumInternalPayment - SumExternalPayment - SumPublicRelations;
 
 
             if (sys_Project == null)

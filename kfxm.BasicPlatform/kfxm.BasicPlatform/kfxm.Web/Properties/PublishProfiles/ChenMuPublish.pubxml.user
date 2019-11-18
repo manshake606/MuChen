@@ -95,10 +95,10 @@
       <publishTime>11/10/2019 21:46:05</publishTime>
     </File>
     <File Include="Areas/Project/Views/ProjectAndSupplier/ProjectAndSupplierAdd.cshtml">
-      <publishTime>10/19/2019 12:28:09</publishTime>
+      <publishTime>11/16/2019 08:40:30</publishTime>
     </File>
     <File Include="Areas/Project/Views/ProjectAndSupplier/ProjectAndSupplierEdit.cshtml">
-      <publishTime>10/19/2019 21:12:34</publishTime>
+      <publishTime>11/16/2019 08:44:03</publishTime>
     </File>
     <File Include="Areas/Project/Views/ProjectAndSupplier/ProjectAndSupplierList.cshtml">
       <publishTime>06/17/2019 23:23:56</publishTime>
@@ -248,7 +248,7 @@
       <publishTime>11/12/2019 20:14:49</publishTime>
     </File>
     <File Include="bin/HBES.Web.dll">
-      <publishTime>11/12/2019 20:14:50</publishTime>
+      <publishTime>11/16/2019 08:56:16</publishTime>
     </File>
     <File Include="bin/ICSharpCode.SharpZipLib.dll">
       <publishTime>01/03/2011 14:16:38</publishTime>

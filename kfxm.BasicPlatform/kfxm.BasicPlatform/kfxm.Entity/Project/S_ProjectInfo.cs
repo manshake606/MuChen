@@ -85,6 +85,11 @@ namespace kfxms.Entity.Project
         public decimal SumPayment { get; set; }
 
         /// <summary>
+        /// 项目毛利
+        /// </summary>
+        public decimal ProjectProfit { get; set; }
+
+        /// <summary>
         /// 项目状态
         /// </summary>
         public int? Status { get; set; }
