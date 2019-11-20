@@ -83,13 +83,13 @@
       <publishTime>04/14/2019 20:58:56</publishTime>
     </File>
     <File Include="Areas/Project/Views/Project/ProjectAdd.cshtml">
-      <publishTime>11/12/2019 19:46:30</publishTime>
+      <publishTime>11/18/2019 11:39:35</publishTime>
     </File>
     <File Include="Areas/Project/Views/Project/ProjectDetail.cshtml">
       <publishTime>11/18/2019 11:30:11</publishTime>
     </File>
     <File Include="Areas/Project/Views/Project/ProjectEdit.cshtml">
-      <publishTime>11/12/2019 19:55:50</publishTime>
+      <publishTime>11/18/2019 11:39:20</publishTime>
     </File>
     <File Include="Areas/Project/Views/Project/ProjectList.cshtml">
       <publishTime>11/10/2019 21:46:05</publishTime>

@@ -116,7 +116,10 @@ namespace kfxms.Web.Areas.Project.Controllers
                 s_ProjectAndSupplierDetail.ProjectNum = item.ProjectNum;
                 s_ProjectAndSupplierDetail.ProjectName = ListProject[0].ProjectName;
                 s_ProjectAndSupplierDetail.SupplierNum = item.SupplierNum;
-                s_ProjectAndSupplierDetail.SupplierName = ListSupplier[0].SupplierName;
+                if (ListSupplier.Count > 0)
+                {
+                    s_ProjectAndSupplierDetail.SupplierName = ListSupplier[0].SupplierName;
+                }
                 s_ProjectAndSupplierDetail.SupplierScore = item.SupplierScore;
                 if (s_ProjectAndSupplierDetail.SupplierScore == 0)
                 {
