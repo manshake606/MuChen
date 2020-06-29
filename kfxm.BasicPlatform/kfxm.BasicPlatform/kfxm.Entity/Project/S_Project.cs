@@ -41,7 +41,7 @@ namespace kfxms.Entity.Project
         /// <summary>
         /// 结账基数
         /// </summary>
-        public decimal SettlementBase { get; set; }
+        public decimal? SettlementBase { get; set; }
 
         /// <summary>
         /// 项目状态
@@ -52,6 +52,11 @@ namespace kfxms.Entity.Project
         /// 面积
         /// </summary>
         public decimal? Area { get; set; }
+
+        /// <summary>
+        /// 项目编号
+        /// </summary>
+        public string ProjectNumber { get; set; }
 
         /// <summary>
         /// 单方造价

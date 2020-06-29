@@ -46,7 +46,7 @@ namespace kfxms.Entity.Project
         /// <summary>
         /// 结账基数
         /// </summary>
-        public decimal SettlementBase { get; set; }
+        public decimal? SettlementBase { get; set; }
 
         /// <summary>
         /// 收款比例
