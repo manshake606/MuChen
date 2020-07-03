@@ -29,6 +29,11 @@ namespace kfxms.Entity.Project
         public string ProjectName { get; set; }
 
         /// <summary>
+        /// 项目自定义编号
+        /// </summary>
+        public string ProjectNumber { get; set; }
+
+        /// <summary>
         /// 客户Id
         /// </summary>
         public int? ClientId { get; set; }

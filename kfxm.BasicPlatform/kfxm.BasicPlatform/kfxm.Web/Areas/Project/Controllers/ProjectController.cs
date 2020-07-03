@@ -104,6 +104,7 @@ namespace kfxms.Web.Areas.Project.Controllers
             s_ProjectInfo.Id = sys_Project.Id;
             s_ProjectInfo.Num = sys_Project.Num;
             s_ProjectInfo.ProjectName = sys_Project.ProjectName;
+            s_ProjectInfo.ProjectNumber = sys_Project.ProjectNumber;
             s_ProjectInfo.SettlementBase = sys_Project.SettlementBase;
             s_ProjectInfo.Status = sys_Project.Status;
             s_ProjectInfo.CoreDesigner = sys_Project.CoreDesigner;
@@ -591,6 +592,7 @@ namespace kfxms.Web.Areas.Project.Controllers
             s_ProjectInfo.Id = sys_Project.Id;
             s_ProjectInfo.Num = sys_Project.Num;
             s_ProjectInfo.ProjectName = sys_Project.ProjectName;
+            s_ProjectInfo.ProjectNumber = sys_Project.ProjectNumber;
             s_ProjectInfo.SettlementBase = sys_Project.SettlementBase;
             s_ProjectInfo.Status = sys_Project.Status;
             s_ProjectInfo.CoreDesigner = sys_Project.CoreDesigner;
@@ -878,6 +880,7 @@ namespace kfxms.Web.Areas.Project.Controllers
                 eProject.SettlementBase = Convert.ToDecimal(row["SettlementBase"].ToString().Trim());
             }
             eProject.Status = 1;
+            eProject.ProjectNumber= row["ProjectNumber"].ToString().Trim();
             eProject.Remark = row["Remark"].ToString().Trim();
             eProject.AddTime = DateTime.Now;
             eProject.AddUserId = base.LoginUser.Id;
@@ -939,8 +942,15 @@ namespace kfxms.Web.Areas.Project.Controllers
             eProject.BusinessAssistant = int.Parse(row["BusinessAssistant"].ToString());
             eProject.ProjectManager = int.Parse(row["ProjectManager"].ToString());
             eProject.ProjectManagerAssistant = int.Parse(row["ProjectManagerAssistant"].ToString());
-            eProject.SettlementBase = Convert.ToDecimal(row["SettlementBase"].ToString().Trim());
-            eProject.Area = Convert.ToDecimal(row["Area"].ToString().Trim());
+            if (row["SettlementBase"].ToString().Trim() != "")
+            {
+                eProject.SettlementBase = Convert.ToDecimal(row["SettlementBase"].ToString().Trim());
+            }
+            if (row["Area"].ToString().Trim() != "")
+            {
+                eProject.Area = Convert.ToDecimal(row["Area"].ToString().Trim());
+
+            }
             if (eProject.ContractAmout > 0 && eProject.Area > 0)
             {
                 eProject.UnitPrice = eProject.ContractAmout / eProject.Area;
@@ -951,6 +961,7 @@ namespace kfxms.Web.Areas.Project.Controllers
             }
             eProject.Status = int.Parse(row["Status"].ToString().Trim());
             eProject.Remark = row["Remark"].ToString().Trim();
+            eProject.ProjectNumber= row["ProjectNumber"].ToString().Trim();
             eProject.LastEditName = base.LoginUser.Name;
             eProject.LastEditTime = DateTime.Now;
             eProject.LastEditUserID = base.LoginUser.Id;
