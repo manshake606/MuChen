@@ -37,12 +37,18 @@
                 </td>
              </tr>
             <tr>
+                <td class="ft_label">项目编号</td>
+                <td class="ft_control">
+                    <input type="text" name="ProjectNumber" value="@Model.ProjectNumber" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" />
+                </td>
+            </tr>
+            <tr>
                 <td class="ft_label">面积</td>
-                <td class="ft_control"><input type="text" value="@Model.Area" name="Area" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                <td class="ft_control"><input type="text" value="@Model.Area" name="Area" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
             </tr>
             <tr>
                 <td class="ft_label">结账基数</td>
-                <td class="ft_control"><input type="text" value="@Model.SettlementBase" name="SettlementBase" class="hbes-input" style="width:99%;" vtype="required:true;rangeLength:0,50;" /></td>
+                <td class="ft_control"><input type="text" value="@Model.SettlementBase" name="SettlementBase" class="hbes-input" style="width:99%;" vtype="required:false;rangeLength:0,50;" /></td>
             </tr>
 
             <tr>
