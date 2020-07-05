@@ -111,12 +111,12 @@ namespace kfxms.Web.Areas.Project.Controllers
             s_ProjectInfo.Area = sys_Project.Area;
             
 
-            s_ProjectInfo.AssistantDesigner = sys_Project.AssistantDesigner;
+            //s_ProjectInfo.AssistantDesigner = sys_Project.AssistantDesigner;
 
             s_ProjectInfo.BusinessManager = sys_Project.BusinessManager;
 
 
-            s_ProjectInfo.BusinessAssistant = sys_Project.BusinessAssistant;
+            //s_ProjectInfo.BusinessAssistant = sys_Project.BusinessAssistant;
 
             s_ProjectInfo.ProjectManager = sys_Project.ProjectManager;
             
@@ -133,18 +133,18 @@ namespace kfxms.Web.Areas.Project.Controllers
                 }
             }
 
-            s_ProjectInfo.AssistantDesigner = sys_Project.AssistantDesigner;
-            if (s_ProjectInfo.AssistantDesigner != null)
-            {
-                foreach (Sys_User s_user in s_userList)
-                {
-                    if (s_ProjectInfo.AssistantDesigner == s_user.Num)
-                    {
-                        s_ProjectInfo.AssistantDesignerName = s_user.Name;
-                        break;
-                    }
-                }
-            }
+            //s_ProjectInfo.AssistantDesigner = sys_Project.AssistantDesigner;
+            //if (s_ProjectInfo.AssistantDesigner != null)
+            //{
+            //    foreach (Sys_User s_user in s_userList)
+            //    {
+            //        if (s_ProjectInfo.AssistantDesigner == s_user.Num)
+            //        {
+            //            s_ProjectInfo.AssistantDesignerName = s_user.Name;
+            //            break;
+            //        }
+            //    }
+            //}
 
 
             s_ProjectInfo.BusinessManager = sys_Project.BusinessManager;
@@ -159,18 +159,18 @@ namespace kfxms.Web.Areas.Project.Controllers
                     }
                 }
             }
-            s_ProjectInfo.BusinessAssistant = sys_Project.BusinessAssistant;
-            if (s_ProjectInfo.BusinessAssistant != null)
-            {
-                foreach (Sys_User s_user in s_userList)
-                {
-                    if (s_ProjectInfo.BusinessAssistant == s_user.Num)
-                    {
-                        s_ProjectInfo.BusinessAssistantName = s_user.Name;
-                        break;
-                    }
-                }
-            }
+            //s_ProjectInfo.BusinessAssistant = sys_Project.BusinessAssistant;
+            //if (s_ProjectInfo.BusinessAssistant != null)
+            //{
+            //    foreach (Sys_User s_user in s_userList)
+            //    {
+            //        if (s_ProjectInfo.BusinessAssistant == s_user.Num)
+            //        {
+            //            s_ProjectInfo.BusinessAssistantName = s_user.Name;
+            //            break;
+            //        }
+            //    }
+            //}
             s_ProjectInfo.ProjectManager = sys_Project.ProjectManager;
             if (s_ProjectInfo.ProjectManager != null)
             {
@@ -184,18 +184,18 @@ namespace kfxms.Web.Areas.Project.Controllers
                 }
             }
 
-            s_ProjectInfo.ProjectManagerAssistant = sys_Project.ProjectManagerAssistant;
-            if (s_ProjectInfo.ProjectManagerAssistant != null)
-            {
-                foreach (Sys_User s_user in s_userList)
-                {
-                    if (s_ProjectInfo.ProjectManagerAssistant == s_user.Num)
-                    {
-                        s_ProjectInfo.ProjectManagerAssistantName = s_user.Name;
-                        break;
-                    }
-                }
-            }
+            //s_ProjectInfo.ProjectManagerAssistant = sys_Project.ProjectManagerAssistant;
+            //if (s_ProjectInfo.ProjectManagerAssistant != null)
+            //{
+            //    foreach (Sys_User s_user in s_userList)
+            //    {
+            //        if (s_ProjectInfo.ProjectManagerAssistant == s_user.Num)
+            //        {
+            //            s_ProjectInfo.ProjectManagerAssistantName = s_user.Name;
+            //            break;
+            //        }
+            //    }
+            //}
 
 
             if (s_ProjectInfo.Status == 1)
@@ -621,18 +621,18 @@ namespace kfxms.Web.Areas.Project.Controllers
                 }
             }
 
-            s_ProjectInfo.AssistantDesigner = sys_Project.AssistantDesigner;
-            if (s_ProjectInfo.AssistantDesigner != null)
-            {
-                foreach (Sys_User s_user in s_userList)
-                {
-                    if (s_ProjectInfo.AssistantDesigner == s_user.Num)
-                    {
-                        s_ProjectInfo.AssistantDesignerName = s_user.Name;
-                        break;
-                    }
-                }
-            }
+            //s_ProjectInfo.AssistantDesigner = sys_Project.AssistantDesigner;
+            //if (s_ProjectInfo.AssistantDesigner != null)
+            //{
+            //    foreach (Sys_User s_user in s_userList)
+            //    {
+            //        if (s_ProjectInfo.AssistantDesigner == s_user.Num)
+            //        {
+            //            s_ProjectInfo.AssistantDesignerName = s_user.Name;
+            //            break;
+            //        }
+            //    }
+            //}
 
 
             s_ProjectInfo.BusinessManager = sys_Project.BusinessManager;
@@ -647,18 +647,18 @@ namespace kfxms.Web.Areas.Project.Controllers
                     }
                 }
             }
-            s_ProjectInfo.BusinessAssistant = sys_Project.BusinessAssistant;
-            if (s_ProjectInfo.BusinessAssistant != null)
-            {
-                foreach (Sys_User s_user in s_userList)
-                {
-                    if (s_ProjectInfo.BusinessAssistant == s_user.Num)
-                    {
-                        s_ProjectInfo.BusinessAssistantName = s_user.Name;
-                        break;
-                    }
-                }
-            }
+            //s_ProjectInfo.BusinessAssistant = sys_Project.BusinessAssistant;
+            //if (s_ProjectInfo.BusinessAssistant != null)
+            //{
+            //    foreach (Sys_User s_user in s_userList)
+            //    {
+            //        if (s_ProjectInfo.BusinessAssistant == s_user.Num)
+            //        {
+            //            s_ProjectInfo.BusinessAssistantName = s_user.Name;
+            //            break;
+            //        }
+            //    }
+            //}
             s_ProjectInfo.ProjectManager = sys_Project.ProjectManager;
             if (s_ProjectInfo.ProjectManager != null)
             {
@@ -671,18 +671,18 @@ namespace kfxms.Web.Areas.Project.Controllers
                     }
                 }
             }
-            s_ProjectInfo.ProjectManagerAssistant = sys_Project.ProjectManagerAssistant;
-            if (s_ProjectInfo.ProjectManagerAssistant != null)
-            {
-                foreach (Sys_User s_user in s_userList)
-                {
-                    if (s_ProjectInfo.ProjectManagerAssistant == s_user.Num)
-                    {
-                        s_ProjectInfo.ProjectManagerAssistantName = s_user.Name;
-                        break;
-                    }
-                }
-            }
+            //s_ProjectInfo.ProjectManagerAssistant = sys_Project.ProjectManagerAssistant;
+            //if (s_ProjectInfo.ProjectManagerAssistant != null)
+            //{
+            //    foreach (Sys_User s_user in s_userList)
+            //    {
+            //        if (s_ProjectInfo.ProjectManagerAssistant == s_user.Num)
+            //        {
+            //            s_ProjectInfo.ProjectManagerAssistantName = s_user.Name;
+            //            break;
+            //        }
+            //    }
+            //}
 
             if (s_ProjectInfo.Status == 1)
             {
@@ -859,11 +859,11 @@ namespace kfxms.Web.Areas.Project.Controllers
             //eSupplier.Type = int.Parse(arrType[0]);
             eProject.ClientId = int.Parse(row["Client"].ToString());
             eProject.CoreDesigner= int.Parse(row["CoreDesigner"].ToString());
-            eProject.AssistantDesigner= int.Parse(row["AssistantDesigner"].ToString());
+            //eProject.AssistantDesigner= int.Parse(row["AssistantDesigner"].ToString());
             eProject.BusinessManager = int.Parse(row["BusinessManager"].ToString());
-            eProject.BusinessAssistant = int.Parse(row["BusinessAssistant"].ToString());
+            //eProject.BusinessAssistant = int.Parse(row["BusinessAssistant"].ToString());
             eProject.ProjectManager = int.Parse(row["ProjectManager"].ToString());
-            eProject.ProjectManagerAssistant = int.Parse(row["ProjectManagerAssistant"].ToString());
+            //eProject.ProjectManagerAssistant = int.Parse(row["ProjectManagerAssistant"].ToString());
             if (eProject.Area != null)
             {
                 eProject.Area = Convert.ToDecimal(row["Area"].ToString().Trim());
@@ -938,11 +938,11 @@ namespace kfxms.Web.Areas.Project.Controllers
             //eProject.ClientId = int.Parse(arrClient[0]);
             eProject.ClientId = int.Parse(row["Client"].ToString().Trim());
             eProject.CoreDesigner = int.Parse(row["CoreDesigner"].ToString());
-            eProject.AssistantDesigner = int.Parse(row["AssistantDesigner"].ToString());
+            //eProject.AssistantDesigner = int.Parse(row["AssistantDesigner"].ToString());
             eProject.BusinessManager = int.Parse(row["BusinessManager"].ToString());
-            eProject.BusinessAssistant = int.Parse(row["BusinessAssistant"].ToString());
+            //eProject.BusinessAssistant = int.Parse(row["BusinessAssistant"].ToString());
             eProject.ProjectManager = int.Parse(row["ProjectManager"].ToString());
-            eProject.ProjectManagerAssistant = int.Parse(row["ProjectManagerAssistant"].ToString());
+            //eProject.ProjectManagerAssistant = int.Parse(row["ProjectManagerAssistant"].ToString());
             if (row["SettlementBase"].ToString().Trim() != "")
             {
                 eProject.SettlementBase = Convert.ToDecimal(row["SettlementBase"].ToString().Trim());

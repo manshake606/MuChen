@@ -73,14 +73,14 @@
                         <select id="CoreDesigner" name="CoreDesigner" class="layui-select"></select>
                     </td>
                 </tr>
-                <tr>
+                @*<tr>
                     <td class="ft_label">
                         设计助理：
                     </td>
                     <td class="ft_control" colspan="3">
                         <select id="AssistantDesigner" name="AssistantDesigner"  class="layui-select"></select>
                     </td>
-                </tr>
+                </tr>*@
                 <tr>
                     <td class="ft_label">
                         业务经理：
@@ -89,14 +89,14 @@
                         <select id="BusinessManager" name="BusinessManager"  class="layui-select"></select>
                     </td>
                 </tr>
-                <tr>
+                @*<tr>
                     <td class="ft_label">
                         业务助理：
                     </td>
                     <td class="ft_control" colspan="3">
                         <select id="BusinessAssistant" name="BusinessAssistant"  class="layui-select"></select>
                     </td>
-                </tr>
+                </tr>*@
                 <tr>
                     <td class="ft_label">
                         项目经理：
@@ -105,14 +105,14 @@
                         <select id="ProjectManager" name="ProjectManager" class="layui-select"></select>
                     </td>
                 </tr>
-                <tr>
+                @*<tr>
                     <td class="ft_label">
                         项目经理助理：
                     </td>
                     <td class="ft_control" colspan="3">
                         <select id="ProjectManagerAssistant" name="ProjectManagerAssistant" class="layui-select"></select>
                     </td>
-                </tr>
+                </tr>*@
                 <tr>
                     <td class="ft_label">
                         备注：
@@ -162,22 +162,22 @@
                     var data = strToJson(response);
                     data = strToJson(data["ResultData"])["data"];
                     $('#CoreDesigner').empty();
-                    $('#AssistantDesigner').empty();
+                    //$('#AssistantDesigner').empty();
                     $('#BusinessManager').empty();
-                    $('#BusinessAssistant').empty();
+                    //$('#BusinessAssistant').empty();
                     $('#ProjectManager').empty();
-                    $('#ProjectManagerAssistant').empty();
+                    //$('#ProjectManagerAssistant').empty();
                     var html = '';
                     html += '<option value=' + 0 + '>' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
                         html += '<option value=' + data[i].Num + '>' + data[i].Name + '</option>';
                     }
                     $('#CoreDesigner').append(html);
-                    $('#AssistantDesigner').append(html);
+                    //$('#AssistantDesigner').append(html);
                     $('#BusinessManager').append(html);
-                    $('#BusinessAssistant').append(html);
+                    //$('#BusinessAssistant').append(html);
                     $('#ProjectManager').append(html);
-                    $('#ProjectManagerAssistant').append(html);
+                    //$('#ProjectManagerAssistant').append(html);
                     layui.form.render();
                 }
             })

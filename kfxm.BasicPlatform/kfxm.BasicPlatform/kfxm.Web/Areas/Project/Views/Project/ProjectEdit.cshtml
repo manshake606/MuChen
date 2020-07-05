@@ -72,36 +72,36 @@
                     <select id="CoreDesigner" name="CoreDesigner" class="layui-select " style="width:99%;" lay-verify="required"></select>
                 </td>
             </tr>
-            <tr>
+            @*<tr>
                 <td class="ft_label">设计助理</td>
                 <td class="ft_control">
                     <select id="AssistantDesigner" name="AssistantDesigner" class="layui-select " style="width:99%;" lay-verify="required"></select>
                 </td>
-            </tr>
+            </tr>*@
             <tr>
                 <td class="ft_label">业务经理</td>
                 <td class="ft_control">
                     <select id="BusinessManager" name="BusinessManager" class="layui-select " style="width:99%;" lay-verify="required"></select>
                 </td>
             </tr>
-            <tr>
+            @*<tr>
                 <td class="ft_label">业务助理</td>
                 <td class="ft_control">
                     <select id="BusinessAssistant" name="BusinessAssistant" class="layui-select " style="width:99%;" lay-verify="required"></select>
                 </td>
-            </tr>
+            </tr>*@
             <tr>
                 <td class="ft_label">项目经理</td>
                 <td class="ft_control">
                     <select id="ProjectManager" name="ProjectManager" class="layui-select " style="width:99%;" lay-verify="required"></select>
                 </td>
             </tr>
-            <tr>
+            @*<tr>
                 <td class="ft_label">项目经理助理</td>
                 <td class="ft_control">
                     <select id="ProjectManagerAssistant" name="ProjectManagerAssistant" class="layui-select " style="width:99%;" lay-verify="required"></select>
                 </td>
-            </tr>
+            </tr>*@
 
             <tr>
                 <td class="ft_label">备注</td>
@@ -124,11 +124,11 @@
             $("#Status").find("option[value='@Model.Status']").prop("selected", true);
             getClientDataList(@Model.ClientId);
             getCoreDesignerDataList(@Model.CoreDesigner);
-            getAssistantDesignerDataList(@Model.AssistantDesigner);
+            @*getAssistantDesignerDataList(@Model.AssistantDesigner);*@
             getBusinessManagerDataList(@Model.BusinessManager);
-            getBusinessAssistantDataList(@Model.BusinessAssistant);
+            @*getBusinessAssistantDataList(@Model.BusinessAssistant);*@
             getProjectManagerDataList(@Model.ProjectManager);
-            getProjectManagerAssistantDataList(@Model.ProjectManagerAssistant);
+            @*getProjectManagerAssistantDataList(@Model.ProjectManagerAssistant);*@
             layui.use('form', function () {
                 var form = layui.form;
                 form.render('select');
@@ -145,7 +145,7 @@
                     data = strToJson(data["ResultData"])["data"];
                     $('#Client').empty();
                     var html = '';
-                    html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
+                    html += '<option value=' + '0' + ' >' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
                         if (data[i].Num == id) {
                             html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].ClientName + '</option>';
@@ -170,7 +170,7 @@
                     data = strToJson(data["ResultData"])["data"];
                     $('#CoreDesigner').empty();
                     var html = '';
-                    html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
+                    html += '<option value=' + '0' + ' >' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
                         if (data[i].Num == id) {
                             html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].Name + '</option>';
@@ -195,7 +195,7 @@
                     data = strToJson(data["ResultData"])["data"];
                     $('#AssistantDesigner').empty();
                     var html = '';
-                    html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
+                    html += '<option value=' + '0' + ' >' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
                         if (data[i].Num == id) {
                             html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].Name + '</option>';
@@ -220,7 +220,7 @@
                     data = strToJson(data["ResultData"])["data"];
                     $('#BusinessManager').empty();
                     var html = '';
-                    html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
+                    html += '<option value=' + '0' + ' >' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
                         if (data[i].Num == id) {
                             html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].Name + '</option>';
@@ -245,7 +245,7 @@
                     data = strToJson(data["ResultData"])["data"];
                     $('#BusinessAssistant').empty();
                     var html = '';
-                    html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
+                    html += '<option value=' + '0' + ' >' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
                         if (data[i].Num == id) {
                             html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].Name + '</option>';
@@ -270,7 +270,7 @@
                     data = strToJson(data["ResultData"])["data"];
                     $('#ProjectManager').empty();
                     var html = '';
-                    html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
+                    html += '<option value=' + '0' + '  >' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
                         if (data[i].Num == id) {
                             html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].Name + '</option>';
@@ -295,7 +295,7 @@
                     data = strToJson(data["ResultData"])["data"];
                     $('#ProjectManagerAssistant').empty();
                     var html = '';
-                    html += '<option value=' + '0' + ' selected="true" >' + '请选择' + '</option>';
+                    html += '<option value=' + '0' + ' >' + '请选择' + '</option>';
                     for (var i = 0; i < data.length; i++) {
                         if (data[i].Num == id) {
                             html += '<option value=' + data[i].Num + ' selected="true" >' + data[i].Name + '</option>';

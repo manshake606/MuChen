@@ -169,25 +169,26 @@
                              <td class="ft_label">设计主管</td>
                              <td class="ft_control"><input type="text" readonly="readonly" value="@Model.CoreDesignerName" name="CoreDesignerName" class="hbes-input"  vtype="required:false;rangeLength:0,50;" /></td>
                         
-                             <td class="ft_label">设计助理</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.AssistantDesignerName" name="AssistantDesignerName" class="hbes-input"  vtype="required:false;rangeLength:0,50;" /></td>
+                             @*<td class="ft_label">设计助理</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.AssistantDesignerName" name="AssistantDesignerName" class="hbes-input"  vtype="required:false;rangeLength:0,50;" /></td>*@
+                             <td class="ft_label">业务经理</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.BusinessManagerName" name="BusinessManagerName" class="hbes-input" vtype="required:false;rangeLength:0,50;" /></td>
                          </tr>
 
                          <tr>
-                             <td class="ft_label">业务经理</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.BusinessManagerName" name="BusinessManagerName" class="hbes-input"  vtype="required:false;rangeLength:0,50;" /></td>
-                       
-                             <td class="ft_label">业务助理</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.BusinessAssistantName" name="BusinessAssistantName" class="hbes-input"  vtype="required:false;rangeLength:0,50;" /></td>
-                         </tr>
-                         <tr>
+                             
                              <td class="ft_label">项目经理</td>
-                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ProjectManagerName" name="ProjectManagerName" class="hbes-input"  vtype="required:false;rangeLength:0,50;" /></td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ProjectManagerName" name="ProjectManagerName" class="hbes-input" vtype="required:false;rangeLength:0,50;" /></td>
+                             @*<td class="ft_label">业务助理</td>
+                             <td class="ft_control"><input type="text" readonly="readonly" value="@Model.BusinessAssistantName" name="BusinessAssistantName" class="hbes-input"  vtype="required:false;rangeLength:0,50;" /></td>*@
+                         </tr>
+                         @*<tr>
+                            
                          </tr>
                          <tr>
                              <td class="ft_label">项目经理助理</td>
                              <td class="ft_control"><input type="text" readonly="readonly" value="@Model.ProjectManagerAssistantName" name="ProjectManagerAssistantName" class="hbes-input" vtype="required:false;rangeLength:0,50;" /></td>
-                         </tr>
+                         </tr>*@
 
 
                      </table>
@@ -251,11 +252,11 @@
                 $("#Status").find("option[value='@Model.Status']").prop("selected", true);
                 getClientDataList(@Model.ClientId);
                 getCoreDesignerDataList(@Model.CoreDesigner);
-                getAssistantDesignerDataList(@Model.AssistantDesigner);
+                @*getAssistantDesignerDataList(@Model.AssistantDesigner);*@
                 getBusinessManagerDataList(@Model.BusinessManager);
-                getBusinessAssistantDataList(@Model.BusinessAssistant);
+                @*getBusinessAssistantDataList(@Model.BusinessAssistant);*@
                 getProjectManagerDataList(@Model.ProjectManager);
-                getProjectManagerAssistantDataList(@Model.ProjectManagerAssistant);
+                @*getProjectManagerAssistantDataList(@Model.ProjectManagerAssistant);*@
                 getSupplierScoreDataList(@Model.Num);
                 layui.use(['form', 'element', 'table'], function () {
                     var form = layui.form;
